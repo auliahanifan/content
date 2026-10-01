@@ -1,0 +1,15 @@
+# hasil render
+out/
+
+# model Whisper (1,6 GB), lihat CLAUDE.md
+model/*.bin
+
+.DS_Store
+
+# cache dan snapshot hasil HyperFrames
+.transcode-cache/
+snapshots/
+
+# turunan dari footage mentah, dibuat ulang (lihat CLAUDE.md)
+dates/*/muse-video/assets/take.mp4
+dates/*/muse-video/assets/take-cut.webm
