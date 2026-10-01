@@ -1,0 +1,113 @@
+{
+  "source": {"video": "assets/take-cut.webm", "audio": "assets/take.mp4", "grade": {"preset": "deep-contrast", "intensity": 0.55}},
+  "pre": 1.7,
+  "keywords": ["muse","vpn","kanada","amerika","belum","owner","chatbot","mengerjakan","janggal","komentar","nyatanya"],
+  "segments": [
+    {"id":"hook1","src":[5.45,6.15],"text":"Saya sudah coba.","pad":[0.05,0.06],"caption":false},
+    {"id":"hook2","src":[6.46,6.96],"text":"Belum bisa.","pad":[0.05,0.10],"caption":false},
+    {"id":"s1","src":[0.00,3.09],"text":"Meta punya AI baru yang katanya bisa bantu mengurus usaha.","pad":[0,0.08]},
+    {"id":"s2","src":[3.62,4.89],"text":"Bisa dipakai di Indonesia?","pad":[0.05,0.08]},
+    {"id":"s3","src":[6.46,6.96],"text":"Belum bisa.","pad":[0.05,0.10]},
+    {"id":"s4","src":[7.37,11.60],"text":"Namanya Muse. Bedanya dengan chatbot, Muse tidak cuma menjawab, tapi mengerjakan.","pad":[0.05,0.08]},
+    {"id":"s5","src":[19.39,22.76],"text":"Akhir September, Meta menambahkan versi usaha kecil.","pad":[0.05,0.08]},
+    {"id":"s6","src":[26.77,28.40],"text":"Disambungkan ke akun bisnis Facebook,","pad":[0.05,0.06]},
+    {"id":"s7","src":[28.74,30.37],"text":"Instagram, sampai Canva.","pad":[0.05,0.10]},
+    {"id":"s8","src":[33.84,37.74],"text":"Tapi sampai hari ini, Muse baru bisa dipakai di Amerika Serikat dan Kanada.","pad":[0.05,0.10]},
+    {"id":"s9","src":[48.64,50.32],"text":"Saya coba lewat web, pakai VPN,","pad":[0.05,0.06]},
+    {"id":"s10","src":[50.67,51.45],"text":"tetap belum bisa.","pad":[0.05,0]},
+    {"id":"s11","src":[51.45,55.24],"text":"Satu yang sering keliru: Meta AI di WhatsApp itu bukan Muse.","pad":[0,0.10]},
+    {"id":"s12","src":[55.84,57.44],"text":"Itu chatbot. Bisa menjawab,","pad":[0.05,0.06]},
+    {"id":"s13","src":[57.80,59.40],"text":"belum bisa mengerjakan tugas untuk Anda.","pad":[0.05,0.10]},
+    {"id":"s14","src":[67.29,69.81],"text":"Meta bilang Muse bisa mengurangi pekerjaan owner.","pad":[0.05,0.10]},
+    {"id":"s15","src":[73.36,74.66],"text":"Contoh yang mereka pamerkan:","pad":[0.05,0.06]},
+    {"id":"s16","src":[86.00,87.36],"text":"Cari pengeluaran yang janggal,","pad":[0.05,0.06]},
+    {"id":"s17","src":[87.65,89.30],"text":"saring email yang perlu dibalas,","pad":[0.05,0.06]},
+    {"id":"s18","src":[89.54,91.75],"text":"dan analisis konten lalu buat draf kampanye.","pad":[0.05,0.10]},
+    {"id":"s19","src":[92.31,94.93],"text":"Tapi dari Indonesia, semua itu belum bisa saya uji.","pad":[0.05,0.10]},
+    {"id":"s20a","src":[95.00,95.97],"text":"Katanya bisa.","pad":[0.04,0.03]},
+    {"id":"s20gap","src":[96.44,96.72],"text":"","pad":[0,0],"caption":false},
+    {"id":"s20b","src":[97.07,98.91],"text":"Nyatanya belum bisa dicoba.","pad":[0.04,0.12]},
+    {"id":"s21","src":[102.60,105.31],"text":"Tugas usaha apa yang ingin Anda serahkan kepada AI?","pad":[0.04,0.08]},
+    {"id":"s22","src":[105.64,107.39],"text":"Komentar, Muse bisa saya uji,","pad":[0.05,0.06]},
+    {"id":"s23","src":[107.75,109.70],"text":"tugas Anda yang saya coba duluan.","pad":[0.05,0.15]}
+  ],
+  "hook": {
+    "until": "hook2",
+    "top": {"icons": [{"img":"assets/logo/meta.svg"},{"text":"+"},{"img":"assets/img/muse-m.png"},{"text":"Muse","blue":true}],
+            "title": "KATANYA", "sub": "AI yang mengerjakan usaha Anda"},
+    "bottom": {"title": "NYATANYA", "sub": "belum tersedia di Indonesia", "image": "assets/waitlist-crop.png"},
+    "kinetic": {"text": "SAYA SUDAH COBA.", "at": "hook1"},
+    "stamp": {"text": "BELUM BISA.", "at": "hook2"}
+  },
+  "backgrounds": [
+    {"from":"s1","to":"s3.end","image":"assets/img/bg-hero.jpg","word":"META<br>AI","tint":"rgba(10,16,48,.55)","size":300},
+    {"from":"s8","to":"s8.end","word":"AS<br>+ CA","tint":"rgba(10,16,48,0)","y":480,"size":380},
+    {"from":"s11","to":"s13.end","word":"CHAT<br>BOT","tint":"radial-gradient(90% 60% at 50% 40%,rgba(37,211,102,.35),rgba(7,11,30,0))","size":340},
+    {"from":"s19","to":"s20b.end+0.4","image":"assets/img/bg-wait.jpg","word":"BELUM<br>DIUJI","tint":"rgba(90,10,20,.45)","size":300},
+    {"from":"s21","to":"s23.end","image":"assets/img/bg-cta.jpg","word":"KOMEN<br>TAR","tint":"rgba(24,12,70,.5)","size":330}
+  ],
+  "overlays": [
+    {"type":"sticker","kind":"logo","img":"assets/logo/meta.svg","at":"s1.w0","until":"s2.end-0.05","x":60,"y":470,"rot":-8},
+    {"type":"sticker","kind":"ai","text":"AI","at":"s1.w3","until":"s1.end","x":780,"y":440,"rot":8},
+    {"type":"punch","at":"s1.w0","amt":1.1}, {"type":"punch","at":"s1.w3","amt":1.08},
+    {"type":"sticker","kind":"qmark","at":"s2.w0","until":"s2.end","x":80,"y":440,"rot":-10,"pop":false},
+    {"type":"sticker","kind":"emoji","emoji":"&#127470;&#127465;","at":"s2.w3","until":"s2.end","x":770,"y":470,"rot":6},
+    {"type":"punch","at":"s2.w3","amt":1.09},
+    {"type":"sticker","kind":"emoji","emoji":"&#10060;","big":true,"at":"s3+0.03","until":"s3.end","x":640,"y":400,"rot":-6,"pop":false},
+    {"type":"sfx","file":"impact","at":"s3+0.03","vol":0.35},
+    {"type":"shake","at":"s3+0.03","amp":10,"n":4}, {"type":"punch","at":"s3","amt":1.1},
+
+    {"type":"takeover","from":"s4","to":"s5","label":"DARI PENGUMUMAN META &middot; 29 SEP 2026","items":[
+      {"kind":"card","image":"assets/meta-hero.png","tilt":-2},
+      {"kind":"pills","items":[{"text":"MENJAWAB","style":"grey","at":"s4.w8"},{"text":"MENGERJAKAN &#10003;","style":"blue","arrow":true,"at":"s4.w10"}]}]},
+    {"type":"takeover","from":"s5","to":"s6","label":"VERSI BARU &middot; USAHA KECIL","items":[
+      {"kind":"card","image":"assets/img/stock1.jpg","photo":true,"tilt":2},
+      {"kind":"pills","items":[{"text":"29 SEP 2026","style":"yellow","at":"s5.w0+0.05"}]}]},
+    {"type":"takeover","from":"s6","to":"s7.end","label":"BISA DISAMBUNG KE","items":[
+      {"kind":"logos","items":[{"img":"assets/logo/facebook.svg","at":"s6.w4"},{"img":"assets/logo/instagram.svg","at":"s7.w0"},{"img":"assets/logo/canva.svg","at":"s7.w2"}]},
+      {"kind":"card","image":"assets/meta-points.png","zoom":false,"highlights":[{"box":[345,85,218,28],"at":"s6.w4"},{"box":[280,30,58,28],"at":"s7.w2"}]}]},
+
+    {"type":"sticker","kind":"emoji","emoji":"&#127482;&#127480;","at":"s8.w9","until":"s8.end","x":60,"y":470,"rot":-8},
+    {"type":"sticker","kind":"emoji","emoji":"&#127464;&#127462;","at":"s8.w12","until":"s8.end","x":780,"y":470,"rot":8},
+    {"type":"chip","text":"HANYA AS &amp; KANADA","at":"s8+1.0","until":"s8.end"},
+    {"type":"punch","at":"s8.w2","amt":1.1}, {"type":"punch","at":"s8.w5","amt":1.09},
+
+    {"type":"takeover","from":"s9+0.05","to":"s10.end","label":"HASIL UJI &middot; 1 OKT 2026","items":[
+      {"kind":"card","image":"assets/waitlist-crop.png","zoom":false,"ellipse":{"cx":490,"cy":300,"rx":480,"ry":52,"w":9,"at":"s10"}},
+      {"kind":"pills","items":[{"text":"WEB + VPN","style":"green","at":"s9.w5"},{"text":"TETAP DITOLAK","style":"red","at":"s10+0.15"}]}]},
+    {"type":"shake","at":"s10+0.15","amp":9,"n":4}, {"type":"sfx","file":"impact","at":"s10+0.15","vol":0.4}, {"type":"sfx","file":"whoosh","at":"s10","vol":0.5},
+
+    {"type":"sticker","kind":"logo","img":"assets/logo/whatsapp.svg","at":"s11.w6","until":"s11.end","x":60,"y":330,"rot":-8},
+    {"type":"sticker","kind":"sym","text":"&ne;","at":"s11.w8","until":"s11.end","x":330,"y":310,"pop":false},
+    {"type":"sticker","kind":"word","img":"assets/img/muse-m.png","text":"Muse","at":"s11.w9","until":"s11.end","x":620,"y":330,"rot":6},
+    {"type":"punch","at":"s11.w6","amt":1.1}, {"type":"punch","at":"s11.w9","amt":1.09}, {"type":"sfx","file":"impact","at":"s11.w8","vol":0.3},
+
+    {"type":"sticker","kind":"emoji","emoji":"&#129302;","at":"s12.w1","until":"s12.end","x":780,"y":440,"rot":8},
+    {"type":"chip","text":"CHATBOT = MENJAWAB","at":"s12+0.1","until":"s12.end"},
+    {"type":"chip","text":"BUKAN MUSE","color":"#FF2D2D","at":"s13+0.05","until":"s13.end"},
+    {"type":"sticker","kind":"emoji","emoji":"&#9940;","big":true,"at":"s13.w2","until":"s13.end","x":60,"y":420,"rot":-8},
+    {"type":"punch","at":"s12.w1","amt":1.1}, {"type":"punch","at":"s13","amt":1.1},
+
+    {"type":"takeover","from":"s14","to":"s15","label":"KATA META","items":[
+      {"kind":"card","image":"assets/img/stock5.jpg","photo":true,"tilt":-2},
+      {"kind":"pills","items":[{"text":"KERJA OWNER &darr; BERKURANG","style":"green","big":true,"at":"s14.w4"}]}]},
+    {"type":"takeover","from":"s15","to":"s18.end","label":"CONTOH YANG MEREKA PAMERKAN","items":[
+      {"kind":"rows","items":[
+        {"text":"Cari pengeluaran yang janggal","emoji":"&#128184;","at":"s16"},
+        {"text":"Saring email yang perlu dibalas","thumb":"assets/img/stock4.jpg","at":"s17"},
+        {"text":"Analisis konten &rarr; draf kampanye","thumb":"assets/img/stock2.jpg","at":"s18"}]}]},
+    {"type":"wipe","at":"s18.end-0.3"},
+
+    {"type":"sticker","kind":"emoji","emoji":"&#127470;&#127465;","at":"s19.w2","until":"s19.end","x":780,"y":450,"rot":8},
+    {"type":"sticker","kind":"emoji","emoji":"&#10060;","big":true,"at":"s19.w6","until":"s19.end","x":60,"y":420,"rot":-8},
+    {"type":"chip","text":"BELUM BISA SAYA UJI","at":"s19+0.1","until":"s19.end"},
+    {"type":"punch","at":"s19.w5","amt":1.1},
+    {"type":"stamp","text":"BELUM DIUJI","at":"s20b.w1-0.1","until":"s20b.end+0.4"},
+    {"type":"punch","at":"s20a","amt":1.1}, {"type":"punch","at":"s20b","amt":1.08},
+
+    {"type":"sticker","kind":"bubble","text":"Tugas apa yang mau kamu serahkan ke AI?","at":"s21+0.05","until":"s22.end","x":50,"y":290,"rot":-4},
+    {"type":"chip","text":"&darr; TULIS DI KOMENTAR","at":"s22+0.05","until":"s22.end"},
+    {"type":"sticker","kind":"emoji","emoji":"&#128071;","big":true,"at":"s23.w0","until":"s23.end","x":790,"y":880,"pop":false},
+    {"type":"punch","at":"s21","amt":1.08}, {"type":"punch","at":"s22","amt":1.1}
+  ]
+}
