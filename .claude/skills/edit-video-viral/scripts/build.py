@@ -182,7 +182,7 @@ if hk:
         return o
     top, bot = hk["top"], hk["bottom"]
     html = f'''
-<div class="hp top" id="hkTop"><div class="hk-logos" id="hkLogos">{icons(top.get("icons", []))}</div>
+<div class="hp top" id="hkTop"><div class="hk-logos" id="hkLogos"{' style="display:flex;width:max-content;margin-left:auto"' if top.get("align") == "right" else ""}>{icons(top.get("icons", []))}</div>
   <div class="hk-big" id="hkKat">{top["title"]}</div><div class="hk-sub" id="hkKatSub">{top["sub"]}</div></div>
 <div class="hp bot" id="hkBot"><div class="hk-big red" id="hkNya">{bot["title"]}</div><div class="hk-sub w" id="hkNyaSub">{bot["sub"]}</div>
   <div class="hk-shot" id="hkShot"><img src="{bot["image"]}"></div></div>
@@ -294,6 +294,37 @@ for k, b in enumerate(spec.get("backgrounds", [])):
     J.append(f'tl.to("#{id_}-in", {{opacity:0, duration:.15}}, {t1 - .15:.3f});')
 
 # ---------------------------------------------------------------- fx global
+# ---------------------------------------------------------------- brand (logo / signature, di atas segalanya)
+def _aspect(path):
+    if path.endswith(".svg"):
+        vb = re.search(r'viewBox="[-\d.]+ [-\d.]+ ([\d.]+) ([\d.]+)"', Path(path).read_text())
+        return float(vb[2]) / float(vb[1])
+    from PIL import Image
+    iw, ih = Image.open(path).size; return ih / iw
+
+def jm(line, end):
+    """tween brand; dilewati bila sudah selesai sebelum scene ini mulai (elemen sudah di keadaan akhir)."""
+    if end > A: J.append(line)
+
+for k, m in enumerate(spec.get("brand", {}).get("marks", [])):
+    id_, w = f"wm{k}", m["w"]; h = w * _aspect(m["img"]); intro = m.get("intro")
+    t0 = tx(intro["at"] if intro else m.get("at", 0))
+    clipdiv(id_, t0, TOTAL, f'<img id="{id_}-in" src="{m["img"]}" style="position:absolute;left:{m["x"]}px;top:{m["y"]}px;width:{w}px;opacity:{m.get("opacity", .9)}">', "mark", 44)
+    if intro:
+        dx, dy = intro["cx"] - (m["x"] + w / 2), intro["cy"] - (m["y"] + h / 2); sc = intro["w"] / w
+        tf, fd = tx(intro["fly"]), intro.get("fly_dur", .45)
+        jm(f'tl.fromTo("#{id_}-in", {{x:{dx:.0f}, y:{dy:.0f}, scale:0, rotation:-20}}, {{x:{dx:.0f}, y:{dy:.0f}, scale:{sc:.3f}, rotation:-6, duration:.35, ease:"back.out(2)"}}, {t0:.3f});', t0 + .35)
+        jm(f'tl.to("#{id_}-in", {{x:0, y:0, scale:1, rotation:0, duration:{fd}, ease:"power3.inOut"}}, {tf:.3f});', tf + fd)
+        if t0 + .1 >= A: SFX("impact", t0 + .1, .5, 1.4)
+        if tf >= A: SFX("whoosh", tf, .5, .6)
+    elif m.get("reveal", "write") == "write":
+        d = m.get("dur", .9)
+        jm(f'tl.fromTo("#{id_}-in", {{clipPath:"inset(0 100% 0 0)"}}, {{clipPath:"inset(0 0% 0 0)", duration:{d}, ease:"power2.inOut"}}, {t0:.3f});', t0 + d)
+        if t0 >= A: SFX("whoosh", t0, .3, .6)
+    else:
+        jm(f'tl.fromTo("#{id_}-in", {{scale:0, rotation:-20}}, {{scale:1, rotation:0, duration:.3, ease:"back.out(2.4)"}}, {t0:.3f});', t0 + .3)
+        if t0 >= A: SFX("pop", t0, .8, .6)
+
 if DEBUG:
     clipdiv("dbg", 0, TOTAL, "-", "dbg", 60)
 over.append(f'<div id="bar" class="clip barw" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="40"><div class="bar-in" id="bar-in"></div></div>')

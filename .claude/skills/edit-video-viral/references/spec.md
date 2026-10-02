@@ -14,8 +14,10 @@ Overlay (`type`):
 - `chip` {text,at,until,color,pos}, `stamp` {text,at,until}
 - `punch` {at,amt}, `wipe` {at,color}, `shake` {at,amp,n}, `flash` {at,color,dur,peak}, `sfx` {file,at,vol,dur,ms}
 
-`hook`: split-screen `{until, top:{icons,title,sub}, bottom:{title,sub,image}, kinetic:{text,at}, stamp:{text,at}, vs}`. Segmen hook ditempatkan di awal dengan `caption:false`.
+`hook`: split-screen `{until, top:{icons,title,sub,align:"right"}, bottom:{title,sub,image}, kinetic:{text,at}, stamp:{text,at}, vs}`. Segmen hook ditempatkan di awal dengan `caption:false`.
 
 `backgrounds`: `[{from,to,image,word,tint,x,y,size,rot}]` latar di belakang cutout, kata raksasa pudar bergerak pelan.
 
 `scenes`: `[{id, from, to}]` batas scene (ekspresi waktu, harus berimpit dengan batas segmen dan berurutan tanpa celah, scene pertama dari 0, terakhir sampai `total`). Dipakai `scripts/scenes.py` dan `build.py --scene id`. Flag `build.py --debug` menampilkan id segmen dan timecode.
+
+`brand.marks`: logo/signature permanen di atas segalanya (z di atas wipe dan grain, di bawah progress bar). Item: `{img, x, y, w, opacity, at, reveal:"write"|"pop", dur, intro:{at,cx,cy,w,fly,fly_dur}}`. `reveal:"write"` = terungkap kiri ke kanan seperti ditulis tangan. `intro` = muncul besar di (cx,cy) lebar `w`, lalu terbang ke (x,y,w) pada `fly`. Pakai SVG yang sudah di-crop (viewBox rapat) dan, untuk latar gelap, versi putih. Zona aman: baris atas y≈170, kiri/kanan margin ≥40; `top.align:"right"` memindah pil logo hook ke kanan supaya tidak menabrak watermark kiri.
