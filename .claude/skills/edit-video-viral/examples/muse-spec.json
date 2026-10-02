@@ -1,6 +1,7 @@
 {
   "source": {"video": "assets/take-cut.webm", "audio": "assets/take.mp4", "grade": {"preset": "deep-contrast", "intensity": 0.55}},
   "pre": 1.7,
+  "brand": {"marks": [{"img": "assets/logo/katanya-nyatanya.svg", "x": 40, "y": 170, "w": 240, "opacity": 0.95, "intro": {"at": 0.1, "cx": 540, "cy": 960, "w": 640, "fly": 0.8, "fly_dur": 0.45}}, {"img": "assets/logo/aulia-rahman-white.svg", "x": 790, "y": 170, "w": 230, "opacity": 0.9, "reveal": "write", "at": "hook2.end+0.3", "dur": 0.9}]},
   "keywords": ["muse","vpn","kanada","amerika","belum","owner","chatbot","mengerjakan","janggal","komentar","nyatanya"],
   "segments": [
     {"id":"hook1","src":[5.45,6.15],"text":"Saya sudah coba.","pad":[0.05,0.06],"caption":false},
@@ -33,7 +34,7 @@
   ],
   "hook": {
     "until": "hook2",
-    "top": {"icons": [{"img":"assets/logo/meta.svg"},{"text":"+"},{"img":"assets/img/muse-m.png"},{"text":"Muse","blue":true}],
+    "top": {"align": "right", "icons": [{"img":"assets/logo/meta.svg"},{"text":"+"},{"img":"assets/img/muse-m.png"},{"text":"Muse","blue":true}],
             "title": "KATANYA", "sub": "AI yang mengerjakan usaha Anda"},
     "bottom": {"title": "NYATANYA", "sub": "belum tersedia di Indonesia", "image": "assets/waitlist-crop.png"},
     "kinetic": {"text": "SAYA SUDAH COBA.", "at": "hook1"},
