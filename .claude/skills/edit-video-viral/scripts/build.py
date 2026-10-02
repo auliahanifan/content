@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """spec.json -> index.html komposisi HyperFrames (9:16, gaya bold kreator).
 
-Pakai:  python3 build.py spec.json [--music] [--out index.html]
+Pakai:  python3 build.py spec.json [--music] [--debug] [--scene id] [--out index.html]
+  --debug  bakar id segmen + timecode (resolusi 1 frame) di kiri atas
+  --scene  bangun hanya satu scene dari spec["scenes"] (t=0 = awal scene)
 Jalankan dari folder proyek HyperFrames (path aset di spec relatif ke folder itu).
 Skema spec: references/spec.md. Contoh: examples/muse-spec.json.
 Menulis juga timeline.json (waktu tiap segmen) di sebelah file output.
@@ -11,7 +13,11 @@ from pathlib import Path
 
 args = sys.argv[1:]
 MUSIC = "--music" in args
-args = [a for a in args if a != "--music"]
+DEBUG = "--debug" in args
+args = [a for a in args if a not in ("--music", "--debug")]
+SCENE = None
+if "--scene" in args:
+    i = args.index("--scene"); SCENE = args[i + 1]; del args[i:i + 2]
 OUT = "index-music.html" if MUSIC else "index.html"
 if "--out" in args:
     i = args.index("--out"); OUT = args[i + 1]; del args[i:i + 2]
@@ -56,6 +62,13 @@ def tx(e):
     elif wi is not None: base = WT[sid][int(wi)][0]
     else: base = T[sid][0]
     return round(base + (float(off.replace(" ", "")) if off else 0), 3)
+
+A, B = 0.0, TOTAL
+if SCENE:
+    sc = next((x for x in spec.get("scenes", []) if x["id"] == SCENE), None)
+    if not sc: raise SystemExit(f"scene tidak ada: {SCENE}")
+    A, B = tx(sc["from"]), tx(sc["to"])
+D = round(B - A, 3)
 
 # ---------------------------------------------------------------- collectors
 vid, aud, over, cap, bgs, J = [], [], [], [], [], []
@@ -110,7 +123,7 @@ def punch(sid_expr, amt=1.10):
     J.append(f'tl.to("#vp-{sid}", {{scale:1, duration:.3, ease:"power2.inOut"}}, {t0 + .08:.3f});')
 
 def wipe(t0, color=None, whoosh=True):
-    id_ = uid("wp"); color = color or PAL["yellow"]
+    id_ = uid("wp"); color = color or PAL["yellow"]; t0 = max(t0, A)
     clipdiv(id_, t0, t0 + .5, f'<div class="wipe-in" id="{id_}-in" style="background:{color}"></div>', "wipew", 30)
     J.append(f'tl.fromTo("#{id_}-in", {{xPercent:-130}}, {{xPercent:130, duration:.42, ease:"power3.inOut"}}, {t0:.3f});')
     if whoosh: SFX("whoosh", t0 - .02, .75, .6)
@@ -281,8 +294,10 @@ for k, b in enumerate(spec.get("backgrounds", [])):
     J.append(f'tl.to("#{id_}-in", {{opacity:0, duration:.15}}, {t1 - .15:.3f});')
 
 # ---------------------------------------------------------------- fx global
+if DEBUG:
+    clipdiv("dbg", 0, TOTAL, "-", "dbg", 60)
 over.append(f'<div id="bar" class="clip barw" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="40"><div class="bar-in" id="bar-in"></div></div>')
-J.append(f'tl.fromTo("#bar-in", {{scaleX:0}}, {{scaleX:1, duration:{TOTAL:.3f}, ease:"none"}}, 0);')
+J.append(f'tl.fromTo("#bar-in", {{scaleX:{A / TOTAL:.4f}}}, {{scaleX:{B / TOTAL:.4f}, duration:{D:.3f}, ease:"none"}}, 0);')
 over.append(f'<div id="grain" class="clip grainw" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="41"><div class="grain-in" id="grain-in"></div></div>')
 J.append(f'tl.fromTo("#grain-in", {{x:0, y:0}}, {{x:-300, y:-240, duration:.5, ease:"steps(5)", repeat:{int(TOTAL / .5) + 1}}}, 0);')
 over.append(f'<div id="vig" class="clip vigw" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="42"></div>')
@@ -292,6 +307,12 @@ CSS = (Path(__file__).parent / "style.css").read_text()
 for k, v in PAL.items(): CSS = CSS.replace(f"@{k}@", v)
 CSS = CSS.replace("@font@", FONT)
 
+if DEBUG:
+    J.append("const SEG=" + json.dumps([[c[0], c[1], c[2], c[3]] for c in clips]) + f";const A0={A},SC={json.dumps(SCENE or 'all')};")
+    J.append("function fmt(t){const g=t+A0;let s=null;for(const q of SEG){if(g>=q[3]&&g<q[3]+q[2]){s=q;break}}"
+             "return s?`${s[0]}  [${SC}]\\nt ${g.toFixed(3)}  src ${(s[1]+g-s[3]).toFixed(3)}`:`-  [${SC}]\\nt ${g.toFixed(3)}`}")
+    J.append(f'for(let i=0;i<{int(D * 30) + 1};i++)tl.set("#dbg",{{textContent:fmt(i/30)}},i/30);')
+
 music = ""
 if MUSIC:
     m = spec.get("music", {})
@@ -299,6 +320,30 @@ if MUSIC:
              f'data-media-start="0" data-track-index="11" data-volume="1"></audio>')
 sfx_html = [f'<audio id="sfx{k}" src="{SFXDIR}/{f}.mp3" data-start="{t0:.3f}" data-duration="{dur:.3f}" data-media-start="{ms:.3f}" '
             f'data-track-index="{12 + k % 6}" data-volume="{vol}"></audio>' for k, (f, t0, vol, dur, ms) in enumerate(sfx)]
+
+def _shift_el(el):
+    m = re.search(r'data-start="([\d.]+)" data-duration="([\d.]+)"', el)
+    st, du = float(m[1]), float(m[2]); st2 = max(st, A); du2 = min(st + du, B) - st2
+    if du2 < .03: return None
+    el = el[:m.start()] + f'data-start="{st2 - A:.3f}" data-duration="{du2:.3f}"' + el[m.end():]
+    if st2 > st: el = re.sub(r'data-media-start="([\d.]+)"', lambda x: f'data-media-start="{float(x[1]) + st2 - st:.3f}"', el, count=1)
+    return el
+
+if SCENE:
+    dropped = []
+    def _fit(lst):
+        out = []
+        for el in lst:
+            n = _shift_el(el)
+            if n is None: dropped.extend(re.findall(r'id="([^"]+)"', el))
+            else: out.append(n)
+        return out
+    vid, aud, over, cap, bgs, sfx_html = (_fit(x) for x in (vid, aud, over, cap, bgs, sfx_html))
+    def _jline(l):
+        if any(f'"#{d}"' in l or f'"#{d}-' in l for d in dropped): return None
+        return re.sub(r', (-?\d*\.?\d+)\);$', lambda m: f', {max(0, float(m[1]) - A):.3f});', l)
+    J = [x for x in (_jline(l) for l in J) if x]
+    TOTAL = D
 
 html = f"""<!doctype html>
 <html lang="id">
@@ -330,6 +375,7 @@ tl.seek(0);
 </html>
 """
 Path(OUT).write_text(html)
-Path(OUT).with_name("timeline.json").write_text(json.dumps({"T": T, "TOTAL": TOTAL, "PRE": PRE,
-    "segs": [[c[0], c[1], c[2], c[3]] for c in clips]}))
+if not SCENE: Path(OUT).with_name("timeline.json").write_text(json.dumps({"T": T, "TOTAL": TOTAL, "PRE": PRE,
+    "segs": [[c[0], c[1], c[2], c[3]] for c in clips],
+    "scenes": {x["id"]: [tx(x["from"]), tx(x["to"])] for x in spec.get("scenes", [])}}))
 print(f"total {TOTAL}s | {len(clips)} segmen | {len(sfx)} sfx | {len(over)} overlay -> {OUT}")

@@ -83,3 +83,4 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:@ink@}
 .grainw{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:48;pointer-events:none;overflow:hidden;opacity:.11;mix-blend-mode:overlay}
 .grain-in{position:absolute;left:0;top:0;width:1500px;height:2400px;background:url(assets/img/grain.png);background-size:540px 960px}
 .vigw{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:47;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(0,0,0,.45) 100%)}
+.dbg{position:absolute;left:14px;top:60px;z-index:60;font:700 30px/1.25 Menlo,monospace;color:#FFE11A;background:rgba(0,0,0,.72);padding:8px 14px;border-radius:8px;white-space:pre}
