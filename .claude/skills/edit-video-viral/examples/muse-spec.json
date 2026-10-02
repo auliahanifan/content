@@ -109,5 +109,19 @@
     {"type":"chip","text":"&darr; TULIS DI KOMENTAR","at":"s22+0.05","until":"s22.end"},
     {"type":"sticker","kind":"emoji","emoji":"&#128071;","big":true,"at":"s23.w0","until":"s23.end","x":790,"y":880,"pop":false},
     {"type":"punch","at":"s21","amt":1.08}, {"type":"punch","at":"s22","amt":1.1}
+  ],
+  "scenes": [
+    {"id": "hook", "from": 0, "to": "hook2.end"},
+    {"id": "buka", "from": "s1", "to": "s3.end"},
+    {"id": "muse", "from": "s4", "to": "s4.end"},
+    {"id": "usaha", "from": "s5", "to": "s5.end"},
+    {"id": "logo", "from": "s6", "to": "s7.end"},
+    {"id": "as-kanada", "from": "s8", "to": "s8.end"},
+    {"id": "waitlist", "from": "s9", "to": "s10.end"},
+    {"id": "whatsapp", "from": "s11", "to": "s13.end"},
+    {"id": "owner", "from": "s14", "to": "s14.end"},
+    {"id": "tugas", "from": "s15", "to": "s18.end"},
+    {"id": "belum-diuji", "from": "s19", "to": "s20b.end"},
+    {"id": "cta", "from": "s21", "to": "s23.end"}
   ]
 }

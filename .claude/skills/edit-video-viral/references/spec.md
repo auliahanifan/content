@@ -17,3 +17,5 @@ Overlay (`type`):
 `hook`: split-screen `{until, top:{icons,title,sub}, bottom:{title,sub,image}, kinetic:{text,at}, stamp:{text,at}, vs}`. Segmen hook ditempatkan di awal dengan `caption:false`.
 
 `backgrounds`: `[{from,to,image,word,tint,x,y,size,rot}]` latar di belakang cutout, kata raksasa pudar bergerak pelan.
+
+`scenes`: `[{id, from, to}]` batas scene (ekspresi waktu, harus berimpit dengan batas segmen dan berurutan tanpa celah, scene pertama dari 0, terakhir sampai `total`). Dipakai `scripts/scenes.py` dan `build.py --scene id`. Flag `build.py --debug` menampilkan id segmen dan timecode.
