@@ -1,0 +1,14 @@
+interface:
+  display_name: Aulia Brand
+  short_description: Terapkan dan periksa konsistensi personal brand Aulia
+  default_prompt: Gunakan $aulia-brand untuk menerapkan identitas Aulia pada draft
+    ini dan memperbaiki bagian yang melenceng.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
