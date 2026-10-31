@@ -1,0 +1,13 @@
+[casual] Harga input satu model AI Meta bisa turun sembilan puluh dua persen. Bayarnya pakai data Anda.
+
+[relaxed] Namanya mode Contributor. Contohnya Muse Spark lewat API: input turun dari satu koma dua puluh lima, ke nol koma sepuluh dolar per juta token. Imbalannya, Meta boleh memakai prompt, kode, dan file Anda untuk melatih model berikutnya.
+
+[conversational] Banyak yang mikir, kan saya sudah langganan, berarti data saya aman. [chuckles] Padahal di langganan Muse Code pun, Contributor itu default. Gantinya kuota lebih banyak.
+
+[relaxed] Mematikannya cuma berlaku ke depan. [casual] Data yang sudah terkirim tetap boleh dipakai, kayak surat yang sudah masuk kotak pos. Dan ketentuan Meta melarang kode rahasia di mode ini, jadi kalau kode klien nyasar ke sana, tanggung jawabnya di Anda.
+
+[conversational] Jadi sebelum tim memasukkan kode atau dokumen klien, buka pengaturannya dulu. Di Standard, data Anda tidak dipakai melatih.
+
+[relaxed] Murahnya Contributor itu tukar tambah dengan data. Kalau datanya memang boleh dipakai, itu sah. [casual] Kalau sama-sama beres... sing murah wae.
+
+[curious] Di tool AI yang tim Anda pakai, siapa yang pernah mengecek mode datanya?
