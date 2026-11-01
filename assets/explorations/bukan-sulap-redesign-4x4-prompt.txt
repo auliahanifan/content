@@ -1,0 +1,28 @@
+Generated using built-in ImageGen.
+
+Use case: logo-brand.
+Create ONE square high-resolution image containing exactly SIXTEEN genuinely different logo redesign concepts for the Indonesian educational AI content series named "Bukan Sulap". Deliver a beautifully art-directed 4-column by 4-row contact sheet. All sixteen cells visible in a single image. Equal-size cells, generous margins and clean thin light gray dividers, uniformly warm off-white background. Number each cell with a small quiet gray 01 through 16 in its top-left corner, reading left to right then top to bottom. No page title, no subtitles, no descriptions, no other text.
+
+Brand context: approachable explanations of how AI works, aimed at business owners and nontechnical workers. The name means "Not Magic": surprising results have understandable mechanisms. Playful intelligence, clear explanations, confident and memorable. Design a distinct series identity, not generic corporate AI branding. The current mark is a cobalt hand pinching a coral dot next to heavy black stacked text; only one or two concepts may develop that motif, the rest must be genuinely new.
+
+Every cell MUST contain exact clearly legible brand text "Bukan Sulap" (B-U-K-A-N, S-U-L-A-P), no added punctuation. Explore bespoke bold typography, chunky geometric, friendly rounded, compact editorial grotesk, playful wide and condensed combinations. Wordmarks should dominate readability. Each cell is a coherent complete logo lockup with one economical emblem or typographic idea, balanced at the same apparent scale. Flat vector-like graphic design, crisp edges, few colors, scalable, print-ready visual simplicity. No 3D, no shadows, no textures, no mockups, no gradients. Use a thoughtful varied palette across alternatives: ink black, vivid cobalt, coral, warm yellow, mint green, deep violet, off-white. Two or three colors maximum per concept, and include a few powerful single-color directions. Do not give all sixteen the same symbol or same typography.
+
+Sixteen visual families, ordered row-wise:
+01 Refined abstract pinching hand holding a coral dot, cobalt emblem and bold black stacked wordmark.
+02 Folded-back corner revealing a simple underlying mechanism, clean cobalt and black geometric type.
+03 Two interlocking rounded blocks with a small off-center yellow dot, friendly black heavyweight type.
+04 Mostly typographic, playful black stacked wordmark with one coral letter cleverly split to reveal its construction.
+05 Minimal open magic hat with a straightforward cog emerging, bold black and warm yellow; ingenious, not children's party branding.
+06 A fingertip pressing a simple switch, mint and ink, rounded compact stacked letters.
+07 Three connected domino-like forms showing cause and effect, coral and black bold horizontal lockup.
+08 Clean custom BS monogram built from two interlocking continuous geometric forms, violet and ink wordmark.
+09 Magnifying glass revealing three simple internal dots or bars, cobalt and black editorial type.
+10 Single bold bracket enclosing the stacked wordmark, a small yellow mechanical pivot, typographic identity.
+11 One stylized lightbulb with simple gear center, coral and ink friendly heavy lettering.
+12 Paper flap lifted by an abstract hand revealing a single colored dot, mint and black bold letters.
+13 Typographic lettering connected by one unexpected simple circuit path, black and cobalt, no intricate traces.
+14 Simple key fitting an abstract keyhole, a striking warm yellow and ink compact wordmark.
+15 A compact modular cube drawn as three flat puzzle pieces, violet and coral with strong ink type.
+16 Expressive thick black stacked wordmark with a simple underlining hand-drawn swoosh that resolves into a clean coral dot, energetic but restrained.
+
+Vary emblem placement and lockup structure; do not mechanically repeat the same icon-on-top layout sixteen times. Give each option a refined and recognizable silhouette. Stay simple; avoid decorative filler, stock tech brains, robots, sparkles everywhere, overly detailed gears, crossed-out magic icons, mascots, and generic SaaS aesthetics. Do not include any extra logo brand or tagline. Exactly 16 options, in a precise 4x4 grid, all spelled "Bukan Sulap".

@@ -1,0 +1,18 @@
+Edit the supplied logo comparison image into a NEW single square 3x3 COLOR EXPLORATION sheet. The selected logo is ONLY concept 01 in the TOP LEFT of the reference. Use ONLY that top-left price tag logo and its EXACT typography/composition as the master for ALL NINE cells. Discard concepts 02–09 from the reference. This is palette-only work, no redesign of the chosen form.
+
+INVARIANTS: precisely preserve the selected top-left logo: flat slightly left-tilted tall geometric price tag icon with clipped/angled shoulders, a small circular punched hole near its top, two wide parallel white equal-sign cutouts angled together with the tag, and a bold near-black modern sans stacked three-line wordmark to its right reading exactly "Sing" / "Murah" / "Wae". Tag and type occupy the same proportions, alignment, spacing and shape in every cell. The typography should match the reference exactly, no extra slogan, no text on the tag, no new icon, no different arrangement. Keep white equals and hole except amber variant can have ink equals and hole for a deliberate high contrast color pairing. Exact title casing "Sing Murah Wae", no all caps.
+
+LAYOUT: one clean high-resolution square image, exactly 3 columns by 3 rows, equal-sized cells, subtly divided with hairline light grey lines, pure white background in all nine cells. No header/footer. Large generous margins, consistent optical size and positioning of every logo. Small grey mono identifiers 01 through 09 in upper-left of each cell. Below each logo, small restrained grey text label naming its COLOR only as provided below. No other copy, hex codes, captions. Flat solid fills only, NO gradients, bevels, lighting, gloss, shadows, material texture, photo mockups or 3D. This is an independent logo that must feel compatible with Aulia Rahman's clean modern system, not literal UI component design.
+
+NINE palette variants in reading order:
+01 label "Ink": entire tag and wordmark #0B0D12, hole and equals white. Elegant single-color version.
+02 label "Langit": tag #2BB3FF, wordmark #0B0D12, hole and equals white.
+03 label "Ungu": tag #8B5CF6, wordmark #0B0D12, hole and equals white.
+04 label "Mint": tag #25B892, wordmark #0B0D12, hole and equals white.
+05 label "Amber": tag #FFB224, wordmark #0B0D12, hole and equals #0B0D12, contrast-conscious vibrant warm variation.
+06 label "Koral": tag #FF6B47, wordmark #0B0D12, hole and equals white.
+07 label "Navy": tag #121C5C, wordmark #0B0D12, hole and equals white.
+08 label "Ungu gelap": tag #4C1D95, wordmark #0B0D12, hole and equals white.
+09 label "Mint gelap": tag #106049, wordmark #0B0D12, hole and equals white.
+
+Repeat the identical selected top-left logo accurately nine times, change colors ONLY as specified. Sharp readable letters, designer-quality balanced presentation. The sheet should help compare color directly, with no confounding shape changes.
