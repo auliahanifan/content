@@ -16,3 +16,8 @@ dates/*/muse-video/assets/take-cut.webm
 
 # kunci API (ElevenLabs dll)
 .env
+
+# artefak check/snapshot HyperFrames, cache Python, render draf
+.hyperframes/
+__pycache__/
+dates/*/*/renders/
