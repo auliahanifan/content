@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 # Sintesis SFX bersih (tanpa kresek) dengan ffmpeg. Pakai: sfx.sh <folder-keluaran>
 # Menghasilkan pop, swipe, thud, ding, warn (.mp3). ffmpeg di mesin ini tanpa drawtext, aevalsrc ada.
 set -e; out=${1:?folder}; mkdir -p $out

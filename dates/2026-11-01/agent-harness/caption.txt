@@ -1,0 +1,6 @@
+Model AI yang sama bisa memberi hasil berbeda tergantung "harness"-nya, yaitu apa yang dilihat AI, alat yang bisa dipakai, dan kapan ia harus menunggu izin. Sebelum membayar model yang lebih mahal, periksa dulu bagian ini. #RumitJadiJelas #BukanSulap
+
+Sumber:
+- Endor Labs, Agent Security League (leaderboard, data 25 April 2026): GPT-5.5 lolos tes fungsional di 84,9% dari 200 tugas coding lewat Cursor, 62,6% lewat Codex. https://www.endorlabs.com/research/ai-code-security-benchmark
+- Endor Labs, "GPT-5.5 Sets a New Code Security Record with Cursor, not Codex, in Agent Security League" (27 April 2026, diperbarui 29 April). https://www.endorlabs.com/learn/gpt-5-5-sets-a-new-code-security-record-with-cursor-not-codex-in-agent-security-league
+- Perumpamaan kuda dan pelana dari Boris Cherny (pembuat Claude Code), dikutip di slide 5 deck Oikon. https://speakerdeck.com/oikon48/claude-codetohanesunituitekao-etemiru
