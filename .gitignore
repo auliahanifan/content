@@ -20,3 +20,4 @@ dates/*/muse-video/assets/take-cut.webm
 # artefak hyperframes check/snapshot dan cache Python
 .hyperframes/
 __pycache__/
+dates/*/*/renders/
