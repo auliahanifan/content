@@ -1,0 +1,15 @@
+[curious] Harga jual dari kalkulator ChatGPT, rumusnya sudah Anda cek?
+
+[casual] Sejak tujuh Oktober, jawaban ChatGPT bisa berupa kalkulator, pembagi tagihan, dan game yang bisa diutak-atik. Sehari kemudian, pengguna gratis juga kebagian. Contoh dari OpenAI sendiri: pembagi tagihan makan bareng.
+
+[relaxed] Geser angkanya, hasilnya ikut berubah. Kelihatan meyakinkan.
+
+[conversational] Bukan sulap. Begini cara kerjanya.
+
+[casual] Menurut OpenAI, tampilannya dirakit dari komponen siap pakai, sambil jawabannya ditulis. Itu urusan tampilan. Nah, rumus dan asumsinya? Tetap dipilih model. Di pengumuman maupun halaman bantuannya, OpenAI tidak menyebut soal akurasi hitungan kalkulator itu.
+
+[relaxed] Jadi ini kayak minta teman jago Excel bikin spreadsheet kilat. Praktis. Tapi rumusnya tetap perlu dicek.
+
+[conversational] Caranya gampang: masukkan dua contoh yang jawabannya sudah Anda tahu, satu angka biasa, satu angka ekstrem. Dua-duanya cocok? Baru dipakai.
+
+[curious] Terakhir kali AI membuatkan Anda alat hitung, rumusnya sudah Anda cek?
