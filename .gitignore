@@ -13,3 +13,6 @@ snapshots/
 # turunan dari footage mentah, dibuat ulang (lihat CLAUDE.md)
 dates/*/muse-video/assets/take.mp4
 dates/*/muse-video/assets/take-cut.webm
+
+# kunci API (ElevenLabs dll)
+.env

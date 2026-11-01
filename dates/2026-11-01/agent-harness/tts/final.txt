@@ -1,6 +1,6 @@
 [curious] Hasil AI Anda jelek? Belum tentu modelnya yang salah. [casual] Jangan buru-buru bayar yang lebih mahal.
 
-[conversational] Endor Labs ngetes satu model AI, G P T lima koma lima, di dua aplikasi coding. Di satu aplikasi, beres enam puluh tiga persen. Di aplikasi lain, delapan puluh lima. [relaxed] Otaknya sama. Yang beda bungkusnya: harness.
+[conversational] Endor Labs ngetes satu model AI, G P T lima koma lima, di dua aplikasi coding. Di satu aplikasi, kodenya jalan di enam puluh tiga persen tugas. Di aplikasi lain, delapan puluh lima. [relaxed] Otaknya sama. Yang beda bungkusnya: harness.
 
 [casual] Bukan sulap. Begini cara kerjanya.
 
