@@ -1,0 +1,8 @@
+Generated using built-in ImageGen.
+
+Use case: precise-object-edit, logo-brand.
+The provided image is a 4x4 contact sheet. Isolate and faithfully reproduce ONLY option 16, the bottom-right cell (row 4 column 4), as ONE standalone logo on a square 1:1 canvas. This is extraction and faithful enlargement of the selected design, not a new redesign.
+
+Preserve the exact expressive chunky black brush-like rounded hand-lettered typography of option 16. The exact text is "Bukan" on the first line and "Sulap" on the second line, in title case. Preserve its distinctive B, the lively angled lettering, tight stacked arrangement, soft bold rounded strokes, and original silhouette. Preserve the broad coral-red underline swoosh below the lettering: starts at lower left, curves upward to the right, dips into a small rounded elbow near the right, and ends in a round coral dot. Match the selected cell's shape, relationship, and proportions closely. Solid ink lettering visually matching #0B0D12, solid coral accent visually matching #FF6B47. Flat clean crisp graphic edges without textures, shadows, gradients, or 3D.
+
+Center the complete mark on the square with balanced generous clear space, about 14% outer margin. Use a clean uniform warm off-white background matching the reference. Remove the number 16, grid lines, all neighboring designs, and all other text. Entire logo and swoosh must be visible, with no cropping. High-resolution polished faithful reproduction of the chosen logo. Do not substitute geometric fonts or Geist; preserve the chosen hand-lettered identity.
