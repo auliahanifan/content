@@ -22,10 +22,8 @@ export const Rich: React.FC<{text: string; from: number; color?: string; marker?
             </React.Fragment>
           ));
         }
-        const w = interpolate(frame, [from + 6, from + 16], [0, 100], {
-          extrapolateLeft: 'clamp',
-          extrapolateRight: 'clamp',
-        });
+        // sapuan stabilo bertahap per 10% (terasa pixel)
+        const w = Math.round(interpolate(frame, [from + 4, from + 12], [0, 100], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) / 10) * 10;
         return (
           <span
             key={i}
@@ -33,7 +31,7 @@ export const Rich: React.FC<{text: string; from: number; color?: string; marker?
               color,
               backgroundImage: `linear-gradient(${marker}, ${marker})`,
               backgroundRepeat: 'no-repeat',
-              backgroundSize: `${w}% 42%`,
+              backgroundSize: `${w}% 46%`,
               backgroundPosition: '0 88%',
               padding: '0 6px',
               margin: '0 -6px',

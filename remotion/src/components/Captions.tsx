@@ -43,7 +43,7 @@ export const phrases = (toks: Tok[]) => {
 };
 
 /** Caption kata-per-kata di kanan karakter. Kata kunci jeruk, kata aktif berstabilo. */
-export const Captions: React.FC<{dark: number}> = ({dark}) => {
+export const Captions: React.FC<{box: {left: number; top: number; width: number; height: number}; size?: number}> = ({box, size = 64}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {words, sb, T, E} = useTiming();
@@ -64,17 +64,12 @@ export const Captions: React.FC<{dark: number}> = ({dark}) => {
   });
   if (gi < 0) return null;
   const g = groups[gi];
-  const ink = dark > 0.5 ? C.paper : C.ink;
-  const stroke = dark > 0.5 ? C.night : C.paper;
 
   return (
     <div
       style={{
         position: 'absolute',
-        left: 540,
-        top: 1130,
-        width: 460,
-        height: 300,
+        ...box,
         display: 'flex',
         flexWrap: 'wrap',
         alignContent: 'center',
@@ -83,7 +78,7 @@ export const Captions: React.FC<{dark: number}> = ({dark}) => {
         rowGap: 4,
         fontFamily: FONT_BODY,
         fontWeight: 800,
-        fontSize: 64,
+        fontSize: size,
         zIndex: 5,
         lineHeight: 1.12,
       }}
@@ -101,16 +96,16 @@ export const Captions: React.FC<{dark: number}> = ({dark}) => {
             style={{
               position: 'relative',
               display: 'inline-block',
-              color: active ? C.ink : key ? C.accent : ink,
-              opacity: said ? 1 : 0.32,
-              transform: `scale(${said ? 0.85 + 0.15 * p + (active ? 0.06 : 0) : 0.92})`,
-              WebkitTextStroke: `14px ${active ? C.sun : stroke}`,
+              color: active ? C.ink : key ? C.sun : C.white,
+              opacity: said ? 1 : 0.55,
+              transform: `translateY(${said ? Math.round((1 - p) * 10) : 6}px) scale(${active ? 1.08 : 1})`,
+              WebkitTextStroke: `12px ${active ? C.sun : C.ink}`,
               paintOrder: 'stroke fill',
+              textShadow: active ? 'none' : `6px 6px 0 ${C.ink}`,
               background: active ? C.sun : 'transparent',
-              borderRadius: 14,
-              padding: '0 6px',
-              margin: '0 -6px',
-              rotate: active ? '-1.5deg' : '0deg',
+              boxShadow: active ? `0 0 0 6px ${C.ink}, 6px 6px 0 6px ${C.ink}` : 'none',
+              padding: '0 8px',
+              margin: '0 -8px',
             }}
           >
             {tok.text}

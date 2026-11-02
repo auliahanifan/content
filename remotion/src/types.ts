@@ -3,7 +3,21 @@ import type {Tone} from './theme';
 /** Kata dari ElevenLabs alignment: [teks, mulai detik, selesai detik] */
 export type Word = [string, number, number];
 
-export type Pose = 'menjelaskan' | 'menunjuk' | 'berpikir' | 'bingung' | 'terkejut' | 'yakin';
+/** Pose presenter Pixel Aulia (assets/pixel-aulia/characters). */
+export type Pose = 'netral' | 'menjelaskan' | 'menunjuk' | 'berpikir' | 'setuju' | 'menyapa' | 'stop';
+/** Reaksi anime (assets/pixel-aulia/reactions), aura sudah menyatu. */
+export type Reaction =
+  | 'murka' | 'fokus' | 'kaget' | 'percaya-diri' | 'sedih' | 'semangat'
+  | 'bingung' | 'lelah' | 'dapat-ide' | 'tertawa' | 'skeptis' | 'menang';
+export type Effect = 'aura-emas' | 'petir-biru' | 'impact-ungu';
+export type Layout = 'left' | 'right' | 'center';
+export type Transition = 'pixel' | 'iris' | 'none';
+
+/** Interupsi epik: layar flash, reaksi besar di tengah, shake, latar malam. */
+export type Epic = {at: number; reaction: Reaction; dur?: number; text?: string; color?: Tone; sfx?: SfxName};
+
+/** Bentuk manifest.json Pixel Aulia yang dipakai: ukuran & batas alpha terlihat. */
+export type PixelAsset = {id: string; category: string; file: string; width: number; height: number; visibleAlphaBounds: [number, number, number, number]};
 
 /** Semua `at` adalah indeks kata di words.json (muncul tepat saat kata itu diucapkan). */
 export type PropRef = {prop?: string; emoji?: string};
@@ -37,15 +51,17 @@ export type Footer = PropRef & {at: number; text: string; tone?: Tone};
 
 export type Scene = {
   at: number;
-  pose?: Pose;
-  poses?: {at: number; pose: Pose}[];
+  pose?: Pose | Reaction; // reaksi juga boleh sebagai pose kecil di tempat
+  poses?: {at: number; pose: Pose | Reaction}[];
   board: Board;
   footer?: Footer;
-  dark?: boolean; // penutup gelap
-  sfx?: SfxName | null; // default 'swipe' di awal adegan
+  dark?: boolean; // latar malam arcade (penutup)
+  layout?: Layout; // posisi karakter; default bergantian left/right
+  transition?: Transition; // transisi masuk; default bergantian pixel/iris
+  sfx?: SfxName | null; // default 'sweep' di awal adegan
 };
 
-export type SfxName = 'pop' | 'swipe' | 'thud' | 'ding' | 'warn';
+export type SfxName = 'blip' | 'coin' | 'power' | 'hit' | 'select' | 'sweep' | 'boom';
 
 export type Storyboard = {
   series: string; // assets/<series>.svg dan <series>-white.svg
@@ -56,13 +72,16 @@ export type Storyboard = {
   captionMerge?: {from: number; to: number; text: string}[]; // gabung kata ucapan jadi satu ejaan, mis. G P T lima koma lima -> GPT-5.5
   captionFix?: Record<string, string>; // ganti ejaan satu kata: {"15": "Endor"}
   seriesLine?: {from: number; to: number}; // logo seri terbang ke tengah
+  epic?: Epic[]; // 2-4 per video, di punchline
+  punch?: number[]; // indeks kata: kamera punch-in
   scenes: Scene[];
   sfx?: {at: number; name: SfxName; volume?: number}[]; // SFX tambahan
-  autoSfx?: boolean; // default true: swipe/pop/thud/ding otomatis
+  autoSfx?: boolean; // default true: sweep/blip/hit/select otomatis
 };
 
 export type VideoProps = {
   storyboard: Storyboard | null;
   words: Word[];
   availableProps: string[]; // nama props yang sudah ada di assets/props/
+  pixel: PixelAsset[]; // manifest Pixel Aulia
 };

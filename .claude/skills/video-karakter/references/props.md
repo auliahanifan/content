@@ -1,20 +1,19 @@
 # Props ilustrasi
 
-Props = gambar benda/konsep bergaya sama dengan karakter Aulia (kartun, outline tinta gelap tebal, cel shading lembut). File: `assets/props/<nama>.png` (root repo), PNG transparan persegi ±1024 px, benda di tengah dengan margin ±8%. Nama huruf kecil berstrip: `kacamata-kuda`, `tali-kekang`.
+Default: setiap item cukup diberi `emoji`. Emoji dirender 20 px di canvas lalu diperbesar tanpa smoothing, jadi tampil sebagai ikon pixel di slot inventory. Pilih emoji yang bentuknya jelas pada resolusi rendah (benda tunggal, bukan wajah kecil atau bendera).
 
-Selama file belum ada, papan menampilkan stiker bulat berisi `emoji` dari storyboard (placeholder). Saat render, konsol mencetak `props belum ada (pakai placeholder): ...`. Begitu PNG ditaruh di `assets/props/`, render berikutnya langsung memakainya, tanpa mengubah storyboard.
+Opsional: PNG `assets/props/<prop>.png` (root repo) menggantikan emoji untuk nama `prop` itu. Gaya harus sama dengan Pixel Aulia (pixel art "06 Outlined"), transparan, persegi, benda di tengah. Begitu file ada, render berikutnya memakainya tanpa mengubah storyboard; konsol mencetak props yang belum ada.
 
 Pakai ulang props yang sudah ada sebelum meminta yang baru (`ls assets/props`).
 
 ## Template prompt (satu per props)
-Sertakan `assets/karakter-referensi.png` sebagai gambar referensi gaya.
+Sertakan `assets/pixel-aulia/references/styles-3x3.png` (gaya 06 Outlined) sebagai referensi.
 
 ```
-Single object illustration of <BENDA, deskripsi singkat & konteks Indonesia bila relevan>,
-same art style as the reference character sheet: clean cartoon, bold dark navy outlines (#1B1F3B),
-soft cel shading, slightly chunky proportions, warm friendly colors.
-Centered, 3/4 view, no text, no background (transparent PNG), no shadow on the ground,
-square 1024x1024 with ~8% padding.
+Single pixel-art game item sprite of <BENDA, deskripsi singkat & konteks Indonesia bila relevan>,
+same style as reference "06 Outlined": crisp pixels, 1-pixel dark navy outline (#1B1F3B),
+limited palette, simple 2-tone shading, no anti-aliasing.
+Centered, no text, transparent background, square 1024x1024 with ~8% padding.
 ```
 
 ## Format `props-prompt.md` per video

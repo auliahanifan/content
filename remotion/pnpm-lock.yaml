@@ -11,6 +11,9 @@ importers:
       '@fontsource/bricolage-grotesque':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource/pixelify-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/plus-jakarta-sans':
         specifier: ^5.3.0
         version: 5.3.0
@@ -282,6 +285,9 @@ packages:
 
   '@fontsource/bricolage-grotesque@5.3.0':
     resolution: {integrity: sha512-MdOVb/5in11IfN/IQJOExMuu6AroCIQbirl0yX7NUvKk+h0HYIKfGaVAXRS/gCPil4aFxWhjZnOw28tUwv7tFw==}
+
+  '@fontsource/pixelify-sans@5.3.0':
+    resolution: {integrity: sha512-4RCe9nXbi7wUu5+H0FNX1sgPZ2kJ1MmY1uTkEfvQIzzqhoS8zGKJaJfdK8oreE0OU+5gM+NdurFi3H3FJRBvyw==}
 
   '@fontsource/plus-jakarta-sans@5.3.0':
     resolution: {integrity: sha512-9WRw3G74Ve4cyPApAZSXLPY5DiLOZXDn7Q7dIBjFBpA0Pj56ljDItEdy2UUajjJxRuTg2HkMLO5C3K2nAQORWg==}
@@ -1674,6 +1680,8 @@ snapshots:
     optional: true
 
   '@fontsource/bricolage-grotesque@5.3.0': {}
+
+  '@fontsource/pixelify-sans@5.3.0': {}
 
   '@fontsource/plus-jakarta-sans@5.3.0': {}
 

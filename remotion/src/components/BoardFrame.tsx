@@ -1,102 +1,121 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {BoardContent} from '../boards/Boards';
-import {C, FONT_BODY, FONT_DISPLAY, sticker} from '../theme';
-import {popStyle, usePop, useTiming} from '../timing';
+import type {Box} from '../layout';
+import {C, FONT_BODY, FONT_PIXEL, notch, pixelBox} from '../theme';
+import {useTiming} from '../timing';
 import type {Scene} from '../types';
-import {Prop} from './Prop';
-import {Rich} from './Rich';
+import {PIXEL_ROOT} from './Character';
 
-export const EXIT = 8;
-export const BOARD = {left: 50, top: 230, width: 980, height: 800};
+const BAR = 70;
 
-/** Papan konsep: masuk dengan spring + miring, keluar terangkat. Kicker = tab di atas papan. */
-export const BoardFrame: React.FC<{scene: Scene; start: number; end: number; dim: number; index: number}> = ({scene, start, end, dim, index}) => {
+/** Papan = jendela game: title bar (kicker), isi krem bergaris ganda, sudut berundak, bayangan keras. */
+export const BoardFrame: React.FC<{scene: Scene; start: number; box: Box; dim: number; hidden: number}> = ({scene, start, box, dim, hidden}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const s = spring({frame: frame - start, fps, config: {damping: 13, stiffness: 140, mass: 0.8}});
-  const e = interpolate(frame, [end - EXIT, end], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const side = index % 2 === 0 ? 1 : -1;
+  const s = spring({frame: frame - start, fps, config: {damping: 12, stiffness: 170, mass: 0.7}});
   const kicker = scene.board.kicker;
+  const vis = (1 - dim * 0.85) * (1 - hidden);
   return (
     <div
       style={{
         position: 'absolute',
-        ...BOARD,
-        opacity: Math.min(1, s * 2) * (1 - e) * (1 - dim * 0.85),
-        transform: `translateY(${(1 - s) * 180 - e * 90}px) rotate(${(1 - s) * -5 * side + e * 4 * side}deg) scale(${(0.9 + 0.1 * s) * (1 - dim * 0.08)})`,
+        ...box,
+        opacity: Math.min(1, s * 2) * vis,
+        transform: `translateY(${Math.round(((1 - s) * 120 + hidden * -80) / 4) * 4}px) scale(${(0.9 + 0.1 * s) * (1 - dim * 0.08)})`,
+        filter: `drop-shadow(12px 12px 0 ${C.ink})`,
       }}
     >
-      <div
-        style={{
-          ...sticker(14),
-          boxShadow: `14px 14px 0 ${scene.dark ? C.accent : C.ink}`,
-          position: 'absolute',
-          inset: 0,
-          borderRadius: 48,
-          padding: scene.footer ? '56px 48px 130px' : '56px 48px 48px',
-          boxSizing: 'border-box',
-          display: 'flex',
-        }}
-      >
-        <BoardContent b={scene.board} start={start} />
-      </div>
-      {kicker && (
+      <div style={{position: 'absolute', inset: 0, clipPath: notch(10), ...pixelBox(C.paper, C.frame, 8), overflow: 'hidden'}}>
+        {kicker && (
+          <div
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: BAR,
+              background: C.accent,
+              boxShadow: `inset 0 -8px 0 ${C.ink}, inset 8px 8px 0 ${C.ink}, inset -8px 0 0 ${C.ink}`,
+              display: 'flex',
+              alignItems: 'center',
+              padding: '4px 34px 0',
+              gap: 16,
+              fontFamily: FONT_PIXEL,
+              fontWeight: 700,
+              fontSize: 36,
+              color: C.white,
+              textShadow: `4px 4px 0 ${C.ink}`,
+            }}
+          >
+            <span style={{flex: 1, whiteSpace: 'nowrap', overflow: 'hidden'}}>{kicker}</span>
+            {[C.sun, C.good, C.white].map((c, i) => (
+              <span key={i} style={{width: 22, height: 22, background: c, boxShadow: `0 0 0 4px ${C.ink}`}} />
+            ))}
+          </div>
+        )}
         <div
           style={{
-            ...sticker(6, C.accent),
             position: 'absolute',
-            left: 48,
-            top: -34,
-            padding: '8px 26px',
-            borderRadius: 999,
-            fontFamily: FONT_BODY,
-            fontWeight: 800,
-            fontSize: 34,
-            color: C.paper,
-            rotate: '-2deg',
+            left: 40,
+            right: 40,
+            top: kicker ? BAR + 26 : 40,
+            bottom: scene.footer ? 110 : 40,
+            display: 'flex',
           }}
         >
-          {kicker}
+          <BoardContent b={scene.board} start={start} />
         </div>
-      )}
-      {scene.footer && <FooterBanner f={scene.footer} start={start} />}
+      </div>
+      {scene.footer && <Dialog f={scene.footer} start={start} />}
     </div>
   );
 };
 
-const FooterBanner: React.FC<{f: NonNullable<Scene['footer']>; start: number}> = ({f, start}) => {
+/** Kotak dialog RPG: potret kecil + teks mengetik + panah berkedip. */
+const Dialog: React.FC<{f: NonNullable<Scene['footer']>; start: number}> = ({f}) => {
+  const frame = useCurrentFrame();
   const {T} = useTiming();
-  const {p, visible} = usePop(f.at, start, {damping: 9, stiffness: 200, mass: 0.6});
+  const t0 = T(f.at);
+  if (frame < t0 - 2) return null;
+  const plain = f.text.replace(/\*/g, '');
+  const n = Math.min(plain.length, Math.max(0, Math.floor((frame - t0) * 1.4)));
+  // sorotan *..* tetap dipertahankan saat mengetik
+  const out: React.ReactNode[] = [];
+  let k = 0;
+  f.text.split(/(\*[^*]+\*)/g).filter(Boolean).forEach((part, i) => {
+    const hl = part.startsWith('*');
+    const txt = hl ? part.slice(1, -1) : part;
+    const shown = txt.slice(0, Math.max(0, n - k));
+    k += txt.length;
+    if (shown) out.push(<span key={i} style={{color: hl ? C.accent : C.ink}}>{shown}</span>);
+  });
+  const done = n >= plain.length;
   return (
     <div
       style={{
         position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 26,
+        left: 30,
+        right: 30,
+        bottom: -70,
+        height: 150,
+        ...pixelBox(C.white, C.sky, 6),
+        clipPath: notch(6),
         display: 'flex',
-        justifyContent: 'center',
-        ...popStyle(p, visible, 30),
+        alignItems: 'center',
+        gap: 22,
+        padding: '0 28px 0 20px',
       }}
     >
-      <div
-        style={{
-          ...sticker(8, C.sun),
-          display: 'flex',
-          alignItems: 'center',
-          gap: 18,
-          padding: '14px 34px 14px 18px',
-          borderRadius: 999,
-          rotate: '-1.5deg',
-          fontFamily: FONT_DISPLAY,
-          fontWeight: 800,
-          fontSize: 52,
-          color: C.ink,
-        }}
-      >
-        {(f.prop || f.emoji) && <Prop prop={f.prop} emoji={f.emoji} size={86} bg={C.paper} />}
-        <Rich text={f.text} from={T(f.at)} marker={C.paper} />
+      <div style={{width: 110, height: 110, flexShrink: 0, overflow: 'hidden', position: 'relative', ...pixelBox(C.sun, C.white, 5)}}>
+        <Img
+          src={staticFile(`${PIXEL_ROOT}/characters/netral.png`)}
+          style={{position: 'absolute', width: 330, left: -110, top: -18, imageRendering: 'pixelated'}}
+        />
+      </div>
+      <div style={{flex: 1, fontFamily: FONT_BODY, fontWeight: 800, fontSize: 46, lineHeight: 1.15, color: C.ink}}>
+        {out}
+        {done && Math.floor(frame / 8) % 2 === 0 && <span style={{fontFamily: FONT_PIXEL, color: C.accent, marginLeft: 10}}>▼</span>}
       </div>
     </div>
   );

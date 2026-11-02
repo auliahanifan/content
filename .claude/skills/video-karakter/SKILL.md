@@ -1,9 +1,9 @@
 ---
 name: video-karakter
-description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video where the illustrated Aulia Rahman character presents next to an animated concept board, built with Remotion. ElevenLabs voice "Aulia Rahman", full-body character poses with spring animation, cartoon-style props, word-by-word captions, SFX (no music), series logo. Dipanggil `/video-karakter <naskah>`. Penerus /video-faceless (HyperFrames) yang masih tersedia. Konten berbahasa Indonesia.
+description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video in a retro pixel-game world where the Pixel Aulia character presents next to RPG-window concept boards, with epic anime reaction interrupts, built with Remotion. ElevenLabs voice "Aulia Rahman", pixel props, word-by-word captions, 8-bit SFX (no music), series logo. Dipanggil `/video-karakter <naskah>`. Penerus /video-faceless (HyperFrames) yang masih tersedia. Konten berbahasa Indonesia.
 ---
 
-# Video karakter (9:16, Remotion)
+# Video karakter (9:16, Remotion, dunia pixel game)
 
 Input: naskah polos (opsional nama seri; default **Sing Murah Wae**). Output: `dates/<YYYY-MM-DD>/<slug>/out/video.mp4`.
 Studio Remotion bersama ada di `remotion/` (pnpm). Tiap video = satu `storyboard.json` di foldernya; komponen React merendernya. **Jangan menulis TSX per video**; bila butuh jenis papan baru, tambahkan ke `remotion/src/boards/` agar dipakai ulang.
@@ -16,13 +16,13 @@ Alur dengan **checkpoint**; jangan lompat ke render final tanpa persetujuan.
 4. **Naskah bertag** → `tts/final.txt`: tag ekspresi ElevenLabs (`[casual] [relaxed] [conversational] [curious] [chuckles]`) per paragraf; angka ditulis terbaca (`satu koma dua puluh lima`). Tampilkan ke pengguna.
 5. **Tes suara (checkpoint 1)**: script suara dipakai bersama dengan video-faceless:
    `.claude/skills/video-faceless/scripts/tts.sh tts/final.txt tts/final` lalu `python3 .claude/skills/video-faceless/scripts/words.py tts/final.align.json tts/words.json`. Kirim `tts/final.mp3` (SendUserFile), tunggu "oke". Detail suara: `.claude/skills/video-faceless/references/suara.md`.
-6. **Hook**: usulkan 2-3 opsi papan pembuka (teks singkat + pose), minta pilih.
+6. **Hook & momen epik**: usulkan 2-3 opsi papan pembuka, lalu **2-4 momen interupsi epik** (punchline: fakta mengejutkan, insight, CTA) masing-masing dengan reaksi + teks pixel singkat. Minta pengguna memilih (`AskUserQuestion`, multiSelect).
 7. **Bukti layar** (tanyakan dulu per video): `node .claude/skills/video-faceless/scripts/shot.mjs <url> assets/img/shot-x.png "<teks>"` (sekali `pnpm i` di folder scripts itu). Lihat PNG sebelum dipakai; posisi cincin sorot dalam **persen** gambar.
 8. **Storyboard**: tulis `storyboard.json`. Cetak dulu daftar kata berindeks:
    `python3 -c "import json;w=json.load(open('tts/words.json'));print(' '.join(f'{i}:{x[0]}' for i,x in enumerate(w)))"`
-   Satu adegan per beat naskah; semua `at` = indeks kata. Pose harus cocok dengan kalimat (pengguna sangat peduli ini). Rapikan ejaan caption dengan `captionMerge`/`captionFix`.
-9. **Props (checkpoint)**: kumpulkan nama `prop` di storyboard yang belum ada di `assets/props/`. Tulis daftar + prompt gambar (template di `references/props.md`) ke `dates/<tgl>/<slug>/props-prompt.md` dan tunjukkan ke pengguna. Pengguna yang generate; sementara itu emoji placeholder tampil otomatis. Jangan generate gambar sendiri.
-10. **Cek visual**: dari `remotion/`: `pnpm still ../dates/<tgl>/<slug> 0.5 4 12 ...` (detik; `f120` = frame) → PNG di `out/stills/`. Gabungkan jadi satu lembar (`ffmpeg ... tile=5x2`) dan **lihat**. Periksa: teks tidak meluap dari papan, footer tidak menimpa kepala, caption tidak tertutup. `pnpm typecheck` bila mengubah kode.
+   Satu adegan per beat naskah; semua `at` = indeks kata. Pose harus cocok dengan kalimat (pengguna sangat peduli ini). Variasikan `layout` (left/right/center) antar adegan; jangan dua adegan berturut-turut dengan layout sama kecuali alasan kuat. Tambah `punch` di kata kunci. Rapikan ejaan caption dengan `captionMerge`/`captionFix`.
+9. **Props**: tiap item diberi `emoji` yang tepat; emoji otomatis di-pixel-kan dalam slot inventory, jadi tidak perlu aset baru. PNG `assets/props/<prop>.png` (gaya Pixel Aulia) menggantikannya bila suatu saat ada; tawarkan `props-prompt.md` hanya bila pengguna mau (`references/props.md`).
+10. **Cek visual**: dari `remotion/`: `pnpm still ../dates/<tgl>/<slug> 0.5 4 12 ...` (detik; `f120` = frame) → PNG di `out/stills/`. Ambil satu titik per adegan + satu di tengah tiap epik; gabungkan (`ffmpeg ... tile=6x2`) dan **lihat**. Periksa: teks tidak menabrak title bar/terpotong, dialog tidak menutup isi, caption tidak tertutup karakter. `pnpm typecheck` bila mengubah kode.
 11. **Draf (checkpoint 2)**: `pnpm render ../dates/<tgl>/<slug> --draft` → `out/draft.mp4` (setengah resolusi), kirim, ikuti revisi.
 12. **Final** setelah "oke": `pnpm render ../dates/<tgl>/<slug>` → `out/video.mp4`; cek durasi `ffprobe`, kirim.
 
@@ -30,7 +30,7 @@ Setelah selesai tawarkan judul + deskripsi + hashtag (opsional).
 Studio interaktif (Mac): `cd remotion && pnpm studio ../dates/<tgl>/<slug>`.
 
 ## Default tetap (jangan ditanya ulang)
-Suara ElevenLabs v4 (stability 0,6 · similarity 1,0 · style 0,15) · karakter Aulia badan penuh kiri bawah, ganti pose dengan squash/hop, idle bernapas, goyang ikut volume suara · papan konsep di atas · caption kata-per-kata di kanan karakter (kata kunci jeruk, kata aktif stabilo) · logo seri kiri atas, tanda tangan kanan atas, logo terbang ke tengah pada `seriesLine` · tanpa musik; SFX otomatis (swipe ganti adegan, pop elemen muncul, thud coretan, ding footer) · penutup gelap (`dark: true`) · palet kartun hangat (krem, tinta navy, aksen jeruk), Bricolage Grotesque + Plus Jakarta Sans.
+Suara ElevenLabs v4 (stability 0,6 · similarity 1,0 · style 0,15) · karakter **Pixel Aulia** (`assets/pixel-aulia/`, tinggi badan dinormalkan dari manifest) yang berpindah kiri/kanan/tengah antar adegan, ganti pose = squash/hop, goyang ikut volume suara · papan = jendela RPG (title bar jeruk berisi kicker, isi krem, sudut berundak), judul Pixelify Sans · dunia siang RPG (langit, awan, bukit parallax), malam arcade untuk epik dan penutup (`dark: true`) · transisi mosaik pixel / iris bergantian · kamera zoom pelan + punch-in + shake saat epik · `footer` = kotak dialog RPG mengetik dengan potret · caption Plus Jakarta Sans putih outline tinta (kata kunci kuning, kata aktif kotak kuning) · logo seri kiri atas, tanda tangan kanan atas, logo terbang pada `seriesLine` · tanpa musik; SFX 8-bit otomatis (`remotion/scripts/sfx8bit.sh`).
 
 ## Pegangan
 - Timestamp kata dari alignment ElevenLabs, bukan Whisper. Tag `[..]` tidak diucapkan.
