@@ -1,0 +1,632 @@
+{
+  "name": "Pixel Aulia — Presenter & Epic Anime Library",
+  "version": 2,
+  "created": "2026-11-02",
+  "updated": "2026-11-02",
+  "generator": "ImageGen",
+  "styleReference": "references/styles-3x3.png (06 Outlined)",
+  "moodReference": "references/moods-3x3.png",
+  "counts": {
+    "characters": 7,
+    "reactions": 12,
+    "effects": 3
+  },
+  "assets": [
+    {
+      "id": "netral",
+      "category": "characters",
+      "file": "characters/netral.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1113199,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        33,
+        0,
+        1004,
+        1459
+      ],
+      "visibleAlphaBounds": [
+        142,
+        99,
+        935,
+        1455
+      ],
+      "transparentFraction": 0.6753,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "menjelaskan",
+      "category": "characters",
+      "file": "characters/menjelaskan.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 529538,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        55,
+        1222,
+        1227
+      ],
+      "visibleAlphaBounds": [
+        199,
+        60,
+        1062,
+        1224
+      ],
+      "transparentFraction": 0.7341,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "menunjuk",
+      "category": "characters",
+      "file": "characters/menunjuk.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 518835,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        32,
+        1220,
+        1221
+      ],
+      "visibleAlphaBounds": [
+        304,
+        58,
+        1129,
+        1216
+      ],
+      "transparentFraction": 0.7388,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "berpikir",
+      "category": "characters",
+      "file": "characters/berpikir.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 473626,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        49,
+        19,
+        1184,
+        1226
+      ],
+      "visibleAlphaBounds": [
+        423,
+        58,
+        868,
+        1223
+      ],
+      "transparentFraction": 0.7819,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "setuju",
+      "category": "characters",
+      "file": "characters/setuju.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 513164,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        19,
+        1232,
+        1235
+      ],
+      "visibleAlphaBounds": [
+        354,
+        55,
+        975,
+        1224
+      ],
+      "transparentFraction": 0.7404,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "menyapa",
+      "category": "characters",
+      "file": "characters/menyapa.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1151451,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        47,
+        1002,
+        1484
+      ],
+      "visibleAlphaBounds": [
+        150,
+        100,
+        916,
+        1460
+      ],
+      "transparentFraction": 0.651,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "stop",
+      "category": "characters",
+      "file": "characters/stop.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1141406,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        23,
+        1006,
+        1512
+      ],
+      "visibleAlphaBounds": [
+        222,
+        95,
+        840,
+        1473
+      ],
+      "transparentFraction": 0.6779,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "murka",
+      "category": "reactions",
+      "file": "reactions/murka.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 1569034,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1215,
+        1286
+      ],
+      "visibleAlphaBounds": [
+        120,
+        18,
+        1129,
+        1246
+      ],
+      "transparentFraction": 0.3997,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "fokus",
+      "category": "reactions",
+      "file": "reactions/fokus.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1914666,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "visibleAlphaBounds": [
+        86,
+        26,
+        1484,
+        1004
+      ],
+      "transparentFraction": 0.3116,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "kaget",
+      "category": "reactions",
+      "file": "reactions/kaget.png",
+      "width": 1328,
+      "height": 1184,
+      "bytes": 1846025,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        17,
+        1312,
+        1184
+      ],
+      "visibleAlphaBounds": [
+        103,
+        35,
+        1235,
+        1141
+      ],
+      "transparentFraction": 0.4228,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "percaya-diri",
+      "category": "reactions",
+      "file": "reactions/percaya-diri.png",
+      "width": 1199,
+      "height": 1312,
+      "bytes": 1810345,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1196,
+        1312
+      ],
+      "visibleAlphaBounds": [
+        102,
+        12,
+        1130,
+        1296
+      ],
+      "transparentFraction": 0.3535,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "sedih",
+      "category": "reactions",
+      "file": "reactions/sedih.png",
+      "width": 1225,
+      "height": 1284,
+      "bytes": 993717,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        9,
+        1209,
+        1284
+      ],
+      "visibleAlphaBounds": [
+        274,
+        41,
+        1146,
+        1233
+      ],
+      "transparentFraction": 0.5453,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "semangat",
+      "category": "reactions",
+      "file": "reactions/semangat.png",
+      "width": 1224,
+      "height": 1285,
+      "bytes": 1820535,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1221,
+        1285
+      ],
+      "visibleAlphaBounds": [
+        39,
+        21,
+        1200,
+        1245
+      ],
+      "transparentFraction": 0.3214,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "bingung",
+      "category": "reactions",
+      "file": "reactions/bingung.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 1528909,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1222,
+        1286
+      ],
+      "visibleAlphaBounds": [
+        59,
+        26,
+        1174,
+        1260
+      ],
+      "transparentFraction": 0.3952,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "lelah",
+      "category": "reactions",
+      "file": "reactions/lelah.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 900466,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        19,
+        1207,
+        1286
+      ],
+      "visibleAlphaBounds": [
+        277,
+        132,
+        991,
+        1199
+      ],
+      "transparentFraction": 0.6598,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "dapat-ide",
+      "category": "reactions",
+      "file": "reactions/dapat-ide.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 1647746,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1223,
+        1286
+      ],
+      "visibleAlphaBounds": [
+        125,
+        18,
+        1107,
+        1270
+      ],
+      "transparentFraction": 0.4102,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "tertawa",
+      "category": "reactions",
+      "file": "reactions/tertawa.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 866826,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        19,
+        1209,
+        1286
+      ],
+      "visibleAlphaBounds": [
+        203,
+        121,
+        1067,
+        1261
+      ],
+      "transparentFraction": 0.6325,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "skeptis",
+      "category": "reactions",
+      "file": "reactions/skeptis.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1778400,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        14,
+        1016,
+        1508
+      ],
+      "visibleAlphaBounds": [
+        46,
+        16,
+        988,
+        1503
+      ],
+      "transparentFraction": 0.4334,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "menang",
+      "category": "reactions",
+      "file": "reactions/menang.png",
+      "width": 1233,
+      "height": 1275,
+      "bytes": 1992094,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1233,
+        1275
+      ],
+      "visibleAlphaBounds": [
+        44,
+        17,
+        1198,
+        1242
+      ],
+      "transparentFraction": 0.242,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "aura-emas",
+      "category": "effects",
+      "file": "effects/aura-emas.png",
+      "width": 1145,
+      "height": 1374,
+      "bytes": 1272991,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "visibleAlphaBounds": [
+        15,
+        18,
+        1128,
+        1348
+      ],
+      "transparentFraction": 0.5016,
+      "animated": false,
+      "layers": "standalone-effect"
+    },
+    {
+      "id": "petir-biru",
+      "category": "effects",
+      "file": "effects/petir-biru.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1385439,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        7,
+        1253,
+        1254
+      ],
+      "visibleAlphaBounds": [
+        21,
+        36,
+        1235,
+        1226
+      ],
+      "transparentFraction": 0.4384,
+      "animated": false,
+      "layers": "standalone-effect"
+    },
+    {
+      "id": "impact-ungu",
+      "category": "effects",
+      "file": "effects/impact-ungu.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1550856,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "visibleAlphaBounds": [
+        18,
+        14,
+        1240,
+        1235
+      ],
+      "transparentFraction": 0.4016,
+      "animated": false,
+      "layers": "standalone-effect"
+    }
+  ]
+}
