@@ -56,6 +56,7 @@ type Props = {
   assets: Map<string, PixelAsset>;
   hidden: number; // 0..1, saat interupsi epik
   auras: AuraEvent[];
+  enters?: {frame: number; kind: 'dash' | 'beam'}[]; // masuk ulang: dash dari samping / sinar teleport
 };
 
 const FADE = 2; // frame silang antar pose
@@ -64,7 +65,7 @@ const FADE = 2; // frame silang antar pose
  * Presenter diam seperti sprite game: ganti pose = potongan bersih (fade 2 frame),
  * pindah posisi = geser mulus. Efek mini-epik tampil di belakangnya.
  */
-export const Character: React.FC<Props> = ({changes, layouts, assets, hidden, auras}) => {
+export const Character: React.FC<Props> = ({changes, layouts, assets, hidden, auras, enters = []}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -83,6 +84,22 @@ export const Character: React.FC<Props> = ({changes, layouts, assets, hidden, au
   const h = interpolate(m, [0, 1], [from.h, to.h]);
   const flip = m < 0.5 ? from.flip : to.flip;
   const enter = spring({frame, fps, config: {damping: 200, stiffness: 100}});
+
+  // masuk ulang (bukan goyang): dash = meluncur dari luar layar 10 frame; beam = muncul bertahap dalam sinar
+  const en = [...enters].reverse().find((e) => frame >= e.frame - 1 && frame < e.frame + 16);
+  let enterX = 0;
+  let beamOp = 1;
+  let beam = 0;
+  if (en) {
+    const d = frame - en.frame;
+    if (en.kind === 'dash') {
+      const k = spring({frame: d, fps, durationInFrames: 10, config: {damping: 200}});
+      enterX = (1 - k) * (flip ? 760 : -760);
+    } else {
+      beamOp = Math.round(interpolate(d, [2, 10], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) * 4) / 4;
+      beam = interpolate(d, [0, 3, 10, 16], [0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+    }
+  }
 
   const asset = assets.get(cur.pose) ?? assets.get('netral');
   const prevAsset = prev ? assets.get(prev.pose) : undefined;
@@ -103,7 +120,21 @@ export const Character: React.FC<Props> = ({changes, layouts, assets, hidden, au
   })();
 
   return (
-    <div style={{position: 'absolute', left: cx + interpolate(enter, [0, 1], [-600, 0]), top: to.base, width: 0, height: 0, opacity: 1 - hidden}}>
+    <div style={{position: 'absolute', left: cx + interpolate(enter, [0, 1], [-600, 0]) + enterX, top: to.base, width: 0, height: 0, opacity: 1 - hidden}}>
+      {beam > 0 && (
+        <div
+          style={{
+            position: 'absolute',
+            left: -h * 0.22,
+            top: -1920,
+            width: h * 0.44,
+            height: 1920,
+            background: `linear-gradient(90deg, transparent, rgba(255,255,255,0.9) 30%, rgba(255,210,63,0.9) 50%, rgba(255,255,255,0.9) 70%, transparent)`,
+            opacity: beam,
+            transform: `scaleX(${0.3 + 0.7 * beam})`,
+          }}
+        />
+      )}
       {aura && (
         <div style={{position: 'absolute', left: bodyOffset, top: -h * 0.5}}>
           <EffectImg
@@ -114,7 +145,7 @@ export const Character: React.FC<Props> = ({changes, layouts, assets, hidden, au
           />
         </div>
       )}
-      <div style={{position: 'absolute', left: 0, top: 0, transform: `scaleX(${flip ? -1 : 1})`, filter: 'drop-shadow(8px 8px 0 rgba(27,31,59,0.35))'}}>
+      <div style={{position: 'absolute', left: 0, top: 0, opacity: beamOp, transform: `scaleX(${flip ? -1 : 1})`, filter: 'drop-shadow(8px 8px 0 rgba(27,31,59,0.35))'}}>
         {prevAsset && fade < 1 && <PixelFigure asset={prevAsset} h={h} opacity={1 - fade} />}
         <PixelFigure asset={asset} h={h} opacity={fade} />
       </div>

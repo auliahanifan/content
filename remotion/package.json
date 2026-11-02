@@ -6,7 +6,8 @@
     "studio": "node scripts/run.mjs studio",
     "render": "node scripts/run.mjs render",
     "still": "node scripts/run.mjs still",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "density": "node scripts/density.mjs"
   },
   "dependencies": {
     "@fontsource/bricolage-grotesque": "^5.3.0",

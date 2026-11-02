@@ -1,5 +1,5 @@
 import React from 'react';
-import {Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {Img, interpolate, random, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT_BODY, FONT_DISPLAY, notch, pixelBox, tone} from '../theme';
 import {popStyle, usePop, useTiming} from '../timing';
 import type {Board, Item, Ring} from '../types';
@@ -395,6 +395,125 @@ const WordBoard: React.FC<{b: Extract<Board, {type: 'word'}>; start: number}> = 
   );
 };
 
+// ---------- boss (masalah jadi monster, HP turun saat solusi disebut) ----------
+const BossBoard: React.FC<{b: Extract<Board, {type: 'boss'}>; start: number}> = ({b, start}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {T} = useTiming();
+  const max = b.hp ?? 100;
+  const hits = (b.hits ?? []).map((h) => ({...h, f: T(h.at)})).sort((a, c) => a.f - c.f);
+  // HP turun bertahap (spring) per pukulan
+  let hp = max;
+  let lastHit: (typeof hits)[number] | undefined;
+  hits.forEach((h) => {
+    if (frame >= h.f) {
+      const k = spring({frame: frame - h.f, fps, config: {damping: 20, stiffness: 140}});
+      hp -= h.dmg * Math.min(1, k);
+      lastHit = h;
+    }
+  });
+  const defeatF = b.defeatAt !== undefined ? T(b.defeatAt) : Infinity;
+  const dd = frame - defeatF;
+  if (dd >= 0) hp = 0;
+  hp = Math.max(0, hp);
+  const ratio = hp / max;
+  const barCol = ratio > 0.5 ? C.good : ratio > 0.25 ? C.warn : C.bad;
+  const hd = lastHit ? frame - lastHit.f : 99;
+  const hitFlash = hd >= 0 && hd < 6;
+  const knock = hd >= 0 && hd < 12 ? Math.round(Math.sin(hd * 1.8) * (12 - hd) * 3) : 0;
+  const idle = Math.round(Math.sin((frame - start) / 8) * 10 / 4) * 4;
+  const appear = spring({frame: frame - start - 4, fps, config: {damping: 10, stiffness: 160}});
+  const gone = dd >= 0 ? Math.min(1, dd / 18) : 0;
+  const segs = 20;
+  return (
+    <Col gap={26}>
+      <div style={{width: '92%'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: FONT_DISPLAY, fontWeight: 700, color: C.ink}}>
+          <span style={{fontSize: 46}}>{b.name}</span>
+          <span style={{fontSize: 34, color: C.inkSoft}}>
+            HP {Math.round(hp)}/{max}
+          </span>
+        </div>
+        <div style={{display: 'flex', gap: 4, marginTop: 10, padding: 6, background: C.ink}}>
+          {[...Array(segs)].map((_, i) => (
+            <div key={i} style={{flex: 1, height: 34, background: i < Math.ceil(ratio * segs) ? barCol : '#3A3F66'}} />
+          ))}
+        </div>
+      </div>
+      <div style={{position: 'relative', flex: 1, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div
+          style={{
+            transform: `translate(${knock}px, ${idle}px) scale(${appear * (1 - gone)}) rotate(${gone * 540}deg)`,
+            filter: hitFlash ? 'brightness(3) saturate(0)' : `drop-shadow(10px 10px 0 ${C.ink})`,
+          }}
+        >
+          <Prop emoji={b.emoji} size={360} slot={false} />
+        </div>
+        {lastHit && hd >= 0 && hd < 28 && (
+          <div
+            style={{
+              position: 'absolute',
+              top: `${30 - hd * 0.6}%`,
+              right: '12%',
+              fontFamily: FONT_DISPLAY,
+              fontWeight: 700,
+              fontSize: 90,
+              color: C.white,
+              WebkitTextStroke: `12px ${C.ink}`,
+              paintOrder: 'stroke fill',
+              textShadow: `6px 6px 0 ${C.bad}`,
+              opacity: interpolate(hd, [20, 28], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}),
+            }}
+          >
+            {lastHit.text ?? `-${lastHit.dmg}`}
+          </div>
+        )}
+        {[...hits.map((h) => frame - h.f), dd].map((d, k) =>
+          d >= 0 && d < 20
+            ? [...Array(12)].map((_, i) => {
+                const a = (i / 12) * Math.PI * 2;
+                const r = (1 - Math.exp(-d / 5)) * (k === hits.length ? 320 : 200);
+                return (
+                  <div
+                    key={`${k}-${i}`}
+                    style={{
+                      position: 'absolute',
+                      left: `calc(50% + ${Math.round(Math.cos(a) * r)}px)`,
+                      top: `calc(50% + ${Math.round(Math.sin(a) * r)}px)`,
+                      width: k === hits.length ? 30 : 18,
+                      height: k === hits.length ? 30 : 18,
+                      background: k === hits.length ? C.sun : i % 2 ? C.accent : C.white,
+                      boxShadow: `0 0 0 4px ${C.ink}`,
+                      opacity: 1 - d / 20,
+                      rotate: `${random(`r${i}`) * 90}deg`,
+                    }}
+                  />
+                );
+              })
+            : null,
+        )}
+        {dd >= 6 && (
+          <div
+            style={{
+              position: 'absolute',
+              fontFamily: FONT_DISPLAY,
+              fontWeight: 700,
+              fontSize: 150,
+              color: C.sun,
+              WebkitTextStroke: `16px ${C.ink}`,
+              paintOrder: 'stroke fill',
+              textShadow: `10px 10px 0 ${C.accent}`,
+              transform: `scale(${spring({frame: dd - 6, fps, config: {damping: 8, stiffness: 220, mass: 0.5}})}) rotate(-6deg)`,
+            }}
+          >
+            {b.defeatText ?? 'KALAH!'}
+          </div>
+        )}
+      </div>
+    </Col>
+  );
+};
+
 // ---------- util ----------
 const Col: React.FC<{children: React.ReactNode; gap: number; align?: 'center' | 'stretch'}> = ({children, gap, align = 'center'}) => (
   <div style={{display: 'flex', flexDirection: 'column', alignItems: align, justifyContent: 'safe center', gap, width: '100%', height: '100%'}}>
@@ -438,6 +557,8 @@ export const BoardContent: React.FC<{b: Board; start: number}> = ({b, start}) =>
       return <UiBoard b={b} start={start} />;
     case 'word':
       return <WordBoard b={b} start={start} />;
+    case 'boss':
+      return <BossBoard b={b} start={start} />;
   }
 };
 

@@ -18,6 +18,12 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
   "meter": {"label": "RISIKO", "prefix": "Rp", "short": true,           // indikator taruhan di tengah atas
             "steps": [{"at": 12, "value": 50000000}, {"at": 40, "value": 1250000000}], "to": 150},
   "loop": {"text": "Prompt-nya di akhir", "until": 150},                 // progress bar hitung mundur ke payoff
+  "stickers": [{"at": 14, "emoji": "💸"}],          // emoji pixel meletup di tepi papan (x/y px opsional)
+  "pops": [{"at": 40, "text": "63%", "tone": "bad"}], // damage number di atas kepala karakter
+  "fx": [{"at": 88, "kind": "shake"}],              // shake | flash | glitch | zoom | burst
+  "loot": [{"at": 82, "emoji": "📦", "text": "+KERETA"}],  // item terbang dari papan ke karakter
+  "moods": [{"at": 9, "mood": "bahaya", "dur": 2}], // latar bereaksi sesaat
+  "autoJuice": true,                                // default: debu kaki, burst di punch, pop dari meter
   "autoSfx": true,                      // default
   "sfx": [{"at": 30, "name": "coin"}],  // tambahan: blip coin power hit select sweep boom
   "scenes": [ /* lihat di bawah */ ]
@@ -35,9 +41,32 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
   "board": { "type": "...", "kicker": "tab kecil di atas papan", ... },
   "footer": {"at": 118, "text": "Kusirnya? *Anda*."},  // kotak dialog RPG mengetik di dasar papan
   "dark": true,                          // malam arcade (penutup)
-  "sfx": null                            // matikan sweep pembuka adegan ini (default "sweep")
+  "sfx": null,                           // matikan sweep pembuka adegan ini (default "sweep")
+  "map": "toko",                         // padang | toko | kantor | kota | dungeon; mewarisi adegan sebelumnya
+  "mood": "bahaya",                      // bahaya | untung | glitch | fokus, selama adegan
+  "skin": "quest",                       // window | quest | arcade | item | none
+  "size": "sm",                          // papan lebih kecil, dunia lebih terlihat
+  "enter": "beam"                        // dash | beam: karakter masuk ulang
 }
 ```
+
+## Dunia, mood, dan juice (gaya energik)
+Target: **sesuatu terjadi di layar tiap 1-2 detik**. Cek dengan `pnpm density <folder-video> [batas=2]` dari `remotion/`: skrip mendaftar jeda tanpa kejadian lebih dari batas beserta kalimatnya; isi jeda itu dengan stiker, pop, fx, pose, atau baris papan. Exit code 2 bila masih ada jeda.
+
+**Map** (`map`, procedural di `remotion/src/world/Maps.tsx`, tanpa aset): `padang` (dunia RPG bawaan, netral/penutup) · `toko` (ruko/warung + jalan: UMKM, stok, pelanggan, ongkir, katalog) · `kantor` (meja, laptop, papan sticky notes: tim, admin, SOP, kerja harian) · `kota` (pasar digital senja, neon ikon app: marketplace, sosmed, iklan, tren, produk AI) · `dungeon` (server room ceria, obor cyan, peti: bahaya, data, hukum, cara kerja di balik layar, boss). Map bergulir pelan terus; **ganti map = kamera dash** ke kanan (map lama keluar kiri, garis kecepatan, karakter ikut meluncur masuk, SFX `dash`). Ganti map saat topik berpindah, kira-kira tiap 2-4 adegan; jangan tiap adegan. Logo seri otomatis versi putih di `kota`/`dungeon`.
+
+**Mood** (latar bereaksi, di belakang papan): `bahaya` (merah berdenyut + percikan; risiko, kesalahan, larangan) · `untung` (cahaya emas + koin jatuh; hemat, hasil, angka bagus) · `glitch` (pita warna + RGB split latar; error, kebocoran, AI ngawur) · `fokus` (vignette gelap; pertanyaan kunci, "kusirnya Anda"). Per adegan (`mood`) atau sesaat (`moods[]`, default 1,5 detik).
+
+**Skin papan** (`skin`): `window` (default jendela RPG) · `quest` (perkamen + segel; langkah, misi, contoh, checklist) · `arcade` (layar CRT terang bergaris scan, title magenta; data, angka, bukti layar, perbandingan) · `item` (kartu legendaris emas + kilau berjalan + ★★★★★; insight kunci, kesimpulan, "harness") · `none` (tanpa jendela; teks outline putih langsung di dunia, untuk papan `title` pendek). Variasikan; jangan dua adegan berturut-turut dengan skin sama kecuali window.
+
+**Juice:**
+- `stickers`: emoji yang di-pixel-kan, meletup ±1,4 detik di titik aman tepi papan (bergiliran 6 titik) atau `x`/`y`. Sumber utama kepadatan: satu stiker per kata konkret yang tidak ada di papan (benda, emosi, tindakan). Tanpa meme atau aset pihak lain.
+- `pops`: damage number ala RPG naik dari atas kepala karakter (`-Rp1,2 M`, `63%`, `+6 SKILL`). `tone` `bad` = SFX damage, `good`/`sun` = coin. Meter otomatis memunculkan pop selisihnya.
+- `fx`: `shake` (benturan, larangan), `flash` (reveal), `glitch` (seluruh layar 8 frame; error), `zoom` (penekanan kecil), `burst` (bintang pixel di atas kepala atau `x`/`y`).
+- `loot`: item terbang melengkung dari papan ke karakter lalu `+TEKS` di atas kepala (mendapat alat, file, hasil). SFX pickup.
+- Efek tidak boleh menutupi angka/isi papan atau caption yang sedang dibaca: pop dan burst default di atas kepala karakter; stiker di tepi papan. Bila memakai `x`/`y`, cek still.
+
+**Karakter masuk** (`enter`): `dash` (meluncur dari luar layar + debu; otomatis saat map berganti) · `beam` (sinar teleport, muncul bertahap; momen "begini cara kerjanya"). Karakter tetap tidak bergoyang; animasi frame (mulut, kedip, jalan) menyusul saat aset Vol. 5 ada (`assets/pixel-aulia/prompts-vol5.md`).
 
 **Pose presenter** (`assets/pixel-aulia/characters`): `netral` · `menjelaskan` (tangan terbuka) · `menunjuk` (ke arah papan/caption) · `berpikir` (tangan di dagu) · `setuju` (jempol) · `menyapa` (lambai, intro/outro) · `stop` (telapak ke depan: "jangan", membantah mitos) · `laptop` / `smartphone` (demo workflow, teknologi) · `presentasi` / `mencatat` (langkah, merangkum) · `ngopi` (jeda santai) · `facepalm` (kesalahan umum). Pada layout `right` karakter dibalik sehingga menunjuk ke kiri. Ganti pose tiap 1-3 kalimat; jangan tiap kata.
 
@@ -69,6 +98,7 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
 | `shot` | `title`, `src` (relatif folder video), `source`, `rings[{at, x, y, w, h, tone}]` (persen) | bukti layar |
 | `ui` | `kind`, `title`, `app`, `meta`, `note`, `items[UiLine]`, `total`, `button`, `buttonAt`, `stamp`, `zoom` | mock layar realistis yang dikenali penonton (lihat di bawah) |
 | `word` | `text` (1 kata), `sub`/`subAt`, `at`, `tone`, `stamp` | punchline satu kata di jendela gelap dengan glow (kata kunci pembalik, mis. `per.`) |
+| `boss` | `name`, `emoji` (monster dari emoji pixel), `hp` (default 100), `hits[{at, dmg, text}]`, `defeatAt`, `defeatText` (default `KALAH!`) | masalah jadi monster; HP turun saat solusi disebut (SFX damage), meledak jadi bintang di `defeatAt` (SFX levelup). Cocok di map `dungeon` + `dark` untuk penutup. 1 per video |
 
 ### Papan `ui` (mock layar)
 Kartu UI modern (tidak di-pixel-kan, bingkai tinta tebal) di dalam jendela RPG. Pakai untuk tiap butir yang menyebut benda milik penonton: layar asli lebih cepat dipahami daripada ikon. Baris (`UiLine`): `{at, label, text, sub, value, tone, side, emoji, strikeAt, flag, flagAt}`. `flag` = chip jebakan merah miring di kanan baris (mis. `tanpa izin`, `tersembunyi`), muncul pada `flagAt` + SFX `hit`.
