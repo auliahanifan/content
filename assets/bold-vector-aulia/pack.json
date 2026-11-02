@@ -1,0 +1,26 @@
+{
+  "style": "Bold Vector",
+  "description": "Bentuk tegas dengan outline navy dan palet kontras.",
+  "assets": [
+    {
+      "id": "netral",
+      "file": "characters/netral.png"
+    },
+    {
+      "id": "deadline-samurai",
+      "file": "reactions/deadline-samurai.png"
+    },
+    {
+      "id": "raja-multitasking",
+      "file": "reactions/raja-multitasking.png"
+    },
+    {
+      "id": "bangkit-lagi",
+      "file": "reactions/bangkit-lagi.png"
+    },
+    {
+      "id": "sayap-phoenix",
+      "file": "effects/sayap-phoenix.png"
+    }
+  ]
+}

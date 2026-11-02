@@ -1,0 +1,143 @@
+{
+  "style": "Motion Comic",
+  "description": "Kontur tinta ekspresif, cel shading dan perspektif dramatis.",
+  "created": "2026-11-02",
+  "generator": "ImageGen",
+  "sourceReferences": [
+    "assets/karakter-referensi.png",
+    "assets/kepala-netral.png",
+    "assets/pixel-aulia/reactions/"
+  ],
+  "assets": [
+    {
+      "id": "netral",
+      "file": "characters/netral.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1402465,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.7302,
+      "alphaBounds": [
+        0,
+        16,
+        1004,
+        1516
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props"
+    },
+    {
+      "id": "deadline-samurai",
+      "file": "reactions/deadline-samurai.png",
+      "width": 1131,
+      "height": 1391,
+      "bytes": 2194475,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.424,
+      "alphaBounds": [
+        0,
+        0,
+        1120,
+        1391
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props"
+    },
+    {
+      "id": "raja-multitasking",
+      "file": "reactions/raja-multitasking.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2113821,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4225,
+      "alphaBounds": [
+        0,
+        0,
+        1024,
+        1517
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props"
+    },
+    {
+      "id": "bangkit-lagi",
+      "file": "reactions/bangkit-lagi.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2627837,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.4055,
+      "alphaBounds": [
+        0,
+        15,
+        1012,
+        1536
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props"
+    },
+    {
+      "id": "sayap-phoenix",
+      "file": "effects/sayap-phoenix.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2352609,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4974,
+      "alphaBounds": [
+        0,
+        5,
+        1536,
+        1024
+      ],
+      "animated": false,
+      "layers": "standalone-effect"
+    }
+  ]
+}
