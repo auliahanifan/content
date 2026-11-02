@@ -2,7 +2,9 @@ import React from 'react';
 import {AbsoluteFill, Sequence, useVideoConfig} from 'remotion';
 import {PixelAulia, pixelAuliaFiles, type PixelAuliaMood} from './PixelAulia';
 
-/** Register a 1080x1920 Composition, fps=30, durationInFrames=600. */
+export const pixelAuliaShowcaseDuration = (fps: number) => Object.keys(pixelAuliaFiles).length * Math.round(2 * fps);
+
+/** Register 1080x1920; durationInFrames=pixelAuliaShowcaseDuration(fps). */
 export const PixelAuliaShowcase: React.FC = () => {
   const {fps} = useVideoConfig();
   const moods = Object.keys(pixelAuliaFiles) as PixelAuliaMood[];
@@ -16,3 +18,9 @@ export const PixelAuliaShowcase: React.FC = () => {
     </Sequence>)}
   </AbsoluteFill>;
 };
+
+/** Separate aura pulses independently behind a clean presenter pose. */
+export const PixelAuliaLayeredExample: React.FC = () => <AbsoluteFill
+  style={{backgroundColor: '#101625', alignItems: 'center', justifyContent: 'center'}}>
+  <PixelAulia mood="menjelaskan" effect="aura-emas" size={900} effectScale={1.1}/>
+</AbsoluteFill>;
