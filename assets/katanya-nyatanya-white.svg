@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="logo-title logo-desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="844" height="324" viewBox="94 352 844 324" role="img" aria-labelledby="logo-title logo-desc">
   <title id="logo-title">Katanya Nyatanya</title>
-  <desc id="logo-desc">Logo dua gelembung percakapan: gelembung klaim bergaris putus-putus dan Katanya berwarna ink #FFFFFF; gelembung penuh dan Nyatanya berwarna kobalt #3A5BFF. Huruf Geist SemiBold 600 berupa path vektor. Kanvas persegi 1:1, latar transparan.</desc>
+  <desc id="logo-desc">Logo dua gelembung percakapan: gelembung klaim bergaris putus-putus dan Katanya berwarna ink #FFFFFF; gelembung penuh dan Nyatanya berwarna kobalt #3A5BFF. Huruf Geist SemiBold 600 berupa path vektor. Kanvas dipotong rapat ke logo, latar transparan.</desc>
   <g id="logo" transform="translate(98 358) scale(1.2)">
     <g id="claim-bubble" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
       <path d="M184 77V32C184 8 164 -3 141 7L25 58C9 65 5 77 5 96V159C5 180 12 188 28 189" stroke-dasharray="18 16"/>
