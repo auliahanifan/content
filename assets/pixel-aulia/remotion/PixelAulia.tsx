@@ -9,6 +9,12 @@ export const pixelAuliaFiles = {
   setuju: 'characters/setuju.png',
   menyapa: 'characters/menyapa.png',
   stop: 'characters/stop.png',
+  laptop: 'characters/laptop.png',
+  smartphone: 'characters/smartphone.png',
+  presentasi: 'characters/presentasi.png',
+  mencatat: 'characters/mencatat.png',
+  ngopi: 'characters/ngopi.png',
+  facepalm: 'characters/facepalm.png',
   murka: 'reactions/murka.png',
   fokus: 'reactions/fokus.png',
   kaget: 'reactions/kaget.png',
@@ -21,12 +27,18 @@ export const pixelAuliaFiles = {
   tertawa: 'reactions/tertawa.png',
   skeptis: 'reactions/skeptis.png',
   menang: 'reactions/menang.png',
+  panik: 'reactions/panik.png',
+  malu: 'reactions/malu.png',
+  'mode-jenius': 'reactions/mode-jenius.png',
 } as const;
 
 export const pixelAuliaEffects = {
   'aura-emas': 'effects/aura-emas.png',
   'petir-biru': 'effects/petir-biru.png',
   'impact-ungu': 'effects/impact-ungu.png',
+  'portal-hijau': 'effects/portal-hijau.png',
+  'speedlines-merah': 'effects/speedlines-merah.png',
+  'partikel-bintang': 'effects/partikel-bintang.png',
 } as const;
 
 export type PixelAuliaMood = keyof typeof pixelAuliaFiles;
@@ -54,9 +66,9 @@ export const PixelAulia: React.FC<PixelAuliaProps> = ({
   const {fps} = useVideoConfig();
   const entrance = animate ? spring({frame, fps, config: {damping: 16, stiffness: 180}}) : 1;
   const seconds = frame / fps;
-  const energetic = mood === 'murka' || mood === 'semangat';
+  const energetic = mood === 'murka' || mood === 'semangat' || mood === 'panik';
   const shake = animate && energetic ? Math.round(Math.sin(seconds * 65) * 3) : 0;
-  const hover = animate && (mood === 'percaya-diri' || mood === 'dapat-ide')
+  const hover = animate && (mood === 'percaya-diri' || mood === 'dapat-ide' || mood === 'mode-jenius')
     ? Math.round(Math.sin(seconds * Math.PI * 2) * 6) : 0;
   const y = Math.round((1 - entrance) * 36) + hover;
   const scale = 0.9 + entrance * 0.1;
