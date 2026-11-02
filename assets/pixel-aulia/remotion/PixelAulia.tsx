@@ -30,6 +30,15 @@ export const pixelAuliaFiles = {
   panik: 'reactions/panik.png',
   malu: 'reactions/malu.png',
   'mode-jenius': 'reactions/mode-jenius.png',
+  'deadline-samurai': 'reactions/deadline-samurai.png',
+  'raja-multitasking': 'reactions/raja-multitasking.png',
+  'ditelan-algoritma': 'reactions/ditelan-algoritma.png',
+  'dompet-kritis': 'reactions/dompet-kritis.png',
+  'mode-biksu': 'reactions/mode-biksu.png',
+  'bangkit-lagi': 'reactions/bangkit-lagi.png',
+  'otak-overload': 'reactions/otak-overload.png',
+  'pawang-ai': 'reactions/pawang-ai.png',
+  'eksekusi-meteor': 'reactions/eksekusi-meteor.png',
 } as const;
 
 export const pixelAuliaEffects = {
@@ -39,6 +48,9 @@ export const pixelAuliaEffects = {
   'portal-hijau': 'effects/portal-hijau.png',
   'speedlines-merah': 'effects/speedlines-merah.png',
   'partikel-bintang': 'effects/partikel-bintang.png',
+  'cincin-deadline': 'effects/cincin-deadline.png',
+  'sayap-phoenix': 'effects/sayap-phoenix.png',
+  'badai-notifikasi': 'effects/badai-notifikasi.png',
 } as const;
 
 export type PixelAuliaMood = keyof typeof pixelAuliaFiles;
@@ -66,21 +78,30 @@ export const PixelAulia: React.FC<PixelAuliaProps> = ({
   const {fps} = useVideoConfig();
   const entrance = animate ? spring({frame, fps, config: {damping: 16, stiffness: 180}}) : 1;
   const seconds = frame / fps;
-  const energetic = mood === 'murka' || mood === 'semangat' || mood === 'panik';
+  const energetic = ['murka', 'semangat', 'panik', 'deadline-samurai', 'ditelan-algoritma', 'otak-overload', 'eksekusi-meteor'].includes(mood);
   const shake = animate && energetic ? Math.round(Math.sin(seconds * 65) * 3) : 0;
-  const hover = animate && (mood === 'percaya-diri' || mood === 'dapat-ide' || mood === 'mode-jenius')
+  const hover = animate && ['percaya-diri', 'dapat-ide', 'mode-jenius', 'raja-multitasking', 'mode-biksu', 'bangkit-lagi', 'pawang-ai'].includes(mood)
     ? Math.round(Math.sin(seconds * Math.PI * 2) * 6) : 0;
   const y = Math.round((1 - entrance) * 36) + hover;
   const scale = 0.9 + entrance * 0.1;
+  // Whole-image motion only: the illustration's internal limbs/VFX stay flattened.
+  const meteor = mood === 'eksekusi-meteor';
+  const suction = animate && mood === 'ditelan-algoritma';
+  const entryX = meteor ? Math.round((1 - entrance) * -size * 0.55) : 0;
+  const entryY = meteor ? Math.round((1 - entrance) * -size * 0.4) : 0;
+  const wobble = suction ? Math.sin(seconds * 8) * 4 : 0;
+  const strike = animate && mood === 'deadline-samurai' ? (1 - entrance) * -18 : 0;
+  const suctionScale = suction ? 1 + Math.sin(seconds * 4) * 0.035 : 1;
   const root = assetRoot.replace(/^\/+|\/+$/g, '');
   const pulse = animate ? 1 + Math.sin(seconds * Math.PI * 4) * 0.025 : 1;
+  const effectRotation = animate && effect === 'cincin-deadline' ? seconds * 12 : 0;
   return <div style={{width: size, height: size, position: 'relative', isolation: 'isolate', ...style}}>
     {effect && <Img
       src={staticFile(`${root}/${pixelAuliaEffects[effect]}`)}
       alt=""
       style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain',
         imageRendering: 'pixelated', opacity: Math.min(1, Math.max(0, entrance)),
-        transform: `translate(${effectOffsetX}px, ${effectOffsetY}px) scale(${effectScale * pulse})`,
+        transform: `translate(${effectOffsetX}px, ${effectOffsetY}px) rotate(${effectRotation}deg) scale(${effectScale * pulse})`,
         pointerEvents: 'none'}}
     />}
     <Img
@@ -88,7 +109,7 @@ export const PixelAulia: React.FC<PixelAuliaProps> = ({
       alt={`Aulia: ${mood}`}
       style={{position: 'relative', width: '100%', height: '100%', objectFit: 'contain', imageRendering: 'pixelated',
         opacity: animate ? interpolate(frame, [0, Math.max(1, Math.round(fps * 0.15))], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1,
-        transform: `translate(${shake}px, ${y}px) scale(${scale})`, transformOrigin: '50% 90%'}}
+        transform: `translate(${shake + entryX}px, ${y + entryY}px) rotate(${strike + wobble}deg) scale(${scale * suctionScale})`, transformOrigin: '50% 90%'}}
     />
   </div>;
 };
