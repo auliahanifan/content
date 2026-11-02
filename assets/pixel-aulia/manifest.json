@@ -1,0 +1,210 @@
+{
+  "name": "Pixel Aulia — Epic Anime Reactions",
+  "version": 1,
+  "created": "2026-11-02",
+  "generator": "ImageGen",
+  "styleReference": "references/styles-3x3.png (06 Outlined)",
+  "moodReference": "references/moods-3x3.png",
+  "assets": [
+    {
+      "id": "netral",
+      "file": "characters/netral.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1113199,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        33,
+        0,
+        1004,
+        1459
+      ],
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "murka",
+      "file": "reactions/murka.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 1569034,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1215,
+        1286
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "fokus",
+      "file": "reactions/fokus.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1914666,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "kaget",
+      "file": "reactions/kaget.png",
+      "width": 1328,
+      "height": 1184,
+      "bytes": 1846025,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        17,
+        1312,
+        1184
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "percaya-diri",
+      "file": "reactions/percaya-diri.png",
+      "width": 1199,
+      "height": 1312,
+      "bytes": 1810345,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1196,
+        1312
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "sedih",
+      "file": "reactions/sedih.png",
+      "width": 1225,
+      "height": 1284,
+      "bytes": 993717,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        9,
+        1209,
+        1284
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "semangat",
+      "file": "reactions/semangat.png",
+      "width": 1224,
+      "height": 1285,
+      "bytes": 1820535,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1221,
+        1285
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "bingung",
+      "file": "reactions/bingung.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 1528909,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1222,
+        1286
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "lelah",
+      "file": "reactions/lelah.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 900466,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        19,
+        1207,
+        1286
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "dapat-ide",
+      "file": "reactions/dapat-ide.png",
+      "width": 1223,
+      "height": 1286,
+      "bytes": 1647746,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1223,
+        1286
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    }
+  ]
+}
