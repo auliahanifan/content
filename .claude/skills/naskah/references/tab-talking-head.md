@@ -3,12 +3,12 @@
 Dipakai oleh `/ide-konten` (menulis ide fresh) dan `/naskah` mode pecah (menulis pecahan CORE) serta mode naskah (membaca baris dan memperbarui Status).
 
 ## Lokasi
-Spreadsheet yang sama dengan bank CORE. Nama tab: `Talking Head`. Jika tab belum ada, buat dengan `addSheet` lalu tulis baris header dan bekukan baris 1. Jangan pernah mengubah tab CORE.
+Spreadsheet yang sama dengan bank CORE (link di `CLAUDE.md`). Nama tab: `Talking Head`. Baris lama dipindah ke `ArchiveTH` (dan naskahnya dari `Naskah` ke `ArchiveN`) oleh `/arsip`. Jika tab belum ada, buat dengan `addSheet` lalu tulis baris header dan bekukan baris 1. Jangan pernah mengubah tab CORE.
 
 ## Kolom (urutan tetap)
 | Kolom | Isi |
 |---|---|
-| ID | `TH-001`, berurutan. Lanjutkan dari nomor terbesar yang ada di tab. |
+| ID | `TH-001`, berurutan. Lanjutkan dari nomor terbesar di tab Talking Head **dan** ArchiveTH, agar ID yang sudah diarsipkan tidak dipakai ulang. |
 | Tanggal | Tanggal ide dibuat, `YYYY-MM-DD`. |
 | Sumber | Salah satu: `CORE#<id>`, `berita AI`, `berita UMKM`, `sosmed`, `evergreen`, `audiens` |
 | Link sumber | URL yang benar-benar dibuka. Kosong untuk evergreen. Untuk audiens: kutipan singkat pertanyaannya. |
@@ -54,7 +54,7 @@ Prioritas seri: Katanya Nyatanya, Bukan Sulap, dan Sing Murah Wae. AI Umum hanya
 ## Tab "Naskah" dan "Fakta"
 Semua hasil kerja disimpan di spreadsheet yang sama, bukan di file lokal. Jika tab belum ada, buat dengan header di bawah, bekukan baris 1, dan aktifkan wrap text.
 
-**Naskah**, satu baris per ID. Jika ID sudah ada, timpa barisnya (jangan menambah baris kedua):
+**Naskah**, satu baris per ID. Jika ID sudah ada, timpa barisnya (jangan menambah baris kedua). Jika ID itu hanya ada di `ArchiveN` dan naskahnya ditulis ulang, tulis di tab Naskah lalu sebutkan ke pengguna bahwa versi lama masih di arsip:
 | ID | Judul | Naskah teleprompter | Hook cadangan | Caption | Perlu diisi | Sumber | Challenge teknis | Catatan review | Diperbarui  Potensi | Hasil uji |
 
 - Naskah teleprompter: satu ide per baris (baris baru di dalam sel), paragraf dipisah baris kosong.
@@ -76,7 +76,7 @@ Semua hasil kerja disimpan di spreadsheet yang sama, bukan di file lokal. Jika t
 - Satu ide utama per video, 45-75 detik.
 
 ## Anti dobel
-Sebelum mengusulkan, baca tab Talking Head dan tab CORE. Jangan usulkan ide yang topik dan sudutnya pada dasarnya sama dengan baris yang sudah ada. Sudut berbeda atas topik yang sama boleh, sebutkan bedanya di "Sudut Aul". (Pengecualian: pecahan CORE memang berasal dari baris CORE, tapi tidak boleh sama dengan pecahan yang sudah ada.)
+Sebelum mengusulkan, baca tab Talking Head, ArchiveTH, dan CORE. Jangan usulkan ide yang topik dan sudutnya pada dasarnya sama dengan baris yang sudah ada. Sudut berbeda atas topik yang sama boleh, sebutkan bedanya di "Sudut Aul". (Pengecualian: pecahan CORE memang berasal dari baris CORE, tapi tidak boleh sama dengan pecahan yang sudah ada.)
 
 ## Aturan tulis Google Sheets
 - Butuh konektor **Google Sheets** (bukan hanya Drive). Muat dengan ToolSearch "google sheets". Jika tidak ada, berhenti dan minta pengguna mengaktifkannya; jangan membuat file baru sebagai pengganti.

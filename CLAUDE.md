@@ -2,6 +2,12 @@
 
 Video konten (Reels/TikTok) per tanggal di `dates/<YYYY-MM-DD>/`. Footage mentah, proyek HyperFrames, dan hasil render ada di folder tanggal itu.
 
+## Google Sheet content bank
+
+https://docs.google.com/spreadsheets/d/1CWo1QCbJv_W-4L2AV5qGU3S-1JWf1CqdR0GMVnZyYMY/edit (`contentBank - aulia rahman`)
+
+Dipakai oleh `/ide-konten`, `/naskah`, `/challenge`, dan `/arsip`. Tab: `Talking Head`, `Naskah`, `Fakta`, serta arsipnya `ArchiveTH` (dari Talking Head) dan `ArchiveN` (dari Naskah). Pakai link ini; tidak perlu mencari di Drive.
+
 ## Transkripsi: pakai Whisper lokal
 
 Model sudah ada di repo ini. **Jangan unduh ulang.**
