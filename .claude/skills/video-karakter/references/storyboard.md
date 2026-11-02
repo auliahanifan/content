@@ -57,6 +57,7 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
 | `compare` | `title`, `left`, `right` ({at, label, prop, emoji, text, tone, strikeAt}), `op` ("vs", "+", "=", "→") | sebelum/sesudah, A vs B |
 | `quote` | `text`, `source`, `at` | kutipan |
 | `shot` | `title`, `src` (relatif folder video), `source`, `rings[{at, x, y, w, h, tone}]` (persen) | bukti layar |
+| `chat` | `name`, `emoji` (avatar), `messages[{at, text, me, time}]` 1-2 gelembung, `stamp{at, text, tone}`, `note` | hook berupa pesan (klien, bos), dramatisasi chat |
 
 `tone`: `accent` (jeruk) · `good` (hijau) · `bad` (merah) · `warn` (kuning tua) · `sky` · `lilac` · `sun` · `ink`.
 

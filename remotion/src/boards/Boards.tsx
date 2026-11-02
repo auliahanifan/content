@@ -1,6 +1,7 @@
 import React from 'react';
 import {Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT_BODY, FONT_DISPLAY, notch, pixelBox, tone} from '../theme';
+import type {Tone} from '../theme';
 import {popStyle, usePop, useTiming} from '../timing';
 import type {Board, Item, Ring} from '../types';
 import {Prop} from '../components/Prop';
@@ -336,6 +337,93 @@ const ShotBoard: React.FC<{b: Extract<Board, {type: 'shot'}>; start: number}> = 
   );
 };
 
+
+// ---------- chat (gelembung pesan + stempel) ----------
+const ChatBubble: React.FC<{m: {at?: number; text: string; me?: boolean; time?: string}; start: number}> = ({m, start}) => {
+  const {T} = useTiming();
+  const {p, visible} = usePop(m.at, start);
+  const bg = m.me ? '#D9FDD3' : C.white;
+  return (
+    <div style={{display: 'flex', justifyContent: m.me ? 'flex-end' : 'flex-start', width: '100%'}}>
+      <div
+        style={{
+          ...popStyle(p, visible, 30),
+          transformOrigin: m.me ? 'right bottom' : 'left bottom',
+          position: 'relative',
+          maxWidth: '86%',
+          padding: '26px 34px 18px',
+          background: bg,
+          clipPath: notch(8),
+          boxShadow: `inset 0 0 0 6px ${C.ink}`,
+        }}
+      >
+        <div style={{fontFamily: FONT_BODY, fontWeight: 700, fontSize: 52, lineHeight: 1.2, color: C.ink}}>
+          <Rich text={m.text} from={m.at !== undefined ? T(m.at) : start} />
+        </div>
+        <div style={{fontFamily: FONT_BODY, fontWeight: 600, fontSize: 26, color: C.inkSoft, textAlign: 'right', marginTop: 6}}>
+          {m.time ?? '09.41'} {m.me ? '✓✓' : ''}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Stamp: React.FC<{s: {at: number; text: string; tone?: Tone}}> = ({s}) => {
+  const frame = useCurrentFrame();
+  const {T} = useTiming();
+  const t = frame - T(s.at);
+  if (t < 0) return null;
+  // jatuh dari besar ke ukuran normal dalam 4 frame (berundak), lalu diam
+  const k = t >= 4 ? 1 : [2.2, 1.8, 1.4, 1.1][t];
+  const col = tone(s.tone ?? 'bad');
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        right: '6%',
+        bottom: 0,
+        transform: `rotate(-8deg) scale(${k})`,
+        opacity: t >= 4 ? 0.95 : 0.7,
+        padding: '8px 26px',
+        border: `8px solid ${col}`,
+        outline: `4px solid ${C.ink}`,
+        background: 'rgba(255,255,255,0.85)',
+        fontFamily: FONT_DISPLAY,
+        fontWeight: 800,
+        fontSize: 54,
+        letterSpacing: 2,
+        color: col,
+        textTransform: 'uppercase',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {s.text}
+    </div>
+  );
+};
+
+const ChatBoard: React.FC<{b: Extract<Board, {type: 'chat'}>; start: number}> = ({b, start}) => {
+  const {p, visible} = usePop(undefined, start);
+  return (
+    <Col gap={22} align="stretch">
+      <div style={{...popStyle(p, visible, 20), display: 'flex', alignItems: 'center', gap: 22, padding: '14px 22px', background: '#1F7A5C', clipPath: notch(8), boxShadow: `inset 0 0 0 6px ${C.ink}`}}>
+        <Prop prop={b.prop ?? 'avatar'} emoji={b.emoji ?? '🧑'} size={84} bg={C.paperDeep} />
+        <div>
+          <div style={{fontFamily: FONT_BODY, fontWeight: 800, fontSize: 44, color: C.white, lineHeight: 1.1}}>{b.name}</div>
+          <div style={{fontFamily: FONT_BODY, fontWeight: 600, fontSize: 26, color: '#CDEFE3'}}>online</div>
+        </div>
+      </div>
+      <div style={{position: 'relative', display: 'flex', flexDirection: 'column', gap: 22, padding: `10px 4px ${b.stamp ? 120 : 20}px`}}>
+        {b.messages.map((m, i) => (
+          <ChatBubble key={i} m={m} start={start} />
+        ))}
+        {b.stamp && <Stamp s={b.stamp} />}
+      </div>
+      {b.note && <Label size={28} color={C.inkSoft} weight={600}>{b.note}</Label>}
+    </Col>
+  );
+};
+
 // ---------- util ----------
 const Col: React.FC<{children: React.ReactNode; gap: number; align?: 'center' | 'stretch'}> = ({children, gap, align = 'center'}) => (
   <div style={{display: 'flex', flexDirection: 'column', alignItems: align, justifyContent: 'safe center', gap, width: '100%', height: '100%'}}>
@@ -375,6 +463,8 @@ export const BoardContent: React.FC<{b: Board; start: number}> = ({b, start}) =>
       return <QuoteBoard b={b} start={start} />;
     case 'shot':
       return <ShotBoard b={b} start={start} />;
+    case 'chat':
+      return <ChatBoard b={b} start={start} />;
   }
 };
 

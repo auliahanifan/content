@@ -1,0 +1,13 @@
+[curious] "Makasih, Kak. Sekarang saya bikin sendiri pakai AI."
+
+[conversational] Klien Anda nggak pindah ke kompetitor. Pindah ke AI.
+
+[casual] Banyak yang mikir, kerjaan hilang karena AI itu bentuknya PHK. [conversational] Padahal survei Payments di Amerika, Agustus lalu, bilang lain. Dari usaha kecil yang pakai AI, dua belas persen nggak jadi sewa freelancer. [curious] Yang memecat? Cuma tiga koma tiga persen. [conversational] Yang batal dipanggil hampir empat kali lipat yang dipecat.
+
+[curious] Kenapa? [relaxed] Kerjaan simpel, sekarang klien coba sendiri. Jadi yang hilang kerjaan simpelnya, bukan semuanya. [conversational] Upwork sendiri bilang, pekerjaan sederhana terus pindah ke otomatisasi. Klien di Upwork turun empat persen, tapi belanja per klien justru naik.
+
+[relaxed] Kayak tukang fotokopi. Dulu orang datang cetak selembar. Sekarang banyak yang punya printer. [curious] Yang bertahan? [conversational] Yang jual jilid, laminasi, cetak lima ratus eksemplar besok pagi.
+
+[casual] Coba deh, daftar jasa Anda, tandai mana yang klien bisa bikin sendiri pakai AI, mana yang butuh hasil benar dan ada yang tanggung jawab. [relaxed] Yang kedua itu yang Anda jual.
+
+[conversational] Kalau klien pamit bikin sendiri... [chuckles] pastikan yang pergi cetak selembarnya, bukan jilidnya.

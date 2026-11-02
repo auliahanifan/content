@@ -1,0 +1,480 @@
+{
+  "series": "katanya-nyatanya",
+  "audio": "tts/final.mp3",
+  "words": "tts/words.json",
+  "tail": 1.2,
+  "keywords": [
+    "AI",
+    "PHK",
+    "freelancer",
+    "simpelnya",
+    "jilid",
+    "jilidnya",
+    "selembarnya",
+    "jual",
+    42,
+    43,
+    44,
+    52,
+    53,
+    54,
+    55
+  ],
+  "captionMerge": [
+    {
+      "from": 42,
+      "to": 44,
+      "text": "12%"
+    },
+    {
+      "from": 52,
+      "to": 55,
+      "text": "3,3%."
+    },
+    {
+      "from": 92,
+      "to": 93,
+      "text": "4%,"
+    },
+    {
+      "from": 120,
+      "to": 121,
+      "text": "500"
+    }
+  ],
+  "captionFix": {
+    "29": "PYMNTS"
+  },
+  "epic": [
+    {
+      "at": 14,
+      "reaction": "kaget",
+      "dur": 1.4,
+      "text": "KE AI?!",
+      "color": "bad"
+    },
+    {
+      "at": 59,
+      "reaction": "dapat-ide",
+      "dur": 1.6,
+      "text": "4X!",
+      "color": "sky"
+    }
+  ],
+  "aura": [
+    {
+      "at": 26,
+      "effect": "speedlines-merah"
+    },
+    {
+      "at": 87,
+      "effect": "portal-hijau"
+    },
+    {
+      "at": 99,
+      "effect": "partikel-bintang"
+    },
+    {
+      "at": 153,
+      "effect": "aura-emas"
+    }
+  ],
+  "punch": [
+    26,
+    44,
+    55,
+    78,
+    117,
+    154,
+    166
+  ],
+  "scenes": [
+    {
+      "at": 0,
+      "layout": "center",
+      "pose": "netral",
+      "poses": [
+        {
+          "at": 4,
+          "pose": "facepalm"
+        }
+      ],
+      "board": {
+        "type": "chat",
+        "kicker": "Pesan masuk",
+        "name": "Klien",
+        "emoji": "🧑‍💼",
+        "messages": [
+          {
+            "at": 0,
+            "text": "Makasih, Kak. Sekarang saya *bikin sendiri* pakai AI."
+          }
+        ],
+        "stamp": {
+          "at": 5,
+          "text": "Klien pamit",
+          "tone": "bad"
+        }
+      }
+    },
+    {
+      "at": 8,
+      "layout": "right",
+      "pose": "menjelaskan",
+      "poses": [
+        {
+          "at": 13,
+          "pose": "stop"
+        }
+      ],
+      "board": {
+        "type": "compare",
+        "kicker": "Klien pindah ke mana?",
+        "title": "Bukan ke *kompetitor*",
+        "left": {
+          "at": 11,
+          "label": "dikira",
+          "prop": "toko",
+          "emoji": "🏪",
+          "text": "kompetitor",
+          "tone": "bad",
+          "strikeAt": 13
+        },
+        "right": {
+          "at": 16,
+          "label": "nyatanya",
+          "prop": "robot",
+          "emoji": "🤖",
+          "text": "AI",
+          "tone": "sky"
+        },
+        "op": "→"
+      }
+    },
+    {
+      "at": 17,
+      "layout": "left",
+      "pose": "berpikir",
+      "board": {
+        "type": "title",
+        "kicker": "Banyak yang mikir",
+        "text": "Kerjaan hilang karena AI = *PHK*?",
+        "items": [
+          {
+            "at": 25,
+            "prop": "kardus-phk",
+            "emoji": "📦",
+            "label": "PHK",
+            "tone": "bad"
+          }
+        ]
+      }
+    },
+    {
+      "at": 27,
+      "layout": "center",
+      "pose": "stop",
+      "board": {
+        "type": "title",
+        "kicker": "Padahal",
+        "text": "Survei *PYMNTS*",
+        "sub": "Usaha kecil di AS · Agustus 2026",
+        "subAt": 30
+      }
+    },
+    {
+      "at": 36,
+      "layout": "right",
+      "pose": "menunjuk",
+      "board": {
+        "type": "shot",
+        "kicker": "Usaha kecil pengguna AI",
+        "title": "*12%* nggak jadi sewa freelancer",
+        "src": "assets/img/shot-pymnts-12.png",
+        "source": "PYMNTS Intelligence · Okt 2026",
+        "rings": [
+          {
+            "at": 42,
+            "x": 2,
+            "y": 34,
+            "w": 74,
+            "h": 14,
+            "tone": "accent"
+          }
+        ]
+      }
+    },
+    {
+      "at": 49,
+      "layout": "left",
+      "pose": "berpikir",
+      "poses": [
+        {
+          "at": 52,
+          "pose": "menunjuk"
+        }
+      ],
+      "board": {
+        "type": "shot",
+        "kicker": "Yang memecat?",
+        "title": "Cuma *3,3%*",
+        "src": "assets/img/shot-pymnts-33.png",
+        "source": "PYMNTS Intelligence · Okt 2026",
+        "rings": [
+          {
+            "at": 52,
+            "x": 37,
+            "y": 59,
+            "w": 61,
+            "h": 12,
+            "tone": "bad"
+          },
+          {
+            "at": 57,
+            "x": 2,
+            "y": 70,
+            "w": 96,
+            "h": 21,
+            "tone": "sky"
+          }
+        ]
+      }
+    },
+    {
+      "at": 65,
+      "layout": "right",
+      "pose": "berpikir",
+      "poses": [
+        {
+          "at": 66,
+          "pose": "menjelaskan"
+        },
+        {
+          "at": 72,
+          "pose": "menunjuk"
+        }
+      ],
+      "board": {
+        "type": "compare",
+        "kicker": "Kenapa?",
+        "title": "Yang hilang *kerjaan simpelnya*",
+        "left": {
+          "at": 66,
+          "label": "simpel",
+          "prop": "kertas",
+          "emoji": "📄",
+          "text": "klien coba sendiri",
+          "tone": "bad"
+        },
+        "right": {
+          "at": 77,
+          "label": "bukan semuanya",
+          "prop": "puzzle",
+          "emoji": "🧩",
+          "text": "tetap butuh Anda",
+          "tone": "good"
+        },
+        "op": "≠"
+      }
+    },
+    {
+      "at": 79,
+      "layout": "left",
+      "pose": "menunjuk",
+      "board": {
+        "type": "shot",
+        "kicker": "Upwork sendiri bilang",
+        "title": "Kerjaan sederhana pindah ke *otomatisasi*",
+        "src": "assets/img/shot-upwork.png",
+        "source": "CEO Upwork · rilis Q2 2026, 10 Agu",
+        "rings": [
+          {
+            "at": 82,
+            "x": 1,
+            "y": 48,
+            "w": 94,
+            "h": 37,
+            "tone": "accent"
+          }
+        ]
+      }
+    },
+    {
+      "at": 88,
+      "layout": "right",
+      "pose": "menjelaskan",
+      "poses": [
+        {
+          "at": 94,
+          "pose": "setuju"
+        }
+      ],
+      "board": {
+        "type": "compare",
+        "kicker": "Upwork · Q2 2026",
+        "title": "Klien turun, belanja *naik*",
+        "left": {
+          "at": 91,
+          "label": "klien",
+          "prop": "orang",
+          "emoji": "👥",
+          "text": "turun 4%",
+          "tone": "bad"
+        },
+        "right": {
+          "at": 98,
+          "label": "belanja per klien",
+          "prop": "koin",
+          "emoji": "💰",
+          "text": "naik",
+          "tone": "good"
+        },
+        "op": "vs"
+      }
+    },
+    {
+      "at": 100,
+      "layout": "left",
+      "pose": "menjelaskan",
+      "poses": [
+        {
+          "at": 108,
+          "pose": "menunjuk"
+        }
+      ],
+      "board": {
+        "type": "props",
+        "kicker": "Analogi",
+        "title": "Kayak *tukang fotokopi*",
+        "items": [
+          {
+            "at": 103,
+            "prop": "fotokopi",
+            "emoji": "🖨️",
+            "label": "Cetak selembar",
+            "tone": "sky",
+            "strikeAt": 111
+          },
+          {
+            "at": 109,
+            "prop": "rumah",
+            "emoji": "🏠",
+            "label": "Punya printer sendiri",
+            "tone": "warn"
+          }
+        ]
+      }
+    },
+    {
+      "at": 113,
+      "layout": "right",
+      "pose": "berpikir",
+      "poses": [
+        {
+          "at": 115,
+          "pose": "presentasi"
+        }
+      ],
+      "board": {
+        "type": "list",
+        "kicker": "Yang bertahan?",
+        "title": "Yang jual *lebih*",
+        "items": [
+          {
+            "at": 117,
+            "prop": "jilid",
+            "emoji": "📚",
+            "text": "Jilid",
+            "tone": "good"
+          },
+          {
+            "at": 118,
+            "prop": "laminasi",
+            "emoji": "🪪",
+            "text": "Laminasi",
+            "tone": "sky"
+          },
+          {
+            "at": 119,
+            "prop": "tumpukan-kertas",
+            "emoji": "📦",
+            "text": "500 eksemplar",
+            "sub": "besok pagi",
+            "subAt": 123,
+            "tone": "accent"
+          }
+        ]
+      }
+    },
+    {
+      "at": 125,
+      "layout": "left",
+      "pose": "mencatat",
+      "poses": [
+        {
+          "at": 139,
+          "pose": "menunjuk"
+        },
+        {
+          "at": 149,
+          "pose": "setuju"
+        }
+      ],
+      "board": {
+        "type": "list",
+        "kicker": "Coba deh",
+        "title": "Tandai daftar jasa Anda",
+        "items": [
+          {
+            "at": 130,
+            "prop": "robot",
+            "emoji": "🤖",
+            "text": "Klien bisa bikin sendiri",
+            "sub": "pakai AI",
+            "subAt": 137,
+            "tone": "bad"
+          },
+          {
+            "at": 141,
+            "prop": "centang",
+            "emoji": "✅",
+            "text": "Butuh hasil benar",
+            "tone": "good"
+          },
+          {
+            "at": 145,
+            "prop": "salaman",
+            "emoji": "🤝",
+            "text": "Ada yang tanggung jawab",
+            "tone": "good"
+          }
+        ]
+      },
+      "footer": {
+        "at": 149,
+        "prop": "koin",
+        "emoji": "💰",
+        "text": "Yang kedua itu *yang Anda jual*."
+      }
+    },
+    {
+      "at": 155,
+      "layout": "center",
+      "pose": "berpikir",
+      "poses": [
+        {
+          "at": 160,
+          "pose": "menunjuk"
+        }
+      ],
+      "dark": true,
+      "board": {
+        "type": "title",
+        "kicker": "Kalau klien pamit",
+        "text": "Pastikan yang pergi *cetak selembarnya*.",
+        "sub": "Bukan *jilidnya*.",
+        "subAt": 165
+      }
+    }
+  ]
+}

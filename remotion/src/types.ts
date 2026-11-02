@@ -56,7 +56,17 @@ export type Board =
   | {type: 'counts'; kicker?: string; title?: string; items: Item[]}
   | {type: 'compare'; kicker?: string; title?: string; left: Item; right: Item; op?: string; opAt?: number}
   | {type: 'quote'; kicker?: string; text: string; source?: string; at?: number}
-  | {type: 'shot'; kicker?: string; title?: string; src: string; source?: string; rings?: Ring[]};
+  | {type: 'shot'; kicker?: string; title?: string; src: string; source?: string; rings?: Ring[]}
+  | {
+      type: 'chat';
+      kicker?: string;
+      name: string; // nama pengirim di header chat
+      emoji?: string; // avatar pengirim
+      prop?: string;
+      messages: {at?: number; text: string; me?: boolean; time?: string}[]; // me = gelembung kanan (kita)
+      stamp?: {at: number; text: string; tone?: Tone}; // stempel miring yang menimpa
+      note?: string; // catatan kecil di bawah (mis. dramatisasi)
+    };
 
 export type Footer = PropRef & {at: number; text: string; tone?: Tone};
 
