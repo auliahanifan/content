@@ -11,8 +11,9 @@ Input: link Google Sheet content bank (jika tidak ada, cari di Drive dan konfirm
 - `/naskah pecah <ID CORE...>`: mode pecah.
 - `/naskah <TH-xxx...>`: mode naskah untuk ID tersebut. Jika ID tidak ada di Talking Head, cari nomor barisnya di ArchiveTH dengan `MATCH` di tab `Cari` lalu baca baris itu saja; jangan membaca arsip penuh.
 - `/naskah` saja: mode naskah untuk semua baris Talking Head berstatus `dipilih`, maksimal 8. Jika lebih dari 8, ambil 8 teratas dan sebutkan sisanya.
+- `/naskah ulang <ID Naskah>`: daur ulang naskah yang sudah tembus (lihat bagian "Daur ulang pemenang").
 
-Format: Instagram Reels, talking head, 45-75 detik (120-160 kata lisan).
+Format: Instagram Reels, talking head, 45-75 detik (120-160 kata lisan). Struktur **Tumpukan jebakan** boleh lebih padat: 55-70 detik, 160-200 kata, karena tiap kalimat membawa satu fakta baru.
 
 ## Mode pecah (CORE → ide talking head)
 
@@ -48,6 +49,7 @@ Hook menentukan penonton berhenti scroll atau tidak. Ini tahap terpenting; janga
 8. Pertanyaan yang langsung kena, bukan "pernah nggak": "Email bisa nyuruh AI Anda?"
 9. Perintah fisik: "Matikan wifi. Notulen AI ini tetap jalan."
 10. Adegan + jebakan: "Foto ini lolos cek AI Google. Belum tentu asli."
+11. Rugi sebelum untung: "Toko online Anda bisa kena denda sebelum laku satu pun." Kerugian besar + kontras "belum dapat apa-apa". Pola ini yang paling sering tembus di akun pembanding (lihat "Tumpukan jebakan").
 
 **c. Gerbang wajib.** Hook gugur kalau satu saja gagal; tidak ada nilai "cukup".
 1. Kalimat pertama maksimal 9 kata, terucap dalam 3 detik oleh suara ElevenLabs (±2,5–3 kata/detik; angka dihitung sebagai kata yang diucapkan, mis. "30 ribu dolar" = 3 kata). Angka, benda, atau taruhannya muncul di 4 kata pertama, karena detik pertama yang menentukan.
@@ -56,7 +58,9 @@ Hook menentukan penonton berhenti scroll atau tidak. Ini tahap terpenting; janga
 4. Uji salah paham: tulis satu kalimat tentang apa yang akan dikira penonton isi videonya. Jika berbeda dari isi naskah, gugur (clickbait atau terlalu kabur).
 5. Berdasar: setiap klaim di hook ada di lembar fakta, pakai "bisa" untuk kemungkinan. Tidak menakut-nakuti, tidak absolut, tidak menyindir.
 6. Relevan untuk segmen di (a).
-7. Bisa digambar: hook bisa divisualkan dengan kit `/video-faceless` di detik 0–3 (angka raksasa + coretan, chip/stempel seperti tanggal, "Free", "dilarang", ikon clay, atau kontras sebelum/sesudah). Tulis sketsa visual satu kalimat. Hook yang hanya kuat diucapkan tapi tidak punya gambar, gugur.
+7. Benda milik penonton: kalimat pertama menyebut benda milik penonton dengan "Anda" ("form daftar Anda", "katalog WA Anda", "aplikasi buatan AI Anda"), bukan benda umum ("aplikasi", "toko online"). Penonton harus bisa membatin "itu punya saya".
+8. Kata kerja taruhan diuji: bila hook memuat kerugian, tulis dua versi kata kerja dan bawa keduanya ke uji buta (mis. "dituntut" vs "berutang", "diblokir" vs "kena biaya", "bocor" vs "terlihat orang"). Di akun pembanding, naskah dengan isi serupa dapat 1,46 juta views dengan "sued" dan 19 ribu dengan "owe". Tetap patuhi gerbang 5: kata yang lebih tajam tetap harus benar menurut lembar fakta.
+9. Bisa digambar: hook bisa divisualkan dengan kit `/video-faceless` atau `/video-karakter` di detik 0–3 (angka raksasa + coretan, chip/stempel seperti tanggal, "Free", "dilarang", ikon clay, atau kontras sebelum/sesudah). Tulis sketsa visual satu kalimat. Hook yang hanya kuat diucapkan tapi tidak punya gambar, gugur.
 
 **d. Uji buta.** Kirim hook yang lolos gerbang (Ucap + Layar) ke subagent terpisah (`model: sonnet`), tanpa naskah dan tanpa penilaian Anda, dengan dua persona yang dinilai terpisah:
 - **Owner:** owner usaha kecil di Indonesia yang sedang scroll Reels sambil menunggu pesanan, tidak tertarik teknologi kecuali menyangkut uang, pelanggan, atau waktu.
@@ -80,6 +84,15 @@ Panggil skill `aulia-brand` mode Create. Pakai skill `social` (bagian Hook Formu
 6. **Batas:** maksimal satu kalimat. Maksimal sekitar 20% naskah. Jika peringatan lebih panjang dari daftar kemungkinan, naskah salah arah: tulis ulang.
 7. **Penutup:** pertanyaan "mau coba apa dulu?" atau ajakan menyebut kasus mereka.
 Syarat kedalaman tetap berlaku (ada mekanisme, ada padahal yang terbukti), tapi padahal berupa kemampuan baru yang terbukti, bukan celah.
+
+**Tumpukan jebakan** dipakai bila lembar fakta memuat 4-6 risiko konkret yang masing-masing punya angka dan sumber (denda, tagihan, kebocoran, aduan), dan semuanya mengenai benda yang dimiliki penonton. Pola ini meniru reels faceless paling ramai di akun pembanding (@adilet.fndr, 1,46 juta views, analisis 2 Nov 2026):
+1. **Hook rugi sebelum untung** (pola 11): angka total + benda milik penonton + "sebelum ... satu pun".
+2. **Janji:** satu kalimat bahwa perbaikannya ada di akhir ("Perbaikannya cukup satu prompt, saya kasih di akhir."). Hanya bila payoff-nya benar-benar ada (prompt, checklist, template) dan ditulis lengkap di caption.
+3. **Butir jebakan (4-6):** tiap butir satu-dua kalimat dengan pola tetap: *benda milik Anda* + *apa yang kurang* + *akibat dengan angka dan sumber* ("Form daftar Anda minta nomor WA tanpa izin. ..."). Tanpa pemanasan antar butir; pindah butir cukup dengan "Lalu," atau langsung benda berikutnya. Urutkan dari yang paling akrab ke yang paling mengejutkan.
+4. **Kata kunci pembalik:** satu kata atau frasa yang menjelaskan *kenapa* angkanya bisa sebesar itu, diucapkan terpisah dengan jeda ("Kata kuncinya... *per*. Per pelanggan. Per pesan."). Inilah bagian #RumitJadiJelas-nya: mekanisme yang membuat semua butir masuk akal. Bila tidak ada mekanisme pemersatu, jangan pakai struktur ini.
+5. **Payoff:** tindakan siap pakai ("Kirim link video ini ke Claude, minta audit semuanya" atau prompt di caption). Video harus bisa dipakai, bukan hanya ditonton; ini alasan orang menyimpan dan membagikannya.
+6. **Penutup:** kalimat khas seri bila ada, lalu pertanyaan penutup atau CTA kata kunci (lihat "CTA kata kunci").
+Gerbang 2c.5 tetap mutlak: setiap angka dari lembar fakta, pakai "bisa"/"sampai" untuk batas atas, dan tambahkan di caption "Bukan nasihat hukum" bila menyangkut regulasi. Angka akun pembanding (COPPA, CAN-SPAM, dst.) berlaku di AS/UE; jangan disalin untuk penonton Indonesia, cari padanannya lewat `challenge` (UU PDP, aturan e-commerce, hak cipta, perlindungan konsumen).
 
 Untuk ide yang bukan peluncuran (membongkar anggapan keliru), pakai struktur "Behind the AI", dipetakan ke struktur reels brand:
 
@@ -107,6 +120,7 @@ Aturan gaya:
 **Pola teks naskah:**
 - **Kalimat pertama = hook terpilih, kata per kata.** Kalimat berikutnya mempertajam taruhannya dalam satu kontras pendek ("Rapi sih. Tapi mahal."), bukan pemanasan. Kalau hook memadatkan klaim (angka hanya untuk sebagian kasus, tanggal tanpa tahun, syarat yang dipendekkan), kalimat kedua langsung memberi lingkupnya, dalam 6 detik pertama ("Bayar Claude Team? Ada kredit 100 dolar yang bisa hangus." lalu "Itu untuk tim lima orang di paket Standard."). Lalu buang kalimat di badan naskah yang mengulang isi hook. Jangan pakai jembatan cetakan seperti "Itulah yang terjadi saat..." atau "Begitulah..."; kalau dipakai di satu naskah, jangan di naskah lain dalam batch yang sama.
 - **Bayar janji hook dengan cepat.** Padahal sudah terucap dalam sekitar 40 kata pertama (±15 detik). Penjelasan boleh panjang, tapi penonton harus sudah tahu poinnya.
+- **Janji di depan, dibayar di akhir (open loop).** Bila naskah punya payoff berupa aset (prompt, checklist, template, hitungan), umumkan di kalimat kedua atau ketiga bahwa aset itu ada di akhir, lalu bayar persis di akhir. Jangan menjanjikan aset yang tidak ditulis lengkap di caption. Tandai kata payoff-nya di blok hook (`Janji:`) agar `/video-karakter` bisa memasang progress bar hitung mundur.
 - **Satu alasan untuk simpan atau kirim.** Misalnya aturan satu kalimat yang bisa langsung dipakai, atau sebut siapa yang perlu dengar ("kirim ke admin Anda").
 - **Contoh ditutup dengan punchline analogi.** Setelah contoh nyata dari dunia owner, tutup dengan satu kalimat yang mengembalikan contoh ke analogi ("Ini pekerjaan admin, bukan direktur.").
 - **Callback di penutup.** Pertanyaan terakhir kembali ke gambaran di hook dan diarahkan ke bisnis penonton ("Jadi, di bisnis Anda... direktur sedang mengerjakan tugas siapa?").
@@ -114,7 +128,8 @@ Aturan gaya:
 - **Batas juga memakai analogi** bila bisa, supaya opsi mahal tetap punya tempat ("Untuk masalah rumit dan penuh nuansa, barulah panggil direktur: model terkuat.").
 - **Biaya total dalam satu frasa tajam** bila topiknya soal biaya ("hitung sampai pekerjaan selesai, bukan per jawaban").
 - **Tanda jeda.** Pakai "..." hanya di tempat yang memang akan diberi jeda saat diucapkan, biasanya sebelum punchline. Maksimal empat per naskah; jangan dipasang hanya karena aturan.
-- **Pangkas sebelum selesai.** Hitung kata yang diucapkan (tanpa blok `[HOOK]` selain isi baris Ucap). Jika lebih dari 160, buang dulu kalimat yang mengulang poin, lalu persingkat contoh. Jangan buang batas yang material atau kalimat khas seri.
+- **CTA kata kunci (opsional, pengguna yang memutuskan).** Alternatif penutup pertanyaan: "Komentar *PROMPT*, saya kirim lengkapnya lewat DM." Di akun pembanding, CTA ini membuat hampir semua komentar berisi kata kunci (sampai 0,8% dari views). Syarat: otomasi DM (mis. ManyChat) sudah aktif dan asetnya ada. Karena menyimpang dari aturan penutup `aulia-brand`, tulis versi penutup pertanyaan sebagai default dan versi CTA kata kunci di kolom Hook cadangan dengan label `CTA alt:`, lalu sebut di "Perlu diisi".
+- **Pangkas sebelum selesai.** Hitung kata yang diucapkan (tanpa blok `[HOOK]` selain isi baris Ucap). Jika lebih dari 160 (200 untuk Tumpukan jebakan), buang dulu kalimat yang mengulang poin, lalu persingkat contoh. Jangan buang batas yang material atau kalimat khas seri.
 
 **Kunci ke lembar fakta:** naskah hanya boleh berisi (1) fakta dari lembar fakta, (2) penalaran atau saran yang jelas berbentuk saran, dan (3) analogi dari bagian "Analogi aman". Jangan menambah klaim fakta, angka, atau generalisasi baru. Butuh fakta tambahan? Tambahkan lewat `challenge` tahap fakta, jangan ditulis langsung.
 
@@ -124,7 +139,7 @@ Jika baris berasal dari ide berformat tes/demo/perbandingan, ubah menjadi kerang
 Jalankan `challenge` tahap **cek** untuk seluruh batch dan terapkan koreksinya sebelum review brand, karena koreksi bisa menambah kalimat baru yang perlu dicek brand.
 
 ### 4b. Review brand (terpisah)
-Kirim naskah ke subagent (`model: sonnet`) dengan instruksi: panggil skill `aulia-brand` mode **Review**, beri verdict dan temuan dengan kutipan. Reviewer juga menilai kedalaman: apakah penonton mendapat sesuatu yang tidak ada di judul beritanya, dan apakah bagian "kenapa" benar-benar menjelaskan mekanisme. Naskah yang dangkal ditandai "Perlu penyesuaian". Untuk naskah mode unlock, reviewer juga mengecek proporsi: bagian kemungkinan harus lebih panjang daripada batas/peringatan, dan hook harus menyebut kemampuan, bukan risiko; jika terbalik, tandai "Perlu penyesuaian". Reviewer juga mengecek kalimat pertama terhadap gerbang hook di tahap 2c (terutama 2c.2: tanpa pemanasan, taruhan sudah ada), dan memastikan kalimat khas seri muncul kata per kata di posisi yang benar; jika hilang atau diparafrasekan, tandai "Perlu penyesuaian". Subagent tidak melihat proses penulisan, hanya naskah + konteks ide. Satu subagent boleh mereview seluruh batch. Jika verdict bukan "Sudah selaras", revisi minimal sesuai temuan. Review ulang hanya jika revisi menambah kalimat baru di luar saran reviewer.
+Kirim naskah ke subagent (`model: sonnet`) dengan instruksi: panggil skill `aulia-brand` mode **Review**, beri verdict dan temuan dengan kutipan. Reviewer juga menilai kedalaman: apakah penonton mendapat sesuatu yang tidak ada di judul beritanya, dan apakah bagian "kenapa" benar-benar menjelaskan mekanisme. Naskah yang dangkal ditandai "Perlu penyesuaian". Untuk Tumpukan jebakan, reviewer mengecek bahwa tiap butir menyebut benda milik penonton dan angka bersumber, ada kata kunci pembalik yang benar-benar menjelaskan mekanisme, dan janji di awal dibayar di akhir; jika salah satu tidak ada, tandai "Perlu penyesuaian". Untuk naskah mode unlock, reviewer juga mengecek proporsi: bagian kemungkinan harus lebih panjang daripada batas/peringatan, dan hook harus menyebut kemampuan, bukan risiko; jika terbalik, tandai "Perlu penyesuaian". Reviewer juga mengecek kalimat pertama terhadap gerbang hook di tahap 2c (terutama 2c.2: tanpa pemanasan, taruhan sudah ada), dan memastikan kalimat khas seri muncul kata per kata di posisi yang benar; jika hilang atau diparafrasekan, tandai "Perlu penyesuaian". Subagent tidak melihat proses penulisan, hanya naskah + konteks ide. Satu subagent boleh mereview seluruh batch. Jika verdict bukan "Sudah selaras", revisi minimal sesuai temuan. Review ulang hanya jika revisi menambah kalimat baru di luar saran reviewer.
 
 ### 5. Cek klaim
 Daftar setiap klaim pengalaman pribadi, hasil tes, angka biaya, atau pelanggan. Yang tidak berasal dari lembar fakta atau pernyataan pengguna diganti `[ISI: ...]` di naskah, termasuk semua butir "Perlu konfirmasi Aul". Jangan pernah menulis "saya sudah mencoba" tanpa fakta dari pengguna.
@@ -137,11 +152,15 @@ Tulis satu baris per ide ke tab **Naskah** (kolom dan aturan di [tab-talking-hea
   [HOOK 0–3 dtk]
   Ucap: <hook terpilih, kata per kata, lolos gerbang 2c>
   Layar: <teks overlay detik 0–3, maksimal 5 kata>
-  Visual: <satu kalimat, memakai kit /video-faceless>
+  Visual: <satu kalimat, memakai kit /video-faceless atau /video-karakter>
+  Janji: <kata payoff di akhir, mis. "prompt">   (hanya bila ada open loop)
+  Meter: <label + angka per butir, mis. "RISIKO: 50 jt, 1,2 M, 6 M">   (hanya Tumpukan jebakan)
 
   <kalimat kedua dan seterusnya>
+  [UI: form · nomor WA tanpa izin]
+  <butir jebakan 1>
   ```
-  Label `[HOOK ...]`, `Ucap:`, serta baris Layar dan Visual tidak dibacakan dan tidak dikirim ke TTS; yang diucapkan hanya isi Ucap lalu teks naskah sesudahnya.
+  Label `[HOOK ...]`, `Ucap:`, `[UI: ...]`, serta baris Layar, Visual, Janji, dan Meter tidak dibacakan dan tidak dikirim ke TTS; yang diucapkan hanya isi Ucap lalu teks naskah sesudahnya. `[UI: <jenis> · <isi>]` ditaruh di atas tiap butir Tumpukan jebakan sebagai saran papan mock untuk `/video-karakter` (jenis: form, checkout, notif, chat, receipt, terminal, email, comments, profile).
 - Hook cadangan: 2 hook.
 - Caption: caption + #RumitJadiJelas + satu hashtag seri.
 - Perlu diisi: `[ISI: ...] → kenapa`, atau `Tidak ada.`
@@ -156,3 +175,13 @@ Di chat, urutkan saran posting dari Potensi tertinggi.
 Penilaian hook dan hasil uji buta hanya dipakai untuk memilih hook, tidak disimpan.
 
 Setelah baris ditulis dan diverifikasi, ubah Status baris tersebut di tab Talking Head menjadi `lolos-challenge` jika challenge teknis lolos, atau `naskah` jika gagal (hanya kolom Status; baris CORE tidak diubah). Lalu di chat: tabel ringkas per ide (ID, status fresh, hook utama, verdict, jumlah [ISI]) dan tautan sheet.
+
+## Daur ulang pemenang
+
+Naskah yang tembus (pengguna menyebut views-nya, patokan ≥3x median akun) diproduksi ulang dalam 1-2 minggu. Akun pembanding mendapat sekitar 3 juta views dari satu naskah yang diposting ulang tiga kali dengan visual berbeda. Versi yang gagal (19 ribu) bukan karena visual, melainkan isinya diganti topik yang kurang akrab bagi penontonnya.
+
+`/naskah ulang <ID Naskah>`:
+1. Baca baris itu di tab Naskah (atau ArchiveN lewat tab `Cari`). Pertahankan inti yang terbukti: taruhan, struktur, kata kunci pembalik, payoff.
+2. Ganti hook dengan pola lain dari tahap 2b (uji buta tetap wajib), dan ganti 1-2 butir/contoh dengan fakta baru dari `challenge` (cek freshness ulang semua angka).
+3. Jangan ganti topik ke yang lebih jauh dari dunia penonton.
+4. Tulis sebagai baris baru di tab Naskah, Judul diberi akhiran `(v2)`, `(v3)`, dan sebut ID asal di Catatan review. Sarankan visual yang berbeda dari versi sebelumnya (`/video-karakter` vs `/video-faceless`, atau jenis papan lain).
