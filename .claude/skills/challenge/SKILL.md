@@ -14,7 +14,7 @@ Tujuan: tidak ada kesalahan teknis atau fakta di naskah yang tayang. Caranya men
 
 Semua ada di Google Sheet content bank: ide di tab Talking Head, naskah di tab Naskah, lembar fakta di tab Fakta (kolom dan aturan tulis di `.claude/skills/naskah/references/tab-talking-head.md`). Jangan menyimpan file lokal. Subagent tidak menulis ke sheet: ia mengembalikan lembar fakta dan hasil cek dalam laporannya, lalu sesi utama yang menulis ke sheet. Saat memanggil subagent, sertakan isi naskah dan lembar fakta yang relevan dari sheet di prompt-nya.
 
-Kedua tahap dijalankan lewat subagent `model: opus`, terpisah dari penulis naskah. Maksimal 5 ide atau naskah per subagent; batch lebih besar dibagi ke beberapa subagent paralel. Sertakan instruksi tahap yang relevan di bawah secara utuh.
+Kedua tahap dijalankan lewat subagent yang terpisah dari penulis naskah: tahap fakta dengan `model: opus`, tahap cek dengan `model: sonnet`. Maksimal 5 ide atau naskah per subagent; batch lebih besar dibagi ke beberapa subagent paralel. Sertakan instruksi tahap yang relevan di bawah secara utuh.
 
 ## Tahap fakta (sebelum menulis)
 
