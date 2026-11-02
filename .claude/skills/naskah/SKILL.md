@@ -9,7 +9,7 @@ Baca dulu [tab-talking-head.md](references/tab-talking-head.md) (kolom, syarat l
 
 Input: link Google Sheet content bank (jika tidak ada, cari di Drive dan konfirmasi), lalu salah satu:
 - `/naskah pecah <ID CORE...>`: mode pecah.
-- `/naskah <TH-xxx...>`: mode naskah untuk ID tersebut. Jika ID tidak ada di Talking Head, cari di ArchiveTH.
+- `/naskah <TH-xxx...>`: mode naskah untuk ID tersebut. Jika ID tidak ada di Talking Head, cari nomor barisnya di ArchiveTH dengan `MATCH` di tab `Cari` lalu baca baris itu saja; jangan membaca arsip penuh.
 - `/naskah` saja: mode naskah untuk semua baris Talking Head berstatus `dipilih`, maksimal 8. Jika lebih dari 8, ambil 8 teratas dan sebutkan sisanya.
 
 Format: Instagram Reels, talking head, 45-75 detik (120-160 kata lisan).
