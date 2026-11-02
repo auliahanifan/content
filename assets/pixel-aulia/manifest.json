@@ -1,15 +1,15 @@
 {
   "name": "Pixel Aulia — Presenter & Epic Anime Library",
-  "version": 2,
+  "version": 3,
   "created": "2026-11-02",
   "updated": "2026-11-02",
   "generator": "ImageGen",
   "styleReference": "references/styles-3x3.png (06 Outlined)",
   "moodReference": "references/moods-3x3.png",
   "counts": {
-    "characters": 7,
-    "reactions": 12,
-    "effects": 3
+    "characters": 13,
+    "reactions": 15,
+    "effects": 6
   },
   "assets": [
     {
@@ -24,6 +24,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         33,
         0,
@@ -52,6 +59,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         55,
@@ -80,6 +94,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         32,
@@ -108,6 +129,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         49,
         19,
@@ -136,6 +164,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         19,
@@ -164,6 +199,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         47,
@@ -192,6 +234,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         23,
@@ -209,6 +258,216 @@
       "layers": "flattened-character"
     },
     {
+      "id": "laptop",
+      "category": "characters",
+      "file": "characters/laptop.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 541975,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        186,
+        52,
+        1200,
+        1223
+      ],
+      "visibleAlphaBounds": [
+        361,
+        55,
+        1013,
+        1217
+      ],
+      "transparentFraction": 0.7436,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "smartphone",
+      "category": "characters",
+      "file": "characters/smartphone.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 530777,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        23,
+        1234,
+        1226
+      ],
+      "visibleAlphaBounds": [
+        240,
+        70,
+        933,
+        1222
+      ],
+      "transparentFraction": 0.7401,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "presentasi",
+      "category": "characters",
+      "file": "characters/presentasi.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 541961,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        33,
+        1230,
+        1226
+      ],
+      "visibleAlphaBounds": [
+        178,
+        64,
+        1159,
+        1222
+      ],
+      "transparentFraction": 0.7357,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "mencatat",
+      "category": "characters",
+      "file": "characters/mencatat.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 487943,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        27,
+        17,
+        1234,
+        1224
+      ],
+      "visibleAlphaBounds": [
+        378,
+        68,
+        879,
+        1221
+      ],
+      "transparentFraction": 0.7713,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "ngopi",
+      "category": "characters",
+      "file": "characters/ngopi.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1101546,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        23,
+        1010,
+        1474
+      ],
+      "visibleAlphaBounds": [
+        225,
+        82,
+        865,
+        1472
+      ],
+      "transparentFraction": 0.6707,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
+      "id": "facepalm",
+      "category": "characters",
+      "file": "characters/facepalm.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1082308,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        31,
+        88,
+        996,
+        1461
+      ],
+      "visibleAlphaBounds": [
+        234,
+        90,
+        819,
+        1458
+      ],
+      "transparentFraction": 0.6761,
+      "animated": false,
+      "layers": "flattened-character"
+    },
+    {
       "id": "murka",
       "category": "reactions",
       "file": "reactions/murka.png",
@@ -220,6 +479,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -248,6 +514,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -276,6 +549,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         17,
@@ -304,6 +584,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -332,6 +619,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         9,
@@ -360,6 +654,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -388,6 +689,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -416,6 +724,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         19,
@@ -444,6 +759,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -472,6 +794,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         19,
@@ -500,6 +829,13 @@
         0,
         254
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         14,
@@ -528,6 +864,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -545,6 +888,111 @@
       "layers": "flattened-character-and-effects"
     },
     {
+      "id": "panik",
+      "category": "reactions",
+      "file": "reactions/panik.png",
+      "width": 1302,
+      "height": 1208,
+      "bytes": 1556172,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        0,
+        1296,
+        1208
+      ],
+      "visibleAlphaBounds": [
+        59,
+        27,
+        1250,
+        1172
+      ],
+      "transparentFraction": 0.3659,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "malu",
+      "category": "reactions",
+      "file": "reactions/malu.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1593453,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        6,
+        1024,
+        1536
+      ],
+      "visibleAlphaBounds": [
+        127,
+        27,
+        1015,
+        1493
+      ],
+      "transparentFraction": 0.5226,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
+      "id": "mode-jenius",
+      "category": "reactions",
+      "file": "reactions/mode-jenius.png",
+      "width": 1139,
+      "height": 1381,
+      "bytes": 1619447,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        2,
+        1139,
+        1381
+      ],
+      "visibleAlphaBounds": [
+        74,
+        67,
+        1103,
+        1352
+      ],
+      "transparentFraction": 0.3898,
+      "animated": false,
+      "layers": "flattened-character-and-effects"
+    },
+    {
       "id": "aura-emas",
       "category": "effects",
       "file": "effects/aura-emas.png",
@@ -556,6 +1004,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -584,6 +1039,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         7,
@@ -612,6 +1074,13 @@
         0,
         255
       ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edgeTreatment": "transparent-corners",
       "alphaBounds": [
         0,
         0,
@@ -625,6 +1094,111 @@
         1235
       ],
       "transparentFraction": 0.4016,
+      "animated": false,
+      "layers": "standalone-effect"
+    },
+    {
+      "id": "portal-hijau",
+      "category": "effects",
+      "file": "effects/portal-hijau.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1555367,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "visibleAlphaBounds": [
+        30,
+        5,
+        1221,
+        1239
+      ],
+      "transparentFraction": 0.4552,
+      "animated": false,
+      "layers": "standalone-effect"
+    },
+    {
+      "id": "speedlines-merah",
+      "category": "effects",
+      "file": "effects/speedlines-merah.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1160713,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        1,
+        249,
+        0,
+        3
+      ],
+      "edgeTreatment": "frame-rays-to-canvas-edge",
+      "alphaBounds": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "transparentFraction": 0.5698,
+      "animated": false,
+      "layers": "standalone-effect"
+    },
+    {
+      "id": "partikel-bintang",
+      "category": "effects",
+      "file": "effects/partikel-bintang.png",
+      "width": 1145,
+      "height": 1374,
+      "bytes": 633810,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "edgeTreatment": "transparent-corners",
+      "alphaBounds": [
+        0,
+        15,
+        1145,
+        1374
+      ],
+      "visibleAlphaBounds": [
+        24,
+        18,
+        1122,
+        1336
+      ],
+      "transparentFraction": 0.7848,
       "animated": false,
       "layers": "standalone-effect"
     }
