@@ -53,6 +53,38 @@
       "dur": 1.5,
       "text": "85%!",
       "color": "lilac"
+    },
+    {
+      "at": 52,
+      "reaction": "mode-jenius",
+      "dur": 1.6,
+      "text": "HARNESS!",
+      "color": "sky"
+    },
+    {
+      "at": 119,
+      "reaction": "pawang-ai",
+      "dur": 1.5,
+      "text": "ANDA!",
+      "color": "lilac"
+    }
+  ],
+  "aura": [
+    {
+      "at": 67,
+      "effect": "aura-emas"
+    },
+    {
+      "at": 143,
+      "effect": "speedlines-merah"
+    },
+    {
+      "at": 152,
+      "effect": "partikel-bintang"
+    },
+    {
+      "at": 166,
+      "effect": "portal-hijau"
     }
   ],
   "punch": [

@@ -45,7 +45,7 @@ Studio Remotion bersama ada di `remotion/` (pnpm). Dipakai skill `/video-karakte
 - Tiap video = `dates/<tanggal>/<slug>/storyboard.json` (+ `tts/final.mp3`, `tts/words.json`). Tidak ada kode per video; jenis papan baru ditambahkan ke `remotion/src/boards/`.
 - Perintah dari `remotion/`: `pnpm studio <folder-video>`, `pnpm still <folder-video> <detik>...`, `pnpm render <folder-video> [--draft]`. Hasil ke `<folder-video>/out/`.
 - `scripts/run.mjs` mengarahkan symlink `remotion/public/video` ke folder video aktif. `remotion/public/shared` adalah symlink ke `assets/` (karakter `assets/pixel-aulia/`, logo, `assets/props/`).
-- Gaya: dunia pixel game dengan karakter Pixel Aulia (pose presenter + reaksi anime untuk interupsi epik). SFX 8-bit dibuat ulang dengan `remotion/scripts/sfx8bit.sh`.
+- Gaya: dunia pixel game dengan karakter Pixel Aulia (pose presenter diam seperti sprite, reaksi anime/Anime Metafora untuk interupsi epik, efek terpisah untuk mini-epik). SFX 8-bit dibuat ulang dengan `remotion/scripts/sfx8bit.sh`.
 - Lisensi: Remotion gratis untuk individu (konten personal brand). Bila dipakai atas nama perusahaan dengan lebih dari 3 orang, perlu company license.
 
 ## Aset turunan (tidak di-commit)
