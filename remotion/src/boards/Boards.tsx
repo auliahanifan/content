@@ -6,6 +6,7 @@ import type {Board, Item, Ring} from '../types';
 import {Prop} from '../components/Prop';
 import {Rich} from '../components/Rich';
 import {Strike} from '../components/Strike';
+import {StampMark, UiMock} from './Mock';
 
 const Title: React.FC<{text?: string; from: number; size?: number}> = ({text, from, size = 66}) => {
   const {p, visible} = usePop(undefined, from);
@@ -336,6 +337,64 @@ const ShotBoard: React.FC<{b: Extract<Board, {type: 'shot'}>; start: number}> = 
   );
 };
 
+// ---------- ui (mock layar realistis) ----------
+const UiBoard: React.FC<{b: Extract<Board, {type: 'ui'}>; start: number}> = ({b, start}) => (
+  <Col gap={30}>
+    <Title text={b.title} from={start} size={56} />
+    <UiMock b={b} start={start} />
+  </Col>
+);
+
+// ---------- word (satu kata punchline, jendela gelap) ----------
+const WordBoard: React.FC<{b: Extract<Board, {type: 'word'}>; start: number}> = ({b, start}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {T} = useTiming();
+  const t0 = b.at === undefined ? start : T(b.at);
+  const p = spring({frame: frame - t0, fps, config: {damping: 9, stiffness: 200, mass: 0.6}});
+  const sub = usePop(b.subAt, start);
+  const col = tone(b.tone ?? 'accent');
+  const glow = 0.75 + 0.25 * Math.sin((frame - t0) / 6);
+  const size = b.text.length > 8 ? 150 : b.text.length > 5 ? 200 : 260;
+  return (
+    <div style={{position: 'relative', width: '100%', height: '100%'}}>
+      <Col gap={40}>
+        <div style={{position: 'relative', opacity: frame >= t0 ? 1 : 0, transform: `scale(${0.4 + 0.6 * p})`}}>
+          <div
+            style={{
+              position: 'absolute',
+              inset: '-40% -20%',
+              background: `radial-gradient(closest-side, ${col}${Math.round(glow * 160).toString(16).padStart(2, '0')}, transparent)`,
+            }}
+          />
+          <div
+            style={{
+              position: 'relative',
+              fontFamily: FONT_DISPLAY,
+              fontWeight: 700,
+              fontSize: size,
+              lineHeight: 1,
+              color: C.white,
+              WebkitTextStroke: `14px ${C.ink}`,
+              paintOrder: 'stroke fill',
+              textShadow: `10px 10px 0 ${col}`,
+              textAlign: 'center',
+            }}
+          >
+            {b.text}
+          </div>
+        </div>
+        {b.sub && (
+          <div style={{...popStyle(sub.p, sub.visible), fontFamily: FONT_BODY, fontWeight: 800, fontSize: 50, color: C.paper, textAlign: 'center', lineHeight: 1.2}}>
+            <Rich text={b.sub} from={b.subAt !== undefined ? T(b.subAt) : start} color={C.paper} />
+          </div>
+        )}
+      </Col>
+      <StampMark s={b.stamp} />
+    </div>
+  );
+};
+
 // ---------- util ----------
 const Col: React.FC<{children: React.ReactNode; gap: number; align?: 'center' | 'stretch'}> = ({children, gap, align = 'center'}) => (
   <div style={{display: 'flex', flexDirection: 'column', alignItems: align, justifyContent: 'safe center', gap, width: '100%', height: '100%'}}>
@@ -375,6 +434,10 @@ export const BoardContent: React.FC<{b: Board; start: number}> = ({b, start}) =>
       return <QuoteBoard b={b} start={start} />;
     case 'shot':
       return <ShotBoard b={b} start={start} />;
+    case 'ui':
+      return <UiBoard b={b} start={start} />;
+    case 'word':
+      return <WordBoard b={b} start={start} />;
   }
 };
 

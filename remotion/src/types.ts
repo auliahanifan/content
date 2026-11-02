@@ -48,6 +48,26 @@ export type Item = PropRef & {
 
 export type Ring = {at: number; x: number; y: number; w: number; h: number; tone?: Tone}; // persen
 
+/** Jenis mock UI realistis untuk papan `ui` (layar yang dikenal penonton, bukan ikon abstrak). */
+export type UiKind = 'form' | 'checkout' | 'notif' | 'chat' | 'receipt' | 'terminal' | 'email' | 'profile' | 'comments';
+
+/** Satu baris di mock UI. Arti `label`/`text`/`value` per jenis: lihat references/storyboard.md. */
+export type UiLine = PropRef & {
+  at?: number;
+  label?: string;
+  text?: string;
+  sub?: string;
+  value?: string;
+  tone?: Tone;
+  side?: 'in' | 'out'; // chat: masuk (kiri) / keluar (kanan)
+  strikeAt?: number;
+  flag?: string; // chip jebakan merah, mis. "tanpa izin"
+  flagAt?: number;
+};
+
+/** Stempel besar miring di atas papan, mis. "PER", "DENDA". */
+export type Stamp = {at: number; text: string; tone?: Tone};
+
 export type Board =
   | {type: 'title'; kicker?: string; text: string; sub?: string; subAt?: number; items?: Item[]}
   | {type: 'props'; kicker?: string; title?: string; items: Item[]}
@@ -56,7 +76,24 @@ export type Board =
   | {type: 'counts'; kicker?: string; title?: string; items: Item[]}
   | {type: 'compare'; kicker?: string; title?: string; left: Item; right: Item; op?: string; opAt?: number}
   | {type: 'quote'; kicker?: string; text: string; source?: string; at?: number}
-  | {type: 'shot'; kicker?: string; title?: string; src: string; source?: string; rings?: Ring[]};
+  | {type: 'shot'; kicker?: string; title?: string; src: string; source?: string; rings?: Ring[]}
+  | {
+      type: 'ui';
+      kind: UiKind;
+      kicker?: string;
+      title?: string;
+      app?: string; // nama aplikasi/kontak/pengirim/nama profil
+      meta?: string; // jam, subjek, judul form, handle, paket
+      note?: string; // bio profil / catatan kecil di bawah
+      at?: number; // kartu muncul (default awal adegan)
+      items?: UiLine[];
+      total?: UiLine; // checkout/receipt
+      button?: string; // teks tombol, atau kata kunci yang diketik (comments)
+      buttonAt?: number; // tombol ditekan / mulai mengetik
+      stamp?: Stamp;
+      zoom?: number; // skala kartu, default 1.1; turunkan (mis. 0.9) bila papan penuh atau layout center
+    }
+  | {type: 'word'; kicker?: string; text: string; sub?: string; subAt?: number; at?: number; tone?: Tone; stamp?: Stamp};
 
 export type Footer = PropRef & {at: number; text: string; tone?: Tone};
 
@@ -72,6 +109,21 @@ export type Scene = {
   sfx?: SfxName | null; // default 'sweep' di awal adegan
 };
 
+/** Indikator yang menempel di tengah atas sepanjang video, naik pada tiap step (mis. RISIKO Rp0 -> Rp1,2 M). */
+export type Meter = {
+  label: string;
+  steps: {at: number; value: number}[];
+  prefix?: string; // "Rp"
+  suffix?: string;
+  short?: boolean; // 1.200.000 -> 1,2 jt
+  tone?: Tone; // default bad
+  from?: number; // indeks kata mulai tampil (default 0)
+  to?: number; // indeks kata berhenti tampil (default akhir)
+};
+
+/** Progress bar open-loop: janji di awal, hitung mundur detik sampai kata `until` (payoff). */
+export type Loop = {text: string; until: number; from?: number; done?: string};
+
 export type SfxName = 'blip' | 'coin' | 'power' | 'hit' | 'select' | 'sweep' | 'boom';
 
 export type Storyboard = {
@@ -86,6 +138,8 @@ export type Storyboard = {
   epic?: Epic[]; // 2-4 per video, di punchline
   aura?: Aura[]; // mini-epik 3-5 per video
   punch?: number[]; // indeks kata: kamera punch-in
+  meter?: Meter;
+  loop?: Loop;
   scenes: Scene[];
   sfx?: {at: number; name: SfxName; volume?: number}[]; // SFX tambahan
   autoSfx?: boolean; // default true: sweep/blip/hit/select otomatis

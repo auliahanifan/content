@@ -26,7 +26,7 @@ export const BoardFrame: React.FC<{scene: Scene; start: number; box: Box; dim: n
         filter: `drop-shadow(12px 12px 0 ${C.ink})`,
       }}
     >
-      <div style={{position: 'absolute', inset: 0, clipPath: notch(10), ...pixelBox(C.paper, C.frame, 8), overflow: 'hidden'}}>
+      <div style={{position: 'absolute', inset: 0, clipPath: notch(10), ...(scene.board.type === 'word' ? pixelBox(C.ink, C.accent, 8) : pixelBox(C.paper, C.frame, 8)), overflow: 'hidden'}}>
         {kicker && (
           <div
             style={{

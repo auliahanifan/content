@@ -6,6 +6,7 @@ import {Brand} from './components/Brand';
 import {Captions} from './components/Captions';
 import {Character, type AuraEvent} from './components/Character';
 import {EpicLayer, epicLevel} from './components/Epic';
+import {Hud} from './components/Hud';
 import {SceneTransition} from './components/Transition';
 import {EPIC_CAPTIONS, GEO} from './layout';
 import {C, loadFonts} from './theme';
@@ -140,6 +141,7 @@ const Inner: React.FC<{sb: Storyboard; fps: number; duration: number; pixel: Pix
       })}
       <Captions box={capBox} size={capBox.width > 800 ? 70 : 64} />
       <Brand dark={night} />
+      <Hud dim={Math.max(dim, epicLvl)} />
       <Html5Audio src={staticFile(audio)} />
       {sfx.map((s, i) => (
         <Sequence key={i} from={Math.max(0, s.frame)} durationInFrames={Math.round(fps * 1.2)} layout="none">
@@ -159,17 +161,33 @@ const collectSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, 
   if (sb.autoSfx !== false) {
     sb.scenes.forEach((s, i) => {
       if (s.sfx !== null && i > 0) add(starts[i] - 6, s.sfx ?? 'sweep');
-      const b = s.board as {type: string; items?: {at?: number; strikeAt?: number}[]; rings?: {at: number}[]; left?: {at?: number; strikeAt?: number}; right?: {at?: number; strikeAt?: number}};
-      const items = [...(b.items ?? []), ...(b.left ? [b.left] : []), ...(b.right ? [b.right] : [])];
+      const b = s.board as {
+        type: string;
+        at?: number;
+        items?: {at?: number; strikeAt?: number; flagAt?: number; flag?: string}[];
+        total?: {at?: number; strikeAt?: number; flagAt?: number; flag?: string};
+        rings?: {at: number}[];
+        left?: {at?: number; strikeAt?: number};
+        right?: {at?: number; strikeAt?: number};
+        stamp?: {at: number};
+        buttonAt?: number;
+      };
+      const items = [...(b.items ?? []), ...(b.total ? [b.total] : []), ...(b.left ? [b.left] : []), ...(b.right ? [b.right] : [])];
       const numeric = b.type === 'stat' || b.type === 'counts';
       items.forEach((it) => {
         if (it.at !== undefined && it.at !== s.at) add(T(it.at), numeric ? 'coin' : 'blip');
         if (it.strikeAt !== undefined) add(T(it.strikeAt), 'hit');
       });
       b.rings?.forEach((r) => add(T(r.at), 'coin'));
+      (b.items ?? []).forEach((it) => it.flag && add(T(it.flagAt ?? it.at ?? s.at), 'hit'));
+      if (b.stamp) add(T(b.stamp.at), 'hit', 0.55);
+      if (b.buttonAt !== undefined) add(T(b.buttonAt), 'select');
+      if (b.type === 'word') add(T(b.at ?? s.at), 'power');
       if (s.footer) add(T(s.footer.at), 'select');
     });
     epics.forEach((x) => add(x.start, x.e.sfx ?? 'boom'));
+    sb.meter?.steps.forEach((st) => add(T(st.at), 'coin'));
+    if (sb.loop) add(T(sb.loop.until), 'power');
     sb.aura?.forEach((a) => a.sfx !== null && add(T(a.at) - 1, a.sfx ?? 'power'));
   }
   sb.sfx?.forEach((x) => add(T(x.at), x.name, x.volume));
