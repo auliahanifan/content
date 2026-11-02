@@ -1,0 +1,4 @@
+node_modules/
+# symlink ke folder video aktif, dibuat oleh scripts/run.mjs
+public/video
+out/
