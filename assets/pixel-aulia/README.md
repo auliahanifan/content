@@ -1,14 +1,14 @@
-# Pixel Aulia — Vol. 2
+# Pixel Aulia — Vol. 4
 
 Library karakter personal brand Aulia untuk video Remotion. Mengikuti arah **06 Outlined**: rambut keriting hitam, kacamata persegi, kumis/janggut tipis, blazer navy, kaos hitam, celana charcoal dan sneakers putih.
 
-## 22 PNG transparan
+## 46 PNG transparan
 
 | Folder | Jumlah | Isi |
 | --- | --- | --- |
-| `characters/` | 7 | netral, menjelaskan, menunjuk, berpikir, setuju, menyapa, stop |
-| `reactions/` | 12 | murka, fokus, kaget, percaya-diri, sedih, semangat, bingung, lelah, dapat-ide, tertawa, skeptis, menang |
-| `effects/` | 3 | aura-emas, petir-biru, impact-ungu |
+| `characters/` | 13 | netral, menjelaskan, menunjuk, berpikir, setuju, menyapa, stop, laptop, smartphone, presentasi, mencatat, ngopi, facepalm |
+| `reactions/` | 24 | murka, fokus, kaget, percaya-diri, sedih, semangat, bingung, lelah, dapat-ide, tertawa, skeptis, menang, panik, malu, mode-jenius, deadline-samurai, raja-multitasking, ditelan-algoritma, dompet-kritis, mode-biksu, bangkit-lagi, otak-overload, pawang-ai, eksekusi-meteor |
+| `effects/` | 9 | aura-emas, petir-biru, impact-ungu, portal-hijau, speedlines-merah, partikel-bintang, cincin-deadline, sayap-phoenix, badai-notifikasi |
 
 **Pose presenter** tidak memiliki aura sehingga bisa dipakai saat narasi biasa. **Reaksi anime** memiliki pose dan efek yang menyatu. **Efek terpisah** dapat ditempatkan sebagai layer mandiri di belakang pose presenter.
 
@@ -27,10 +27,38 @@ Library karakter personal brand Aulia untuk video Remotion. Mengikuti arah **06 
 | semangat / menang | Ajakan bertindak, hasil, keberhasilan |
 | dapat-ide | Insight atau solusi |
 | tertawa | Punchline dan humor |
+| laptop / smartphone | Demo workflow, teknologi, kerja harian |
+| presentasi / mencatat | Menjelaskan langkah atau merangkum insight |
+| ngopi | Jeda santai, cerita di balik proses |
+| facepalm | Kesalahan umum atau keputusan yang disesali |
+| panik | Deadline, kebanjiran tugas, masalah mendadak |
+| malu | Mengakui kesalahan, momen canggung |
+| mode-jenius | Analisis tajam atau strategi yang mengejutkan |
+
+## Koleksi baru: Anime Metafora
+
+Sembilan transformasi memvisualkan masalah dan solusi sebagai adegan anime. Gunakan filter **Baru · Anime Metafora** di katalog. Detail konsep, penggunaan dan gerak default tersedia di `concepts-vol4.json`.
+
+| ID | Konsep | Pemakaian |
+| --- | --- | --- |
+| deadline-samurai | Jam raksasa dibelah pedang jarum jam; serpihan waktu mengorbit. | Deadline dan tekanan waktu |
+| raja-multitasking | Enam lengan energi tambahan mengatur alat kerja di belakang dua lengan asli. | Banyak pekerjaan ditangani sekaligus |
+| ditelan-algoritma | Tubuh terseret portal smartphone dengan pusaran notifikasi. | Distraksi, doomscrolling, algoritma |
+| dompet-kritis | Dompet raksasa kosong, zirah koin pecah, ngengat arwah keluar. | Biaya bocor dan pengeluaran berlebihan |
+| mode-biksu | Meditasi melayang; notifikasi larut di perisai zen dan teh melayang. | Fokus dan menjaga batas kerja |
+| bangkit-lagi | Sayap phoenix oranye-cyan muncul dari blazer di antara kertas kusut. | Pemulihan, mencoba lagi |
+| otak-overload | Galaksi di atas kepala menyedot ikon tugas; wajah tetap terlihat. | Overthinking dan kebanjiran informasi |
+| pawang-ai | Benang energi mengatur tiga helper robot holografik kecil. | Orkestrasi AI dan delegasi |
+| eksekusi-meteor | Terjun diagonal dengan pedang energi berbentuk keyboard dan jejak komet. | Mulai eksekusi, momentum |
+| cincin-deadline | Cincin jam amber pecah, pusat transparan tanpa angka. | Layer waktu dan deadline |
+| sayap-phoenix | Sepasang sayap api oranye-cyan dengan ruang kosong untuk karakter. | Layer kebangkitan |
+| badai-notifikasi | Bingkai spiral tile notifikasi merah-magenta, pusat transparan. | Layer gangguan dan overload |
+
+Avatar tetap memakai ciri wajah dan pakaian Aulia. Lengan ekstra pada Raja Multitasking adalah proyeksi energi yang disengaja; helper kecil pada Pawang AI adalah bagian konsep. Semuanya PNG diam, bukan sprite animasi. Pada sembilan reaksi, properti dan VFX menyatu; hanya tiga file efek baru yang dapat digerakkan terpisah.
 
 ## Preview dan metadata
 
-Buka `preview.html` langsung di browser. Bagian “Coba pose + efek” memungkinkan pemilihan pose, efek dan skala efek tanpa mengubah PNG. Filter membagi pose, reaksi, dan efek; latar gelap/terang/checkerboard membantu memeriksa transparansi. `preview-gallery.png` adalah tangkapan katalog. `manifest.json` mencatat ukuran asli, alpha bounds, bounds pada alpha ≥128, fraksi pixel transparan dan jenis layer.
+Buka `preview.html` langsung di browser. Bagian “Coba pose + efek” memungkinkan pemilihan pose, efek dan skala efek tanpa mengubah PNG. Filter membagi pose, reaksi, dan efek; latar gelap/terang/checkerboard membantu memeriksa transparansi. `preview-gallery.png` adalah tangkapan katalog. `manifest.json` mencatat ukuran asli, alpha bounds, bounds pada alpha ≥128, fraksi pixel transparan, alpha di sudut kanvas dan jenis layer.
 
 `references/` menyimpan dua board eksplorasi. `build-catalog.py` memeriksa file PNG serta transparansi dan membangun ulang katalog/manifest (Python + Pillow; tidak mengubah pixel gambar):
 
@@ -53,7 +81,7 @@ import {PixelAulia} from './PixelAulia';
 </Sequence>
 ```
 
-Prop `effect` menambah layer VFX di belakang karakter. Layer efek berdenyut terpisah, sedangkan karakter memiliki animasi masuk; murka/semangat mendapat shake dan percaya-diri/dapat-ide mendapat hover. Semua gerakan mengikuti frame Remotion.
+Prop `effect` menambah layer VFX di belakang karakter. Layer efek berdenyut terpisah, sedangkan karakter memiliki animasi masuk; murka/semangat/panik mendapat shake dan percaya-diri/dapat-ide/mode-jenius mendapat hover. Semua gerakan mengikuti frame Remotion.
 
 - `effectScale`, `effectOffsetX`, `effectOffsetY`: sesuaikan besar/posisi efek tanpa mengubah karakter.
 - `animate={false}`: matikan gerakan dan tampilkan gambar statis.
@@ -61,9 +89,39 @@ Prop `effect` menambah layer VFX di belakang karakter. Layer efek berdenyut terp
 - `size`: ukuran kotak gambar, bukan tinggi tubuh yang terdeteksi.
 - `style`: atur container, misalnya `position: 'absolute', bottom: 40, left: 40`.
 
-`remotion/Example.tsx` menyediakan showcase seluruh 19 pose/reaksi, masing-masing dua detik, dan contoh kombinasi pose+efek. Komposisi showcase: 1080×1920; gunakan `durationInFrames={pixelAuliaShowcaseDuration(fps)}`. Pada 30 fps durasinya 1140 frame (38 detik).
+`remotion/Example.tsx` menyediakan showcase seluruh 37 pose/reaksi, masing-masing dua detik, dan contoh kombinasi pose+efek. Komposisi showcase: 1080×1920; gunakan `durationInFrames={pixelAuliaShowcaseDuration(fps)}`. Pada 30 fps durasinya 2220 frame (74 detik).
 
 Untuk narasi biasa, gunakan pose bersih selama beberapa detik. Sisipkan reaksi epik pada punchline/insight selama sekitar 0,5–1,5 detik. Reaksi yang efeknya sudah menyatu biasanya tidak perlu ditambah layer efek lain.
+
+## Kombinasi yang disarankan
+
+| Pose | Efek terpisah | Cocok untuk |
+| --- | --- | --- |
+| laptop | petir-biru | Workflow cepat atau otomasi |
+| presentasi | aura-emas | Poin utama / solusi |
+| berpikir | portal-hijau | Menjelajah kemungkinan baru |
+| menunjuk | speedlines-merah | Menekankan angka atau klaim |
+| setuju | partikel-bintang | Rekomendasi / hasil bagus |
+| stop | impact-ungu | Mematahkan mitos |
+
+```tsx
+<PixelAulia mood="laptop" effect="petir-biru" size={800} />
+<PixelAulia mood="mode-jenius" size={800} />
+```
+
+Pose dengan laptop, smartphone, pointer, buku dan mug adalah gambar utuh; properti tersebut belum menjadi layer terpisah.
+
+`speedlines-merah` adalah efek bingkai: garis sengaja mencapai tepi kanvas, sementara pusatnya transparan. Bisa dipakai sebagai overlay satu layar dengan `Img` dan `objectFit: cover`, atau sebagai efek di belakang karakter melalui prop `effect`. Nilai alpha sudutnya dicatat di manifest; pemeriksa katalog mengizinkan tepi ini khusus untuk efek bingkai.
+
+## Gerak khusus Vol. 4
+
+- `deadline-samurai`: masuk dengan rotasi tebasan yang mereda.
+- `ditelan-algoritma`: seluruh gambar bergoyang dan berdenyut seperti tarikan portal.
+- `eksekusi-meteor`: masuk diagonal dari kiri atas.
+- `raja-multitasking`, `mode-biksu`, `bangkit-lagi`, `pawang-ai`: melayang.
+- `cincin-deadline`: layer cincin berputar independen.
+
+Semua gerak memakai frame/fps Remotion. `animate={false}` mematikannya. Ini transformasi seluruh PNG; tidak menggerakkan tangan, helper, sayap atau properti di dalam PNG secara independen.
 
 ## Batas teknis
 

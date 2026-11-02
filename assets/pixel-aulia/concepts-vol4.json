@@ -1,0 +1,110 @@
+[
+  {
+    "id": "deadline-samurai",
+    "category": "reactions",
+    "file": "reactions/deadline-samurai.png",
+    "title": "Membelah deadline",
+    "concept": "Jam raksasa dibelah pedang jarum jam; serpihan waktu mengorbit.",
+    "use": "Deadline dan tekanan waktu",
+    "motion": "shake"
+  },
+  {
+    "id": "raja-multitasking",
+    "category": "reactions",
+    "file": "reactions/raja-multitasking.png",
+    "title": "Mengendalikan banyak tugas",
+    "concept": "Enam lengan energi tambahan mengatur alat kerja di belakang dua lengan asli.",
+    "use": "Banyak pekerjaan ditangani sekaligus",
+    "motion": "hover"
+  },
+  {
+    "id": "ditelan-algoritma",
+    "category": "reactions",
+    "file": "reactions/ditelan-algoritma.png",
+    "title": "Tersedot distraksi",
+    "concept": "Tubuh terseret portal smartphone dengan pusaran notifikasi.",
+    "use": "Distraksi, doomscrolling, algoritma",
+    "motion": "shake"
+  },
+  {
+    "id": "dompet-kritis",
+    "category": "reactions",
+    "file": "reactions/dompet-kritis.png",
+    "title": "Drama keuangan",
+    "concept": "Dompet raksasa kosong, zirah koin pecah, ngengat arwah keluar.",
+    "use": "Biaya bocor dan pengeluaran berlebihan",
+    "motion": "still"
+  },
+  {
+    "id": "mode-biksu",
+    "category": "reactions",
+    "file": "reactions/mode-biksu.png",
+    "title": "Tenang di tengah gangguan",
+    "concept": "Meditasi melayang; notifikasi larut di perisai zen dan teh melayang.",
+    "use": "Fokus dan menjaga batas kerja",
+    "motion": "hover"
+  },
+  {
+    "id": "bangkit-lagi",
+    "category": "reactions",
+    "file": "reactions/bangkit-lagi.png",
+    "title": "Bangkit dari kegagalan",
+    "concept": "Sayap phoenix oranye-cyan muncul dari blazer di antara kertas kusut.",
+    "use": "Pemulihan, mencoba lagi",
+    "motion": "hover"
+  },
+  {
+    "id": "otak-overload",
+    "category": "reactions",
+    "file": "reactions/otak-overload.png",
+    "title": "Kepala menjadi black hole",
+    "concept": "Galaksi di atas kepala menyedot ikon tugas; wajah tetap terlihat.",
+    "use": "Overthinking dan kebanjiran informasi",
+    "motion": "shake"
+  },
+  {
+    "id": "pawang-ai",
+    "category": "reactions",
+    "file": "reactions/pawang-ai.png",
+    "title": "Konduktor para asisten AI",
+    "concept": "Benang energi mengatur tiga helper robot holografik kecil.",
+    "use": "Orkestrasi AI dan delegasi",
+    "motion": "hover"
+  },
+  {
+    "id": "eksekusi-meteor",
+    "category": "reactions",
+    "file": "reactions/eksekusi-meteor.png",
+    "title": "Eksekusi secepat meteor",
+    "concept": "Terjun diagonal dengan pedang energi berbentuk keyboard dan jejak komet.",
+    "use": "Mulai eksekusi, momentum",
+    "motion": "shake"
+  },
+  {
+    "id": "cincin-deadline",
+    "category": "effects",
+    "file": "effects/cincin-deadline.png",
+    "title": "Serpihan waktu",
+    "concept": "Cincin jam amber pecah, pusat transparan tanpa angka.",
+    "use": "Layer waktu dan deadline",
+    "motion": "pulse"
+  },
+  {
+    "id": "sayap-phoenix",
+    "category": "effects",
+    "file": "effects/sayap-phoenix.png",
+    "title": "Sayap kebangkitan",
+    "concept": "Sepasang sayap api oranye-cyan dengan ruang kosong untuk karakter.",
+    "use": "Layer kebangkitan",
+    "motion": "pulse"
+  },
+  {
+    "id": "badai-notifikasi",
+    "category": "effects",
+    "file": "effects/badai-notifikasi.png",
+    "title": "Badai distraksi",
+    "concept": "Bingkai spiral tile notifikasi merah-magenta, pusat transparan.",
+    "use": "Layer gangguan dan overload",
+    "motion": "pulse"
+  }
+]
