@@ -11,7 +11,7 @@ import type {Loop, Meter} from '../types';
  */
 export const HUD_BOX = {left: 432, top: 78, width: 344};
 
-const fmt = (v: number, short?: boolean) => {
+export const fmt = (v: number, short?: boolean) => {
   const id = (n: number, d = 0) => n.toLocaleString('id-ID', {maximumFractionDigits: d});
   if (!short) return id(Math.round(v));
   const units: [number, string][] = [

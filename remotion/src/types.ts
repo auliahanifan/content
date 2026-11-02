@@ -22,6 +22,18 @@ export type Effect =
 /** Mini-epik: efek terpisah di belakang presenter, presenter tetap di tempat. */
 export type Aura = {at: number; effect: Effect; dur?: number; scale?: number; sfx?: SfxName | null};
 export type Layout = 'left' | 'right' | 'center';
+/** Map latar procedural (src/world/Maps.tsx). */
+export type MapName = 'padang' | 'toko' | 'kantor' | 'kota' | 'dungeon';
+/** Latar bereaksi pada emosi kalimat. */
+export type Mood = 'bahaya' | 'untung' | 'glitch' | 'fokus';
+/** Kulit jendela papan. */
+export type Skin = 'window' | 'quest' | 'arcade' | 'item' | 'none';
+
+export type Pop = {at: number; text: string; tone?: Tone; x?: number; y?: number; dur?: number; size?: number};
+export type Sticker = {at: number; emoji: string; x?: number; y?: number; dur?: number; size?: number};
+export type Fx = {at: number; kind: 'shake' | 'flash' | 'glitch' | 'zoom' | 'burst'; x?: number; y?: number; tone?: Tone};
+export type Loot = {at: number; emoji: string; text?: string; x?: number; y?: number};
+export type BossHit = {at: number; dmg: number; text?: string};
 export type Transition = 'pixel' | 'iris' | 'none';
 
 /** Interupsi epik: layar flash, reaksi besar di tengah, shake, latar malam. */
@@ -93,7 +105,8 @@ export type Board =
       stamp?: Stamp;
       zoom?: number; // skala kartu, default 1.1; turunkan (mis. 0.9) bila papan penuh atau layout center
     }
-  | {type: 'word'; kicker?: string; text: string; sub?: string; subAt?: number; at?: number; tone?: Tone; stamp?: Stamp};
+  | {type: 'word'; kicker?: string; text: string; sub?: string; subAt?: number; at?: number; tone?: Tone; stamp?: Stamp}
+  | {type: 'boss'; kicker?: string; name: string; emoji: string; hp?: number; hits?: BossHit[]; defeatAt?: number; defeatText?: string; title?: string};
 
 export type Footer = PropRef & {at: number; text: string; tone?: Tone};
 
@@ -107,6 +120,11 @@ export type Scene = {
   layout?: Layout; // posisi karakter; default bergantian left/right
   transition?: Transition; // transisi masuk; default bergantian pixel/iris
   sfx?: SfxName | null; // default 'sweep' di awal adegan
+  map?: MapName; // latar dunia; default mewarisi adegan sebelumnya (awal: padang). Ganti map = kamera dash
+  mood?: Mood; // latar bereaksi selama adegan ini
+  skin?: Skin; // kulit papan; default window
+  size?: 'full' | 'sm'; // sm = papan lebih kecil, dunia lebih terlihat
+  enter?: 'dash' | 'beam'; // karakter masuk ulang di awal adegan
 };
 
 /** Indikator yang menempel di tengah atas sepanjang video, naik pada tiap step (mis. RISIKO Rp0 -> Rp1,2 M). */
@@ -124,7 +142,7 @@ export type Meter = {
 /** Progress bar open-loop: janji di awal, hitung mundur detik sampai kata `until` (payoff). */
 export type Loop = {text: string; until: number; from?: number; done?: string};
 
-export type SfxName = 'blip' | 'coin' | 'power' | 'hit' | 'select' | 'sweep' | 'boom';
+export type SfxName = 'blip' | 'coin' | 'power' | 'hit' | 'select' | 'sweep' | 'boom' | 'dash' | 'pickup' | 'damage' | 'glitch' | 'levelup' | 'pop';
 
 export type Storyboard = {
   series: string; // assets/<series>.svg dan <series>-white.svg
@@ -140,6 +158,12 @@ export type Storyboard = {
   punch?: number[]; // indeks kata: kamera punch-in
   meter?: Meter;
   loop?: Loop;
+  pops?: Pop[]; // damage number / angka melayang
+  stickers?: Sticker[]; // emoji pixel meletup
+  fx?: Fx[]; // shake, flash, glitch, zoom, burst
+  loot?: Loot[]; // item terbang dari papan ke karakter
+  moods?: {at: number; mood: Mood; dur?: number}[]; // latar bereaksi sesaat (detik, default 1.5)
+  autoJuice?: boolean; // default true: debu, burst di punch, damage number dari meter
   scenes: Scene[];
   sfx?: {at: number; name: SfxName; volume?: number}[]; // SFX tambahan
   autoSfx?: boolean; // default true: sweep/blip/hit/select otomatis
