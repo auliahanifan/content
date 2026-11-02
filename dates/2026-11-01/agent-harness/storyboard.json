@@ -1,0 +1,124 @@
+{
+  "series": "bukan-sulap",
+  "audio": "tts/final.mp3",
+  "words": "tts/words.json",
+  "tail": 1.2,
+  "keywords": ["jelek", "harness", "andong", "andongnya", "kuda", "kudanya", "izin", 120],
+  "captionMerge": [
+    {"from": 21, "to": 26, "text": "GPT-5.5,"},
+    {"from": 37, "to": 40, "text": "63%"},
+    {"from": 45, "to": 47, "text": "85%."},
+    {"from": 121, "to": 124, "text": "ChatGPT"}
+  ],
+  "seriesLine": {"from": 54, "to": 55},
+  "scenes": [
+    {
+      "at": 0, "pose": "bingung", "sfx": null,
+      "poses": [{"at": 4, "pose": "berpikir"}, {"at": 9, "pose": "yakin"}],
+      "board": {
+        "type": "title", "kicker": "Hasil AI", "text": "Hasil AI Anda *jelek*?",
+        "sub": "Belum tentu modelnya yang salah.", "subAt": 4,
+        "items": [{"at": 9, "prop": "uang", "emoji": "💸", "label": "Bayar model lebih mahal?", "tone": "bad", "strikeAt": 14}]
+      }
+    },
+    {
+      "at": 15, "pose": "menjelaskan", "poses": [{"at": 37, "pose": "menunjuk"}],
+      "board": {
+        "type": "shot", "kicker": "Endor Labs", "title": "Satu model, *dua aplikasi*",
+        "src": "assets/img/shot-leaderboard.png", "source": "endorlabs.com/research · data 25 Apr 2026",
+        "rings": [{"at": 37, "x": 71, "y": 76, "w": 18, "h": 17, "tone": "bad"}]
+      }
+    },
+    {
+      "at": 42, "pose": "terkejut",
+      "board": {
+        "type": "stat", "kicker": "GPT-5.5", "title": "Tugas coding yang lolos", "note": "model sama, aplikasi beda",
+        "items": [
+          {"at": 42, "label": "Aplikasi A", "value": 63, "suffix": "%", "tone": "bad"},
+          {"at": 45, "label": "Aplikasi B", "value": 85, "suffix": "%", "tone": "good"}
+        ]
+      }
+    },
+    {
+      "at": 48, "pose": "yakin", "poses": [{"at": 50, "pose": "menunjuk"}],
+      "board": {"type": "title", "kicker": "Yang beda", "text": "Otaknya sama.\nBungkusnya: *harness*."}
+    },
+    {
+      "at": 54, "pose": "menjelaskan",
+      "board": {"type": "title", "text": "Begini cara *kerjanya*."}
+    },
+    {
+      "at": 59, "pose": "menjelaskan", "poses": [{"at": 63, "pose": "menunjuk"}, {"at": 68, "pose": "bingung"}],
+      "board": {
+        "type": "props", "kicker": "Analogi", "title": "Andong di *Malioboro*",
+        "items": [
+          {"at": 63, "prop": "kuda", "emoji": "🐎", "label": "Kuda = model AI", "tone": "sky"},
+          {"at": 67, "prop": "otot", "emoji": "💪", "label": "Kuat", "tone": "good"},
+          {"at": 69, "prop": "sendirian", "emoji": "🙅", "label": "Nggak bisa sendirian", "tone": "bad"}
+        ]
+      }
+    },
+    {
+      "at": 74, "pose": "menjelaskan",
+      "poses": [{"at": 89, "pose": "menunjuk"}, {"at": 108, "pose": "berpikir"}, {"at": 118, "pose": "yakin"}],
+      "board": {
+        "type": "list", "kicker": "Harness = perlengkapan andong", "title": "Kuda butuh tiga hal",
+        "items": [
+          {"at": 76, "prop": "kacamata-kuda", "emoji": "🕶️", "text": "Kacamata kuda", "sub": "apa yang dilihat AI", "subAt": 92, "tone": "sky"},
+          {"at": 80, "prop": "kereta", "emoji": "🛒", "text": "Kereta", "sub": "alat: browsing, baca file", "subAt": 97, "tone": "good"},
+          {"at": 84, "prop": "tali-kekang", "emoji": "🪢", "text": "Tali kekang", "sub": "jalan sendiri vs nunggu izin", "subAt": 108, "tone": "warn"}
+        ]
+      },
+      "footer": {"at": 118, "prop": "kusir", "emoji": "🤠", "text": "Kusirnya? *Anda*."}
+    },
+    {
+      "at": 121, "pose": "menjelaskan", "poses": [{"at": 127, "pose": "menunjuk"}],
+      "board": {
+        "type": "compare", "kicker": "ChatGPT juga begitu", "title": "Sama persis",
+        "left": {"at": 127, "label": "model", "prop": "kuda", "emoji": "🐎", "text": "kuda", "tone": "sky"},
+        "right": {"at": 129, "label": "aplikasi", "prop": "andong", "emoji": "🛞", "text": "andong", "tone": "accent"},
+        "op": "+"
+      }
+    },
+    {
+      "at": 131, "pose": "menjelaskan", "poses": [{"at": 140, "pose": "berpikir"}],
+      "board": {
+        "type": "list", "kicker": "Contoh", "title": "Chatbot *toko online*",
+        "items": [
+          {"at": 135, "prop": "katalog", "emoji": "📒", "text": "Lihat katalog", "sub": "boleh", "tone": "good"},
+          {"at": 138, "prop": "ongkir", "emoji": "📦", "text": "Cek ongkir", "sub": "boleh", "tone": "good"},
+          {"at": 141, "prop": "diskon", "emoji": "🏷️", "text": "Kasih diskon", "sub": "harus izin dulu", "subAt": 143, "tone": "warn"}
+        ]
+      }
+    },
+    {
+      "at": 145, "pose": "menjelaskan", "poses": [{"at": 150, "pose": "menunjuk"}, {"at": 157, "pose": "berpikir"}],
+      "board": {
+        "type": "counts", "kicker": "Andong saya", "title": "Buat bikin konten",
+        "items": [
+          {"at": 150, "prop": "folder", "emoji": "📁", "value": 1, "label": "folder", "tone": "accent"},
+          {"at": 152, "prop": "skill", "emoji": "🧩", "value": 6, "label": "skill", "tone": "lilac"},
+          {"at": 154, "prop": "file-aturan", "emoji": "📜", "value": 1, "label": "file aturan", "tone": "good"}
+        ]
+      },
+      "footer": {"at": 157, "prop": "pensil", "emoji": "✍️", "text": "Ada salah? *Tulis aturannya*."}
+    },
+    {
+      "at": 163, "pose": "yakin",
+      "board": {
+        "type": "title", "text": "Kudanya sama,\nandongnya makin *bagus*.",
+        "items": [
+          {"at": 163, "prop": "kuda", "emoji": "🐎", "tone": "sky"},
+          {"at": 165, "prop": "andong", "emoji": "✨", "tone": "sun"}
+        ]
+      }
+    },
+    {
+      "at": 168, "pose": "berpikir", "dark": true, "poses": [{"at": 177, "pose": "menunjuk"}],
+      "board": {
+        "type": "title", "text": "Jangan langsung ganti *kuda*.",
+        "sub": "Cek dulu *andongnya*.", "subAt": 177
+      }
+    }
+  ]
+}

@@ -38,6 +38,15 @@ Pelajaran dari proyek `dates/2026-10-01`:
 - Tiap render menulis cache ±3,7 GB di `/private/var/folders/.../T/hyperframes-extract-cache-501`. Bila disk penuh (`ENOSPC`), hapus cache itu. Aman, dibuat ulang otomatis.
 - Hasil render ditaruh di `dates/<tanggal>/out/` (sudah di-gitignore).
 
+## Remotion (video karakter)
+
+Studio Remotion bersama ada di `remotion/` (pnpm). Dipakai skill `/video-karakter`; HyperFrames tetap dipakai `/video-faceless` dan `/edit-video-viral`.
+
+- Tiap video = `dates/<tanggal>/<slug>/storyboard.json` (+ `tts/final.mp3`, `tts/words.json`). Tidak ada kode per video; jenis papan baru ditambahkan ke `remotion/src/boards/`.
+- Perintah dari `remotion/`: `pnpm studio <folder-video>`, `pnpm still <folder-video> <detik>...`, `pnpm render <folder-video> [--draft]`. Hasil ke `<folder-video>/out/`.
+- `scripts/run.mjs` mengarahkan symlink `remotion/public/video` ke folder video aktif. `remotion/public/shared` adalah symlink ke `assets/` (karakter, logo, `assets/props/`).
+- Lisensi: Remotion gratis untuk individu (konten personal brand). Bila dipakai atas nama perusahaan dengan lebih dari 3 orang, perlu company license.
+
 ## Aset turunan (tidak di-commit)
 
 `dates/<tanggal>/muse-video/assets/take.mp4` dan `take-cut.webm` dibuat dari footage mentah dan ada di `.gitignore`. Buat ulang bila hilang:
