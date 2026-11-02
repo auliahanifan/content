@@ -1,0 +1,26 @@
+{
+  "style": "Motion Comic",
+  "description": "Kontur tinta ekspresif, cel shading dan perspektif dramatis.",
+  "assets": [
+    {
+      "id": "netral",
+      "file": "characters/netral.png"
+    },
+    {
+      "id": "deadline-samurai",
+      "file": "reactions/deadline-samurai.png"
+    },
+    {
+      "id": "raja-multitasking",
+      "file": "reactions/raja-multitasking.png"
+    },
+    {
+      "id": "bangkit-lagi",
+      "file": "reactions/bangkit-lagi.png"
+    },
+    {
+      "id": "sayap-phoenix",
+      "file": "effects/sayap-phoenix.png"
+    }
+  ]
+}

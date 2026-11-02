@@ -1,0 +1,26 @@
+{
+  "style": "Retro Halftone",
+  "description": "Komik cetak dengan raster titik, tekstur tinta dan palet terbatas.",
+  "assets": [
+    {
+      "id": "netral",
+      "file": "characters/netral.png"
+    },
+    {
+      "id": "deadline-samurai",
+      "file": "reactions/deadline-samurai.png"
+    },
+    {
+      "id": "raja-multitasking",
+      "file": "reactions/raja-multitasking.png"
+    },
+    {
+      "id": "bangkit-lagi",
+      "file": "reactions/bangkit-lagi.png"
+    },
+    {
+      "id": "sayap-phoenix",
+      "file": "effects/sayap-phoenix.png"
+    }
+  ]
+}
