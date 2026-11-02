@@ -6,7 +6,9 @@ Video konten (Reels/TikTok) per tanggal di `dates/<YYYY-MM-DD>/`. Footage mentah
 
 https://docs.google.com/spreadsheets/d/1CWo1QCbJv_W-4L2AV5qGU3S-1JWf1CqdR0GMVnZyYMY/edit (`contentBank - aulia rahman`)
 
-Dipakai oleh `/ide-konten`, `/naskah`, `/challenge`, dan `/arsip`. Tab: `Talking Head`, `Naskah`, `Fakta`, serta arsipnya `ArchiveTH` (dari Talking Head) dan `ArchiveN` (dari Naskah). Pakai link ini; tidak perlu mencari di Drive.
+Dipakai oleh `/ide-konten`, `/naskah`, `/challenge`, dan `/arsip`. Tab: `Talking Head`, `Naskah`, `Fakta`, serta arsipnya `ArchiveTH` (dari Talking Head) dan `ArchiveN` (dari Naskah), dan tab bantu tersembunyi `Cari`. Pakai link ini; tidak perlu mencari di Drive.
+
+Tab arsip bisa berisi puluhan ribu baris. Jangan pernah membacanya penuh. Pakai query rumus di tab tersembunyi `Cari` sesuai `.claude/skills/arsip/references/baca-arsip-hemat.md`, lalu baca hanya baris yang cocok.
 
 ## Transkripsi: pakai Whisper lokal
 

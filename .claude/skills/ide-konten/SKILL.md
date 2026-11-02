@@ -10,7 +10,7 @@ Baca dulu `.claude/skills/naskah/references/tab-talking-head.md` (kolom, syarat 
 Input: link Google Sheet content bank. Opsional: komentar atau DM audiens yang ditempel pengguna. Jika link tidak diberikan, cari di Drive dan konfirmasi ke pengguna sebelum menulis.
 
 ## 1. Baca sheet
-Baca tab CORE, Talking Head, dan ArchiveTH (untuk anti dobel dan ID terakhir). Jika tab Talking Head belum ada, buat sesuai spesifikasi.
+Baca tab CORE dan Talking Head. Untuk ArchiveTH jangan dibaca penuh: ambil ID terbesar dan cek anti dobel lewat query di tab `Cari` (`.claude/skills/arsip/references/baca-arsip-hemat.md`), satu panggilan untuk semua kandidat. Jika tab Talking Head belum ada, buat sesuai spesifikasi.
 
 ## 2. Kumpulkan bahan
 Audiens: owner dan tim kecil yang operasionalnya menyita waktu dan biaya tools terus bertambah. Hari ini dihitung dari tanggal sistem.
@@ -36,7 +36,7 @@ Buka sumber sebelum memakai faktanya. Catat URL dan tanggal terbit. Sumber >14 h
 - Status fresh `Fresh` hanya jika padahal-nya juga dari bahan ≤14 hari, bukan cuma pemicunya. Pemicu baru dengan bukti lama ditulis `Evergreen`, pemicunya disebut di Sudut Aul.
 - Lebih baik kurang dari 20 ide yang dalam daripada 20 ide yang dangkal. Laporkan jumlah sebenarnya.
 - Minimal 1 ide dari setiap sumber yang tersedia jika ada yang lolos kedalaman (audiens hanya jika ada teks yang ditempel).
-- Lolos anti dobel terhadap tab CORE, Talking Head, dan ArchiveTH, termasuk baris berstatus `arsip` yang masih ada.
+- Lolos anti dobel terhadap tab CORE, Talking Head, dan ArchiveTH (lewat query kata kunci), termasuk baris berstatus `arsip` yang masih ada.
 - Hook diambil dari padahal-nya, bukan dari beritanya. Saya/Anda, tanpa em dash, tanpa menakut-nakuti atau klaim absolut, dan tanpa mengklaim pengalaman atau hasil tes.
 - Utamakan seri Katanya Nyatanya, Bukan Sulap, dan Sing Murah Wae; jangan 20 ide jatuh di satu seri.
 - Wajib lolos tiga uji pengguna di syarat kedalaman; uji 3 punya dua jalur sah (perilaku AI, atau trade-off tersembunyi pada tool AI: tonggak produk dan pemain baru, perubahan cara memakai AI, syarat data dan privasi, harga lawan manfaat). Jangan menolak ide yang jelas masuk salah satu jalur itu hanya karena bukan soal perilaku AI. Variasikan bagian bisnis tempat AI dipakai (pelanggan, inbox dan akses, dokumen, marketing, data dan angka, keputusan owner, pemilihan tool, tim), bukan topik di luar AI.

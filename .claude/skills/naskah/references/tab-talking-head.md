@@ -8,7 +8,7 @@ Spreadsheet yang sama dengan bank CORE (link di `CLAUDE.md`). Nama tab: `Talking
 ## Kolom (urutan tetap)
 | Kolom | Isi |
 |---|---|
-| ID | `TH-001`, berurutan. Lanjutkan dari nomor terbesar di tab Talking Head **dan** ArchiveTH, agar ID yang sudah diarsipkan tidak dipakai ulang. |
+| ID | `TH-001`, berurutan. Lanjutkan dari nomor terbesar di tab Talking Head **dan** ArchiveTH, agar ID yang sudah diarsipkan tidak dipakai ulang. Ambil angkanya dengan rumus di tab `Cari`, jangan membaca kolom ID arsip (lihat bagian "Tab arsip"). |
 | Tanggal | Tanggal ide dibuat, `YYYY-MM-DD`. |
 | Sumber | Salah satu: `CORE#<id>`, `berita AI`, `berita UMKM`, `sosmed`, `evergreen`, `audiens` |
 | Link sumber | URL yang benar-benar dibuka. Kosong untuk evergreen. Untuk audiens: kutipan singkat pertanyaannya. |
@@ -76,7 +76,10 @@ Semua hasil kerja disimpan di spreadsheet yang sama, bukan di file lokal. Jika t
 - Satu ide utama per video, 45-75 detik.
 
 ## Anti dobel
-Sebelum mengusulkan, baca tab Talking Head, ArchiveTH, dan CORE. Jangan usulkan ide yang topik dan sudutnya pada dasarnya sama dengan baris yang sudah ada. Sudut berbeda atas topik yang sama boleh, sebutkan bedanya di "Sudut Aul". (Pengecualian: pecahan CORE memang berasal dari baris CORE, tapi tidak boleh sama dengan pecahan yang sudah ada.)
+Sebelum mengusulkan, baca tab Talking Head dan CORE, lalu cek ArchiveTH dengan query kata kunci per kandidat ide (lihat bagian "Tab arsip"); baca penuh hanya baris arsip yang cocok. Jangan usulkan ide yang topik dan sudutnya pada dasarnya sama dengan baris yang sudah ada. Sudut berbeda atas topik yang sama boleh, sebutkan bedanya di "Sudut Aul". (Pengecualian: pecahan CORE memang berasal dari baris CORE, tapi tidak boleh sama dengan pecahan yang sudah ada.)
+
+## Tab arsip (ArchiveTH, ArchiveN)
+Arsip bisa berisi ribuan sampai puluhan ribu baris. **Jangan pernah membaca tab arsip secara penuh** (termasuk satu kolom penuh). Pakai query rumus di tab tersembunyi `Cari` sesuai `.claude/skills/arsip/references/baca-arsip-hemat.md`: ID terbesar, anti dobel per kata kunci, dan cari baris dari ID. Lalu baca hanya baris yang cocok.
 
 ## Aturan tulis Google Sheets
 - Butuh konektor **Google Sheets** (bukan hanya Drive). Muat dengan ToolSearch "google sheets". Jika tidak ada, berhenti dan minta pengguna mengaktifkannya; jangan membuat file baru sebagai pengganti.
