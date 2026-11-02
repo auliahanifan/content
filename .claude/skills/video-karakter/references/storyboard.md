@@ -13,6 +13,7 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
   "captionFix": {"15": "Endor"},        // ganti ejaan satu kata
   "seriesLine": {"from": 54, "to": 55}, // logo seri terbang ke tengah, papan meredup
   "epic": [{"at": 3, "reaction": "murka", "dur": 1.4, "text": "JELEK?!", "color": "bad"}],  // 2-4 per video
+  "aura": [{"at": 67, "effect": "aura-emas", "dur": 1.5}],  // mini-epik 3-5 per video
   "punch": [53, 89],                    // kamera punch-in pada kata ini
   "autoSfx": true,                      // default
   "sfx": [{"at": 30, "name": "coin"}],  // tambahan: blip coin power hit select sweep boom
@@ -35,11 +36,13 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
 }
 ```
 
-**Pose presenter** (`assets/pixel-aulia/characters`): `netral` · `menjelaskan` (tangan terbuka) · `menunjuk` (ke arah papan/caption) · `berpikir` (tangan di dagu) · `setuju` (jempol) · `menyapa` (lambai, intro/outro) · `stop` (telapak ke depan: "jangan", membantah mitos). Pada layout `right` karakter dibalik sehingga menunjuk ke kiri. Ganti pose tiap 1-3 kalimat; jangan tiap kata.
+**Pose presenter** (`assets/pixel-aulia/characters`): `netral` · `menjelaskan` (tangan terbuka) · `menunjuk` (ke arah papan/caption) · `berpikir` (tangan di dagu) · `setuju` (jempol) · `menyapa` (lambai, intro/outro) · `stop` (telapak ke depan: "jangan", membantah mitos) · `laptop` / `smartphone` (demo workflow, teknologi) · `presentasi` / `mencatat` (langkah, merangkum) · `ngopi` (jeda santai) · `facepalm` (kesalahan umum). Pada layout `right` karakter dibalik sehingga menunjuk ke kiri. Ganti pose tiap 1-3 kalimat; jangan tiap kata.
 
-**Reaksi** (`assets/pixel-aulia/reactions`, aura menyatu) untuk `epic`: `murka` · `fokus` · `kaget` · `percaya-diri` · `sedih` · `semangat` · `bingung` · `lelah` · `dapat-ide` · `tertawa` · `skeptis` · `menang`. Arti tiap reaksi: `assets/pixel-aulia/README.md`.
+**Reaksi** (`assets/pixel-aulia/reactions`, aura menyatu) untuk `epic`: `murka` · `fokus` · `kaget` · `percaya-diri` · `sedih` · `semangat` · `bingung` · `lelah` · `dapat-ide` · `tertawa` · `skeptis` · `menang` · `panik` · `malu` · `mode-jenius`. **Anime Metafora** (konsep di `assets/pixel-aulia/concepts-vol4.json`): `deadline-samurai` (deadline) · `raja-multitasking` (banyak tugas) · `ditelan-algoritma` (distraksi) · `dompet-kritis` (biaya bocor) · `mode-biksu` (fokus, batas kerja) · `bangkit-lagi` (mencoba lagi) · `otak-overload` (overthinking) · `pawang-ai` (orkestrasi AI, delegasi) · `eksekusi-meteor` (mulai eksekusi). Arti lengkap: `assets/pixel-aulia/README.md`.
 
-**Interupsi epik**: 2-4 per video, hanya di punchline. Layar flash putih, latar malam + garis kecepatan, reaksi besar di tengah, teks pixel raksasa (`text`, maks ±7 karakter, mis. `JELEK?!`, `85%!`), shake, SFX `boom`. Papan & presenter tersembunyi selama itu; caption pindah ke bawah. `dur` default 1,3 detik dan otomatis dipotong agar selesai sebelum transisi adegan berikutnya, jadi jangan taruh epik di kata terakhir sebelum ganti adegan bila ingin durasi penuh.
+**Efek terpisah** untuk `aura` (mini-epik, presenter tetap di tempat, efek di belakang badan 1-2 detik + SFX `power`): `aura-emas` (kuat, percaya diri) · `petir-biru` · `impact-ungu` · `portal-hijau` (perubahan, upgrade) · `speedlines-merah` (larangan, tekanan) · `partikel-bintang` (hasil, angka bagus) · `cincin-deadline` (waktu) · `sayap-phoenix` (bangkit) · `badai-notifikasi` (gangguan). `scale` mengatur ukuran (default 1).
+
+**Interupsi epik**: 2-4 per video, hanya di punchline. Layar flash putih, latar malam + garis kecepatan, reaksi besar di tengah, teks pixel raksasa (`text`, maks ±7 karakter, mis. `JELEK?!`, `85%!`), shake, SFX `boom`. Papan & presenter tersembunyi selama itu; caption pindah ke bawah. `dur` default 1,3 detik. Epik boleh melewati pergantian adegan: transisi adegan itu dilewati dan epik menjadi transisinya (keluar = membesar + memutih 3 frame lalu potong).
 
 `*teks*` di semua teks papan = sorotan stabilo yang tersapu masuk. `\n` = baris baru.
 

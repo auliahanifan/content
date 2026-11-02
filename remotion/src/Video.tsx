@@ -4,7 +4,7 @@ import {Background} from './components/Background';
 import {BoardFrame} from './components/BoardFrame';
 import {Brand} from './components/Brand';
 import {Captions} from './components/Captions';
-import {Character} from './components/Character';
+import {Character, type AuraEvent} from './components/Character';
 import {EpicLayer, epicLevel} from './components/Epic';
 import {SceneTransition} from './components/Transition';
 import {EPIC_CAPTIONS, GEO} from './layout';
@@ -57,12 +57,10 @@ const Inner: React.FC<{sb: Storyboard; fps: number; duration: number; pixel: Pix
     () =>
       (sb.epic ?? []).map((e) => {
         const start = T(e.at) - 1;
-        // selesai sebelum transisi adegan berikutnya mulai menutup layar
-        const next = scenes.find((x) => x.start > start);
-        const cap = next ? next.start - 8 : Infinity;
-        return {e, start, end: Math.min(start + Math.round((e.dur ?? 1.3) * fps), cap)};
+        // epik boleh melewati pergantian adegan; transisi adegan itu dilewati (epik jadi transisinya)
+        return {e, start, end: start + Math.round((e.dur ?? 1.3) * fps)};
       }),
-    [sb, T, fps, scenes],
+    [sb, T, fps],
   );
   const epicLvl = Math.max(0, ...epics.map((x) => epicLevel(frame, x.start, x.end)));
   const activeEpic = epics.find((x) => frame >= x.start - 1 && frame <= x.end);
@@ -84,6 +82,16 @@ const Inner: React.FC<{sb: Storyboard; fps: number; duration: number; pixel: Pix
     if (!out.length || out[0].frame > 0) out.unshift({frame: 0, pose: 'netral'});
     return out.sort((a, b) => a.frame - b.frame);
   }, [scenes, T]);
+  const auras = useMemo<AuraEvent[]>(
+    () =>
+      (sb.aura ?? []).flatMap((a) => {
+        const asset = assets.get(a.effect);
+        if (!asset) return [];
+        const start = T(a.at) - 1;
+        return [{start, end: start + Math.round((a.dur ?? 1.5) * fps), asset, scale: a.scale ?? 1}];
+      }),
+    [sb, assets, T, fps],
+  );
   const layouts = useMemo(() => scenes.map((x) => ({frame: x.start, layout: x.layout})), [scenes]);
 
   let dim = 0;
@@ -119,16 +127,17 @@ const Inner: React.FC<{sb: Storyboard; fps: number; duration: number; pixel: Pix
             .map((x) => (
               <BoardFrame key={x.i} scene={x.s} start={x.start} box={GEO[x.layout].board} dim={dim} hidden={epicLvl} />
             ))}
-          <Character changes={changes} layouts={layouts} assets={assets} audio={audio} hidden={epicLvl} />
+          <Character changes={changes} layouts={layouts} assets={assets} hidden={epicLvl} auras={auras} />
         </AbsoluteFill>
         {epics.map((x, i) => {
           const a = assets.get(x.e.reaction);
           return a ? <EpicLayer key={i} e={x.e} start={x.start} end={x.end} asset={a} /> : null;
         })}
       </AbsoluteFill>
-      {scenes.slice(1).map((x) => (
-        <SceneTransition key={x.i} at={x.start} kind={x.transition} />
-      ))}
+      {scenes.slice(1).map((x) => {
+        const underEpic = epics.some((ep) => x.start >= ep.start && x.start <= ep.end + 4);
+        return <SceneTransition key={x.i} at={x.start} kind={underEpic ? 'none' : x.transition} />;
+      })}
       <Captions box={capBox} size={capBox.width > 800 ? 70 : 64} />
       <Brand dark={night} />
       <Html5Audio src={staticFile(audio)} />
@@ -161,6 +170,7 @@ const collectSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, 
       if (s.footer) add(T(s.footer.at), 'select');
     });
     epics.forEach((x) => add(x.start, x.e.sfx ?? 'boom'));
+    sb.aura?.forEach((a) => a.sfx !== null && add(T(a.at) - 1, a.sfx ?? 'power'));
   }
   sb.sfx?.forEach((x) => add(T(x.at), x.name, x.volume));
   ev.sort((a, b) => a.frame - b.frame);

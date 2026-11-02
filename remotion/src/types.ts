@@ -4,12 +4,23 @@ import type {Tone} from './theme';
 export type Word = [string, number, number];
 
 /** Pose presenter Pixel Aulia (assets/pixel-aulia/characters). */
-export type Pose = 'netral' | 'menjelaskan' | 'menunjuk' | 'berpikir' | 'setuju' | 'menyapa' | 'stop';
+export type Pose =
+  | 'netral' | 'menjelaskan' | 'menunjuk' | 'berpikir' | 'setuju' | 'menyapa' | 'stop'
+  | 'laptop' | 'smartphone' | 'presentasi' | 'mencatat' | 'ngopi' | 'facepalm';
 /** Reaksi anime (assets/pixel-aulia/reactions), aura sudah menyatu. */
 export type Reaction =
   | 'murka' | 'fokus' | 'kaget' | 'percaya-diri' | 'sedih' | 'semangat'
-  | 'bingung' | 'lelah' | 'dapat-ide' | 'tertawa' | 'skeptis' | 'menang';
-export type Effect = 'aura-emas' | 'petir-biru' | 'impact-ungu';
+  | 'bingung' | 'lelah' | 'dapat-ide' | 'tertawa' | 'skeptis' | 'menang'
+  | 'panik' | 'malu' | 'mode-jenius'
+  // Anime Metafora (lihat assets/pixel-aulia/concepts-vol4.json)
+  | 'deadline-samurai' | 'raja-multitasking' | 'ditelan-algoritma' | 'dompet-kritis' | 'mode-biksu'
+  | 'bangkit-lagi' | 'otak-overload' | 'pawang-ai' | 'eksekusi-meteor';
+export type Effect =
+  | 'aura-emas' | 'petir-biru' | 'impact-ungu' | 'portal-hijau' | 'speedlines-merah'
+  | 'partikel-bintang' | 'cincin-deadline' | 'sayap-phoenix' | 'badai-notifikasi';
+
+/** Mini-epik: efek terpisah di belakang presenter, presenter tetap di tempat. */
+export type Aura = {at: number; effect: Effect; dur?: number; scale?: number; sfx?: SfxName | null};
 export type Layout = 'left' | 'right' | 'center';
 export type Transition = 'pixel' | 'iris' | 'none';
 
@@ -73,6 +84,7 @@ export type Storyboard = {
   captionFix?: Record<string, string>; // ganti ejaan satu kata: {"15": "Endor"}
   seriesLine?: {from: number; to: number}; // logo seri terbang ke tengah
   epic?: Epic[]; // 2-4 per video, di punchline
+  aura?: Aura[]; // mini-epik 3-5 per video
   punch?: number[]; // indeks kata: kamera punch-in
   scenes: Scene[];
   sfx?: {at: number; name: SfxName; volume?: number}[]; // SFX tambahan
