@@ -12,8 +12,10 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
   "captionMerge": [{"from": 21, "to": 26, "text": "GPT-5.5,"}],  // kata ucapan -> ejaan tampil
   "captionFix": {"15": "Endor"},        // ganti ejaan satu kata
   "seriesLine": {"from": 54, "to": 55}, // logo seri terbang ke tengah, papan meredup
+  "epic": [{"at": 3, "reaction": "murka", "dur": 1.4, "text": "JELEK?!", "color": "bad"}],  // 2-4 per video
+  "punch": [53, 89],                    // kamera punch-in pada kata ini
   "autoSfx": true,                      // default
-  "sfx": [{"at": 30, "name": "warn"}],  // tambahan: pop swipe thud ding warn
+  "sfx": [{"at": 30, "name": "coin"}],  // tambahan: blip coin power hit select sweep boom
   "scenes": [ /* lihat di bawah */ ]
 }
 ```
@@ -22,16 +24,22 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
 ```jsonc
 {
   "at": 15,                              // mulai (adegan pertama selalu frame 0)
+  "layout": "left",                      // left | right (karakter dibalik) | center; default bergantian left/right
+  "transition": "pixel",                 // pixel | iris | none; default bergantian
   "pose": "menjelaskan",                 // pose saat adegan mulai
   "poses": [{"at": 37, "pose": "menunjuk"}],  // ganti pose di tengah adegan
   "board": { "type": "...", "kicker": "tab kecil di atas papan", ... },
-  "footer": {"at": 118, "text": "Kusirnya? *Anda*.", "prop": "kusir", "emoji": "🤠"},  // banner kuning di dasar papan
-  "dark": true,                          // penutup gelap
-  "sfx": null                            // matikan swipe pembuka adegan ini (default "swipe")
+  "footer": {"at": 118, "text": "Kusirnya? *Anda*."},  // kotak dialog RPG mengetik di dasar papan
+  "dark": true,                          // malam arcade (penutup)
+  "sfx": null                            // matikan sweep pembuka adegan ini (default "sweep")
 }
 ```
 
-**Pose** (`assets/karakter-*.png`): `menjelaskan` (tangan terbuka ke kanan) · `menunjuk` (menunjuk ke kanan) · `berpikir` (tangan di dagu) · `bingung` (angkat bahu) · `terkejut` (kedua tangan terbuka, mulut "O") · `yakin` (jempol). Ganti pose kira-kira tiap 1-3 kalimat; jangan tiap kata.
+**Pose presenter** (`assets/pixel-aulia/characters`): `netral` · `menjelaskan` (tangan terbuka) · `menunjuk` (ke arah papan/caption) · `berpikir` (tangan di dagu) · `setuju` (jempol) · `menyapa` (lambai, intro/outro) · `stop` (telapak ke depan: "jangan", membantah mitos). Pada layout `right` karakter dibalik sehingga menunjuk ke kiri. Ganti pose tiap 1-3 kalimat; jangan tiap kata.
+
+**Reaksi** (`assets/pixel-aulia/reactions`, aura menyatu) untuk `epic`: `murka` · `fokus` · `kaget` · `percaya-diri` · `sedih` · `semangat` · `bingung` · `lelah` · `dapat-ide` · `tertawa` · `skeptis` · `menang`. Arti tiap reaksi: `assets/pixel-aulia/README.md`.
+
+**Interupsi epik**: 2-4 per video, hanya di punchline. Layar flash putih, latar malam + garis kecepatan, reaksi besar di tengah, teks pixel raksasa (`text`, maks ±7 karakter, mis. `JELEK?!`, `85%!`), shake, SFX `boom`. Papan & presenter tersembunyi selama itu; caption pindah ke bawah. `dur` default 1,3 detik dan otomatis dipotong agar selesai sebelum transisi adegan berikutnya, jadi jangan taruh epik di kata terakhir sebelum ganti adegan bila ingin durasi penuh.
 
 `*teks*` di semua teks papan = sorotan stabilo yang tersapu masuk. `\n` = baris baru.
 
@@ -50,8 +58,8 @@ Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **inde
 `tone`: `accent` (jeruk) · `good` (hijau) · `bad` (merah) · `warn` (kuning tua) · `sky` · `lilac` · `sun` · `ink`.
 
 ## Tata letak (jangan dilanggar)
-- Papan: x 50-1030, y 230-1030. Isi papan maks: judul 1-2 baris + 3 item. Bila meluap (judul menabrak tab kicker), pecah jadi dua adegan.
-- Karakter: kiri bawah, kepala ±y1050. Caption: kotak x 540-1000, y 1130-1430. UI Reels menutup y>1500 dan sisi kanan x>960 di bawah: jangan taruh info penting di sana.
-- `footer` mengambil ruang bawah papan; pakai di papan yang isinya pendek.
+- Geometri ada di `remotion/src/layout.ts`. left/right: papan x 50-1030 y 230-1030, caption di sisi seberang karakter (y 1120-1440). center: papan y 230-870 (lebih pendek), caption di bawahnya, karakter di tengah. UI Reels menutup y>1500 dan sisi kanan bawah.
+- Isi papan maks: judul 1-2 baris + 3 item. `center` cocok untuk papan `title` pendek; papan berisi daftar/perbandingan pakai left/right. Bila judul menabrak title bar, pecah adegan.
+- `footer` (dialog) menjorok di bawah papan dan mengambil ruang bawah isi; pakai di papan berisi ≤3 baris pendek.
 - Kata pertama adegan baru: adegan mulai 3 frame sebelum kata itu; elemen muncul 2 frame sebelum katanya.
 - Bila menambah jenis papan, tulis di `remotion/src/boards/Boards.tsx`, tipe di `remotion/src/types.ts`, lalu dokumentasikan di tabel ini.

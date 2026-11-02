@@ -1,13 +1,13 @@
 import React from 'react';
 import {Img, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, FONT_BODY, FONT_DISPLAY, sticker, tone} from '../theme';
+import {C, FONT_BODY, FONT_DISPLAY, notch, pixelBox, tone} from '../theme';
 import {popStyle, usePop, useTiming} from '../timing';
 import type {Board, Item, Ring} from '../types';
 import {Prop} from '../components/Prop';
 import {Rich} from '../components/Rich';
 import {Strike} from '../components/Strike';
 
-const Title: React.FC<{text?: string; from: number; size?: number}> = ({text, from, size = 74}) => {
+const Title: React.FC<{text?: string; from: number; size?: number}> = ({text, from, size = 66}) => {
   const {p, visible} = usePop(undefined, from);
   if (!text) return null;
   return (
@@ -53,7 +53,7 @@ const TitleBoard: React.FC<{b: Extract<Board, {type: 'title'}>; start: number}> 
   const sub = usePop(b.subAt, start);
   return (
     <Col gap={40}>
-      <Title text={b.text} from={start} size={b.text.length > 40 ? 84 : 104} />
+      <Title text={b.text} from={start} size={b.text.length > 40 ? 72 : 88} />
       {b.sub && (
         <div style={popStyle(sub.p, sub.visible)}>
           <Label size={50} color={C.inkSoft} weight={700}>
@@ -61,7 +61,7 @@ const TitleBoard: React.FC<{b: Extract<Board, {type: 'title'}>; start: number}> 
           </Label>
         </div>
       )}
-      {b.items && <PropRow items={b.items} start={start} size={200} />}
+      {b.items && <PropRow items={b.items} start={start} size={170} />}
     </Col>
   );
 };
@@ -116,9 +116,9 @@ const ListRow: React.FC<{it: Item; start: number}> = ({it, start}) => {
         gap: 32,
       }}
     >
-      <Prop prop={it.prop} emoji={it.emoji} size={150} bg={it.tone ? tint(it.tone) : undefined} />
+      <Prop prop={it.prop} emoji={it.emoji} size={128} bg={it.tone ? tint(it.tone) : undefined} />
       <div style={{flex: 1, position: 'relative'}}>
-        <div style={{fontFamily: FONT_BODY, fontWeight: 800, fontSize: 54, color: it.tone && it.tone !== 'accent' ? tone(it.tone) : C.ink, lineHeight: 1.1}}>
+        <div style={{fontFamily: FONT_BODY, fontWeight: 800, fontSize: 50, color: it.tone && it.tone !== 'accent' ? tone(it.tone) : C.ink, lineHeight: 1.1}}>
           <Rich text={it.text ?? ''} from={T(it.at ?? 0)} />
         </div>
         {it.sub && (
@@ -134,8 +134,8 @@ const ListRow: React.FC<{it: Item; start: number}> = ({it, start}) => {
 
 const ListBoard: React.FC<{b: Extract<Board, {type: 'list'}>; start: number}> = ({b, start}) => (
   <Col gap={44} align="stretch">
-    <Title text={b.title} from={start} size={68} />
-    <div style={{display: 'flex', flexDirection: 'column', gap: 34, padding: '0 10px'}}>
+    <Title text={b.title} from={start} size={60} />
+    <div style={{display: 'flex', flexDirection: 'column', gap: 26, padding: '0 10px'}}>
       {b.items.map((it, i) => (
         <ListRow key={i} it={it} start={start} />
       ))}
@@ -162,7 +162,14 @@ const Bar: React.FC<{it: Item; start: number; max: number}> = ({it, start, max})
         {it.suffix}
       </div>
       <div style={{height: H, display: 'flex', alignItems: 'flex-end'}}>
-        <div style={{...sticker(10, col), width: 200, height: h, borderRadius: '28px 28px 8px 8px', boxSizing: 'border-box'}} />
+        <div
+          style={{
+            width: 200,
+            height: Math.round(h / 24) * 24,
+            background: `repeating-linear-gradient(${col} 0 18px, ${C.ink} 18px 24px)`,
+            boxShadow: `0 0 0 8px ${C.ink}, 10px 10px 0 8px ${C.ink}`,
+          }}
+        />
       </div>
       <Label size={44}>{it.label}</Label>
     </div>
@@ -215,10 +222,10 @@ const CompareCard: React.FC<{it: Item; start: number; tilt: number}> = ({it, sta
   return (
     <div
       style={{
-        ...sticker(10, it.tone ? tint(it.tone) : C.bg),
+        ...pixelBox(it.tone ? tint(it.tone) : C.paperDeep, C.white, 8),
+        clipPath: notch(8),
         ...popStyle(p, visible, 60),
-        rotate: `${tilt * p}deg`,
-        borderRadius: 36,
+        rotate: `${Math.round(tilt * p)}deg`,
         width: 360,
         padding: '36px 20px 30px',
         display: 'flex',
@@ -248,12 +255,11 @@ const CompareBoard: React.FC<{b: Extract<Board, {type: 'compare'}>; start: numbe
         <CompareCard it={b.left} start={start} tilt={-3} />
         <div
           style={{
-            ...sticker(6, C.sun),
+            ...pixelBox(C.sun, C.white, 6),
             opacity: op.visible ? 1 : 0,
-            transform: `scale(${op.p})`,
-            width: 110,
-            height: 110,
-            borderRadius: '50%',
+            transform: `scale(${op.p}) rotate(-6deg)`,
+            width: 116,
+            height: 116,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -303,11 +309,10 @@ const RingBox: React.FC<{r: Ring}> = ({r}) => {
         top: `${r.y}%`,
         width: `${r.w}%`,
         height: `${r.h}%`,
-        border: `8px solid ${tone(r.tone ?? 'accent')}`,
-        borderRadius: 999,
+        border: `10px solid ${tone(r.tone ?? 'accent')}`,
         opacity: visible ? 1 : 0,
-        transform: `scale(${(1.5 - 0.5 * p) * pulse}) rotate(-3deg)`,
-        boxShadow: `0 0 0 4px ${C.paper}`,
+        transform: `scale(${(1.5 - 0.5 * p) * pulse})`,
+        boxShadow: `0 0 0 5px ${C.ink}, inset 0 0 0 5px ${C.ink}`,
       }}
     />
   );
@@ -319,7 +324,7 @@ const ShotBoard: React.FC<{b: Extract<Board, {type: 'shot'}>; start: number}> = 
     <Col gap={26}>
       <Title text={b.title} from={start} size={68} />
       <div style={{...popStyle(p, visible, 40), position: 'relative', width: '100%'}}>
-        <div style={{...sticker(10), borderRadius: 24, overflow: 'hidden', lineHeight: 0}}>
+        <div style={{...pixelBox(C.ink, C.white, 8), padding: 16, lineHeight: 0}}>
           <Img src={staticFile(`video/${b.src}`)} style={{width: '100%'}} />
         </div>
         {b.rings?.map((r, i) => <RingBox key={i} r={r} />)}
@@ -333,7 +338,7 @@ const ShotBoard: React.FC<{b: Extract<Board, {type: 'shot'}>; start: number}> = 
 
 // ---------- util ----------
 const Col: React.FC<{children: React.ReactNode; gap: number; align?: 'center' | 'stretch'}> = ({children, gap, align = 'center'}) => (
-  <div style={{display: 'flex', flexDirection: 'column', alignItems: align, justifyContent: 'center', gap, width: '100%', height: '100%'}}>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: align, justifyContent: 'safe center', gap, width: '100%', height: '100%'}}>
     {children}
   </div>
 );

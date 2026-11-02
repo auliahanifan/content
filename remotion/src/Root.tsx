@@ -2,7 +2,7 @@ import React from 'react';
 import {CalculateMetadataFunction, Composition, staticFile} from 'remotion';
 import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {Video} from './Video';
-import type {Board, Storyboard, VideoProps, Word} from './types';
+import type {Board, PixelAsset, Storyboard, VideoProps, Word} from './types';
 
 export const FPS = 30;
 
@@ -37,7 +37,9 @@ const propNames = (sb: Storyboard) => {
 /** Membaca public/video/storyboard.json (folder video aktif, lihat scripts/run.mjs). */
 const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
   const sb = await getJson<Storyboard>('video/storyboard.json');
-  if (!sb) return {durationInFrames: FPS * 3, props: {storyboard: null, words: [], availableProps: []}};
+  const manifest = await getJson<{assets: PixelAsset[]}>('shared/pixel-aulia/manifest.json');
+  const pixel = manifest?.assets ?? [];
+  if (!sb) return {durationInFrames: FPS * 3, props: {storyboard: null, words: [], availableProps: [], pixel}};
   const words = (await getJson<Word[]>(`video/${sb.words ?? 'tts/words.json'}`)) ?? [];
   const audioSec = await getAudioDurationInSeconds(staticFile(`video/${sb.audio ?? 'tts/final.mp3'}`));
   const names = propNames(sb);
@@ -47,7 +49,7 @@ const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
   if (missing.length) console.warn(`[video-karakter] props belum ada (pakai placeholder): ${missing.join(', ')}`);
   return {
     durationInFrames: Math.ceil((audioSec + (sb.tail ?? 1.2)) * FPS),
-    props: {storyboard: sb, words, availableProps},
+    props: {storyboard: sb, words, availableProps, pixel},
   };
 };
 
@@ -59,7 +61,7 @@ export const Root: React.FC = () => (
     height={1920}
     fps={FPS}
     durationInFrames={FPS * 3}
-    defaultProps={{storyboard: null, words: [], availableProps: []} as VideoProps}
+    defaultProps={{storyboard: null, words: [], availableProps: [], pixel: []} as VideoProps}
     calculateMetadata={calculateMetadata}
   />
 );
