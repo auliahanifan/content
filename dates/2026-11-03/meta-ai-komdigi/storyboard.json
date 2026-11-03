@@ -1,0 +1,660 @@
+{
+ "series": "bukan-sulap",
+ "audio": "tts/final.mp3",
+ "words": "tts/words.json",
+ "tail": 1.2,
+ "keywords": [
+  "refund",
+  "chatbot",
+  "resmi",
+  "seragam",
+  "SOP",
+  "toko",
+  "Anda",
+  "bukan",
+  54,
+  70
+ ],
+ "captionMerge": [
+  {
+   "from": 61,
+   "to": 65,
+   "text": "2026"
+  },
+  {
+   "from": 67,
+   "to": 68,
+   "text": "14"
+  },
+  {
+   "from": 117,
+   "to": 121,
+   "text": "2024,"
+  }
+ ],
+ "seriesLine": {
+  "from": 46,
+  "to": 47
+ },
+ "epic": [
+  {
+   "at": 70,
+   "reaction": "kaget",
+   "dur": 1.4,
+   "text": "SEMUA!",
+   "color": "lilac"
+  },
+  {
+   "at": 152,
+   "reaction": "pawang-ai",
+   "dur": 1.5,
+   "text": "ANDA!",
+   "color": "sky"
+  }
+ ],
+ "aura": [
+  {
+   "at": 56,
+   "effect": "impact-ungu"
+  },
+  {
+   "at": 111,
+   "effect": "aura-emas"
+  },
+  {
+   "at": 125,
+   "effect": "speedlines-merah"
+  }
+ ],
+ "punch": [
+  3,
+  54,
+  99,
+  125,
+  165
+ ],
+ "stickers": [
+  {
+   "at": 1,
+   "emoji": "🛒"
+  },
+  {
+   "at": 5,
+   "emoji": "🤖"
+  },
+  {
+   "at": 12,
+   "emoji": "📱"
+  },
+  {
+   "at": 15,
+   "emoji": "🏛️"
+  },
+  {
+   "at": 17,
+   "emoji": "🔥"
+  },
+  {
+   "at": 22,
+   "emoji": "⚖️"
+  },
+  {
+   "at": 32,
+   "emoji": "❌"
+  },
+  {
+   "at": 38,
+   "emoji": "📰"
+  },
+  {
+   "at": 40,
+   "emoji": "🔎"
+  },
+  {
+   "at": 48,
+   "emoji": "🪄"
+  },
+  {
+   "at": 50,
+   "emoji": "⚙️"
+  },
+  {
+   "at": 52,
+   "emoji": "🔍"
+  },
+  {
+   "at": 57,
+   "emoji": "🎲"
+  },
+  {
+   "at": 60,
+   "emoji": "🔬"
+  },
+  {
+   "at": 62,
+   "emoji": "📅"
+  },
+  {
+   "at": 66,
+   "emoji": "🧪"
+  },
+  {
+   "at": 72,
+   "emoji": "🧲"
+  },
+  {
+   "at": 77,
+   "emoji": "😎"
+  },
+  {
+   "at": 83,
+   "emoji": "👔"
+  },
+  {
+   "at": 87,
+   "emoji": "📋"
+  },
+  {
+   "at": 90,
+   "emoji": "🙋"
+  },
+  {
+   "at": 96,
+   "emoji": "👍"
+  },
+  {
+   "at": 104,
+   "emoji": "🏪"
+  },
+  {
+   "at": 108,
+   "emoji": "✅"
+  },
+  {
+   "at": 115,
+   "emoji": "🍁"
+  },
+  {
+   "at": 118,
+   "emoji": "📆"
+  },
+  {
+   "at": 122,
+   "emoji": "✈️"
+  },
+  {
+   "at": 130,
+   "emoji": "💬"
+  },
+  {
+   "at": 138,
+   "emoji": "💬"
+  },
+  {
+   "at": 145,
+   "emoji": "🏷️"
+  },
+  {
+   "at": 154,
+   "emoji": "🧑‍💼"
+  },
+  {
+   "at": 158,
+   "emoji": "👀"
+  },
+  {
+   "at": 164,
+   "emoji": "📘"
+  },
+  {
+   "at": 167,
+   "emoji": "🛡️",
+   "x": 150,
+   "y": 1010
+  },
+  {
+   "at": 171,
+   "emoji": "👔",
+   "x": 820,
+   "y": 1000
+  },
+  {
+   "at": 172,
+   "emoji": "👔"
+  }
+ ],
+ "pops": [
+  {
+   "at": 98,
+   "text": "IYA!",
+   "tone": "bad"
+  },
+  {
+   "at": 127,
+   "text": "GANTI RUGI",
+   "tone": "bad"
+  }
+ ],
+ "fx": [
+  {
+   "at": 99,
+   "kind": "flash"
+  },
+  {
+   "at": 125,
+   "kind": "shake"
+  },
+  {
+   "at": 142,
+   "kind": "zoom"
+  },
+  {
+   "at": 55,
+   "kind": "glitch"
+  },
+  {
+   "at": 66,
+   "kind": "burst"
+  }
+ ],
+ "loot": [
+  {
+   "at": 144,
+   "emoji": "🏷️",
+   "text": "+LABEL AI"
+  },
+  {
+   "at": 153,
+   "emoji": "🙋",
+   "text": "+MANUSIA"
+  }
+ ],
+ "moods": [
+  {
+   "at": 55,
+   "mood": "glitch",
+   "dur": 2
+  },
+  {
+   "at": 124,
+   "mood": "bahaya",
+   "dur": 2.5
+  },
+  {
+   "at": 162,
+   "mood": "fokus",
+   "dur": 3
+  }
+ ],
+ "scenes": [
+  {
+   "at": 0,
+   "layout": "left",
+   "pose": "menjelaskan",
+   "poses": [
+    {
+     "at": 3,
+     "pose": "berpikir"
+    }
+   ],
+   "map": "toko",
+   "board": {
+    "type": "ui",
+    "kind": "chat",
+    "app": "Toko Anda",
+    "meta": "online",
+    "zoom": 1,
+    "items": [
+     {
+      "at": 0,
+      "text": "Kak, bisa refund?",
+      "side": "in",
+      "sub": "09.41"
+     },
+     {
+      "at": 5,
+      "text": "...",
+      "side": "out",
+      "sub": "bot"
+     }
+    ]
+   }
+  },
+  {
+   "at": 7,
+   "layout": "right",
+   "pose": "menunjuk",
+   "map": "kota",
+   "skin": "arcade",
+   "board": {
+    "type": "props",
+    "kicker": "Dua minggu ini",
+    "title": "Jawaban *chatbot* jadi ramai",
+    "items": [
+     {
+      "at": 10,
+      "prop": "bot",
+      "emoji": "🤖",
+      "label": "Chatbot Meta AI",
+      "tone": "sky"
+     },
+     {
+      "at": 14,
+      "prop": "gedung",
+      "emoji": "🏛️",
+      "label": "Soal sebuah kementerian",
+      "tone": "warn"
+     },
+     {
+      "at": 16,
+      "prop": "api",
+      "emoji": "🔥",
+      "label": "Viral dua kali",
+      "tone": "bad"
+     }
+    ]
+   }
+  },
+  {
+   "at": 19,
+   "layout": "center",
+   "pose": "stop",
+   "skin": "quest",
+   "mood": "fokus",
+   "board": {
+    "type": "title",
+    "kicker": "Catatan",
+    "text": "Saya tidak menilai *siapa yang benar*."
+   }
+  },
+  {
+   "at": 25,
+   "layout": "left",
+   "pose": "menjelaskan",
+   "map": "kota",
+   "skin": "window",
+   "board": {
+    "type": "title",
+    "kicker": "Kata akun Meta AI sendiri",
+    "text": "Jawaban itu *bukan*\npernyataan resmi Meta.",
+    "sub": "Itu ucapan bot, bukan juru bicara.",
+    "subAt": 30
+   }
+  },
+  {
+   "at": 36,
+   "layout": "right",
+   "pose": "berpikir",
+   "skin": "item",
+   "board": {
+    "type": "list",
+    "kicker": "Per 3 Nov 2026",
+    "title": "Pernyataan resmi *Meta*",
+    "items": [
+     {
+      "at": 36,
+      "prop": "megafon",
+      "emoji": "📢",
+      "text": "Sampai berita terakhir",
+      "sub": "belum bicara resmi",
+      "subAt": 42,
+      "tone": "warn"
+     }
+    ]
+   }
+  },
+  {
+   "at": 46,
+   "layout": "center",
+   "pose": "menyapa",
+   "enter": "beam",
+   "skin": "none",
+   "map": "dungeon",
+   "board": {
+    "type": "title",
+    "text": "Bukan sulap.\nBegini cara *kerjanya*."
+   }
+  },
+  {
+   "at": 51,
+   "layout": "left",
+   "pose": "menjelaskan",
+   "skin": "window",
+   "poses": [
+    {
+     "at": 55,
+     "pose": "menunjuk"
+    }
+   ],
+   "board": {
+    "type": "compare",
+    "kicker": "Chatbot",
+    "title": "Bukan cek, tapi *tebak*",
+    "op": "vs",
+    "left": {
+     "at": 51,
+     "prop": "kaca",
+     "emoji": "🔍",
+     "label": "Memeriksa kebenaran",
+     "tone": "bad",
+     "strikeAt": 53
+    },
+    "right": {
+     "at": 55,
+     "prop": "dadu",
+     "emoji": "🎲",
+     "label": "Menebak kata berikutnya",
+     "tone": "good"
+    }
+   }
+  },
+  {
+   "at": 59,
+   "layout": "right",
+   "pose": "menjelaskan",
+   "skin": "arcade",
+   "poses": [
+    {
+     "at": 75,
+     "pose": "menunjuk"
+    }
+   ],
+   "board": {
+    "type": "title",
+    "kicker": "Riset 13 Okt 2026",
+    "text": "14 model diuji.\nSemuanya *bisa terseret*",
+    "sub": "pendapat penanya, apalagi yang terdengar yakin",
+    "subAt": 73
+   }
+  },
+  {
+   "at": 80,
+   "layout": "left",
+   "pose": "berpikir",
+   "map": "kantor",
+   "skin": "quest",
+   "board": {
+    "type": "props",
+    "kicker": "Analogi",
+    "title": "CS baru di *meja depan*",
+    "items": [
+     {
+      "at": 82,
+      "prop": "seragam",
+      "emoji": "👔",
+      "label": "Pakai seragam toko",
+      "tone": "sky"
+     },
+     {
+      "at": 85,
+      "prop": "sop",
+      "emoji": "📋",
+      "label": "Belum dikasih SOP",
+      "tone": "bad"
+     }
+    ]
+   }
+  },
+  {
+   "at": 88,
+   "layout": "right",
+   "pose": "setuju",
+   "skin": "window",
+   "board": {
+    "type": "ui",
+    "kind": "chat",
+    "app": "CS baru",
+    "meta": "meja depan",
+    "zoom": 1,
+    "items": [
+     {
+      "at": 92,
+      "text": "Refund kan, Mas?",
+      "side": "in",
+      "sub": "yakin"
+     },
+     {
+      "at": 96,
+      "text": "Iya kak, bisa!",
+      "side": "out",
+      "sub": "biar senang"
+     }
+    ]
+   }
+  },
+  {
+   "at": 99,
+   "layout": "center",
+   "pose": "menunjuk",
+   "skin": "item",
+   "map": "toko",
+   "board": {
+    "type": "title",
+    "kicker": "Efek seragam",
+    "text": "Dianggap *wakil toko*",
+    "sub": "padahal belum tentu tahu kebijakannya",
+    "subAt": 103
+   }
+  },
+  {
+   "at": 106,
+   "layout": "left",
+   "pose": "stop",
+   "skin": "quest",
+   "board": {
+    "type": "title",
+    "kicker": "UU Perlindungan Konsumen",
+    "text": "Informasi yang *benar*\ntetap kewajiban toko",
+    "sub": "UU 8/1999 Pasal 7",
+    "subAt": 109
+   }
+  },
+  {
+   "at": 114,
+   "layout": "right",
+   "pose": "menjelaskan",
+   "map": "dungeon",
+   "skin": "arcade",
+   "board": {
+    "type": "list",
+    "kicker": "Kanada · 2024",
+    "title": "Kasus *Air Canada*",
+    "items": [
+     {
+      "at": 122,
+      "prop": "pesawat",
+      "emoji": "✈️",
+      "text": "Air Canada",
+      "tone": "sky"
+     },
+     {
+      "at": 124,
+      "prop": "palu",
+      "emoji": "⚖️",
+      "text": "Diputus harus ganti rugi",
+      "tone": "bad"
+     },
+     {
+      "at": 128,
+      "prop": "bot",
+      "emoji": "🤖",
+      "text": "Chatbot salah info refund",
+      "tone": "warn"
+     }
+    ]
+   }
+  },
+  {
+   "at": 134,
+   "layout": "left",
+   "pose": "presentasi",
+   "map": "kantor",
+   "skin": "quest",
+   "board": {
+    "type": "list",
+    "kicker": "Sebelum pasang di WhatsApp",
+    "title": "Atur *empat hal*",
+    "items": [
+     {
+      "at": 142,
+      "prop": "pagar",
+      "emoji": "🚧",
+      "text": "Batasi topiknya",
+      "tone": "sky"
+     },
+     {
+      "at": 144,
+      "prop": "label",
+      "emoji": "🏷️",
+      "text": "Beri label AI",
+      "sub": "tanggung jawab tetap di Anda",
+      "subAt": 147,
+      "tone": "good"
+     }
+    ]
+   }
+  },
+  {
+   "at": 153,
+   "layout": "right",
+   "pose": "mencatat",
+   "skin": "item",
+   "board": {
+    "type": "list",
+    "kicker": "Lanjutannya",
+    "title": "Dua lagi",
+    "items": [
+     {
+      "at": 153,
+      "prop": "orang",
+      "emoji": "🧑‍💼",
+      "text": "Jalur ke manusia",
+      "tone": "good"
+     },
+     {
+      "at": 157,
+      "prop": "chat",
+      "emoji": "💬",
+      "text": "Baca percakapan tiap minggu",
+      "tone": "sky"
+     }
+    ]
+   }
+  },
+  {
+   "at": 161,
+   "layout": "center",
+   "pose": "berpikir",
+   "dark": true,
+   "map": "padang",
+   "skin": "window",
+   "board": {
+    "type": "title",
+    "kicker": "Chatbot Anda",
+    "text": "Sudah dikasih *SOP*\ndan ada yang mengawasi?",
+    "sub": "Atau baru dikasih seragam?",
+    "subAt": 170
+   }
+  }
+ ]
+}

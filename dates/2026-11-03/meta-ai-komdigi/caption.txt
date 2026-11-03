@@ -1,0 +1,16 @@
+"Kak, bisa refund?" Jawaban chatbot Anda akan dibaca pelanggan sebagai ucapan toko Anda.
+
+Tiga hal dari video ini:
+1) Jawaban chatbot di akun resmi bukan otomatis sikap resmi perusahaan. Per 3 Nov 2026, Meta belum mengeluarkan pernyataan resmi soal kasus yang sedang ramai.
+2) Chatbot menebak kata berikutnya. Riset Oktober 2026 pada 14 model menemukan semuanya bisa terseret pendapat penanya.
+3) Kewajiban memberi informasi yang benar tetap di pelaku usaha (UU 8/1999 Pasal 7). Di Kanada tahun 2024, Air Canada diputus harus ganti rugi karena chatbot-nya salah memberi info refund.
+
+Sebelum memasang chatbot di WhatsApp: batasi topiknya, beri label AI, sediakan jalur ke manusia, dan baca percakapannya tiap minggu.
+
+Chatbot Anda sudah punya SOP dan pengawas, atau baru diberi seragam?
+
+Bukan nasihat hukum. Jika Anda menemukan kekeliruan, silakan beri tahu saya.
+
+Sumber: Seo dkk., arXiv 2610.18159 (13 Okt 2026); Moffatt v. Air Canada, 2024 BCCRT 149.
+
+#RumitJadiJelas #BukanSulap
