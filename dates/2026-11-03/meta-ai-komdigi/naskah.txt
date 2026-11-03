@@ -1,0 +1,15 @@
+"Kak, bisa refund?" Chatbot Anda jawab apa?
+
+Dua minggu ini, jawaban chatbot Meta AI soal kementerian viral dua kali. Saya nggak menilai siapa yang benar. Akun Meta AI sendiri bilang jawaban itu bukan pernyataan resmi Meta. Sampai berita terakhir yang saya temukan, Meta belum bicara resmi.
+
+Bukan sulap. Begini cara kerjanya.
+
+Chatbot nggak memeriksa kebenaran. Ia menebak kata berikutnya. Riset Oktober 2026 menguji empat belas model: semuanya bisa terseret pendapat penanya, apalagi kalau diucapkan dengan yakin.
+
+CS baru, pakai seragam toko, belum dikasih SOP. Pelanggan nanya dengan yakin, "Refund kan, Mas?" Dia iyain biar senang. Seragam bikin pelanggan mengira dia wakil toko.
+
+Kewajiban memberi informasi yang benar tetap di toko. Di Kanada tahun 2024, Air Canada diputus harus ganti rugi karena chatbot-nya salah kasih info refund.
+
+Sebelum pasang chatbot di WhatsApp, atur empat hal. Batasi topiknya. Beri label AI, tapi tanggung jawab tetap di Anda. Sediakan jalur ke manusia. Baca percakapannya tiap minggu.
+
+Chatbot Anda sudah dikasih SOP dan ada yang mengawasi, atau baru dikasih seragam?
