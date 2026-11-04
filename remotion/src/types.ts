@@ -144,7 +144,62 @@ export type Loop = {text: string; until: number; from?: number; done?: string};
 
 export type SfxName = 'blip' | 'coin' | 'power' | 'hit' | 'select' | 'sweep' | 'boom' | 'dash' | 'pickup' | 'damage' | 'glitch' | 'levelup' | 'pop';
 
+/* ---------- Mode kanvas (default): satu latar, headline dua tingkat, satu panggung ---------- */
+
+/** Ikon: PNG di folder video (`src`), props Pixel Aulia (`prop`), atau emoji yang di-pixel-kan. */
+export type KIcon = PropRef & {src?: string};
+
+type KBase = {
+  at?: number; // muncul (indeks kata); default awal panel
+  out?: number; // memudar habis (tetap memakan tempat)
+  dimAt?: number; // meredup ke 30% agar fokus pindah
+  w?: number; // lebar px (default otomatis)
+};
+
+export type KStep = {at: number; text: string};
+
+export type KEl = KBase &
+  (
+    | {kind: 'card'; tag?: string; title?: string; text?: string; value?: string; tone?: Tone; icon?: KIcon; strikeAt?: number; swap?: {at: number; value: string; tone?: Tone}; stamp?: Stamp}
+    | {kind: 'icon'; icon: KIcon; size?: number; label?: string; labelAt?: number; tone?: Tone}
+    | {kind: 'chip'; text: string; tone?: Tone}
+    | {kind: 'big'; text: string; sub?: string; subAt?: number; tone?: Tone}
+    | {kind: 'flow'; items: (KIcon & {at?: number; label?: string; tone?: Tone})[]; op?: string; size?: number}
+    | {kind: 'checklist'; title?: string; items: {at?: number; text: string; doneAt?: number; tone?: Tone; strikeAt?: number}[]}
+    | ({kind: 'ui'; ui: UiKind} & Omit<Extract<Board, {type: 'ui'}>, 'type' | 'at' | 'kind'>)
+    | {kind: 'shot'; src: string; source?: string; rings?: Ring[]}
+    | {kind: 'phone'; src: string; from?: number; rate?: number; rings?: Ring[]; steps?: KStep[]}
+    | {kind: 'stepper'; items: KStep[]}
+    | {kind: 'row'; items: KEl[]; op?: string; gap?: number}
+  );
+
+/** Posisi Pixel Aulia di kanvas. left/right: di samping panggung; corner: kecil di kiri bawah (tutorial); none: tanpa karakter. */
+export type KChar = 'left' | 'right' | 'corner' | 'none';
+
+export type KPanel = {
+  at: number; // panel mulai (panel pertama selalu frame 0)
+  char?: KChar; // default mewarisi panel sebelumnya (awal: left)
+  pose?: Pose | Reaction;
+  layout?: 'column' | 'row'; // susunan elemen; default column
+  gap?: number;
+  zoom?: number; // perkecil bila isi panggung terpotong
+  topic?: string; // ganti chip topik di header mulai panel ini
+  items: KEl[];
+  sfx?: SfxName | null; // default 'sweep' pelan saat panel berganti
+};
+
+/**
+ * Satu baris headline = potongan ucapan dari kata `from` sampai `to` (default sebelum baris berikutnya).
+ * Kata `from`..`split-1` = baris pengantar kecil, `split`..`to` = frasa inti besar (muncul saat diucapkan).
+ */
+export type KLine = {from: number; to?: number; split?: number; key?: number[]; setup?: string; punch?: string};
+
 export type Storyboard = {
+  style?: 'kanvas' | 'game'; // default: kanvas bila ada `panels`, game bila ada `scenes`
+  topic?: string; // chip header kanvas, mis. "Bukan Sulap · dasar agent"
+  lines?: KLine[]; // kanvas: headline (pengganti caption kata per kata)
+  panels?: KPanel[]; // kanvas: isi panggung
+  poses?: {at: number; pose: Pose | Reaction}[]; // kanvas: ganti pose di tengah panel
   series: string; // assets/<series>.svg dan <series>-white.svg
   audio?: string; // default tts/final.mp3
   words?: string; // default tts/words.json
@@ -164,7 +219,7 @@ export type Storyboard = {
   loot?: Loot[]; // item terbang dari papan ke karakter
   moods?: {at: number; mood: Mood; dur?: number}[]; // latar bereaksi sesaat (detik, default 1.5)
   autoJuice?: boolean; // default true: debu, burst di punch, damage number dari meter
-  scenes: Scene[];
+  scenes?: Scene[]; // mode game
   sfx?: {at: number; name: SfxName; volume?: number}[]; // SFX tambahan
   autoSfx?: boolean; // default true: sweep/blip/hit/select otomatis
 };
