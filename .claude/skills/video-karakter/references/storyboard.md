@@ -1,4 +1,6 @@
-# storyboard.json
+# storyboard.json mode game (opsional)
+
+Dipakai hanya bila `"style": "game"` atau storyboard berisi `scenes` tanpa `panels`. Default video sekarang mode kanvas: lihat `kanvas.md`. Mode game cocok untuk konten hiburan/cerita; untuk penjelasan dan tutorial, dekorasinya (map, epik, stiker, boss) terbukti berebut perhatian dengan isi (riset `dates/2026-11-04/riset-hisvill.md`).
 
 Kanvas 1080x1920, 30 fps. Semua `at`, `subAt`, `strikeAt`, `from`, `to` = **indeks kata** di `tts/words.json` (elemen muncul tepat saat kata itu diucapkan). Durasi = durasi audio + `tail`.
 

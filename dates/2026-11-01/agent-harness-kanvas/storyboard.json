@@ -1,0 +1,103 @@
+{
+  "style": "kanvas",
+  "series": "bukan-sulap",
+  "topic": "Bukan Sulap · harness AI",
+  "tail": 1.2,
+  "keywords": ["jelek", "harness", "andongnya", "izin", "mahal", 120],
+  "captionMerge": [
+    {"from": 21, "to": 26, "text": "GPT-5.5,"},
+    {"from": 37, "to": 40, "text": "63%"},
+    {"from": 45, "to": 47, "text": "85%."},
+    {"from": 121, "to": 124, "text": "ChatGPT"}
+  ],
+  "seriesLine": {"from": 54, "to": 55},
+  "lines": [
+    {"from": 0, "split": 0},
+    {"from": 4, "split": 6},
+    {"from": 9, "split": 11},
+    {"from": 15, "split": 18},
+    {"from": 21, "split": 27},
+    {"from": 31, "split": 37, "key": [37]},
+    {"from": 42, "split": 45, "key": [45]},
+    {"from": 48, "split": 53},
+    {"from": 54, "split": 56},
+    {"from": 59, "split": 60},
+    {"from": 63, "split": 65},
+    {"from": 67, "split": 69},
+    {"from": 74, "split": 76},
+    {"from": 80, "split": 81},
+    {"from": 84, "split": 86},
+    {"from": 89, "split": 93},
+    {"from": 97, "split": 103},
+    {"from": 108, "split": 114},
+    {"from": 118, "split": 119},
+    {"from": 121, "split": 127},
+    {"from": 131, "split": 140},
+    {"from": 145, "split": 148},
+    {"from": 150, "split": 154},
+    {"from": 157, "split": 160},
+    {"from": 163, "split": 165},
+    {"from": 168, "split": 173},
+    {"from": 177, "split": 177}
+  ],
+  "panels": [
+    {"at": 0, "char": "left", "pose": "berpikir", "items": [
+      {"kind": "card", "icon": {"emoji": "🤖"}, "tag": "Jawaban AI", "title": "Ngawur, nggak nyambung", "tone": "bad"},
+      {"kind": "card", "at": 11, "tag": "Solusi cepat?", "value": "Model lebih mahal", "strikeAt": 13}
+    ]},
+    {"at": 15, "pose": "menunjuk", "items": [
+      {"kind": "shot", "src": "assets/img/shot-leaderboard.png", "source": "Endor Labs · data 25 Apr 2026", "w": 620}
+    ]},
+    {"at": 31, "pose": "menjelaskan", "items": [
+      {"kind": "chip", "text": "Model sama: GPT-5.5", "tone": "ink"},
+      {"kind": "card", "at": 37, "tag": "Aplikasi coding 1", "value": "63% tugas jalan", "tone": "bad"},
+      {"kind": "card", "at": 45, "tag": "Aplikasi coding 2", "value": "85% tugas jalan", "tone": "good"}
+    ]},
+    {"at": 56, "pose": "menjelaskan", "items": [
+      {"kind": "icon", "at": 60, "icon": {"emoji": "🐎"}, "size": 220, "label": "kuda = model AI", "labelAt": 63},
+      {"kind": "checklist", "at": 74, "title": "Biar bisa nganter penumpang, kuda butuh:", "items": [
+        {"at": 76, "text": "🕶️ Kacamata kuda"},
+        {"at": 80, "text": "🛒 Kereta"},
+        {"at": 84, "text": "🪢 Tali kekang"}
+      ]}
+    ]},
+    {"at": 89, "pose": "menunjuk", "topic": "Harness = perlengkapan andong", "items": [
+      {"kind": "checklist", "items": [
+        {"at": 92, "text": "Kacamata: apa yang dilihat AI", "doneAt": 95},
+        {"at": 97, "text": "Kereta: alat, mis. browsing, baca file", "doneAt": 104},
+        {"at": 108, "text": "Tali kekang: jalan sendiri vs nunggu izin", "doneAt": 116}
+      ]},
+      {"kind": "card", "at": 118, "icon": {"emoji": "🧑"}, "tag": "Kusirnya", "title": "Anda", "tone": "accent"}
+    ]},
+    {"at": 121, "pose": "menjelaskan", "items": [
+      {"kind": "flow", "op": "+", "items": [
+        {"at": 127, "emoji": "🐎", "label": "model"},
+        {"at": 129, "emoji": "📱", "label": "aplikasi"}
+      ]},
+      {"kind": "checklist", "at": 131, "title": "Chatbot toko online", "items": [
+        {"at": 134, "text": "Lihat katalog", "doneAt": 136},
+        {"at": 137, "text": "Cek ongkir", "doneAt": 139},
+        {"at": 141, "text": "Kasih diskon: harus izin dulu", "tone": "warn"}
+      ]}
+    ]},
+    {"at": 145, "pose": "laptop", "items": [
+      {"kind": "flow", "op": "+", "size": 130, "items": [
+        {"at": 150, "emoji": "📁", "label": "1 folder"},
+        {"at": 152, "emoji": "🧩", "label": "6 skill"},
+        {"at": 154, "emoji": "📄", "label": "1 file aturan"}
+      ]},
+      {"kind": "card", "at": 157, "icon": {"emoji": "✍️"}, "tag": "Tiap ada salah", "title": "Aturannya saya tulis"}
+    ]},
+    {"at": 163, "pose": "setuju", "items": [
+      {"kind": "row", "op": "→", "items": [
+        {"kind": "icon", "at": 163, "icon": {"emoji": "🐎"}, "size": 170, "label": "kuda sama"},
+        {"kind": "icon", "at": 165, "icon": {"emoji": "⭐"}, "size": 170, "label": "andong makin bagus", "tone": "good"}
+      ]}
+    ]},
+    {"at": 168, "pose": "stop", "items": [
+      {"kind": "card", "tag": "Hasil AI jelek?", "value": "Ganti kuda", "strikeAt": 175},
+      {"kind": "card", "at": 177, "icon": {"emoji": "🔍"}, "tag": "Cek dulu", "title": "Andongnya", "tone": "good"}
+    ]}
+  ],
+  "poses": [{"at": 177, "pose": "menunjuk"}]
+}

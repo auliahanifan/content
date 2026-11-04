@@ -9,7 +9,7 @@ Dasarkan panduan pada deck “Aulia AI - Persona dan Komunikasi Business Owner�
 - Nama personal brand: Aulia Rahman. Mas Aul adalah persona/panggilan yang tersedia, bukan sapaan wajib.
 - Engineer Jogja yang membantu business owner dan tim kecil memahami teknologi, memilih biaya tools yang masuk akal, serta menyelesaikan masalah operasional.
 - Pesan utama: “Rumit Jadi Jelas, Mahal Jadi Murah”. Perlakukan sebagai arah manfaat, bukan janji semua solusi termurah atau selalu mudah.
-- Audiens utama: owner dan tim kecil dengan operasional menyita waktu, biaya tools bertambah, dan tidak sempat mengulik teknologi sendiri.
+- Audiens utama: owner dan tim kecil dengan operasional menyita waktu, biaya tools bertambah, dan tidak sempat mengulik teknologi sendiri; **serta orang Indonesia yang baru belajar memakai AI untuk kerja** (karyawan, freelancer, mahasiswa). Keputusan pengguna 4 Nov 2026: audiens diperluas, sapaan tetap saya/Anda. Jelaskan dengan bahasa pemula tanpa merendahkan, dan tetap tunjukkan keputusan atau tindakan konkret.
 - Kaitkan istilah teknis dengan keputusan, waktu, biaya, kualitas, atau risiko bila relevan.
 
 ## Aturan wajib
@@ -40,7 +40,8 @@ Uji pembeda: jika nama Aulia dihapus, adakah sudut pandang atau penalaran yang s
 - Gunakan kapitalisasi dan ejaan wajar untuk gaya formal. Caption huruf kecil pada deck lama bukan aturan wajib terbaru.
 - Penutup contoh: “Jika Anda menemukan kekeliruan, silakan beri tahu saya.” Tidak perlu di setiap konten.
 - Hashtag induk #RumitJadiJelas ditambah satu hashtag seri pada caption seri. Jangan wajibkan hashtag pada bio, email, percakapan, atau semua format.
-- Struktur reels 45-90 detik: masalah → penyebab → proses → hasil/angka → batas → kesimpulan/ajakan. Sesuaikan kebutuhan format; tidak perlu enam bagian pada satu paragraf.
+- Struktur reels 45-90 detik: masalah → penyebab → proses → hasil/angka → batas → kesimpulan/ajakan. Tutorial dan penjelasan satu tugas boleh sampai 150 detik bila tiap bagian membawa langkah atau contoh baru (`/naskah`). Sesuaikan kebutuhan format; tidak perlu enam bagian pada satu paragraf.
+- Setiap video memberi sesuatu yang bisa dibawa pulang (prompt/template lengkap di caption, langkah, atau satu aturan). Ajakan penutup sebaiknya pertanyaan yang jawabannya bisa jadi episode berikutnya; permintaan penonton yang dikerjakan masuk seri Nitip, Mas.
 - Ganti penutup biner dengan kesimpulan yang berguna: cocok untuk siapa, belum cocok untuk apa, atau bagian yang masih perlu diuji. Label draft/verified boleh tetap disebut sebagai fakta status artefak asli seperti siroh app, tetapi bukan ritual wajib semua video.
 
 ## Pilar dan seri

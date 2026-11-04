@@ -8,6 +8,7 @@ import {EpicLayer, epicLevel} from './components/Epic';
 import {fmt, Hud} from './components/Hud';
 import {Dust, FxLayer, LootLayer, Pops, Stickers} from './components/Juice';
 import {World} from './world/World';
+import {Kanvas, isKanvas} from './kanvas/Kanvas';
 import {SceneTransition} from './components/Transition';
 import {EPIC_CAPTIONS, GEO} from './layout';
 import {C, loadFonts} from './theme';
@@ -32,7 +33,11 @@ export const Video: React.FC<VideoProps> = ({storyboard, words, availableProps, 
   }
   return (
     <TimingProvider value={timing}>
-      <Inner sb={storyboard} fps={fps} duration={durationInFrames} pixel={pixel} />
+      {isKanvas(storyboard) ? (
+        <Kanvas sb={storyboard} fps={fps} duration={durationInFrames} pixel={pixel} />
+      ) : (
+        <Inner sb={storyboard} fps={fps} duration={durationInFrames} pixel={pixel} />
+      )}
     </TimingProvider>
   );
 };
@@ -44,9 +49,9 @@ const Inner: React.FC<{sb: Storyboard; fps: number; duration: number; pixel: Pix
 
   const scenes = useMemo(
     () =>
-      sb.scenes.map((s, i) => {
+      (sb.scenes ?? []).map((s, i) => {
         const start = i === 0 ? 0 : Math.max(0, T(s.at) - 3);
-        const next = sb.scenes[i + 1];
+        const next = (sb.scenes ?? [])[i + 1];
         const end = next ? Math.max(0, T(next.at) - 3) : duration;
         const layout: Layout = s.layout ?? (i % 2 ? 'right' : 'left');
         const transition = s.transition ?? (i % 2 ? 'pixel' : 'iris');
@@ -232,7 +237,7 @@ const Inner: React.FC<{sb: Storyboard; fps: number; duration: number; pixel: Pix
   );
 };
 
-const VOL: Record<SfxName, number> = {
+export const VOL: Record<SfxName, number> = {
   blip: 0.3, coin: 0.3, power: 0.35, hit: 0.45, select: 0.3, sweep: 0.4, boom: 0.6,
   dash: 0.4, pickup: 0.35, damage: 0.45, glitch: 0.35, levelup: 0.4, pop: 0.3,
 };
@@ -243,7 +248,7 @@ const collectSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, 
   const add = (frame: number, name: SfxName, volume?: number) => ev.push({frame, name, volume: volume ?? VOL[name]});
   if (sb.autoSfx !== false) {
     let map = 'padang';
-    sb.scenes.forEach((s, i) => {
+    (sb.scenes ?? []).forEach((s, i) => {
       const changed = i > 0 && s.map !== undefined && s.map !== map;
       map = s.map ?? map;
       if (s.sfx !== null && i > 0) add(starts[i] - 6, s.sfx ?? (changed || s.enter === 'dash' ? 'dash' : 'sweep'));

@@ -24,7 +24,14 @@ const exists = async (path: string) => {
 const propNames = (sb: Storyboard) => {
   const names = new Set<string>();
   const add = (x?: {prop?: string}) => x?.prop && names.add(x.prop);
-  sb.scenes.forEach((s) => {
+  const walk = (els: {prop?: string; icon?: {prop?: string}; items?: unknown[]}[] = []): void =>
+    els.forEach((e) => {
+      add(e);
+      add(e.icon);
+      if (Array.isArray(e.items)) walk(e.items as typeof els);
+    });
+  sb.panels?.forEach((p) => walk(p.items as Parameters<typeof walk>[0]));
+  (sb.scenes ?? []).forEach((s) => {
     add(s.footer);
     const b = s.board as Board & {items?: {prop?: string}[]; left?: {prop?: string}; right?: {prop?: string}};
     b.items?.forEach(add);
