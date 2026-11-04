@@ -1,0 +1,16 @@
+Video animasi Claude gratisan Anda? Fitur resminya cuma paket bisnis.
+Namanya Claude Motion, masih beta. Adanya di paket Team dan Enterprise. Paket individu, dari Free sampai Max, nggak dapat.
+Tapi ada cara gratisnya. Di akhir video, saya kasih dua yang jujur.
+Bukan sulap. Begini cara kerjanya.
+Video itu kayak flipbook. Biasanya tiga puluh gambar per detik. Satu menit, seribu delapan ratus gambar.
+Claude nggak menggambar semuanya satu-satu. Dia menulis resepnya: halaman satu begini, halaman dua begini.
+Program di laptop membaca resep itu, menggambar tiap halaman, lalu menjilidnya jadi satu file MP4. Namanya render.
+Nah, skill yang ramai dicari itu apa? Skill itu folder instruksi, kadang plus skrip. Contekan resep buat Claude. Bukan mesin video.
+Per sekarang, di daftar file resmi yang bisa dibikin Claude, video nggak disebut sama sekali.
+Jadi kalau ada yang bilang "tinggal panggil skill, langsung jadi MP4"... bisa jalan, bisa juga nggak. Menurut dokumentasi Anthropic, bikin file juga makan kuota lebih banyak dari chat biasa.
+Cara yang pasti jalan: masaknya di laptop Anda. Dua-duanya ada harganya.
+Satu, yang gampang. Di pengaturan, nyalakan code execution, fitur yang membolehkan Claude menjalankan kode. Minta animasinya sebagai artifact, halaman web kecil di dalam chat. Putar, lalu rekam layarnya.
+Dua, yang rapi. Minta Claude menulis kode untuk HyperFrames atau Remotion, dua alat pembuat video dari kode. Salin kodenya, lalu render di laptop. Perlu instal Node, dan HyperFrames juga butuh FFmpeg. HyperFrames gratis. Remotion gratis untuk perorangan dan usaha sampai tiga orang. Lebih dari itu, perlu lisensi.
+Aturannya satu: Claude nulis resepnya, laptop Anda yang masak.
+Video ini sendiri dibikin pakai Remotion, lewat Claude Code, bukan versi gratisan.
+Episode depan, mau saya bandingin HyperFrames dan Remotion, atau bahas suara AI yang nggak datar? Tulis di komentar.
