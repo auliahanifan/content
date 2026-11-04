@@ -1,0 +1,706 @@
+{
+ "style": "kanvas",
+ "series": "bukan-sulap",
+ "topic": "Bukan Sulap · video Claude",
+ "tail": 1.5,
+ "keywords": [
+  "gratisan",
+  "render",
+  "resep",
+  "resepnya",
+  "gratis"
+ ],
+ "captionMerge": [
+  {
+   "from": 51,
+   "to": 52,
+   "text": "30"
+  },
+  {
+   "from": 58,
+   "to": 60,
+   "text": "1.800"
+  },
+  {
+   "from": 92,
+   "to": 94,
+   "text": "MP4."
+  },
+  {
+   "from": 143,
+   "to": 145,
+   "text": "MP4\"..."
+  },
+  {
+   "from": 211,
+   "to": 212,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 231,
+   "to": 232,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 235,
+   "to": 238,
+   "text": "FFmpeg."
+  },
+  {
+   "from": 239,
+   "to": 240,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 282,
+   "to": 283,
+   "text": "HyperFrames"
+  }
+ ],
+ "captionFix": {
+  "249": "3"
+ },
+ "seriesLine": {
+  "from": 41,
+  "to": 42
+ },
+ "loop": {
+  "text": "2 cara gratis",
+  "from": 33,
+  "until": 175
+ },
+ "lines": [
+  {
+   "from": 0,
+   "split": 2,
+   "key": [
+    3
+   ]
+  },
+  {
+   "from": 5,
+   "split": 7,
+   "key": [
+    9
+   ]
+  },
+  {
+   "from": 10,
+   "split": 11,
+   "key": [
+    12
+   ]
+  },
+  {
+   "from": 15,
+   "split": 18
+  },
+  {
+   "from": 21,
+   "split": 27,
+   "key": [
+    27
+   ]
+  },
+  {
+   "from": 29,
+   "split": 31,
+   "key": [
+    32
+   ]
+  },
+  {
+   "from": 33,
+   "split": 38
+  },
+  {
+   "from": 41,
+   "split": 43
+  },
+  {
+   "from": 46,
+   "split": 49,
+   "key": [
+    49
+   ]
+  },
+  {
+   "from": 50,
+   "split": 51
+  },
+  {
+   "from": 56,
+   "split": 58,
+   "key": [
+    58
+   ]
+  },
+  {
+   "from": 62,
+   "split": 65
+  },
+  {
+   "from": 69,
+   "split": 72
+  },
+  {
+   "from": 78,
+   "split": 81
+  },
+  {
+   "from": 87,
+   "split": 95,
+   "key": [
+    96
+   ]
+  },
+  {
+   "from": 97,
+   "split": 98,
+   "key": [
+    98
+   ]
+  },
+  {
+   "from": 104,
+   "split": 106
+  },
+  {
+   "from": 111,
+   "split": 115,
+   "key": [
+    116
+   ]
+  },
+  {
+   "from": 118,
+   "split": 120
+  },
+  {
+   "from": 124,
+   "split": 128,
+   "key": [
+    130
+   ]
+  },
+  {
+   "from": 133,
+   "split": 138
+  },
+  {
+   "from": 146,
+   "split": 148
+  },
+  {
+   "from": 151,
+   "split": 157,
+   "key": [
+    158
+   ]
+  },
+  {
+   "from": 164,
+   "split": 168,
+   "key": [
+    170
+   ]
+  },
+  {
+   "from": 172,
+   "split": 173
+  },
+  {
+   "from": 175,
+   "split": 176
+  },
+  {
+   "from": 178,
+   "split": 181
+  },
+  {
+   "from": 183,
+   "split": 186
+  },
+  {
+   "from": 189,
+   "split": 193
+  },
+  {
+   "from": 199,
+   "split": 200,
+   "key": [
+    201
+   ]
+  },
+  {
+   "from": 203,
+   "split": 204
+  },
+  {
+   "from": 206,
+   "split": 211
+  },
+  {
+   "from": 215,
+   "split": 217
+  },
+  {
+   "from": 221,
+   "split": 223,
+   "key": [
+    224
+   ]
+  },
+  {
+   "from": 227,
+   "split": 230
+  },
+  {
+   "from": 239,
+   "split": 241,
+   "key": [
+    241
+   ]
+  },
+  {
+   "from": 242,
+   "split": 245
+  },
+  {
+   "from": 251,
+   "split": 254,
+   "key": [
+    255
+   ]
+  },
+  {
+   "from": 256,
+   "split": 258,
+   "key": [
+    260,
+    264
+   ]
+  },
+  {
+   "from": 265,
+   "split": 271
+  },
+  {
+   "from": 277,
+   "split": 282
+  },
+  {
+   "from": 286,
+   "split": 288,
+   "key": [
+    291
+   ]
+  },
+  {
+   "from": 293,
+   "split": 293
+  }
+ ],
+ "panels": [
+  {
+   "at": 0,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "emoji": "🎬"
+     },
+     "tag": "FITUR RESMI",
+     "title": "Claude Motion",
+     "text": "animasi, masih beta",
+     "tone": "accent"
+    },
+    {
+     "kind": "checklist",
+     "at": 15,
+     "title": "Siapa yang dapat?",
+     "items": [
+      {
+       "at": 17,
+       "text": "Team",
+       "doneAt": 18
+      },
+      {
+       "at": 19,
+       "text": "Enterprise",
+       "doneAt": 20
+      },
+      {
+       "at": 21,
+       "text": "Free · Pro · Max",
+       "strikeAt": 27,
+       "tone": "bad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 29,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "card",
+     "at": 31,
+     "icon": {
+      "emoji": "🎁"
+     },
+     "tag": "DI AKHIR VIDEO",
+     "title": "2 cara gratis yang jujur",
+     "tone": "good"
+    }
+   ]
+  },
+  {
+   "at": 43,
+   "char": "left",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "icon",
+     "at": 46,
+     "icon": {
+      "emoji": "📖"
+     },
+     "size": 230,
+     "label": "video = flipbook",
+     "labelAt": 49
+    },
+    {
+     "kind": "big",
+     "at": 56,
+     "text": "1.800",
+     "sub": "gambar per menit (30 per detik)",
+     "subAt": 58,
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 62,
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "flow",
+     "op": "→",
+     "size": 150,
+     "items": [
+      {
+       "at": 69,
+       "emoji": "📝",
+       "label": "Claude: resep"
+      },
+      {
+       "at": 80,
+       "emoji": "💻",
+       "label": "laptop: gambar"
+      },
+      {
+       "at": 92,
+       "emoji": "🎞️",
+       "label": "MP4"
+      }
+     ]
+    },
+    {
+     "kind": "chip",
+     "at": 96,
+     "text": "Proses ini = render",
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 97,
+   "char": "right",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "card",
+     "at": 104,
+     "icon": {
+      "emoji": "📁"
+     },
+     "tag": "SKILL",
+     "title": "Folder instruksi",
+     "text": "kadang plus skrip"
+    },
+    {
+     "kind": "card",
+     "at": 111,
+     "tag": "BUKAN",
+     "value": "Mesin video",
+     "strikeAt": 116,
+     "tone": "bad"
+    }
+   ]
+  },
+  {
+   "at": 118,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "File resmi yang bisa dibikin Claude",
+     "items": [
+      {
+       "at": 121,
+       "text": "Excel · Word · PowerPoint",
+       "doneAt": 122
+      },
+      {
+       "at": 122,
+       "text": "PDF · PNG · skrip Python",
+       "doneAt": 123
+      },
+      {
+       "at": 128,
+       "text": "Video",
+       "strikeAt": 130,
+       "tone": "bad"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 133,
+   "char": "right",
+   "pose": "stop",
+   "items": [
+    {
+     "kind": "card",
+     "at": 137,
+     "tag": "KATANYA",
+     "title": "\"Panggil skill, langsung MP4\""
+    },
+    {
+     "kind": "card",
+     "at": 146,
+     "tag": "FAKTANYA",
+     "title": "Bisa jalan, bisa juga nggak",
+     "tone": "warn"
+    },
+    {
+     "kind": "chip",
+     "at": 154,
+     "text": "Bikin file = kuota lebih boros",
+     "tone": "bad"
+    }
+   ]
+  },
+  {
+   "at": 164,
+   "char": "left",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "icon",
+     "at": 166,
+     "icon": {
+      "emoji": "💻"
+     },
+     "size": 240,
+     "label": "masaknya di laptop Anda",
+     "labelAt": 168,
+     "tone": "good"
+    },
+    {
+     "kind": "chip",
+     "at": 172,
+     "text": "2 cara, 2 harga",
+     "tone": "ink"
+    }
+   ]
+  },
+  {
+   "at": 175,
+   "char": "right",
+   "pose": "smartphone",
+   "topic": "Cara 1 · yang gampang",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "emoji": "📱"
+     },
+     "tag": "CARA 1",
+     "title": "Yang gampang",
+     "text": "hasilnya rekaman layar"
+    },
+    {
+     "kind": "stepper",
+     "items": [
+      {
+       "at": 180,
+       "text": "Nyalakan code execution"
+      },
+      {
+       "at": 189,
+       "text": "Minta animasi sebagai artifact"
+      },
+      {
+       "at": 199,
+       "text": "Putar, rekam layar"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 203,
+   "char": "left",
+   "pose": "laptop",
+   "topic": "Cara 2 · yang rapi",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "emoji": "💻"
+     },
+     "tag": "CARA 2",
+     "title": "Yang rapi",
+     "text": "HyperFrames atau Remotion"
+    },
+    {
+     "kind": "stepper",
+     "items": [
+      {
+       "at": 206,
+       "text": "Minta kode HyperFrames / Remotion"
+      },
+      {
+       "at": 221,
+       "text": "Salin kode, render di laptop"
+      },
+      {
+       "at": 227,
+       "text": "Instal Node (+ FFmpeg untuk HyperFrames)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 239,
+   "char": "right",
+   "pose": "menjelaskan",
+   "topic": "Bukan Sulap · video Claude",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Lisensi",
+     "items": [
+      {
+       "at": 239,
+       "text": "HyperFrames: gratis",
+       "doneAt": 241
+      },
+      {
+       "at": 242,
+       "text": "Remotion: gratis untuk perorangan dan usaha sampai 3 orang",
+       "doneAt": 250
+      },
+      {
+       "at": 251,
+       "text": "Lebih dari 3 orang: perlu lisensi",
+       "tone": "warn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 256,
+   "char": "left",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "emoji": "📝"
+     },
+     "tag": "ATURAN BAWA PULANG",
+     "title": "Claude nulis resepnya, laptop Anda yang masak.",
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 265,
+   "char": "right",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "card",
+     "at": 266,
+     "icon": {
+      "emoji": "🎞️"
+     },
+     "tag": "VIDEO INI",
+     "title": "Remotion + Claude Code",
+     "text": "bukan versi gratisan",
+     "tone": "warn"
+    }
+   ]
+  },
+  {
+   "at": 277,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Episode depan, pilih:",
+     "items": [
+      {
+       "at": 282,
+       "text": "2 · HyperFrames vs Remotion"
+      },
+      {
+       "at": 287,
+       "text": "3 · Suara AI yang nggak datar"
+      }
+     ]
+    },
+    {
+     "kind": "chip",
+     "at": 293,
+     "text": "Tulis di komentar 👇",
+     "tone": "accent"
+    }
+   ]
+  }
+ ],
+ "poses": [
+  {
+   "at": 27,
+   "pose": "stop"
+  },
+  {
+   "at": 58,
+   "pose": "menunjuk"
+  },
+  {
+   "at": 146,
+   "pose": "berpikir"
+  },
+  {
+   "at": 260,
+   "pose": "menunjuk"
+  },
+  {
+   "at": 293,
+   "pose": "menyapa"
+  }
+ ]
+}

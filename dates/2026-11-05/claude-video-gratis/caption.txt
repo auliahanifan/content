@@ -1,0 +1,17 @@
+Lagi ramai "bikin video animasi pakai Claude gratisan". Faktanya: Claude Motion, fitur animasi resmi Anthropic, masih beta dan hanya ada di paket Team dan Enterprise. Paket individu (Free, Pro, Max) tidak mendapatkannya.
+
+Di paket gratis, Claude menulis kode animasinya. Videonya Anda buat dengan salah satu cara ini:
+1. Yang gampang: nyalakan code execution di pengaturan, minta animasi sebagai artifact, putar, lalu rekam layar.
+2. Yang rapi: minta kode untuk HyperFrames atau Remotion, salin, lalu render jadi MP4 di laptop. Perlu Node; HyperFrames juga butuh FFmpeg. HyperFrames gratis (Apache 2.0). Remotion gratis untuk perorangan dan usaha sampai 3 orang; lebih dari itu perlu lisensi.
+
+Skill itu folder instruksi (kadang plus skrip), bukan mesin video. Membuat file juga memakai kuota lebih banyak daripada chat biasa.
+
+Aturan bawa pulang: Claude menulis resepnya, laptop Anda yang memasak.
+
+Video ini dibuat dengan Remotion lewat Claude Code, bukan versi gratisan. Suaranya klon suara saya sendiri (AI).
+
+Episode depan: HyperFrames vs Remotion, atau suara AI yang tidak datar? Tulis di komentar.
+
+Sumber (dicek 4 Nov 2026): support.claude.com (Get started with Claude Motion; Create and edit files with Claude; Use skills in Claude), claude.com/pricing, remotion.dev/docs/license/faq, github.com/heygen-com/hyperframes.
+
+#RumitJadiJelas #BukanSulap
