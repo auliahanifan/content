@@ -10,7 +10,7 @@ Spreadsheet yang sama dengan bank CORE (link di `CLAUDE.md`). Nama tab: `Talking
 |---|---|
 | ID | `TH-001`, berurutan. Lanjutkan dari nomor terbesar di tab Talking Head **dan** ArchiveTH, agar ID yang sudah diarsipkan tidak dipakai ulang. Ambil angkanya dengan rumus di tab `Cari`, jangan membaca kolom ID arsip (lihat bagian "Tab arsip"). |
 | Tanggal | Tanggal ide dibuat, `YYYY-MM-DD`. |
-| Sumber | Salah satu: `CORE#<id>`, `berita AI`, `berita UMKM`, `sosmed`, `evergreen`, `audiens`, `komentar` (komentar/DM di akun Aulia yang ditempel pengguna), `arc` (episode lanjutan sebuah arc) |
+| Sumber | Salah satu: `CORE#<id>`, `berita AI`, `berita UMKM`, `sosmed`, `evergreen`, `audiens`, `komentar` (komentar/DM di akun Aulia yang ditempel pengguna), `arc` (episode lanjutan sebuah arc), `threads` / `threads-cepat` (dari `/ide-threads`; `-cepat` = jalur reaksi cepat yang langsung dibuatkan naskah) |
 | Link sumber | URL yang benar-benar dibuka. Kosong untuk evergreen. Untuk audiens: kutipan singkat pertanyaannya. |
 | Tanggal pemicu | Tanggal terbit sumber, `YYYY-MM-DD`. Kosong untuk evergreen. |
 | Status fresh | `Fresh` (≤14 hari), `Evergreen`, atau `Basi` |
@@ -27,7 +27,7 @@ Spreadsheet yang sama dengan bank CORE (link di `CLAUDE.md`). Nama tab: `Talking
 | Episode | `<n>/<total>` lalu ID episode sebelumnya dan sesudahnya, mis. `2/5 · ←TH-061 →TH-063`. Kosong bila lepas |
 | Peminta | Handle atau nama penonton yang meminta topik ini (dari komentar yang ditempel pengguna), atau kosong. Jangan mengarang |
 
-Kolom Format, Arc, Episode, Peminta ditambahkan November 2026 di sebelah kanan Status. Bila header tab belum punya kolom itu, tulis dulu keempat header-nya di baris 1 (sekali), lalu isi. Jangan menggeser kolom lama.
+Kolom Format, Arc, Episode, Peminta ditambahkan November 2026 di sebelah kanan Status (kolom O-R; header sudah ada di sheet sejak 4 Nov 2026). Bila header tab belum punya kolom itu, tulis dulu keempat header-nya di baris 1 (sekali), lalu isi. Jangan menggeser kolom lama.
 
 Ide baru selalu ditulis dengan Status `usulan`. Pengguna yang mengubah ke `dipilih`. `arsip` untuk ide yang gugur di saringan kedalaman. Baris arsip boleh dihapus pengguna kapan saja; setelah dihapus, ide itu tidak lagi ikut dicek anti dobel.
 
@@ -56,6 +56,9 @@ Uji cepat: kalau penonton bisa mendapat isi video hanya dari membaca judul berit
 - `Fresh` hanya jika padahal-nya dari bahan ≤14 hari. Pemicu baru dengan bukti lama tetap `Evergreen`.
 
 Prioritas seri: Bukan Sulap, Garapan Weekend (tutorial yang bisa direkam Aulia), Nitip, Mas (permintaan dari komentar), lalu Katanya Nyatanya dan Sing Murah Wae. AI Umum hanya jika ada salah paham yang jelas dari sebuah berita. Nitip, Mas hanya dari komentar/DM nyata yang ditempel pengguna; jangan mengarang permintaan.
+
+## Tab Threads (dari /ide-threads)
+`Threads` (log semua thread hot yang diperiksa), `Akun Threads` (akun radar AI), `Kata Kunci Threads` (kata umum radar umum). Kolom dan aturannya di `.claude/skills/ide-threads/SKILL.md`. Link di tab `Threads` ikut dicek untuk anti dobel.
 
 ## Tab "Naskah" dan "Fakta"
 Semua hasil kerja disimpan di spreadsheet yang sama, bukan di file lokal. Jika tab belum ada, buat dengan header di bawah, bekukan baris 1, dan aktifkan wrap text.
