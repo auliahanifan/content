@@ -35,9 +35,9 @@ const useKeyIdx = () => {
 };
 
 /**
- * Mode kanvas v2: latar terang berani, header, headline kinetik (pengganti caption), panggung dengan kamera yang
- * selalu bergerak pelan, transisi geser antarpanel, Bold Vector Aulia dengan gerak idle, dan hook teks raksasa.
- * Prinsip tetap: yang berubah di layar adalah isi penjelasan, bukan dekorasi.
+ * Mode kanvas v3 Paper Cutout: latar kraft berserat, header, headline kinetik Fraunces (pengganti caption), panggung
+ * berisi satu elemen dalam satu waktu dengan kamera pelan dan transisi geser, karakter Paper Cutout dengan gerak idle,
+ * dan hook kata jatuh di lembar kertas. Prinsip tetap: yang berubah di layar adalah isi penjelasan, bukan dekorasi.
  */
 export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
   loadPaperFonts();

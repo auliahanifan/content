@@ -1,6 +1,6 @@
 ---
 name: video-karakter
-description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video with the Aulia character (Bold Vector in kanvas, Pixel Aulia in game), built with Remotion. Default style "kanvas" v2 (Bold Vector Aulia character, giant kinetic hook, two-tier kinetic headline instead of word captions, one stage with animated vector illustrations and chat simulations, always-moving camera, modern SFX, real screen recordings in a phone frame for tutorials). Optional style "game" (retro pixel-game world, RPG boards, epic anime interrupts) for entertainment pieces. ElevenLabs voice "Aulia Rahman", soft SFX, no music, series logo. Dipanggil `/video-karakter <naskah>`. Konten berbahasa Indonesia.
+description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video with the Aulia character (Paper Cutout in kanvas, Pixel Aulia in game), built with Remotion. Default style "kanvas" v3 Paper Cutout (kraft paper world, stacked paper cards, Fraunces headlines, Paper Cutout Aulia character, giant hook in cut-paper letters, kinetic two-tier headline instead of word captions, ONE element on stage at a time, animated illustrations and chat simulations, slow camera, minimal soft SFX, real screen recordings in a phone frame for tutorials). Optional style "game" (retro pixel-game world, RPG boards, epic anime interrupts) for entertainment pieces. ElevenLabs voice "Aulia Rahman", soft SFX, no music, series logo. Dipanggil `/video-karakter <naskah>`. Konten berbahasa Indonesia.
 ---
 
 # Video karakter (9:16, Remotion, Pixel Aulia)
@@ -26,7 +26,7 @@ Alur dengan **checkpoint**; jangan lompat ke render final tanpa persetujuan.
    - **Tutorial**: panel `char: "corner"` + `phone` berisi rekaman dari `rekam/`, `steps` per langkah, `rings` di tombol yang ditekan.
    - **Janji** (`Janji:` di naskah) → `loop` sampai kata payoff. **Kait ulang** di tengah ("ada satu langkah yang sering bikin gagal") → `dimAt` pada elemen lama + elemen baru yang menandai bagian itu.
    - **Penutup**: aturan bawa pulang dalam satu `card`, lalu `ui` `comments` (pertanyaan atau kata kunci) dan/atau `profile` (follow).
-   - Dekorasi: epik maks 1 (hanya punchline terbesar), stempel maks 2.
+   - **Satu elemen per panel**: hal baru = panel baru; checklist/chat/langkah boleh tumbuh di dalam elemennya. Dekorasi: epik maks 1 (hanya punchline terbesar), stempel maks 2.
 7. **Bukti layar** (tanyakan dulu per video): `node .claude/skills/video-faceless/scripts/shot.mjs <url> assets/img/shot-x.png "<teks>"` (sekali `pnpm i` di folder scripts itu). Lihat PNG sebelum dipakai; cincin sorot dalam **persen** gambar.
 8. **Storyboard**: tulis `storyboard.json`. Cetak dulu daftar kata berindeks:
    `python3 -c "import json;w=json.load(open('tts/words.json'));print(' '.join(f'{i}:{x[0]}' for i,x in enumerate(w)))"`
@@ -42,12 +42,13 @@ Setelah selesai tawarkan judul + deskripsi + hashtag (opsional). Bila naskah men
 Studio interaktif (Mac): `cd remotion && pnpm studio ../dates/<tgl>/<slug>`.
 
 ## Default tetap (jangan ditanya ulang)
-Kanvas v2: latar terang bergrid titik · header logo seri kiri, chip "Seri · topik" kanan, tanda tangan · hook teks raksasa + benda kunci · headline dua tingkat (pengantar abu, inti Bricolage Grotesque tebal yang katanya masuk satu per satu, kata kunci stabilo kuning) sebagai pengganti caption · panggung satu peraga: kartu bergaris navy + bayangan keras, ikon vektor, ilustrasi beranimasi, simulasi chat · kamera selalu bergerak pelan, transisi geser · karakter **Bold Vector Aulia** sepertiga layar dengan gerak idle halus dan pop saat ganti pose (Pixel Aulia diam hanya untuk mode game) · SFX modern otomatis (whoosh, pop, tick, ketikan, ding), tanpa musik · suara ElevenLabs v4 (stability 0,6 · similarity 1,0 · style 0,15).
+Kanvas v3 Paper Cutout: latar kraft berserat · header logo seri kiri, tag "Seri · topik" kanan, tanda tangan · hook kata jatuh di lembar kertas + satu benda kunci, kata kunci huruf potongan kertas · headline dua tingkat Fraunces (pengantar abu, inti tebal yang katanya masuk satu per satu, kata kunci warna aksen seri) sebagai pengganti caption · **satu elemen di panggung dalam satu waktu** (dua hanya untuk perbandingan A vs B): kartu krem bertumpuk lembar kertas, ikon vektor, ilustrasi beranimasi, simulasi chat · kamera pelan, transisi geser · karakter **Paper Cutout Aulia** setinggi 800 px dengan gerak idle halus dan pop saat ganti pose (Pixel Aulia hanya mode game) · SFX minimal (pop, tick, satu aksen lembut di hook), tanpa musik · aksen per seri (Bukan Sulap koral, Sing Murah Wae mustard, Katanya Nyatanya teal) · suara ElevenLabs v4 (stability 0,6 · similarity 1,0 · style 0,15).
 
 ## Pegangan
 - Timestamp kata dari alignment ElevenLabs, bukan Whisper. Tag `[..]` tidak diucapkan.
 - Bahasa: sentence case, "saya/Anda", tanpa em dash. Teks elemen ringkas (headline sudah memuat ucapan).
 - Jangan meniru tampilan akun lain (palet, header, gaya avatar). Prinsipnya yang dipakai; identitas Aulia tetap: palet faceless Aulia, Pixel Aulia, logo seri.
 - Pengguna memutuskan; jangan hapus/komit apa pun tanpa diminta. `.env` di-gitignore.
+- Posting Instagram (Buffer): **jangan pasang label konten AI** (`isAiGenerated` false). Keterangan suara AI cukup di caption bila naskah memuatnya.
 - Container cloud: `scripts/run.mjs` otomatis memakai Chromium di `/opt/pw-browsers`; di Mac Remotion mengunduh Chrome Headless Shell sendiri sekali.
 - Aset Vol. 5 (mulut bicara, kedip) belum ada; promptnya di `assets/pixel-aulia/prompts-vol5.md`.
