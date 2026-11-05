@@ -12,7 +12,7 @@ Alur dengan **checkpoint**; jangan lompat ke render final tanpa persetujuan.
 1. **Wawancara singkat** (`AskUserQuestion`, maks 2 putaran): seri (logo/penutup), kalimat wajib-utuh, ada sumber web untuk bukti layar, durasi target. Jangan menanyakan yang sudah punya default di bawah.
 2. **Verifikasi klaim**: tawarkan dulu (opsional, pengguna yang memutuskan). Bila ya: cek tiap angka/klaim ke sumber primer ≤6 bulan (AGENTS.md repo), tandai yang tak terverifikasi. Naskah jangan diubah diam-diam; usulkan perubahan.
 3. **Scaffold**: `scripts/new.sh dates/<YYYY-MM-DD>/<slug> [seri.svg]` (menyalin font, SFX, ikon clay, kepala, logo). Seri lain: SVG gelap + `<nama>-white.svg` harus ada; tanpa aset, minta ke pengguna atau pakai teks tipografi.
-4. **Naskah bertag**: tambahkan tag ekspresi ElevenLabs (`[casual] [relaxed] [conversational] [curious] [chuckles]`) per paragraf, tampilkan ke pengguna. Angka ditulis terbaca (`satu koma dua puluh lima`), singkatan seperti AI ditulis agar terbaca benar; tes bila ragu. Simpan `tts/final.txt`.
+4. **Naskah bertag**: tambahkan tag ekspresi ElevenLabs `[confident]` per paragraf (default; `[curious]`/`[chuckles]` bila perlu; jangan `[relaxed]`/`[energetic]`, lihat `references/suara.md`), tampilkan ke pengguna. Angka ditulis terbaca (`satu koma dua puluh lima`), singkatan seperti AI ditulis agar terbaca benar; tes bila ragu. Simpan `tts/final.txt`.
 5. **Tes suara (checkpoint 1)**: `scripts/tts.sh tts/final.txt tts/final` lalu `scripts/words.py tts/final.align.json tts/words.json`; kirim `tts/final.mp3` (SendUserFile) dan tunggu "oke". Detail & default di `references/suara.md`.
 6. **Hook**: usulkan 2-3 opsi hook (sketsa teks singkat) dan minta pilih. Kandidat: angka/klaim raksasa + coretan, pertanyaan tajam, kontras sebelum/sesudah.
 7. **Bukti layar**: bila naskah punya sumber web, **tanyakan dulu** per video. Bila ya: `scripts/shot.mjs` (sekali `pnpm i` di `scripts/`), lihat PNG hasilnya sebelum dipakai.
@@ -24,7 +24,7 @@ Alur dengan **checkpoint**; jangan lompat ke render final tanpa persetujuan.
 Setelah selesai tawarkan judul + deskripsi + hashtag (bukan bagian wajib).
 
 ## Default tetap (jangan ditanya ulang)
-Suara ElevenLabs v4, stability 0,6, similarity 1,0, style 0,15 · logo seri kiri atas + tanda tangan kanan atas (putih di penutup gelap) · kepala Aulia kiri bawah, ekspresi tepat per konteks · caption kata-per-kata (kata kunci kobalt) · tanpa musik (BGM off), hanya SFX sintetis · kalimat khas seri utuh (mis. "Kalau sama-sama beres... Sing Murah Wae.") dengan logo seri terbang ke tengah lalu kembali.
+Suara ElevenLabs v4, stability 0,5, similarity 1,0, style 0,2, tag `[confident]`, tempo 1,1x (default `tts.sh`) · logo seri kiri atas + tanda tangan kanan atas (putih di penutup gelap) · kepala Aulia kiri bawah, ekspresi tepat per konteks · caption kata-per-kata (kata kunci kobalt) · tanpa musik (BGM off), hanya SFX sintetis · kalimat khas seri utuh (mis. "Kalau sama-sama beres... Sing Murah Wae.") dengan logo seri terbang ke tengah lalu kembali.
 
 ## Pegangan
 - Timestamp kata dari alignment ElevenLabs, bukan Whisper. Tag `[..]` tidak diucapkan.
