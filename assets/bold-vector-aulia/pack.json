@@ -4,23 +4,382 @@
   "assets": [
     {
       "id": "netral",
-      "file": "characters/netral.png"
+      "file": "characters/netral.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "menjelaskan",
+      "file": "characters/menjelaskan.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "menunjuk",
+      "file": "characters/menunjuk.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "berpikir",
+      "file": "characters/berpikir.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "setuju",
+      "file": "characters/setuju.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "menyapa",
+      "file": "characters/menyapa.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "stop",
+      "file": "characters/stop.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "laptop",
+      "file": "characters/laptop.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "smartphone",
+      "file": "characters/smartphone.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "presentasi",
+      "file": "characters/presentasi.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "mencatat",
+      "file": "characters/mencatat.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "ngopi",
+      "file": "characters/ngopi.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "facepalm",
+      "file": "characters/facepalm.png",
+      "category": "characters",
+      "creative": null
+    },
+    {
+      "id": "murka",
+      "file": "reactions/murka.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "fokus",
+      "file": "reactions/fokus.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "kaget",
+      "file": "reactions/kaget.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "percaya-diri",
+      "file": "reactions/percaya-diri.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "sedih",
+      "file": "reactions/sedih.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "semangat",
+      "file": "reactions/semangat.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "bingung",
+      "file": "reactions/bingung.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "lelah",
+      "file": "reactions/lelah.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "dapat-ide",
+      "file": "reactions/dapat-ide.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "tertawa",
+      "file": "reactions/tertawa.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "skeptis",
+      "file": "reactions/skeptis.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "menang",
+      "file": "reactions/menang.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "panik",
+      "file": "reactions/panik.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "malu",
+      "file": "reactions/malu.png",
+      "category": "reactions",
+      "creative": null
+    },
+    {
+      "id": "mode-jenius",
+      "file": "reactions/mode-jenius.png",
+      "category": "reactions",
+      "creative": null
     },
     {
       "id": "deadline-samurai",
-      "file": "reactions/deadline-samurai.png"
+      "file": "reactions/deadline-samurai.png",
+      "category": "reactions",
+      "creative": {
+        "id": "deadline-samurai",
+        "category": "reactions",
+        "file": "reactions/deadline-samurai.png",
+        "title": "Membelah deadline",
+        "concept": "Jam raksasa dibelah pedang jarum jam; serpihan waktu mengorbit.",
+        "use": "Deadline dan tekanan waktu",
+        "motion": "shake"
+      }
     },
     {
       "id": "raja-multitasking",
-      "file": "reactions/raja-multitasking.png"
+      "file": "reactions/raja-multitasking.png",
+      "category": "reactions",
+      "creative": {
+        "id": "raja-multitasking",
+        "category": "reactions",
+        "file": "reactions/raja-multitasking.png",
+        "title": "Mengendalikan banyak tugas",
+        "concept": "Enam lengan energi tambahan mengatur alat kerja di belakang dua lengan asli.",
+        "use": "Banyak pekerjaan ditangani sekaligus",
+        "motion": "hover"
+      }
+    },
+    {
+      "id": "ditelan-algoritma",
+      "file": "reactions/ditelan-algoritma.png",
+      "category": "reactions",
+      "creative": {
+        "id": "ditelan-algoritma",
+        "category": "reactions",
+        "file": "reactions/ditelan-algoritma.png",
+        "title": "Tersedot distraksi",
+        "concept": "Tubuh terseret portal smartphone dengan pusaran notifikasi.",
+        "use": "Distraksi, doomscrolling, algoritma",
+        "motion": "shake"
+      }
+    },
+    {
+      "id": "dompet-kritis",
+      "file": "reactions/dompet-kritis.png",
+      "category": "reactions",
+      "creative": {
+        "id": "dompet-kritis",
+        "category": "reactions",
+        "file": "reactions/dompet-kritis.png",
+        "title": "Drama keuangan",
+        "concept": "Dompet raksasa kosong, zirah koin pecah, ngengat arwah keluar.",
+        "use": "Biaya bocor dan pengeluaran berlebihan",
+        "motion": "still"
+      }
+    },
+    {
+      "id": "mode-biksu",
+      "file": "reactions/mode-biksu.png",
+      "category": "reactions",
+      "creative": {
+        "id": "mode-biksu",
+        "category": "reactions",
+        "file": "reactions/mode-biksu.png",
+        "title": "Tenang di tengah gangguan",
+        "concept": "Meditasi melayang; notifikasi larut di perisai zen dan teh melayang.",
+        "use": "Fokus dan menjaga batas kerja",
+        "motion": "hover"
+      }
     },
     {
       "id": "bangkit-lagi",
-      "file": "reactions/bangkit-lagi.png"
+      "file": "reactions/bangkit-lagi.png",
+      "category": "reactions",
+      "creative": {
+        "id": "bangkit-lagi",
+        "category": "reactions",
+        "file": "reactions/bangkit-lagi.png",
+        "title": "Bangkit dari kegagalan",
+        "concept": "Sayap phoenix oranye-cyan muncul dari blazer di antara kertas kusut.",
+        "use": "Pemulihan, mencoba lagi",
+        "motion": "hover"
+      }
+    },
+    {
+      "id": "otak-overload",
+      "file": "reactions/otak-overload.png",
+      "category": "reactions",
+      "creative": {
+        "id": "otak-overload",
+        "category": "reactions",
+        "file": "reactions/otak-overload.png",
+        "title": "Kepala menjadi black hole",
+        "concept": "Galaksi di atas kepala menyedot ikon tugas; wajah tetap terlihat.",
+        "use": "Overthinking dan kebanjiran informasi",
+        "motion": "shake"
+      }
+    },
+    {
+      "id": "pawang-ai",
+      "file": "reactions/pawang-ai.png",
+      "category": "reactions",
+      "creative": {
+        "id": "pawang-ai",
+        "category": "reactions",
+        "file": "reactions/pawang-ai.png",
+        "title": "Konduktor para asisten AI",
+        "concept": "Benang energi mengatur tiga helper robot holografik kecil.",
+        "use": "Orkestrasi AI dan delegasi",
+        "motion": "hover"
+      }
+    },
+    {
+      "id": "eksekusi-meteor",
+      "file": "reactions/eksekusi-meteor.png",
+      "category": "reactions",
+      "creative": {
+        "id": "eksekusi-meteor",
+        "category": "reactions",
+        "file": "reactions/eksekusi-meteor.png",
+        "title": "Eksekusi secepat meteor",
+        "concept": "Terjun diagonal dengan pedang energi berbentuk keyboard dan jejak komet.",
+        "use": "Mulai eksekusi, momentum",
+        "motion": "shake"
+      }
+    },
+    {
+      "id": "aura-emas",
+      "file": "effects/aura-emas.png",
+      "category": "effects",
+      "creative": null
+    },
+    {
+      "id": "petir-biru",
+      "file": "effects/petir-biru.png",
+      "category": "effects",
+      "creative": null
+    },
+    {
+      "id": "impact-ungu",
+      "file": "effects/impact-ungu.png",
+      "category": "effects",
+      "creative": null
+    },
+    {
+      "id": "portal-hijau",
+      "file": "effects/portal-hijau.png",
+      "category": "effects",
+      "creative": null
+    },
+    {
+      "id": "speedlines-merah",
+      "file": "effects/speedlines-merah.png",
+      "category": "effects",
+      "creative": null
+    },
+    {
+      "id": "partikel-bintang",
+      "file": "effects/partikel-bintang.png",
+      "category": "effects",
+      "creative": null
+    },
+    {
+      "id": "cincin-deadline",
+      "file": "effects/cincin-deadline.png",
+      "category": "effects",
+      "creative": {
+        "id": "cincin-deadline",
+        "category": "effects",
+        "file": "effects/cincin-deadline.png",
+        "title": "Serpihan waktu",
+        "concept": "Cincin jam amber pecah, pusat transparan tanpa angka.",
+        "use": "Layer waktu dan deadline",
+        "motion": "pulse"
+      }
     },
     {
       "id": "sayap-phoenix",
-      "file": "effects/sayap-phoenix.png"
+      "file": "effects/sayap-phoenix.png",
+      "category": "effects",
+      "creative": {
+        "id": "sayap-phoenix",
+        "category": "effects",
+        "file": "effects/sayap-phoenix.png",
+        "title": "Sayap kebangkitan",
+        "concept": "Sepasang sayap api oranye-cyan dengan ruang kosong untuk karakter.",
+        "use": "Layer kebangkitan",
+        "motion": "pulse"
+      }
+    },
+    {
+      "id": "badai-notifikasi",
+      "file": "effects/badai-notifikasi.png",
+      "category": "effects",
+      "creative": {
+        "id": "badai-notifikasi",
+        "category": "effects",
+        "file": "effects/badai-notifikasi.png",
+        "title": "Badai distraksi",
+        "concept": "Bingkai spiral tile notifikasi merah-magenta, pusat transparan.",
+        "use": "Layer gangguan dan overload",
+        "motion": "pulse"
+      }
     }
-  ]
+  ],
+  "version": 2,
+  "counts": {
+    "characters": 13,
+    "reactions": 24,
+    "effects": 9
+  },
+  "inventoryReference": "pixel-aulia/manifest.json"
 }

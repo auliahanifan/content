@@ -1,17 +1,27 @@
 {
   "style": "Doodle",
   "description": "Garis tinta spontan, coretan gestur dan aksen warna terbatas.",
+  "version": 2,
   "created": "2026-11-02",
+  "updated": "2026-11-05",
+  "counts": {
+    "characters": 13,
+    "reactions": 24,
+    "effects": 9
+  },
   "generator": "ImageGen",
+  "inventoryReference": "pixel-aulia/manifest.json",
   "sourceReferences": [
     "assets/karakter-referensi.png",
     "assets/kepala-netral.png",
-    "assets/pixel-aulia/reactions/"
+    "doodle-aulia/characters/netral.png"
   ],
   "assets": [
     {
       "id": "netral",
       "file": "characters/netral.png",
+      "category": "characters",
+      "creative": null,
       "width": 1024,
       "height": 1536,
       "bytes": 1662624,
@@ -33,11 +43,805 @@
         1522
       ],
       "animated": false,
-      "layers": "flattened-character-and-props"
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/netral.png"
+    },
+    {
+      "id": "menjelaskan",
+      "file": "characters/menjelaskan.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1782193,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6917,
+      "alphaBounds": [
+        60,
+        25,
+        980,
+        1523
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/menjelaskan.png"
+    },
+    {
+      "id": "menunjuk",
+      "file": "characters/menunjuk.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1816825,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6595,
+      "alphaBounds": [
+        49,
+        21,
+        1009,
+        1510
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/menunjuk.png"
+    },
+    {
+      "id": "berpikir",
+      "file": "characters/berpikir.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1614987,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.7182,
+      "alphaBounds": [
+        49,
+        26,
+        908,
+        1514
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/berpikir.png"
+    },
+    {
+      "id": "setuju",
+      "file": "characters/setuju.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1766352,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6818,
+      "alphaBounds": [
+        33,
+        13,
+        1010,
+        1536
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/setuju.png"
+    },
+    {
+      "id": "menyapa",
+      "file": "characters/menyapa.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1777042,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6766,
+      "alphaBounds": [
+        33,
+        19,
+        980,
+        1521
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/menyapa.png"
+    },
+    {
+      "id": "stop",
+      "file": "characters/stop.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1677110,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.708,
+      "alphaBounds": [
+        256,
+        32,
+        938,
+        1520
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/stop.png"
+    },
+    {
+      "id": "laptop",
+      "file": "characters/laptop.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1783827,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6644,
+      "alphaBounds": [
+        0,
+        15,
+        962,
+        1524
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/laptop.png"
+    },
+    {
+      "id": "smartphone",
+      "file": "characters/smartphone.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1690450,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6802,
+      "alphaBounds": [
+        107,
+        27,
+        1004,
+        1520
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/smartphone.png"
+    },
+    {
+      "id": "presentasi",
+      "file": "characters/presentasi.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1206,
+      "height": 1305,
+      "bytes": 1062948,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.7239,
+      "alphaBounds": [
+        41,
+        17,
+        1176,
+        1305
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/presentasi.png"
+    },
+    {
+      "id": "mencatat",
+      "file": "characters/mencatat.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1645838,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.7025,
+      "alphaBounds": [
+        0,
+        33,
+        968,
+        1526
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/mencatat.png"
+    },
+    {
+      "id": "ngopi",
+      "file": "characters/ngopi.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1832804,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6654,
+      "alphaBounds": [
+        79,
+        14,
+        1004,
+        1527
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/ngopi.png"
+    },
+    {
+      "id": "facepalm",
+      "file": "characters/facepalm.png",
+      "category": "characters",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1705628,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.68,
+      "alphaBounds": [
+        21,
+        26,
+        1010,
+        1523
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/characters/facepalm.png"
+    },
+    {
+      "id": "murka",
+      "file": "reactions/murka.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1223,
+      "height": 1286,
+      "bytes": 3062323,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.2554,
+      "alphaBounds": [
+        0,
+        0,
+        1223,
+        1286
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/murka.png"
+    },
+    {
+      "id": "fokus",
+      "file": "reactions/fokus.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2329294,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.4742,
+      "alphaBounds": [
+        0,
+        23,
+        1024,
+        1536
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/fokus.png"
+    },
+    {
+      "id": "kaget",
+      "file": "reactions/kaget.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1199,
+      "height": 1312,
+      "bytes": 2297288,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.3908,
+      "alphaBounds": [
+        0,
+        10,
+        1187,
+        1312
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/kaget.png"
+    },
+    {
+      "id": "percaya-diri",
+      "file": "reactions/percaya-diri.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1199,
+      "height": 1312,
+      "bytes": 2282086,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4439,
+      "alphaBounds": [
+        0,
+        0,
+        1185,
+        1312
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/percaya-diri.png"
+    },
+    {
+      "id": "sedih",
+      "file": "reactions/sedih.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1225,
+      "height": 1284,
+      "bytes": 2107032,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4597,
+      "alphaBounds": [
+        0,
+        13,
+        1209,
+        1284
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/sedih.png"
+    },
+    {
+      "id": "semangat",
+      "file": "reactions/semangat.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2844185,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.3096,
+      "alphaBounds": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/semangat.png"
+    },
+    {
+      "id": "bingung",
+      "file": "reactions/bingung.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1223,
+      "height": 1286,
+      "bytes": 2039533,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.467,
+      "alphaBounds": [
+        0,
+        1,
+        1209,
+        1275
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/bingung.png"
+    },
+    {
+      "id": "lelah",
+      "file": "reactions/lelah.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1115,
+      "height": 1410,
+      "bytes": 2170659,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4386,
+      "alphaBounds": [
+        0,
+        0,
+        1099,
+        1410
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/lelah.png"
+    },
+    {
+      "id": "dapat-ide",
+      "file": "reactions/dapat-ide.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1223,
+      "height": 1286,
+      "bytes": 2517950,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.3825,
+      "alphaBounds": [
+        0,
+        0,
+        1215,
+        1286
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/dapat-ide.png"
+    },
+    {
+      "id": "tertawa",
+      "file": "reactions/tertawa.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2146001,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.5983,
+      "alphaBounds": [
+        0,
+        47,
+        1004,
+        1507
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/tertawa.png"
+    },
+    {
+      "id": "skeptis",
+      "file": "reactions/skeptis.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2391823,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.5078,
+      "alphaBounds": [
+        0,
+        0,
+        1014,
+        1536
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/skeptis.png"
+    },
+    {
+      "id": "menang",
+      "file": "reactions/menang.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1178,
+      "height": 1335,
+      "bytes": 2427212,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.3658,
+      "alphaBounds": [
+        0,
+        0,
+        1175,
+        1335
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/menang.png"
+    },
+    {
+      "id": "panik",
+      "file": "reactions/panik.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1302,
+      "height": 1208,
+      "bytes": 2750655,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.3161,
+      "alphaBounds": [
+        0,
+        0,
+        1302,
+        1208
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/panik.png"
+    },
+    {
+      "id": "malu",
+      "file": "reactions/malu.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2025443,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.638,
+      "alphaBounds": [
+        97,
+        16,
+        1004,
+        1520
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/malu.png"
+    },
+    {
+      "id": "mode-jenius",
+      "file": "reactions/mode-jenius.png",
+      "category": "reactions",
+      "creative": null,
+      "width": 1139,
+      "height": 1381,
+      "bytes": 1919588,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4921,
+      "alphaBounds": [
+        0,
+        0,
+        1121,
+        1365
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/mode-jenius.png"
     },
     {
       "id": "deadline-samurai",
       "file": "reactions/deadline-samurai.png",
+      "category": "reactions",
+      "creative": {
+        "id": "deadline-samurai",
+        "category": "reactions",
+        "file": "reactions/deadline-samurai.png",
+        "title": "Membelah deadline",
+        "concept": "Jam raksasa dibelah pedang jarum jam; serpihan waktu mengorbit.",
+        "use": "Deadline dan tekanan waktu",
+        "motion": "shake"
+      },
       "width": 1312,
       "height": 1199,
       "bytes": 3158858,
@@ -59,11 +863,22 @@
         1199
       ],
       "animated": false,
-      "layers": "flattened-character-and-props"
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/deadline-samurai.png"
     },
     {
       "id": "raja-multitasking",
       "file": "reactions/raja-multitasking.png",
+      "category": "reactions",
+      "creative": {
+        "id": "raja-multitasking",
+        "category": "reactions",
+        "file": "reactions/raja-multitasking.png",
+        "title": "Mengendalikan banyak tugas",
+        "concept": "Enam lengan energi tambahan mengatur alat kerja di belakang dua lengan asli.",
+        "use": "Banyak pekerjaan ditangani sekaligus",
+        "motion": "hover"
+      },
       "width": 1139,
       "height": 1381,
       "bytes": 2019427,
@@ -85,11 +900,133 @@
         1381
       ],
       "animated": false,
-      "layers": "flattened-character-and-props"
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/raja-multitasking.png"
+    },
+    {
+      "id": "ditelan-algoritma",
+      "file": "reactions/ditelan-algoritma.png",
+      "category": "reactions",
+      "creative": {
+        "id": "ditelan-algoritma",
+        "category": "reactions",
+        "file": "reactions/ditelan-algoritma.png",
+        "title": "Tersedot distraksi",
+        "concept": "Tubuh terseret portal smartphone dengan pusaran notifikasi.",
+        "use": "Distraksi, doomscrolling, algoritma",
+        "motion": "shake"
+      },
+      "width": 1145,
+      "height": 1374,
+      "bytes": 2514334,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.3511,
+      "alphaBounds": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/ditelan-algoritma.png"
+    },
+    {
+      "id": "dompet-kritis",
+      "file": "reactions/dompet-kritis.png",
+      "category": "reactions",
+      "creative": {
+        "id": "dompet-kritis",
+        "category": "reactions",
+        "file": "reactions/dompet-kritis.png",
+        "title": "Drama keuangan",
+        "concept": "Dompet raksasa kosong, zirah koin pecah, ngengat arwah keluar.",
+        "use": "Biaya bocor dan pengeluaran berlebihan",
+        "motion": "still"
+      },
+      "width": 1197,
+      "height": 1315,
+      "bytes": 2149665,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4923,
+      "alphaBounds": [
+        76,
+        0,
+        1163,
+        1303
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/dompet-kritis.png"
+    },
+    {
+      "id": "mode-biksu",
+      "file": "reactions/mode-biksu.png",
+      "category": "reactions",
+      "creative": {
+        "id": "mode-biksu",
+        "category": "reactions",
+        "file": "reactions/mode-biksu.png",
+        "title": "Tenang di tengah gangguan",
+        "concept": "Meditasi melayang; notifikasi larut di perisai zen dan teh melayang.",
+        "use": "Fokus dan menjaga batas kerja",
+        "motion": "hover"
+      },
+      "width": 1145,
+      "height": 1374,
+      "bytes": 2328652,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.3892,
+      "alphaBounds": [
+        0,
+        4,
+        1145,
+        1374
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/mode-biksu.png"
     },
     {
       "id": "bangkit-lagi",
       "file": "reactions/bangkit-lagi.png",
+      "category": "reactions",
+      "creative": {
+        "id": "bangkit-lagi",
+        "category": "reactions",
+        "file": "reactions/bangkit-lagi.png",
+        "title": "Bangkit dari kegagalan",
+        "concept": "Sayap phoenix oranye-cyan muncul dari blazer di antara kertas kusut.",
+        "use": "Pemulihan, mencoba lagi",
+        "motion": "hover"
+      },
       "width": 1140,
       "height": 1380,
       "bytes": 2899432,
@@ -111,11 +1048,344 @@
         1380
       ],
       "animated": false,
-      "layers": "flattened-character-and-props"
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/bangkit-lagi.png"
+    },
+    {
+      "id": "otak-overload",
+      "file": "reactions/otak-overload.png",
+      "category": "reactions",
+      "creative": {
+        "id": "otak-overload",
+        "category": "reactions",
+        "file": "reactions/otak-overload.png",
+        "title": "Kepala menjadi black hole",
+        "concept": "Galaksi di atas kepala menyedot ikon tugas; wajah tetap terlihat.",
+        "use": "Overthinking dan kebanjiran informasi",
+        "motion": "shake"
+      },
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2374135,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6002,
+      "alphaBounds": [
+        0,
+        0,
+        1010,
+        1536
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/otak-overload.png"
+    },
+    {
+      "id": "pawang-ai",
+      "file": "reactions/pawang-ai.png",
+      "category": "reactions",
+      "creative": {
+        "id": "pawang-ai",
+        "category": "reactions",
+        "file": "reactions/pawang-ai.png",
+        "title": "Konduktor para asisten AI",
+        "concept": "Benang energi mengatur tiga helper robot holografik kecil.",
+        "use": "Orkestrasi AI dan delegasi",
+        "motion": "hover"
+      },
+      "width": 1190,
+      "height": 1322,
+      "bytes": 2386372,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.4521,
+      "alphaBounds": [
+        0,
+        15,
+        1180,
+        1322
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/pawang-ai.png"
+    },
+    {
+      "id": "eksekusi-meteor",
+      "file": "reactions/eksekusi-meteor.png",
+      "category": "reactions",
+      "creative": {
+        "id": "eksekusi-meteor",
+        "category": "reactions",
+        "file": "reactions/eksekusi-meteor.png",
+        "title": "Eksekusi secepat meteor",
+        "concept": "Terjun diagonal dengan pedang energi berbentuk keyboard dan jejak komet.",
+        "use": "Mulai eksekusi, momentum",
+        "motion": "shake"
+      },
+      "width": 1199,
+      "height": 1312,
+      "bytes": 2109499,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.5266,
+      "alphaBounds": [
+        0,
+        15,
+        1181,
+        1312
+      ],
+      "animated": false,
+      "layers": "flattened-character-and-props",
+      "sourcePose": "pixel-aulia/reactions/eksekusi-meteor.png"
+    },
+    {
+      "id": "aura-emas",
+      "file": "effects/aura-emas.png",
+      "category": "effects",
+      "creative": null,
+      "width": 1145,
+      "height": 1374,
+      "bytes": 2103347,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.5166,
+      "alphaBounds": [
+        0,
+        0,
+        1131,
+        1374
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/aura-emas.png"
+    },
+    {
+      "id": "petir-biru",
+      "file": "effects/petir-biru.png",
+      "category": "effects",
+      "creative": null,
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1649970,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.5822,
+      "alphaBounds": [
+        0,
+        9,
+        1233,
+        1254
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/petir-biru.png"
+    },
+    {
+      "id": "impact-ungu",
+      "file": "effects/impact-ungu.png",
+      "category": "effects",
+      "creative": null,
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2400806,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.5113,
+      "alphaBounds": [
+        0,
+        0,
+        1237,
+        1254
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/impact-ungu.png"
+    },
+    {
+      "id": "portal-hijau",
+      "file": "effects/portal-hijau.png",
+      "category": "effects",
+      "creative": null,
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2086804,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.5192,
+      "alphaBounds": [
+        0,
+        7,
+        1236,
+        1254
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/portal-hijau.png"
+    },
+    {
+      "id": "speedlines-merah",
+      "file": "effects/speedlines-merah.png",
+      "category": "effects",
+      "creative": null,
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2595217,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "transparentFraction": 0.3691,
+      "alphaBounds": [
+        0,
+        0,
+        1251,
+        1254
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/speedlines-merah.png"
+    },
+    {
+      "id": "partikel-bintang",
+      "file": "effects/partikel-bintang.png",
+      "category": "effects",
+      "creative": null,
+      "width": 1145,
+      "height": 1374,
+      "bytes": 1003356,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.7589,
+      "alphaBounds": [
+        0,
+        12,
+        1131,
+        1374
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/partikel-bintang.png"
+    },
+    {
+      "id": "cincin-deadline",
+      "file": "effects/cincin-deadline.png",
+      "category": "effects",
+      "creative": {
+        "id": "cincin-deadline",
+        "category": "effects",
+        "file": "effects/cincin-deadline.png",
+        "title": "Serpihan waktu",
+        "concept": "Cincin jam amber pecah, pusat transparan tanpa angka.",
+        "use": "Layer waktu dan deadline",
+        "motion": "pulse"
+      },
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2473279,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "transparentFraction": 0.4932,
+      "alphaBounds": [
+        0,
+        19,
+        1254,
+        1254
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/cincin-deadline.png"
     },
     {
       "id": "sayap-phoenix",
       "file": "effects/sayap-phoenix.png",
+      "category": "effects",
+      "creative": {
+        "id": "sayap-phoenix",
+        "category": "effects",
+        "file": "effects/sayap-phoenix.png",
+        "title": "Sayap kebangkitan",
+        "concept": "Sepasang sayap api oranye-cyan dengan ruang kosong untuk karakter.",
+        "use": "Layer kebangkitan",
+        "motion": "pulse"
+      },
       "width": 1536,
       "height": 1024,
       "bytes": 2907210,
@@ -137,7 +1407,45 @@
         1024
       ],
       "animated": false,
-      "layers": "standalone-effect"
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/sayap-phoenix.png"
+    },
+    {
+      "id": "badai-notifikasi",
+      "file": "effects/badai-notifikasi.png",
+      "category": "effects",
+      "creative": {
+        "id": "badai-notifikasi",
+        "category": "effects",
+        "file": "effects/badai-notifikasi.png",
+        "title": "Badai distraksi",
+        "concept": "Bingkai spiral tile notifikasi merah-magenta, pusat transparan.",
+        "use": "Layer gangguan dan overload",
+        "motion": "pulse"
+      },
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2210353,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentFraction": 0.6194,
+      "alphaBounds": [
+        0,
+        9,
+        1520,
+        1012
+      ],
+      "animated": false,
+      "layers": "standalone-effect",
+      "sourcePose": "pixel-aulia/effects/badai-notifikasi.png"
     }
   ]
 }

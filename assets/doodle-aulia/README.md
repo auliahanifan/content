@@ -1,38 +1,38 @@
-# Doodle Aulia
+# Doodle Aulia — Full Library
 
 Garis tinta spontan, coretan gestur dan aksen warna terbatas.
 
-Paket awal pembanding berisi lima PNG transparan:
+Inventaris setara Pixel Aulia: **46 PNG transparan**, dengan ID dan nama file yang sama.
 
-- `characters/netral.png`: presenter netral tanpa efek.
-- `reactions/deadline-samurai.png`: membelah jam deadline.
-- `reactions/raja-multitasking.png`: enam lengan energi di belakang dua lengan asli.
-- `reactions/bangkit-lagi.png`: transformasi phoenix.
-- `effects/sayap-phoenix.png`: sayap mandiri untuk dipadukan dengan pose netral.
+| Folder | Jumlah | Kegunaan |
+| --- | --- | --- |
+| `characters/` | 13 | Pose presenter dan aktivitas tanpa aura |
+| `reactions/` | 24 | Emosi anime dan transformasi metaforis, karakter+VFX menyatu |
+| `effects/` | 9 | VFX mandiri untuk digabungkan dengan pose |
 
-Buka `preview.html` untuk memeriksa hasil di latar gelap, terang atau checkerboard. Ukuran dan alpha asli tercatat di `manifest.json`. `preview-gallery.png` adalah tangkapan katalog. `pack.json` berisi inventaris; `python build-catalog.py` membangun ulang manifest dan HTML dengan Pillow tanpa mengubah pixel gambar.
+Inventaris lengkap: `pack.json`. Metadata ukuran/transparansi: `manifest.json`. Katalog: `preview.html` dengan filter kategori dan pencarian. `python build-catalog.py` membangun ulang katalog dan memeriksa semua 46 gambar (Python+Pillow; tidak mengubah pixel). Acuan inventaris: `../pixel-aulia/manifest.json`.
 
 ## Remotion
 
-Salin folder `characters`, `reactions`, dan `effects` ke `public/assets/doodle-aulia/` proyekmu, lalu salin `remotion/Aulia.tsx` ke source. React dan Remotion mengikuti dependency proyek.
+Salin folder `characters`, `reactions`, `effects` ke `public/assets/doodle-aulia/`, dan `remotion/Aulia.tsx` ke source proyek. Di studio repo ini, `remotion/public/shared` sudah menaut ke `assets/`; cukup salin komponennya dan gunakan `assetRoot="shared/doodle-aulia"`.
 
 ```tsx
 import {Sequence} from 'remotion';
 import {Aulia} from './Aulia';
 
 <Sequence from={30} durationInFrames={90}>
-  <Aulia pose="netral" wings size={900} />
+  <Aulia pose="menjelaskan" effect="sayap-phoenix" assetRoot="shared/doodle-aulia" size={900} />
 </Sequence>
 ```
 
-Komponen menyediakan animasi masuk, hover untuk multitasking, dan denyut sayap terpisah. Gunakan `animate={false}` untuk gambar statis. `assetRoot`, `size` dan `style` bisa disesuaikan. Mount di `Sequence` baru untuk memulai ulang gerak. Semua gerak mengikuti frame/fps Remotion.
+Semua 37 pose/reaksi tersedia lewat prop `pose`, semua 9 efek lewat `effect`. Prop lama `wings` tetap bisa dipakai sebagai alias sayap-phoenix. Efek eksplisit pada prop `effect` diprioritaskan. Atur `effectScale`, `size`, `assetRoot`, `style`; `animate={false}` mematikan gerakan. Mount di `Sequence` untuk memulai ulang animasi masuk. Gerak mengikuti frame/fps, termasuk hover, shake, tebasan deadline, masuk diagonal meteor, dan putaran cincin deadline.
 
-## Studio Remotion di repo ini
+## Batas teknis
 
-`remotion/public/shared` sudah menaut ke folder `assets/`. Setelah komponen disalin ke source studio, pakai `assetRoot="shared/doodle-aulia"` agar PNG langsung dibaca dari paket ini tanpa menyalinnya ke public lagi. Hal ini tidak otomatis mengganti karakter default atau storyboard video yang sudah ada.
+PNG diam, bukan SVG, rig tubuh, model 3D atau sprite frame-by-frame. Kepala, tangan dan properti dalam pose belum dipisah; reaksi memiliki VFX yang menyatu. Paper cutout adalah tampilan kertas, bukan file berlayer; bold vector adalah gaya ilustrasi raster dan bisa memiliki shading/glow lembut. Hanya file `effects/` yang mandiri. Skala tubuh/kepadatan detail bisa bervariasi antarpose; komponen memakai `objectFit: contain`, bukan normalisasi tinggi tubuh. Beberapa efek bingkai sengaja mencapai tepi kanvas; pusatnya transparan.
 
-## Batas teknis dan provenance
+## Provenance dan distribusi
 
-Ini PNG diam; bukan SVG, file berlayer, model 3D, atau sprite animasi. Kepala, tangan dan properti di pose belum dipisah. Termasuk pada gaya paper cutout, tampilan lapisan kertas masih menyatu dalam PNG. Hanya file `effects/sayap-phoenix.png` yang merupakan layer efek terpisah. Skala dan proporsi antarpose dapat bervariasi; komponen memakai `objectFit: contain`, bukan normalisasi tinggi tubuh.
+ImageGen membuat tiap gambar dari anchor netral gaya ini dan pose Pixel Aulia yang bersesuaian. Ciri wajah mengikuti `assets/karakter-referensi.png` dan `assets/kepala-netral.png`. Gambar generasi disalin tanpa perubahan pixel lokal. Metadata mencatat alpha, dimensi dan layer. TSX diperiksa melalui bundling dengan React/Remotion eksternal; belum dirender menjadi video.
 
-ImageGen memakai referensi wajah `assets/kepala-netral.png`, karakter `assets/karakter-referensi.png`, serta komposisi Pixel Aulia. Gaya Doodle dibuat ulang dari referensi tersebut. Hasil generasi disalin tanpa perubahan pixel lokal. Produksi 2026-11-02. TSX diperiksa melalui bundling dengan dependency React/Remotion eksternal; belum dirender menjadi video.
+Paket unduhan lengkap tersedia melalui `../style-archives/index.html`. Setiap gaya dibagi ke ZIP biasa dengan volume terbatas: unduh dan ekstrak **semua volume gaya yang dipilih ke direktori yang sama**. Tidak perlu menyambung file biner.
