@@ -7,7 +7,7 @@ import {useTiming} from '../timing';
 import type {Board, KEl, KIcon, KStep, Ring, Stamp} from '../types';
 import {ChatSim, Illus, ILLUS_W} from './Illus';
 import {VIcon} from './Icons';
-import {bigCard, cardSkin, FONT_HEAD, K, ktone, SHADOW, softTone} from './theme';
+import {A, bigCard, cardSkin, FONT_HAND, FONT_HEAD, GRAIN, K, ktone, SHADOW, softTone} from './theme';
 
 /** Progres muncul (spring) dari frame `start`; `visible` false sebelum itu (tempat tetap dipesan). */
 const useIn = (start: number) => {
@@ -345,6 +345,47 @@ const Stepper: React.FC<{items: KStep[]; w?: number}> = ({items, w}) => {
   );
 };
 
+/**
+ * Bukti asli ala scrapbook: tangkapan layar ditempel miring dengan selotip, bagian penting distabilo
+ * (rects dalam persen gambar) di kata `mark.at`, catatan tulisan tangan di `note.at`, kilau cahaya saat masuk.
+ */
+const Evidence: React.FC<{el: Extract<KEl, {kind: 'evidence'}>; start: number; stageW: number}> = ({el, start, stageW}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {T} = useTiming();
+  const w = Math.min(el.w ?? 640, stageW - 30);
+  const markAt = el.mark ? T(el.mark.at) : Infinity;
+  const noteAt = el.note ? T(el.note.at) : Infinity;
+  const leak = interpolate(frame - start, [0, 14, 40], [0, 0.55, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const leakX = interpolate(frame - start, [0, 40], [-40, 40], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const np = frame < noteAt ? 0 : spring({frame: frame - noteAt, fps, config: {damping: 13, stiffness: 180, mass: 0.6}});
+  const tape = (left: string, rot: number, d: number): React.CSSProperties => {
+    const tp = frame < start + d ? 0 : spring({frame: frame - start - d, fps, config: {damping: 16, stiffness: 220}});
+    return {position: 'absolute', top: -20, left, width: 150, height: 42, background: 'rgba(242,193,78,0.62)', boxShadow: '0 1px 2px rgba(0,0,0,.12)', transform: `rotate(${rot}deg) scale(${1.4 - 0.4 * tp})`, opacity: tp, zIndex: 3};
+  };
+  return (
+    <div style={{position: 'relative', width: w, transform: 'rotate(-2deg)'}}>
+      <div style={{position: 'relative', background: '#fff', padding: '16px 16px 46px', boxShadow: '0 2px 2px rgba(0,0,0,.08), 0 26px 40px -18px rgba(60,35,10,.55)'}}>
+        <div style={{position: 'relative'}}>
+          <Img src={staticFile(`video/${el.src}`)} style={{display: 'block', width: '100%'}} />
+          {(el.mark?.rects ?? []).map((r, i) => {
+            const p = interpolate(frame, [markAt + i * 9, markAt + i * 9 + 10], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+            return <div key={i} style={{position: 'absolute', left: `${r.x - 0.6}%`, top: `${r.y - 0.4}%`, width: `${(r.w + 1.2) * p}%`, height: `${r.h + 0.8}%`, background: 'rgba(242,193,78,0.6)', mixBlendMode: 'multiply', borderRadius: 4}} />;
+          })}
+          <div style={{position: 'absolute', inset: 0, backgroundImage: GRAIN, opacity: 0.18, mixBlendMode: 'multiply'}} />
+        </div>
+        {el.source && <div style={{position: 'absolute', left: 18, bottom: 12, fontFamily: FONT_BODY, fontSize: 20, fontWeight: 600, color: '#8A8577'}}>{el.source}</div>}
+      </div>
+      <div style={tape('6%', -8, 6)} />
+      <div style={tape('68%', 7, 10)} />
+      {el.note && (
+        <div style={{position: 'absolute', left: `${el.note.x ?? 30}%`, top: `${el.note.y ?? 100}%`, fontFamily: FONT_HAND, fontWeight: 700, fontSize: 64, lineHeight: 1, color: K.bad, whiteSpace: 'nowrap', transform: `rotate(-4deg) translateY(${(1 - np) * 16}px)`, opacity: Math.min(1, np * 2), zIndex: 4}}>{el.note.text}</div>
+      )}
+      <div style={{position: 'absolute', inset: '-25% -60%', background: 'radial-gradient(40% 45% at 50% 50%, rgba(255,150,80,0.7), transparent 70%)', mixBlendMode: 'screen', opacity: leak, transform: `translateX(${leakX}%)`, pointerEvents: 'none', zIndex: 5}} />
+    </div>
+  );
+};
+
 /** Satu elemen panggung. `panelStart` = frame panel mulai; elemen muncul di `at` (atau sedikit setelah panel). */
 export const Element: React.FC<{el: KEl; panelStart: number; stageW: number}> = ({el, panelStart, stageW}) => {
   const frame = useCurrentFrame();
@@ -394,6 +435,8 @@ export const Element: React.FC<{el: KEl; panelStart: number; stageW: number}> = 
         );
       case 'chatsim':
         return <ChatSim app={el.app} items={el.items} w={el.w ?? Math.min(660, stageW)} />;
+      case 'evidence':
+        return <Evidence el={el} start={start} stageW={stageW} />;
       case 'row':
         return (
           <div style={{display: 'flex', gap: el.gap ?? 26, alignItems: 'center', justifyContent: 'center'}}>

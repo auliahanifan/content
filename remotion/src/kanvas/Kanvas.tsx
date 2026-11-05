@@ -444,6 +444,18 @@ const kanvasSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, e
         if (e.kind === 'flow') e.items.forEach((it) => it.at !== undefined && add(T(it.at), 'pop', 0.24));
         if (e.kind === 'stepper' || (e.kind === 'phone' && e.steps)) (e.kind === 'stepper' ? e.items : e.steps ?? []).forEach((st) => add(T(st.at), 'tick', 0.3));
         if (e.kind === 'illus' && e.name === 'render' && e.steps?.[2] !== undefined) add(T(e.steps[2]), 'pop', 0.26);
+        if (e.kind === 'illus' && e.name === 'doors' && e.steps) {
+          if (e.steps[0] !== undefined) add(T(e.steps[0]) + 4, 'pop', 0.26);
+          if (e.steps[1] !== undefined) add(T(e.steps[1]), 'tick', 0.32);
+        }
+        if (e.kind === 'illus' && e.name === 'recipe-kitchen' && e.steps) {
+          if (e.steps[1] !== undefined) add(T(e.steps[1]), 'tick', 0.3);
+          if (e.steps[2] !== undefined) add(T(e.steps[2]), 'pop', 0.28);
+        }
+        if (e.kind === 'evidence') {
+          if (e.mark) add(T(e.mark.at), 'tick', 0.32);
+          if (e.note) add(T(e.note.at), 'tick', 0.28);
+        }
         if (e.kind === 'chatsim') e.items.forEach((m) => add(T(m.at), 'tick', 0.28));
         if ((e.kind === 'shot' || e.kind === 'phone') && e.rings) e.rings.forEach((r) => add(T(r.at), 'tick', 0.28));
       });

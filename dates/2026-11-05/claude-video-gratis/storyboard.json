@@ -329,13 +329,49 @@
   {
    "at": 10,
    "char": "none",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/shot-motion.png",
+     "source": "support.claude.com · Get started with Claude Motion",
+     "w": 760,
+     "mark": {
+      "at": 18,
+      "rects": [
+       {
+        "x": 67.06,
+        "y": 72.09,
+        "w": 15.85,
+        "h": 3.89
+       },
+       {
+        "x": 8.41,
+        "y": 76.85,
+        "w": 26.31,
+        "h": 3.89
+       }
+      ]
+     },
+     "note": {
+      "at": 20,
+      "text": "cuma Team & Enterprise!",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 21,
+   "char": "none",
    "pose": "menjelaskan",
    "items": [
     {
      "kind": "illus",
-     "name": "tiers",
+     "name": "doors",
      "steps": [
-      18,
+      21,
       27
      ],
      "labels": [
@@ -659,14 +695,13 @@
    "pose": "setuju",
    "items": [
     {
-     "kind": "card",
-     "icon": {
-      "name": "recipe",
-      "color": "sun"
-     },
-     "tag": "ATURAN BAWA PULANG",
-     "title": "Claude nulis resepnya, laptop Anda yang masak.",
-     "tone": "accent"
+     "kind": "illus",
+     "name": "recipe-kitchen",
+     "steps": [
+      259,
+      261,
+      264
+     ]
     }
    ]
   },
