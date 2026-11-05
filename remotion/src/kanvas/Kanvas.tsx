@@ -281,7 +281,7 @@ const HookLayer: React.FC = () => {
   if (!sb.hook) return null;
   const exit = spring({frame: frame - (hookEnd - 6), fps, config: {damping: 16, stiffness: 140}});
   const chars = toks.map((t) => t.text).join(' ').length;
-  const size = chars > 55 ? 90 : chars > 40 ? 112 : 140;
+  const size = chars > 55 ? 90 : chars > 30 ? 112 : 136;
   const burst = frame / 2;
   return (
     <AbsoluteFill style={{opacity: 1 - exit, transform: `translateY(${-exit * 260}px) scale(${1 - exit * 0.45})`, transformOrigin: '540px 400px'}}>

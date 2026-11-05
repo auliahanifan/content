@@ -41,6 +41,8 @@ Laporkan tabel ringkas (ID TH, dari CORE#, Hook) dan ide CORE yang tidak bisa di
 ### 1. Lembar fakta
 Jalankan `challenge` tahap **fakta** untuk seluruh batch. Hasilnya lembar fakta terverifikasi per topik di tab **Fakta** beserta status freshness (Fresh / Evergreen / Basi). Ide Basi, atau yang fakta intinya tidak bisa diverifikasi, tidak ditulis: laporkan dan usulkan sudut lain atau buang. Fakta inti = **padahal** di sheet. Jika padahal ternyata keliru atau hanya opini, ide tidak ditulis. Jika lembar fakta menemukan padahal yang lebih kuat dari yang di sheet, pakai yang lebih kuat dan perbarui kolom Padahal.
 
+**Klaim kemampuan diverifikasi sampai praktik.** Kalimat seperti "bisa", "jalan", "gratis", "tanpa bayar", atau "cukup di paket X" adalah klaim bahwa penonton bisa menyelesaikan jalurnya, bukan sekadar bahwa fiturnya terdaftar. Daftar fitur di halaman harga tidak cukup: cek alat yang benar-benar dipakai di jalur itu (mis. Claude Code minimal Pro, walau chat gratis bisa menulis kode). Bila lembar fakta tidak punya bukti praktik, tanyakan ke pengguna sebelum menulis; pengguna yang memakai alatnya sehari-hari, dan jawabannya mengalahkan dugaan dari dokumentasi.
+
 ### 2. Asah hook
 Hook menentukan penonton berhenti scroll atau tidak. Ini tahap terpenting; jangan diringkas. Pakai skill `social` (bagian Hook Formulas, The 3-Second Rule, dan No AI Tells) sebagai acuan tambahan. Kalau bertentangan, aturan skill ini dan `aulia-brand` yang menang.
 
@@ -177,6 +179,11 @@ Aturan gaya:
   - **Satu kata, satu makna.** Kata yang bisa berarti dua hal dilarang. Contoh: "gratisan" bisa berarti paket Free atau biaya Rp0. Pisahkan: biaya → "tanpa bayar sepeser pun"; paket → "paket gratis (Free)", "paket individu, bahkan yang berbayar", "paket bisnis".
   - Daftar paket, harga, dan fitur dicek ulang ke halaman resmi saat menulis (contoh 5 Nov 2026: paket individu Claude = Free, Pro, Max, Ultra). Bila daftar bisa berubah, ucapkan kategorinya ("paket individu") dan tampilkan daftarnya di layar.
   - Memadatkan tidak boleh membuat klaim jadi mutlak: "tiga puluh gambar per detik" → "puluhan gambar per detik"; "Claude nggak menggambar" → "nggak menggambar tiap halaman".
+- **Syarat penonton per jalur (wajib).** Setiap cara, langkah, atau tutorial punya syaratnya sendiri: paket minimum, alat, biaya, dan batas. Tulis di blok `Syarat:` (output) dan ucapkan di naskah tepat saat cara itu disebut ("Cara satu bisa di paket Free. Cara dua butuh Claude Code, minimal Pro."). **Tidak ada klaim gabungan** ("dua-duanya gratis") bila syarat tiap jalur berbeda.
+- **Hook tidak boleh menjanjikan lebih dari isinya.** Janji di hook ("tanpa bayar sepeser pun", "gratis", "tanpa coding") harus berlaku untuk seluruh isi tanpa tanda bintang. Bila salah satu jalur berbayar atau bersyarat, hook-nya diganti.
+- **Jalur kreator terpisah dari jalur penonton.** Pengakuan alat ("video ini dibuat dengan ...") ditaruh sesudah jalur penonton selesai dan menyebut bedanya dengan jelas ("Saya pakai Claude Code, minimal Pro. Anda bisa dengan cara satu di paket Free."). Jangan sampai terdengar seperti syarat yang disembunyikan atau bertentangan dengan janji.
+- **Kamus istilah per naskah.** Sebelum menulis, tetapkan satu sebutan untuk tiap paket dan alat, lalu pakai persis sama dari awal sampai akhir (mis. "paket Free", "paket berbayar Pro, Max, Ultra", "paket bisnis Team dan Enterprise", "Claude Code, minimal Pro"). Tulis di blok `Istilah:`. Jangan berganti-ganti sinonim ("gratisan", "versi gratis", "paket gratis") untuk hal yang sama.
+- **Sebut ulang subjek saat topik berganti.** Kalimat pertama setiap bagian baru (fitur → cara alternatif → mitos → syarat) menyebut bendanya secara utuh ("Tanpa Claude Motion pun, ada dua cara bikin video animasi."), bukan "caranya" atau kata ganti.
 - **Pangkas sebelum selesai.** Hitung kata yang diucapkan (tanpa blok `[HOOK]` selain isi baris Ucap, tanpa baris `[REKAM: ...]`). Jika melebihi batas struktur di tabel durasi, buang dulu kalimat yang mengulang poin, lalu persingkat contoh. Jangan buang langkah tutorial, batas yang material, atau kalimat khas seri.
 - **Bahasa pemula.** Istilah teknis dijelaskan saat pertama muncul dengan satu analogi atau padanan ("API key, anggap saja kunci rumah"). Uji: apakah orang yang baru seminggu pakai ChatGPT paham tanpa berhenti?
 
@@ -187,8 +194,13 @@ Jika baris berformat `ucap` tetapi idenya butuh hasil tes atau perbandingan, uba
 ### 4a. Challenge teknis
 Jalankan `challenge` tahap **cek** untuk seluruh batch dan terapkan koreksinya sebelum review brand, karena koreksi bisa menambah kalimat baru yang perlu dicek brand.
 
+**Setiap penulisan ulang yang menambah atau mengubah klaim kembali ke tahap ini**, termasuk saat memadatkan, mengasah hook, atau merevisi setelah review, dan termasuk revisi di `/video-karakter`. Buat daftar klaim sebelum dan sesudah (klaim baru, klaim yang berubah, klaim yang hilang), lalu jalankan `challenge` tahap cek hanya untuk klaim baru dan yang berubah. Kalimat yang lebih pendek tidak otomatis lebih aman: pemadatan sering membuat klaim jadi mutlak atau menggabungkan syarat yang berbeda.
+
 ### 4b. Review brand (terpisah)
 Kirim naskah ke subagent (`model: sonnet`) dengan instruksi: panggil skill `aulia-brand` mode **Review**, beri verdict dan temuan dengan kutipan. Reviewer juga menilai kedalaman: apakah penonton mendapat sesuatu yang tidak ada di judul beritanya, dan apakah bagian "kenapa" benar-benar menjelaskan mekanisme. Naskah yang dangkal ditandai "Perlu penyesuaian". Untuk Tumpukan jebakan, reviewer mengecek bahwa tiap butir menyebut benda milik penonton dan angka bersumber, ada kata kunci pembalik yang benar-benar menjelaskan mekanisme, dan janji di awal dibayar di akhir; jika salah satu tidak ada, tandai "Perlu penyesuaian". Untuk semua struktur, reviewer mengecek kerangka wajib (bawa pulang, janji dibayar, kait ulang untuk >60 detik, analogi universal), bahasa pemula, kepadatan (jumlah kata dalam batas tabel durasi, tidak ada kalimat yang mengulang atau sisipan definisi yang seharusnya di layar), dan kata yang ambigu; yang hilang ditandai "Perlu penyesuaian". Untuk Tutorial langkah, reviewer mengecek tiap langkah punya `[REKAM: ...]` dan aset yang dijanjikan tertulis lengkap. Untuk naskah mode unlock, reviewer juga mengecek proporsi: bagian kemungkinan harus lebih panjang daripada batas/peringatan, dan hook harus menyebut kemampuan, bukan risiko; jika terbalik, tandai "Perlu penyesuaian". Reviewer juga mengecek kalimat pertama terhadap gerbang hook di tahap 2c (terutama 2c.2: tanpa pemanasan, taruhan sudah ada), dan memastikan kalimat khas seri muncul kata per kata di posisi yang benar; jika hilang atau diparafrasekan, tandai "Perlu penyesuaian". Subagent tidak melihat proses penulisan, hanya naskah + konteks ide. Satu subagent boleh mereview seluruh batch. Jika verdict bukan "Sudah selaras", revisi minimal sesuai temuan. Review ulang hanya jika revisi menambah kalimat baru di luar saran reviewer.
+
+### 4c. Uji penonton awam (terpisah)
+Kirim **hanya teks yang diucapkan** (tanpa blok hook, Layar, Visual, Syarat, Istilah) ke subagent (`model: sonnet`) yang berperan sebagai pemula: karyawan Indonesia yang baru memakai AI, punya akun Claude Free, belum pernah memakai Claude Code. Subagent menjawab dari naskah saja, tanpa pengetahuan sendiri: (1) Apa klaim utama video ini? (2) Untuk mengikuti tiap cara, saya perlu bayar atau tidak, perlu paket apa, perlu alat apa? (3) Bisa saya lakukan dengan akun saya sekarang? (4) Kalimat mana yang membuat bingung atau bisa diartikan dua? Bandingkan jawaban 2 dan 3 dengan blok `Syarat:`. Bila ada jawaban yang salah, ragu, atau berbeda dari Syarat, revisi kalimat penyebabnya, lalu ulangi uji ini (dan tahap 4a bila revisinya mengubah klaim).
 
 ### 5. Cek klaim
 Daftar setiap klaim pengalaman pribadi, hasil tes, angka biaya, atau pelanggan. Yang tidak berasal dari lembar fakta atau pernyataan pengguna diganti `[ISI: ...]` di naskah, termasuk semua butir "Perlu konfirmasi Aul". Jangan pernah menulis "saya sudah mencoba" tanpa fakta dari pengguna.
@@ -203,6 +215,8 @@ Tulis satu baris per ide ke tab **Naskah** (kolom dan aturan di [tab-talking-hea
   Layar: <teks overlay detik 0–3, maksimal 5 kata>
   Visual: <satu kalimat, memakai kit /video-faceless atau /video-karakter>
   Janji: <kata payoff di akhir, mis. "prompt">   (wajib untuk video >60 dtk)
+  Syarat: <per jalur: paket minimum · alat · biaya · batas, mis. "Cara 1: paket Free · artifact + rekam layar · Rp0 · kuota terbatas | Cara 2: Claude Code minimal Pro · Node + Remotion · langganan Pro">   (wajib bila ada cara/langkah/tutorial)
+  Istilah: <satu sebutan per paket dan alat, dipakai sama di seluruh naskah>
   Episode: <arc · sebelumnya → berikutnya>   (hanya bila bagian dari arc)
   Meter: <label + angka per butir, mis. "RISIKO: 50 jt, 1,2 M, 6 M">   (hanya Tumpukan jebakan)
 
@@ -212,7 +226,7 @@ Tulis satu baris per ide ke tab **Naskah** (kolom dan aturan di [tab-talking-hea
   [REKAM: HP · Gemini · ketuk ikon plus]
   <langkah tutorial 1>
   ```
-  Label `[HOOK ...]`, `Ucap:`, `[UI: ...]`, `[REKAM: ...]`, serta baris Layar, Visual, Janji, Episode, dan Meter tidak dibacakan dan tidak dikirim ke TTS; yang diucapkan hanya isi Ucap lalu teks naskah sesudahnya. `[UI: <jenis> · <isi>]` ditaruh di atas butir yang menyebut layar milik penonton sebagai saran mock untuk `/video-karakter` (jenis: form, checkout, notif, chat, receipt, terminal, email, comments, profile). `[REKAM: <perangkat> · <aplikasi> · <tindakan>]` ditaruh di atas tiap langkah tutorial: daftar rekaman yang perlu dibuat Aulia, sekaligus panduan `/video-karakter` memasang bingkai HP dan stepper.
+  Label `[HOOK ...]`, `Ucap:`, `[UI: ...]`, `[REKAM: ...]`, serta baris Layar, Visual, Janji, Syarat, Istilah, Episode, dan Meter tidak dibacakan dan tidak dikirim ke TTS; yang diucapkan hanya isi Ucap lalu teks naskah sesudahnya. `[UI: <jenis> · <isi>]` ditaruh di atas butir yang menyebut layar milik penonton sebagai saran mock untuk `/video-karakter` (jenis: form, checkout, notif, chat, receipt, terminal, email, comments, profile). `[REKAM: <perangkat> · <aplikasi> · <tindakan>]` ditaruh di atas tiap langkah tutorial: daftar rekaman yang perlu dibuat Aulia, sekaligus panduan `/video-karakter` memasang bingkai HP dan stepper.
 - Hook cadangan: 2 hook.
 - Caption: caption + #RumitJadiJelas + satu hashtag seri.
 - Perlu diisi: `[ISI: ...] → kenapa`, daftar `[REKAM: ...]` yang harus direkam, atau `Tidak ada.`

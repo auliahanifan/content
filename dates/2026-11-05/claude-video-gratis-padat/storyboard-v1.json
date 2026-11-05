@@ -1,0 +1,605 @@
+{
+ "style": "kanvas",
+ "series": "bukan-sulap",
+ "topic": "Bukan Sulap · video Claude",
+ "tail": 1.5,
+ "keywords": [
+  8
+ ],
+ "captionMerge": [
+  {
+   "from": 137,
+   "to": 138,
+   "text": "HyperFrames,"
+  },
+  {
+   "from": 179,
+   "to": 180,
+   "text": "HyperFrames,"
+  }
+ ],
+ "seriesLine": {
+  "from": 44,
+  "to": 45
+ },
+ "loop": {
+  "text": "2 cara",
+  "from": 37,
+  "until": 109
+ },
+ "hook": {
+  "until": 9,
+  "items": [
+   {
+    "kind": "card",
+    "icon": {
+     "name": "film",
+     "color": "bad"
+    },
+    "tag": "FITUR RESMI",
+    "title": "Claude Motion",
+    "text": "video animasi dari Claude",
+    "w": 700
+   }
+  ]
+ },
+ "punch": [
+  22,
+  30,
+  63,
+  80,
+  106,
+  163
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 2,
+   "key": [
+    3
+   ]
+  },
+  {
+   "from": 10,
+   "split": 12,
+   "key": [
+    13
+   ]
+  },
+  {
+   "from": 16,
+   "split": 20,
+   "key": [
+    22,
+    24
+   ]
+  },
+  {
+   "from": 25,
+   "split": 27,
+   "key": [
+    30
+   ]
+  },
+  {
+   "from": 32,
+   "split": 37,
+   "key": [
+    38
+   ]
+  },
+  {
+   "from": 40,
+   "split": 40
+  },
+  {
+   "from": 44,
+   "split": 44
+  },
+  {
+   "from": 49,
+   "split": 51,
+   "key": [
+    51
+   ]
+  },
+  {
+   "from": 56,
+   "split": 56
+  },
+  {
+   "from": 61,
+   "split": 61,
+   "key": [
+    63
+   ]
+  },
+  {
+   "from": 64,
+   "split": 70
+  },
+  {
+   "from": 73,
+   "split": 73
+  },
+  {
+   "from": 79,
+   "split": 80,
+   "key": [
+    80
+   ]
+  },
+  {
+   "from": 81,
+   "split": 82,
+   "key": [
+    82
+   ]
+  },
+  {
+   "from": 86,
+   "split": 87
+  },
+  {
+   "from": 92,
+   "split": 96,
+   "key": [
+    97
+   ]
+  },
+  {
+   "from": 99,
+   "split": 106,
+   "key": [
+    106
+   ]
+  },
+  {
+   "from": 109,
+   "split": 109,
+   "key": [
+    112
+   ]
+  },
+  {
+   "from": 114,
+   "split": 117,
+   "key": [
+    118,
+    119
+   ]
+  },
+  {
+   "from": 122,
+   "split": 122,
+   "key": [
+    125
+   ]
+  },
+  {
+   "from": 126,
+   "split": 126,
+   "key": [
+    128
+   ]
+  },
+  {
+   "from": 130,
+   "split": 133,
+   "key": [
+    135,
+    137
+   ]
+  },
+  {
+   "from": 139,
+   "split": 139
+  },
+  {
+   "from": 144,
+   "split": 144,
+   "key": [
+    146
+   ]
+  },
+  {
+   "from": 149,
+   "split": 149,
+   "key": [
+    154
+   ]
+  },
+  {
+   "from": 155,
+   "split": 157,
+   "key": [
+    159,
+    163
+   ]
+  },
+  {
+   "from": 164,
+   "split": 168,
+   "key": [
+    168
+   ]
+  },
+  {
+   "from": 175,
+   "split": 177,
+   "key": [
+    177,
+    179
+   ]
+  },
+  {
+   "from": 181,
+   "split": 181,
+   "key": [
+    182
+   ]
+  },
+  {
+   "from": 187,
+   "split": 187,
+   "key": [
+    189
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "at": 10,
+   "char": "none",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/shot-motion.png",
+     "source": "support.claude.com · Get started with Claude Motion",
+     "w": 760,
+     "mark": {
+      "at": 22,
+      "rects": [
+       {
+        "x": 67.06,
+        "y": 72.09,
+        "w": 15.85,
+        "h": 3.89
+       },
+       {
+        "x": 8.41,
+        "y": 76.85,
+        "w": 26.31,
+        "h": 3.89
+       }
+      ]
+     },
+     "note": {
+      "at": 24,
+      "text": "cuma Team & Enterprise!",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 25,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "doors",
+     "steps": [
+      25,
+      30
+     ],
+     "labels": [
+      "Claude Motion: paket bisnis saja"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 32,
+   "char": "right",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "gift",
+      "color": "sun"
+     },
+     "tag": "DI AKHIR VIDEO",
+     "title": "2 cara, di paket Free pun bisa",
+     "tone": "good",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 49,
+   "char": "left",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "flipbook",
+     "steps": [
+      51
+     ],
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 56,
+   "char": "right",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "recipe-code",
+     "steps": [
+      61
+     ]
+    }
+   ]
+  },
+  {
+   "at": 64,
+   "char": "left",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "render",
+     "steps": [
+      67,
+      74,
+      77
+     ],
+     "labels": [
+      "render",
+      "MP4"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 81,
+   "char": "right",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "skill-folder",
+     "steps": [
+      87
+     ],
+     "labels": [
+      "SKILL.md",
+      "contoh.html",
+      "skrip.py"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 92,
+   "char": "right",
+   "items": [
+    {
+     "kind": "card",
+     "tag": "BUKAN",
+     "value": "Mesin video",
+     "strikeAt": 96,
+     "tone": "bad",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 99,
+   "char": "left",
+   "pose": "stop",
+   "items": [
+    {
+     "kind": "chatsim",
+     "app": "Chat AI",
+     "items": [
+      {
+       "at": 100,
+       "side": "user",
+       "text": "Panggil skill, langsung jadi video ya!"
+      },
+      {
+       "at": 106,
+       "side": "ai",
+       "text": "Belum tentu jalan."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 109,
+   "char": "right",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "check",
+      "color": "good"
+     },
+     "tag": "INI DIA",
+     "title": "2 cara yang pasti jalan",
+     "tone": "good",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 114,
+   "char": "left",
+   "pose": "smartphone",
+   "topic": "Cara 1 · yang gampang",
+   "items": [
+    {
+     "kind": "stepper",
+     "w": 600,
+     "items": [
+      {
+       "at": 117,
+       "text": "Nyalakan code execution di Pengaturan"
+      },
+      {
+       "at": 122,
+       "text": "Minta animasi sebagai artifact"
+      },
+      {
+       "at": 126,
+       "text": "Putar, lalu rekam layar"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 130,
+   "char": "right",
+   "pose": "laptop",
+   "topic": "Cara 2 · yang rapi",
+   "items": [
+    {
+     "kind": "stepper",
+     "w": 600,
+     "items": [
+      {
+       "at": 133,
+       "text": "Minta kode Remotion / HyperFrames"
+      },
+      {
+       "at": 144,
+       "text": "Salin kodenya"
+      },
+      {
+       "at": 146,
+       "text": "Render di laptop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 149,
+   "char": "left",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Syarat (lengkap di caption)",
+     "items": [
+      {
+       "at": 149,
+       "text": "Node di laptop",
+       "doneAt": 150
+      },
+      {
+       "at": 150,
+       "text": "FFmpeg untuk HyperFrames",
+       "doneAt": 151
+      },
+      {
+       "at": 151,
+       "text": "Remotion gratis, maks. 3 orang",
+       "doneAt": 152
+      },
+      {
+       "at": 152,
+       "text": "HyperFrames gratis (Apache 2.0)",
+       "doneAt": 153
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 155,
+   "char": "left",
+   "pose": "setuju",
+   "topic": "Bukan Sulap · video Claude",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "recipe-kitchen",
+     "steps": [
+      157,
+      160,
+      163
+     ]
+    }
+   ]
+  },
+  {
+   "at": 164,
+   "char": "right",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "film",
+      "color": "bad"
+     },
+     "tag": "VIDEO INI",
+     "title": "Remotion + Claude Code",
+     "text": "bukan paket gratis",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 175,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Episode depan, pilih:",
+     "items": [
+      {
+       "at": 177,
+       "text": "2 · Remotion vs HyperFrames"
+      },
+      {
+       "at": 181,
+       "text": "3 · Suara AI yang nggak datar"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 187,
+   "char": "right",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     },
+     "title": "Tulis di komentar",
+     "text": "pilih nomor 2 atau 3",
+     "w": 560
+    }
+   ]
+  }
+ ]
+}

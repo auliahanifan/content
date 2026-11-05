@@ -4,31 +4,31 @@
  "topic": "Bukan Sulap · video Claude",
  "tail": 1.5,
  "keywords": [
-  8
+  3
  ],
  "captionMerge": [
   {
-   "from": 137,
-   "to": 138,
+   "from": 171,
+   "to": 172,
    "text": "HyperFrames,"
   },
   {
-   "from": 179,
-   "to": 180,
+   "from": 205,
+   "to": 206,
    "text": "HyperFrames,"
   }
  ],
  "seriesLine": {
-  "from": 44,
-  "to": 45
+  "from": 48,
+  "to": 49
  },
  "loop": {
   "text": "2 cara",
-  "from": 37,
-  "until": 109
+  "from": 41,
+  "until": 112
  },
  "hook": {
-  "until": 9,
+  "until": 5,
   "items": [
    {
     "kind": "card",
@@ -38,18 +38,18 @@
     },
     "tag": "FITUR RESMI",
     "title": "Claude Motion",
-    "text": "video animasi dari Claude",
+    "text": "beta · paket bisnis",
     "w": 700
    }
   ]
  },
  "punch": [
-  22,
-  30,
-  63,
-  80,
-  106,
-  163
+  18,
+  26,
+  67,
+  89,
+  111,
+  191
  ],
  "lines": [
   {
@@ -60,196 +60,210 @@
    ]
   },
   {
-   "from": 10,
-   "split": 12,
+   "from": 6,
+   "split": 8,
    "key": [
-    13
+    8,
+    9
    ]
   },
   {
-   "from": 16,
-   "split": 20,
+   "from": 12,
+   "split": 16,
    "key": [
-    22,
-    24
+    17
    ]
   },
   {
-   "from": 25,
-   "split": 27,
+   "from": 21,
+   "split": 23,
    "key": [
-    30
+    26
    ]
   },
   {
-   "from": 32,
-   "split": 37,
+   "from": 30,
+   "split": 34,
    "key": [
-    38
+    36
    ]
   },
   {
    "from": 40,
-   "split": 40
-  },
-  {
-   "from": 44,
-   "split": 44
-  },
-  {
-   "from": 49,
-   "split": 51,
+   "split": 40,
    "key": [
-    51
+    41
    ]
   },
   {
-   "from": 56,
-   "split": 56
+   "from": 48,
+   "split": 48
   },
   {
-   "from": 61,
-   "split": 61,
+   "from": 53,
+   "split": 55,
    "key": [
-    63
+    55
    ]
   },
   {
-   "from": 64,
-   "split": 70
+   "from": 60,
+   "split": 60
   },
   {
-   "from": 73,
-   "split": 73
-  },
-  {
-   "from": 79,
-   "split": 80,
+   "from": 65,
+   "split": 65,
    "key": [
-    80
+    67
    ]
   },
   {
-   "from": 81,
-   "split": 82,
+   "from": 68,
+   "split": 71,
    "key": [
-    82
+    72
    ]
   },
   {
-   "from": 86,
-   "split": 87
+   "from": 78,
+   "split": 78
   },
   {
-   "from": 92,
-   "split": 96,
+   "from": 88,
+   "split": 89,
    "key": [
-    97
+    89
    ]
   },
   {
-   "from": 99,
-   "split": 106,
+   "from": 90,
+   "split": 91,
    "key": [
-    106
+    91
    ]
   },
   {
-   "from": 109,
-   "split": 109,
+   "from": 97,
+   "split": 97,
    "key": [
-    112
+    99
    ]
   },
   {
-   "from": 114,
-   "split": 117,
+   "from": 103,
+   "split": 107,
    "key": [
-    118,
-    119
+    111
    ]
   },
   {
-   "from": 122,
-   "split": 122,
+   "from": 112,
+   "split": 113,
    "key": [
-    125
+    113
    ]
   },
   {
-   "from": 126,
-   "split": 126,
+   "from": 118,
+   "split": 121,
    "key": [
-    128
+    124
    ]
   },
   {
-   "from": 130,
-   "split": 133,
+   "from": 125,
+   "split": 128,
    "key": [
-    135,
-    137
+    133
    ]
   },
   {
-   "from": 139,
-   "split": 139
-  },
-  {
-   "from": 144,
-   "split": 144,
+   "from": 134,
+   "split": 134,
    "key": [
-    146
+    140
    ]
   },
   {
-   "from": 149,
-   "split": 149,
+   "from": 142,
+   "split": 142
+  },
+  {
+   "from": 148,
+   "split": 151,
    "key": [
-    154
+    152
    ]
   },
   {
-   "from": 155,
+   "from": 154,
    "split": 157,
    "key": [
-    159,
-    163
+    160
    ]
   },
   {
-   "from": 164,
+   "from": 163,
    "split": 168,
    "key": [
-    168
+    169
    ]
   },
   {
-   "from": 175,
+   "from": 173,
+   "split": 173,
+   "key": [
+    174
+   ]
+  },
+  {
+   "from": 177,
    "split": 177,
    "key": [
-    177,
-    179
+    180
    ]
   },
   {
    "from": 181,
-   "split": 181,
+   "split": 183,
    "key": [
-    182
+    185,
+    191
    ]
   },
   {
-   "from": 187,
-   "split": 187,
+   "from": 192,
+   "split": 196,
    "key": [
-    189
+    197
+   ]
+  },
+  {
+   "from": 201,
+   "split": 203,
+   "key": [
+    203,
+    205
+   ]
+  },
+  {
+   "from": 207,
+   "split": 207,
+   "key": [
+    208
+   ]
+  },
+  {
+   "from": 213,
+   "split": 213,
+   "key": [
+    215
    ]
   }
  ],
  "panels": [
   {
-   "at": 10,
+   "at": 6,
    "char": "none",
    "pose": "menunjuk",
    "items": [
@@ -259,7 +273,7 @@
      "source": "support.claude.com · Get started with Claude Motion",
      "w": 760,
      "mark": {
-      "at": 22,
+      "at": 18,
       "rects": [
        {
         "x": 67.06,
@@ -276,7 +290,7 @@
       ]
      },
      "note": {
-      "at": 24,
+      "at": 20,
       "text": "cuma Team & Enterprise!",
       "x": 6,
       "y": 101
@@ -285,7 +299,7 @@
    ]
   },
   {
-   "at": 25,
+   "at": 21,
    "char": "none",
    "pose": "menjelaskan",
    "items": [
@@ -293,8 +307,8 @@
      "kind": "illus",
      "name": "doors",
      "steps": [
-      25,
-      30
+      21,
+      26
      ],
      "labels": [
       "Claude Motion: paket bisnis saja"
@@ -303,7 +317,7 @@
    ]
   },
   {
-   "at": 32,
+   "at": 30,
    "char": "right",
    "pose": "setuju",
    "items": [
@@ -313,15 +327,15 @@
       "name": "gift",
       "color": "sun"
      },
-     "tag": "DI AKHIR VIDEO",
-     "title": "2 cara, di paket Free pun bisa",
+     "tag": "SEBENTAR LAGI",
+     "title": "2 cara lain, tanpa Claude Motion",
      "tone": "good",
      "w": 580
     }
    ]
   },
   {
-   "at": 49,
+   "at": 53,
    "char": "left",
    "pose": "menjelaskan",
    "items": [
@@ -329,14 +343,14 @@
      "kind": "illus",
      "name": "flipbook",
      "steps": [
-      51
+      55
      ],
      "w": 600
     }
    ]
   },
   {
-   "at": 56,
+   "at": 60,
    "char": "right",
    "pose": "menunjuk",
    "items": [
@@ -344,13 +358,13 @@
      "kind": "illus",
      "name": "recipe-code",
      "steps": [
-      61
+      65
      ]
     }
    ]
   },
   {
-   "at": 64,
+   "at": 68,
    "char": "left",
    "pose": "laptop",
    "items": [
@@ -358,9 +372,9 @@
      "kind": "illus",
      "name": "render",
      "steps": [
-      67,
-      74,
-      77
+      78,
+      84,
+      86
      ],
      "labels": [
       "render",
@@ -370,7 +384,7 @@
    ]
   },
   {
-   "at": 81,
+   "at": 90,
    "char": "right",
    "pose": "berpikir",
    "items": [
@@ -378,7 +392,7 @@
      "kind": "illus",
      "name": "skill-folder",
      "steps": [
-      87
+      97
      ],
      "labels": [
       "SKILL.md",
@@ -389,45 +403,26 @@
    ]
   },
   {
-   "at": 92,
+   "at": 103,
    "char": "right",
    "items": [
     {
      "kind": "card",
-     "tag": "BUKAN",
-     "value": "Mesin video",
-     "strikeAt": 96,
-     "tone": "bad",
-     "w": 560
+     "icon": {
+      "name": "recipe",
+      "color": "sun"
+     },
+     "tag": "SKILL",
+     "title": "Resep, bukan mesin video",
+     "text": "videonya tetap harus dirender",
+     "tone": "warn",
+     "w": 580
     }
    ]
   },
   {
-   "at": 99,
+   "at": 112,
    "char": "left",
-   "pose": "stop",
-   "items": [
-    {
-     "kind": "chatsim",
-     "app": "Chat AI",
-     "items": [
-      {
-       "at": 100,
-       "side": "user",
-       "text": "Panggil skill, langsung jadi video ya!"
-      },
-      {
-       "at": 106,
-       "side": "ai",
-       "text": "Belum tentu jalan."
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "at": 109,
-   "char": "right",
    "pose": "setuju",
    "items": [
     {
@@ -437,58 +432,77 @@
       "color": "good"
      },
      "tag": "INI DIA",
-     "title": "2 cara yang pasti jalan",
+     "title": "2 cara bikin video animasi",
+     "text": "tanpa Claude Motion",
      "tone": "good",
      "w": 580
     }
    ]
   },
   {
-   "at": 114,
+   "at": 118,
    "char": "left",
    "pose": "smartphone",
-   "topic": "Cara 1 · yang gampang",
+   "topic": "Cara 1 · paket Free",
    "items": [
     {
      "kind": "stepper",
      "w": 600,
      "items": [
       {
-       "at": 117,
-       "text": "Nyalakan code execution di Pengaturan"
+       "at": 125,
+       "text": "Di chat biasa, minta animasi sebagai artifact (halaman kecil di chat)"
       },
       {
-       "at": 122,
-       "text": "Minta animasi sebagai artifact"
+       "at": 134,
+       "text": "Putar di HP atau laptop"
       },
       {
-       "at": 126,
-       "text": "Putar, lalu rekam layar"
+       "at": 139,
+       "text": "Rekam layarnya"
       }
      ]
     }
    ]
   },
   {
-   "at": 130,
+   "at": 142,
+   "char": "right",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "clock",
+      "color": "warn"
+     },
+     "tag": "PAKET FREE",
+     "title": "Kuota terbatas",
+     "text": "mulai dari animasi pendek",
+     "tone": "warn",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 148,
    "char": "right",
    "pose": "laptop",
-   "topic": "Cara 2 · yang rapi",
+   "topic": "Cara 2 · paket Pro ke atas",
    "items": [
     {
      "kind": "stepper",
      "w": 600,
      "items": [
       {
-       "at": 133,
-       "text": "Minta kode Remotion / HyperFrames"
+       "at": 151,
+       "text": "Pakai Claude Code (paket Pro ke atas)"
       },
       {
-       "at": 144,
-       "text": "Salin kodenya"
+       "at": 163,
+       "text": "Minta video pakai Remotion / HyperFrames"
       },
       {
-       "at": 146,
+       "at": 173,
        "text": "Render di laptop"
       }
      ]
@@ -496,40 +510,40 @@
    ]
   },
   {
-   "at": 149,
+   "at": 177,
    "char": "left",
    "pose": "menjelaskan",
    "items": [
     {
      "kind": "checklist",
-     "title": "Syarat (lengkap di caption)",
+     "title": "Syarat cara 2 (lengkap di caption)",
      "items": [
       {
-       "at": 149,
+       "at": 177,
        "text": "Node di laptop",
-       "doneAt": 150
+       "doneAt": 178
       },
       {
-       "at": 150,
+       "at": 178,
        "text": "FFmpeg untuk HyperFrames",
-       "doneAt": 151
+       "doneAt": 179
       },
       {
-       "at": 151,
-       "text": "Remotion gratis, maks. 3 orang",
-       "doneAt": 152
+       "at": 179,
+       "text": "Remotion gratis: perorangan & usaha maks. 3 karyawan",
+       "doneAt": 180
       },
       {
-       "at": 152,
-       "text": "HyperFrames gratis (Apache 2.0)",
-       "doneAt": 153
+       "at": 180,
+       "text": "HyperFrames open source (Apache 2.0)",
+       "doneAt": 181
       }
      ]
     }
    ]
   },
   {
-   "at": 155,
+   "at": 181,
    "char": "left",
    "pose": "setuju",
    "topic": "Bukan Sulap · video Claude",
@@ -538,15 +552,15 @@
      "kind": "illus",
      "name": "recipe-kitchen",
      "steps": [
-      157,
-      160,
-      163
+      183,
+      186,
+      191
      ]
     }
    ]
   },
   {
-   "at": 164,
+   "at": 192,
    "char": "right",
    "pose": "laptop",
    "items": [
@@ -557,14 +571,14 @@
       "color": "bad"
      },
      "tag": "VIDEO INI",
-     "title": "Remotion + Claude Code",
-     "text": "bukan paket gratis",
-     "w": 580
+     "title": "Cara kedua",
+     "text": "Claude Code + Remotion",
+     "w": 560
     }
    ]
   },
   {
-   "at": 175,
+   "at": 201,
    "char": "left",
    "pose": "menunjuk",
    "items": [
@@ -573,11 +587,11 @@
      "title": "Episode depan, pilih:",
      "items": [
       {
-       "at": 177,
+       "at": 203,
        "text": "2 · Remotion vs HyperFrames"
       },
       {
-       "at": 181,
+       "at": 207,
        "text": "3 · Suara AI yang nggak datar"
       }
      ]
@@ -585,7 +599,7 @@
    ]
   },
   {
-   "at": 187,
+   "at": 213,
    "char": "right",
    "pose": "menyapa",
    "items": [
