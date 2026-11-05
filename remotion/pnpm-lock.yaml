@@ -8,7 +8,13 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/bangers':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/bricolage-grotesque':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/comic-neue':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource/pixelify-sans':
@@ -283,8 +289,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@fontsource/bangers@5.3.0':
+    resolution: {integrity: sha512-tSRpmWwkqrO9PCqo9wjA/99/5sLOIWm5cf51G3ooEHd8qZus8sVSSJoWp/7EvM5rIgZMjKRG6XtY9yeisKxE7g==}
+
   '@fontsource/bricolage-grotesque@5.3.0':
     resolution: {integrity: sha512-MdOVb/5in11IfN/IQJOExMuu6AroCIQbirl0yX7NUvKk+h0HYIKfGaVAXRS/gCPil4aFxWhjZnOw28tUwv7tFw==}
+
+  '@fontsource/comic-neue@5.3.0':
+    resolution: {integrity: sha512-uZsyUTExw8tCySNhL65dN6rEUhASMPGintSS5Kw/ZkrQTK1vcAgramzOLT/mZKtZ+EXr03MHj0s5osVVJITCow==}
 
   '@fontsource/pixelify-sans@5.3.0':
     resolution: {integrity: sha512-4RCe9nXbi7wUu5+H0FNX1sgPZ2kJ1MmY1uTkEfvQIzzqhoS8zGKJaJfdK8oreE0OU+5gM+NdurFi3H3FJRBvyw==}
@@ -1679,7 +1691,11 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
+  '@fontsource/bangers@5.3.0': {}
+
   '@fontsource/bricolage-grotesque@5.3.0': {}
+
+  '@fontsource/comic-neue@5.3.0': {}
 
   '@fontsource/pixelify-sans@5.3.0': {}
 

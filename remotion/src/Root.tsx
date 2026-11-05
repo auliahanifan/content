@@ -2,6 +2,7 @@ import React from 'react';
 import {CalculateMetadataFunction, Composition, staticFile} from 'remotion';
 import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {Video} from './Video';
+import {ComicTest, COMIC_FRAMES} from './comic/ComicTest';
 import type {Board, PixelAsset, Storyboard, VideoProps, Word} from './types';
 
 export const FPS = 30;
@@ -64,6 +65,8 @@ const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
 };
 
 export const Root: React.FC = () => (
+  <>
+  <Composition id="ComicTest" component={ComicTest} width={1080} height={1920} fps={FPS} durationInFrames={COMIC_FRAMES} />
   <Composition
     id="Video"
     component={Video}
@@ -74,4 +77,5 @@ export const Root: React.FC = () => (
     defaultProps={{storyboard: null, words: [], availableProps: [], pixel: []} as VideoProps}
     calculateMetadata={calculateMetadata}
   />
+  </>
 );
