@@ -286,6 +286,7 @@ const DOORS = [
   {id: 'Free', ok: false},
   {id: 'Pro', ok: false},
   {id: 'Max', ok: false},
+  {id: 'Ultra', ok: false},
   {id: 'Team', ok: true},
   {id: 'Enterprise', ok: true},
 ];
@@ -306,19 +307,19 @@ const Doors: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({
       <div style={{position: 'absolute', left: 0, right: 0, top: 290, bottom: 0, borderRadius: '0 0 32px 32px', background: K.paper2, boxShadow: '0 -8px 16px -10px rgba(60,35,10,.4)'}} />
       {DOORS.map((d, i) => {
         const ap = spring({frame: frame - start - i * 4, fps, config: {damping: 12, stiffness: 170, mass: 0.6}});
-        const x = 30 + i * 182;
+        const x = 22 + i * 152;
         const o = d.ok ? open : 0;
         return (
-          <div key={d.id} style={{position: 'absolute', left: x, top: 250, width: 150, opacity: Math.min(1, ap * 2), transform: `translateY(${(1 - ap) * 80}px)`}}>
-            <div style={{textAlign: 'center', fontFamily: FONT_HEAD, fontWeight: 800, fontSize: d.id.length > 6 ? 30 : 38, color: d.ok && o > 0.3 ? K.ink : K.soft, marginBottom: 14}}>{d.id}</div>
+          <div key={d.id} style={{position: 'absolute', left: x, top: 250, width: 136, opacity: Math.min(1, ap * 2), transform: `translateY(${(1 - ap) * 80}px)`}}>
+            <div style={{textAlign: 'center', fontFamily: FONT_HEAD, fontWeight: 800, fontSize: d.id.length > 6 ? 27 : 36, color: d.ok && o > 0.3 ? K.ink : K.soft, marginBottom: 14, whiteSpace: 'nowrap'}}>{d.id}</div>
             <div style={{position: 'relative', height: 330, perspective: 600}}>
               <div style={{position: 'absolute', inset: 0, borderRadius: '75px 75px 0 0', background: '#1E2C46', overflow: 'hidden'}}>
                 <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(70% 60% at 50% 70%, #FFE6A6, #F2C14E 50%, #E9A93B)', opacity: o}} />
-                {d.ok && <div style={{position: 'absolute', left: 37, top: 150, opacity: o}}><VIcon name="film" size={76} color={K.bad} /></div>}
+                {d.ok && <div style={{position: 'absolute', left: 30, top: 150, opacity: o}}><VIcon name="film" size={76} color={K.bad} /></div>}
               </div>
               <div style={{position: 'absolute', inset: 0, borderRadius: '75px 75px 0 0', background: d.ok ? A() : K.ink, transformOrigin: 'left center', transform: `rotateY(${-74 * o}deg)`, boxShadow: 'inset -10px 0 0 rgba(0,0,0,.18)'}}>
                 {!d.ok && (
-                  <div style={{position: 'absolute', left: 50, top: 170, width: 50, height: 44, transform: `rotate(${shake}deg)`, transformOrigin: '50% 0'}}>
+                  <div style={{position: 'absolute', left: 43, top: 170, width: 50, height: 44, transform: `rotate(${shake}deg)`, transformOrigin: '50% 0'}}>
                     <div style={{position: 'absolute', left: 9, top: -24, width: 32, height: 34, border: `8px solid ${K.sun}`, borderBottom: 'none', borderRadius: '18px 18px 0 0'}} />
                     <div style={{position: 'absolute', inset: 0, borderRadius: 9, background: K.sun, boxShadow: SHADOW}} />
                   </div>
