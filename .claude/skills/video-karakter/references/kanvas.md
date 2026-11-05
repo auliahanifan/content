@@ -1,6 +1,6 @@
 # storyboard.json mode kanvas (default, v2)
 
-**v2 (5 Nov 2026):** karakter Bold Vector Aulia (`assets/bold-vector-aulia/`, 13 pose, 24 reaksi, ID sama dengan Pixel Aulia) dengan gerak idle dan pop saat ganti pose; palet terang berani (tinta navy tebal, kartu bergaris navy + bayangan keras, kobalt, stabilo kuning); headline Bricolage Grotesque yang katanya masuk satu per satu dengan stabilo pada kata kunci; hook teks raksasa; kamera selalu bergerak pelan + tendangan pada `punch`; transisi geser antarpanel; ikon vektor (`icon: {name}`); ilustrasi beranimasi (`illus`) dan simulasi chat (`chatsim`); SFX modern otomatis (`remotion/public/sfx/v2/`, dibuat dengan ElevenLabs Sound Effects). Contoh lengkap: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v1 untuk pembanding: `storyboard-v1.json`).
+**v3 Paper Cutout (5 Nov 2026):** satu dunia kertas: latar kraft berserat, kartu krem dengan dua lembar kertas (aksen seri + teal) bertumpuk di belakangnya, bayangan lembut, tanpa garis tebal dan bayangan keras; judul Fraunces (pengantar abu, inti tebal navy, kata kunci warna aksen dengan garis kertas tipis); label berupa tag kertas berlubang; karakter Paper Cutout Aulia (`assets/paper-cutout-aulia/`, 13 pose, 24 reaksi) dengan gerak idle halus. Hook: kata jatuh satu per satu di atas selembar kertas, kata kunci dari huruf potongan kertas. **Satu hal dalam satu waktu**: satu elemen per panel. Tetap dari v2: headline kinetik, ilustrasi beranimasi (`illus`), simulasi chat (`chatsim`), kamera pelan + `punch`, transisi geser. SFX minimal. Aksen per seri: Bukan Sulap koral, Sing Murah Wae mustard, Katanya Nyatanya teal (`remotion/src/kanvas/theme.ts`). Contoh: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v2 pembanding: `storyboard-v2.json`).
 
 Kanvas 1080x1920, 30 fps. Semua `at`, `from`, `split`, `doneAt`, `strikeAt` = **indeks kata** di `tts/words.json`. Durasi = audio + `tail`.
 
@@ -10,17 +10,17 @@ Prinsip (riset `dates/2026-11-04/riset-hisvill.md`): satu latar sepanjang video,
 | Zona | y | Isi |
 |---|---|---|
 | Header | 44-214 | logo seri (kiri), chip topik (kanan), tanda tangan. Chip berubah jadi hitung mundur saat `loop` aktif |
-| Headline | 236-536 | baris pengantar kecil abu + frasa inti besar, kata kunci kobalt bergaris titik. **Pengganti caption** |
-| Panggung | 560-1440 | elemen panel; di samping Pixel Aulia (`char` left/right) atau lebar penuh (`corner`/`none`) |
+| Headline | 236-536 | baris pengantar abu + frasa inti Fraunces besar, kata kunci warna aksen seri. **Pengganti caption** |
+| Panggung | 590-1450 | **satu** elemen panel; di samping karakter (`char` left/right, panggung 600 lebar) atau lebar penuh (`corner`/`none`) |
 | UI Reels | >1500, kanan bawah | kosong |
 
-Palet = design system faceless Aulia (mist, kartu putih, kobalt, mint, amber, koral), font Plus Jakarta Sans. Kode: `remotion/src/kanvas/`.
+Palet kertas: kraft, krem, navy kertas, koral, teal, mustard, hijau daun; judul Fraunces, teks Plus Jakarta Sans. Kode: `remotion/src/kanvas/` (token di `theme.ts`).
 
 ## Skema
 ```jsonc
 {
   "style": "kanvas",                       // default bila ada `panels`
-  "character": "bold",                     // bold (default, Bold Vector) | pixel
+  "character": "paper",                    // paper (default, Paper Cutout) | bold | pixel
   "hook": {"until": 9, "items": [ /* elemen benda kunci */ ]},  // teks raksasa kata 0..until, lalu mengecil
   "punch": [27, 58],                       // kamera menendang sedikit pada kata ini (3-6 per video)
   "series": "bukan-sulap",
@@ -83,9 +83,9 @@ Semua punya `at` (muncul; default awal panel), `out` (memudar), `dimAt` (redup 3
 Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar aslinya) dan tabel ini.
 
 ### Ikon vektor
-`icon: {name, color}` menggambar ikon bergaya Bold Vector (garis navy). Nama: laptop, phone, folder, file, code, film, book, recipe, check, cross, sparkle, chat, lock, money, clock, play, record, terminal, gear, user, team, building, gift, warning, download, zap, node, chef. Utamakan ikon vektor daripada emoji. Ikon baru ditambahkan di `remotion/src/kanvas/Icons.tsx`.
+`icon: {name, color}` menggambar ikon vektor (garis navy tipis). Nama: laptop, phone, folder, file, code, film, book, recipe, check, cross, sparkle, chat, lock, money, clock, play, record, terminal, gear, user, team, building, gift, warning, download, zap, node, chef. Utamakan ikon vektor daripada emoji. Ikon baru ditambahkan di `remotion/src/kanvas/Icons.tsx`.
 
-`icon`: `{emoji}` (di-pixel-kan seperti props Pixel Aulia), `{prop}` (PNG `assets/props/`), atau `{src}` (PNG di folder video, mis. logo aplikasi). `tone`: accent (kobalt) · good (mint) · bad (koral) · warn (amber) · sun · sky · lilac · ink.
+`icon`: `{emoji}` (di-pixel-kan seperti props Pixel Aulia), `{prop}` (PNG `assets/props/`), atau `{src}` (PNG di folder video, mis. logo aplikasi). `tone`: accent (warna aksen seri) · good (hijau) · bad (merah bata) · warn (mustard) · sun · sky (teal) · lilac · ink.
 
 ## Rekam layar (tutorial)
 - Aulia merekam layar HP (portrait) atau laptop, simpan di `<folder-video>/rekam/<nama>.mp4` (mp4/mov di `rekam/` sudah di-gitignore).
@@ -95,11 +95,12 @@ Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar asli
 - Panel tutorial memakai `char: "corner"` dan pose `smartphone`/`laptop`.
 
 ## Aturan (jangan dilanggar)
-- **Satu titik fokus.** Maks 3 elemen terlihat per panel (row dihitung 1). Elemen lama yang tidak dibahas lagi diberi `dimAt`.
+- **Satu hal dalam satu waktu.** Tepat satu elemen per panel (dan satu di `hook.items`); hal baru = panel baru yang menggeser yang lama. Pengecualian: `row` berisi 2 elemen untuk perbandingan A vs B. Yang boleh tumbuh hanya isi elemen itu sendiri (butir checklist, pesan chat, langkah, tahap ilustrasi). `pnpm density` menolak panel berisi lebih dari satu elemen.
 - **Peraga, bukan label.** Elemen memperlihatkan proses atau perubahan (dicentang, dicoret, diganti, bertambah), bukan sekadar menamai isi kalimat. Tanya: "kalau suara dimatikan, apakah layar masih menjelaskan?"
 - **Satu analogi dibangun bertahap** di satu panel (flow/icon yang tumbuh), dan dipanggil lagi di penutup.
-- **Hook**: kalimat pertama (sampai kata `hook.until`) tampil raksasa, kata per kata, kata kunci di kotak stabilo; benda kuncinya di `hook.items` (mis. kartu fitur + chip taruhan). Panel pertama mulai sesudah hook, dan karakter masuk dari bawah.
-- **Karakter**: Bold Vector sepertiga tinggi layar, kiri/kanan; `corner` untuk tutorial; `none` bila ilustrasi butuh lebar penuh (mis. `tiers`). Pose = 13 pose presenter; reaksi (24) hanya lewat `epic`, maks 1.
+- **Hook**: kalimat pertama (sampai kata `hook.until`) jatuh kata per kata di atas lembar kertas besar, kata kunci (`keywords`) dari huruf potongan kertas; satu benda kunci di `hook.items` tanpa `at` supaya tampil sejak frame 0. Panel pertama mulai sesudah hook, dan karakter masuk dari bawah.
+- **Karakter**: Paper Cutout setinggi 800 px, kiri/kanan; `corner` untuk tutorial; `none` bila ilustrasi butuh lebar penuh (mis. `tiers`). Pose = 13 pose presenter; reaksi (24) hanya lewat `epic`, maks 1.
+- **Suara**: SFX otomatis hanya tiga: `pop` lembut saat kartu/elemen baru, `tick` tiap butir checklist/chat/langkah/coretan, `soft-hit` satu kali di awal hook. Tanpa whoosh, balik kertas, hantaman, atau ketikan; tanpa musik.
 - **Dekorasi**: epik maks 1, stempel maks 2, tanpa stiker/pop/fx/map/mood/aura (diabaikan di kanvas). `pnpm density` menolak bila lewat batas.
 - **Kepadatan**: tidak ada jeda > 3 detik tanpa perubahan headline/panggung (`pnpm density`, otomatis batas 3 untuk kanvas).
 - Pose cocok dengan kalimat (pengguna sangat peduli): `menunjuk` saat elemen baru muncul, `berpikir` di pertanyaan, `stop` saat membantah, `setuju` di kesimpulan, `smartphone`/`laptop` di tutorial. Ganti tiap 1-3 kalimat.
