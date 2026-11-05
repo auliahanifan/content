@@ -37,11 +37,16 @@ if (kanvas) {
       if (e.swap) add(e.swap.at, 'ganti nilai');
       if (e.stamp) { add(e.stamp.at, 'stempel'); deco.push(`stempel ${e.stamp.text}`); }
       (e.rings ?? []).forEach((r) => add(r.at, 'cincin'));
-      (e.steps ?? []).forEach((st) => add(st.at, 'langkah'));
+      (e.steps ?? []).forEach((st) => add(typeof st === 'number' ? st : st.at, 'langkah'));
       if (e.kind === 'stepper') e.items.forEach((st) => add(st.at, 'langkah'));
       else if (e.kind === 'row') walk(e.items);
       else (e.items ?? []).forEach((it) => { add(it.at, 'baris'); add(it.doneAt, 'centang'); add(it.strikeAt, 'coret'); add(it.flagAt, 'flag'); });
     });
+  if (sb.hook) {
+    // hook teks raksasa: tiap kata adalah kejadian
+    for (let i = 0; i <= sb.hook.until; i++) add(i, 'hook');
+    walk(sb.hook.items ?? []);
+  }
   (sb.panels ?? []).forEach((p, k) => {
     add(p.at, `panel ${k}`);
     walk(p.items);

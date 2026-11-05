@@ -1,5 +1,6 @@
 {
  "style": "kanvas",
+ "character": "bold",
  "series": "bukan-sulap",
  "topic": "Bukan Sulap · video Claude",
  "tail": 1.5,
@@ -69,6 +70,37 @@
   "from": 33,
   "until": 175
  },
+ "hook": {
+  "until": 9,
+  "items": [
+   {
+    "kind": "card",
+    "at": 5,
+    "icon": {
+     "name": "film",
+     "color": "bad"
+    },
+    "tag": "FITUR RESMI",
+    "title": "Claude Motion",
+    "text": "animasi · masih beta",
+    "w": 700
+   },
+   {
+    "kind": "chip",
+    "at": 8,
+    "text": "cuma paket bisnis",
+    "tone": "sun"
+   }
+  ]
+ },
+ "punch": [
+  27,
+  58,
+  96,
+  116,
+  170,
+  260
+ ],
  "lines": [
   {
    "from": 0,
@@ -303,41 +335,19 @@
  ],
  "panels": [
   {
-   "at": 0,
-   "char": "left",
-   "pose": "menunjuk",
+   "at": 10,
+   "char": "none",
+   "pose": "menjelaskan",
    "items": [
     {
-     "kind": "card",
-     "icon": {
-      "emoji": "🎬"
-     },
-     "tag": "FITUR RESMI",
-     "title": "Claude Motion",
-     "text": "animasi, masih beta",
-     "tone": "accent"
-    },
-    {
-     "kind": "checklist",
-     "at": 15,
-     "title": "Siapa yang dapat?",
-     "items": [
-      {
-       "at": 17,
-       "text": "Team",
-       "doneAt": 18
-      },
-      {
-       "at": 19,
-       "text": "Enterprise",
-       "doneAt": 20
-      },
-      {
-       "at": 21,
-       "text": "Free · Pro · Max",
-       "strikeAt": 27,
-       "tone": "bad"
-      }
+     "kind": "illus",
+     "name": "tiers",
+     "steps": [
+      18,
+      27
+     ],
+     "labels": [
+      "Claude Motion ada di paket bisnis"
      ]
     }
    ]
@@ -345,13 +355,14 @@
   {
    "at": 29,
    "char": "right",
-   "pose": "menjelaskan",
+   "pose": "setuju",
    "items": [
     {
      "kind": "card",
      "at": 31,
      "icon": {
-      "emoji": "🎁"
+      "name": "gift",
+      "color": "sun"
      },
      "tag": "DI AKHIR VIDEO",
      "title": "2 cara gratis yang jujur",
@@ -365,56 +376,47 @@
    "pose": "menjelaskan",
    "items": [
     {
-     "kind": "icon",
-     "at": 46,
-     "icon": {
-      "emoji": "📖"
-     },
-     "size": 230,
-     "label": "video = flipbook",
-     "labelAt": 49
-    },
-    {
-     "kind": "big",
-     "at": 56,
-     "text": "1.800",
-     "sub": "gambar per menit (30 per detik)",
-     "subAt": 58,
-     "tone": "accent"
+     "kind": "illus",
+     "name": "flipbook",
+     "steps": [
+      49,
+      61
+     ],
+     "w": 660
     }
    ]
   },
   {
    "at": 62,
+   "char": "right",
    "pose": "menunjuk",
    "items": [
     {
-     "kind": "flow",
-     "op": "→",
-     "size": 150,
-     "items": [
-      {
-       "at": 69,
-       "emoji": "📝",
-       "label": "Claude: resep"
-      },
-      {
-       "at": 80,
-       "emoji": "💻",
-       "label": "laptop: gambar"
-      },
-      {
-       "at": 92,
-       "emoji": "🎞️",
-       "label": "MP4"
-      }
+     "kind": "illus",
+     "name": "recipe-code",
+     "steps": [
+      72
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": 78,
+   "char": "left",
+   "pose": "laptop",
+   "items": [
     {
-     "kind": "chip",
-     "at": 96,
-     "text": "Proses ini = render",
-     "tone": "accent"
+     "kind": "illus",
+     "name": "render",
+     "steps": [
+      84,
+      90,
+      92
+     ],
+     "labels": [
+      "render",
+      "MP4"
+     ]
     }
    ]
   },
@@ -424,22 +426,25 @@
    "pose": "berpikir",
    "items": [
     {
-     "kind": "card",
-     "at": 104,
-     "icon": {
-      "emoji": "📁"
-     },
-     "tag": "SKILL",
-     "title": "Folder instruksi",
-     "text": "kadang plus skrip"
+     "kind": "illus",
+     "name": "skill-folder",
+     "steps": [
+      106
+     ],
+     "labels": [
+      "SKILL.md",
+      "contoh.html",
+      "skrip.py"
+     ]
     },
     {
      "kind": "card",
-     "at": 111,
+     "at": 115,
      "tag": "BUKAN",
      "value": "Mesin video",
      "strikeAt": 116,
-     "tone": "bad"
+     "tone": "bad",
+     "w": 560
     }
    ]
   },
@@ -478,17 +483,20 @@
    "pose": "stop",
    "items": [
     {
-     "kind": "card",
-     "at": 137,
-     "tag": "KATANYA",
-     "title": "\"Panggil skill, langsung MP4\""
-    },
-    {
-     "kind": "card",
-     "at": 146,
-     "tag": "FAKTANYA",
-     "title": "Bisa jalan, bisa juga nggak",
-     "tone": "warn"
+     "kind": "chatsim",
+     "app": "Chat AI",
+     "items": [
+      {
+       "at": 138,
+       "side": "user",
+       "text": "Panggil skill, langsung jadi MP4 ya!"
+      },
+      {
+       "at": 146,
+       "side": "ai",
+       "text": "Bisa jalan, bisa juga nggak."
+      }
+     ]
     },
     {
      "kind": "chip",
@@ -505,11 +513,12 @@
    "items": [
     {
      "kind": "icon",
-     "at": 166,
+     "at": 165,
      "icon": {
-      "emoji": "💻"
+      "name": "laptop",
+      "color": "accent"
      },
-     "size": 240,
+     "size": 280,
      "label": "masaknya di laptop Anda",
      "labelAt": 168,
      "tone": "good"
@@ -518,7 +527,7 @@
      "kind": "chip",
      "at": 172,
      "text": "2 cara, 2 harga",
-     "tone": "ink"
+     "tone": "sun"
     }
    ]
   },
@@ -529,28 +538,35 @@
    "topic": "Cara 1 · yang gampang",
    "items": [
     {
-     "kind": "card",
-     "icon": {
-      "emoji": "📱"
-     },
-     "tag": "CARA 1",
-     "title": "Yang gampang",
-     "text": "hasilnya rekaman layar"
-    },
-    {
-     "kind": "stepper",
+     "kind": "row",
+     "gap": 22,
      "items": [
       {
-       "at": 180,
-       "text": "Nyalakan code execution"
+       "kind": "stepper",
+       "w": 360,
+       "items": [
+        {
+         "at": 180,
+         "text": "Nyalakan code execution"
+        },
+        {
+         "at": 189,
+         "text": "Minta animasi sebagai artifact"
+        },
+        {
+         "at": 199,
+         "text": "Putar, rekam layar"
+        }
+       ]
       },
       {
-       "at": 189,
-       "text": "Minta animasi sebagai artifact"
-      },
-      {
-       "at": 199,
-       "text": "Putar, rekam layar"
+       "kind": "illus",
+       "at": 176,
+       "name": "screenrec",
+       "steps": [
+        199
+       ],
+       "w": 290
       }
      ]
     }
@@ -563,16 +579,8 @@
    "topic": "Cara 2 · yang rapi",
    "items": [
     {
-     "kind": "card",
-     "icon": {
-      "emoji": "💻"
-     },
-     "tag": "CARA 2",
-     "title": "Yang rapi",
-     "text": "HyperFrames atau Remotion"
-    },
-    {
      "kind": "stepper",
+     "w": 600,
      "items": [
       {
        "at": 206,
@@ -584,9 +592,21 @@
       },
       {
        "at": 227,
-       "text": "Instal Node (+ FFmpeg untuk HyperFrames)"
+       "text": "Instal Node dulu"
       }
      ]
+    },
+    {
+     "kind": "card",
+     "at": 230,
+     "icon": {
+      "name": "node",
+      "color": "good"
+     },
+     "tag": "PERLU",
+     "title": "Node",
+     "text": "+ FFmpeg untuk HyperFrames",
+     "w": 600
     }
    ]
   },
@@ -627,7 +647,8 @@
     {
      "kind": "card",
      "icon": {
-      "emoji": "📝"
+      "name": "recipe",
+      "color": "sun"
      },
      "tag": "ATURAN BAWA PULANG",
      "title": "Claude nulis resepnya, laptop Anda yang masak.",
@@ -644,7 +665,8 @@
      "kind": "card",
      "at": 266,
      "icon": {
-      "emoji": "🎞️"
+      "name": "film",
+      "color": "bad"
      },
      "tag": "VIDEO INI",
      "title": "Remotion + Claude Code",

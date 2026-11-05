@@ -1,0 +1,347 @@
+import React from 'react';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {FONT_BODY, FONT_HEAD} from '../theme';
+import {useTiming} from '../timing';
+import {VIcon} from './Icons';
+import {cardSkin, K} from './theme';
+
+/**
+ * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
+ * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
+ */
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec';
+
+const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+
+/** Frame mulai tiap tahap; tahap yang tidak ada = tidak pernah (Infinity). */
+const useSteps = (steps: number[] | undefined, startFrame: number) => {
+  const {T} = useTiming();
+  const s = (steps ?? []).map((i) => T(i));
+  return (n: number) => (n === -1 ? startFrame : s[n] ?? Infinity);
+};
+
+const useSpringAt = (start: number, config = {damping: 14, stiffness: 160, mass: 0.7}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  return frame < start ? 0 : spring({frame: frame - start, fps, config});
+};
+
+/* ---------- flipbook: halaman membalik, bola bergerak antarhalaman, penghitung frame ---------- */
+const Flipbook: React.FC<{steps?: number[]; start: number}> = ({steps, start}) => {
+  const frame = useCurrentFrame();
+  const at = useSteps(steps, start);
+  const flipping = frame >= at(0);
+  const t = flipping ? frame - at(0) : 0;
+  const FLIP = 6; // frame per balikan
+  const page = Math.floor(t / FLIP);
+  const ph = (t % FLIP) / FLIP; // fase balikan 0..1
+  const count = Math.round(interpolate(frame, [at(0), at(1) === Infinity ? at(0) + 60 : at(1)], [1, 1800], clamp));
+  const ballX = 70 + ((page * 37) % 160);
+  const ballY = 120 - Math.abs(Math.sin(page * 0.7)) * 70;
+  return (
+    <div style={{position: 'relative', width: 600, height: 470, fontFamily: FONT_HEAD}}>
+      <svg width="600" height="400" viewBox="0 0 600 400" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        {/* tumpukan halaman */}
+        {[18, 12, 6].map((d) => (
+          <rect key={d} x={300} y={40 + d} width={250 - d} height={300} rx={14} fill={K.card} stroke={K.ink} strokeWidth={4} />
+        ))}
+        <rect x={50} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.ink} strokeWidth={5} />
+        <rect x={300} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.ink} strokeWidth={5} />
+        {/* gambar di halaman kanan: bola yang posisinya berubah tiap halaman */}
+        <circle cx={300 + ballX} cy={60 + ballY + 80} r={26} fill={K.accent} stroke={K.ink} strokeWidth={4} />
+        <path d={`M320 300 H530`} stroke={K.ink} strokeWidth={4} strokeLinecap="round" />
+        {/* halaman yang sedang membalik */}
+        {flipping && (
+          <g transform={`translate(300 0) scale(${Math.cos(ph * Math.PI)} 1)`}>
+            <rect x={0} y={40} width={250} height={300} rx={14} fill={ph < 0.5 ? K.card : K.sunSoft} stroke={K.ink} strokeWidth={5} />
+          </g>
+        )}
+        <path d="M300 40 V340" stroke={K.ink} strokeWidth={6} />
+      </svg>
+      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, display: 'flex', justifyContent: 'center'}}>
+        <div style={{...cardSkin, borderRadius: 999, padding: '10px 30px', fontSize: 44, fontWeight: 800, color: K.ink, fontVariantNumeric: 'tabular-nums'}}>
+          halaman {count.toLocaleString('id-ID')}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ---------- resep → kode: baris resep berubah jadi baris kode yang diketik ---------- */
+const RECIPE = ['Judul muncul dari bawah', 'Kotak geser ke kanan', 'Angka naik ke 1.800'];
+const CODE: [string, string][] = [
+  ['title', '.from({ y: 80, opacity: 0 })'],
+  ['box', '.to({ x: 420 }, 0.6)'],
+  ['count', '.to({ value: 1800 })'],
+];
+const RecipeCode: React.FC<{steps?: number[]; start: number}> = ({steps, start}) => {
+  const frame = useCurrentFrame();
+  const at = useSteps(steps, start);
+  const morph = interpolate(frame, [at(0), at(0) + 12], [0, 1], clamp);
+  const typed = Math.max(0, frame - at(0) - 8) * 1.6;
+  let budget = typed;
+  return (
+    <div style={{position: 'relative', width: 620, height: 470}}>
+      {/* kartu resep */}
+      <div style={{...cardSkin, position: 'absolute', inset: 0, padding: '34px 38px', opacity: 1 - morph, transform: `rotate(${-3 + morph * 3}deg) scale(${1 - morph * 0.06})`}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 18, marginBottom: 22}}>
+          <VIcon name="recipe" size={70} color={K.sun} />
+          <div style={{fontFamily: FONT_HEAD, fontSize: 48, fontWeight: 800, color: K.ink}}>Resep animasi</div>
+        </div>
+        {RECIPE.map((r, i) => (
+          <div key={i} style={{fontFamily: FONT_BODY, fontSize: 36, fontWeight: 700, color: K.ink, padding: '12px 0', borderBottom: `3px dashed ${K.faint}`}}>
+            {i + 1}. {r}
+          </div>
+        ))}
+      </div>
+      {/* jendela kode */}
+      <div style={{position: 'absolute', inset: 0, borderRadius: 28, border: `${4}px solid ${K.ink}`, boxShadow: `7px 8px 0 ${K.ink}`, background: '#101633', opacity: morph, transform: `scale(${0.94 + morph * 0.06})`, overflow: 'hidden'}}>
+        <div style={{display: 'flex', gap: 10, padding: '18px 22px', background: '#1B2350'}}>
+          {[K.bad, K.warn, K.good].map((c) => (
+            <div key={c} style={{width: 18, height: 18, borderRadius: 9, background: c}} />
+          ))}
+          <div style={{marginLeft: 12, fontFamily: FONT_BODY, fontSize: 24, fontWeight: 700, color: '#AFC0FF'}}>animasi.js</div>
+        </div>
+        <div style={{padding: '22px 28px', fontFamily: '"DejaVu Sans Mono", ui-monospace, monospace', fontSize: 30, lineHeight: 1.7}}>
+          {CODE.map(([obj, call], i) => {
+            const full = obj + call;
+            const show = Math.max(0, Math.min(full.length, Math.floor(budget)));
+            budget -= full.length;
+            const a = full.slice(0, show);
+            return (
+              <div key={i} style={{whiteSpace: 'pre', minHeight: 51}}>
+                <span style={{color: '#FFD84D'}}>{a.slice(0, obj.length)}</span>
+                <span style={{color: '#9FE7C8'}}>{a.slice(obj.length)}</span>
+                {show > 0 && show < full.length && <span style={{color: K.card, opacity: frame % 16 < 8 ? 1 : 0}}>▍</span>}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ---------- render: laptop menggambar frame satu per satu, progress, lalu file MP4 keluar ---------- */
+const Render: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const at = useSteps(steps, start);
+  const end = at(1) === Infinity ? at(0) + 75 : at(1);
+  const prog = interpolate(frame, [at(0), end], [0, 1], clamp);
+  const tiles = 15;
+  const filled = Math.floor(prog * tiles);
+  const out = useSpringAt(at(2));
+  return (
+    <div style={{position: 'relative', width: 640, height: 500}}>
+      <svg width="640" height="430" viewBox="0 0 640 430" style={{position: 'absolute', left: 0, top: 0}}>
+        <rect x={70} y={30} width={460} height={300} rx={22} fill={K.ink} stroke={K.ink} strokeWidth={5} />
+        <rect x={92} y={52} width={416} height={240} rx={10} fill={K.card} />
+        <path d="M20 350 H580 L548 392 H52 Z" fill={K.card} stroke={K.ink} strokeWidth={5} strokeLinejoin="round" />
+        <rect x={250} y={350} width={100} height={12} rx={6} fill={K.faint} />
+      </svg>
+      {/* grid frame di layar */}
+      <div style={{position: 'absolute', left: 104, top: 64, width: 392, display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8}}>
+        {Array.from({length: tiles}).map((_, i) => {
+          const on = i < filled;
+          const just = i === filled - 1;
+          return (
+            <div key={i} style={{height: 54, borderRadius: 6, border: `3px solid ${K.ink}`, background: on ? (i % 3 === 0 ? K.accent : i % 3 === 1 ? K.sun : K.good) : '#EEF1F8', transform: just ? 'scale(1.12)' : undefined, position: 'relative', overflow: 'hidden'}}>
+              {on && <div style={{position: 'absolute', width: 14, height: 14, borderRadius: 7, background: K.card, left: 6 + ((i * 9) % 36), top: 18}} />}
+            </div>
+          );
+        })}
+      </div>
+      <div style={{position: 'absolute', left: 104, top: 262, width: 392, height: 18, borderRadius: 9, border: `3px solid ${K.ink}`, background: K.card, overflow: 'hidden'}}>
+        <div style={{width: `${prog * 100}%`, height: '100%', background: K.accent}} />
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 404, textAlign: 'center', fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink}}>
+        {labels?.[0] ?? 'render'} {Math.round(prog * 100)}%
+      </div>
+      {/* file MP4 */}
+      <div style={{position: 'absolute', right: -10, top: 110, opacity: Math.min(1, out * 1.5), transform: `translate(${(1 - out) * -160}px, ${(1 - out) * 40}px) scale(${0.5 + out * 0.5}) rotate(${(1 - out) * -20 + 6}deg)`}}>
+        <div style={{...cardSkin, width: 170, padding: '18px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6}}>
+          <VIcon name="film" size={90} color={K.bad} />
+          <div style={{fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink}}>{labels?.[1] ?? 'MP4'}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ---------- folder skill: map terbuka, file keluar ---------- */
+const SkillFolder: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const at = useSteps(steps, start);
+  const open = useSpringAt(at(0));
+  const files = labels ?? ['SKILL.md', 'contoh.html', 'skrip.py'];
+  return (
+    <div style={{position: 'relative', width: 600, height: 470}}>
+      {files.map((f, i) => {
+        const p = useSpringAtFile(at(0) + 6 + i * 6);
+        return (
+          <div key={f} style={{position: 'absolute', left: 50 + i * 175, top: 230 - p * (250 - Math.abs(i - 1) * 40), opacity: Math.min(1, p * 2), transform: `rotate(${(i - 1) * 10 * p}deg)`, zIndex: 1}}>
+            <div style={{...cardSkin, borderRadius: 16, width: 170, padding: '14px 0 12px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4}}>
+              <VIcon name={i === 0 ? 'file' : i === 1 ? 'code' : 'terminal'} size={64} color={i === 0 ? K.sun : i === 1 ? K.accent : K.good} />
+              <div style={{fontFamily: FONT_BODY, fontSize: 24, fontWeight: 800, color: K.ink}}>{f}</div>
+            </div>
+          </div>
+        );
+      })}
+      <svg width="600" height="470" viewBox="0 0 600 470" style={{position: 'absolute', left: 0, top: 0, zIndex: 2, overflow: 'visible'}}>
+        <path d="M70 200 a14 14 0 0 1 14-14 H220 l30 30 H516 a14 14 0 0 1 14 14 V430 a14 14 0 0 1-14 14 H84 a14 14 0 0 1-14-14 Z" fill={K.accent} stroke={K.ink} strokeWidth={6} strokeLinejoin="round" />
+        <g transform={`translate(70 250) skewX(${-open * 14}) scale(1 ${1 - open * 0.25})`}>
+          <path d="M0 0 H460 a14 14 0 0 1 14 14 V180 a14 14 0 0 1-14 14 H14 a14 14 0 0 1-14-14 Z" fill="#5B80F2" stroke={K.ink} strokeWidth={6} strokeLinejoin="round" />
+        </g>
+      </svg>
+    </div>
+  );
+};
+// hook kecil terpisah supaya aturan hooks tetap konsisten di dalam map berukuran tetap
+const useSpringAtFile = (start: number) => useSpringAt(start);
+
+/* ---------- tiers: paket Claude, mana yang dapat fitur ---------- */
+const TIERS = [
+  {id: 'Free', grp: 0},
+  {id: 'Pro', grp: 0},
+  {id: 'Max', grp: 0},
+  {id: 'Team', grp: 1},
+  {id: 'Enterprise', grp: 1},
+];
+const Tiers: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const at = useSteps(steps, start);
+  const yes = useSpringAt(at(0));
+  const no = useSpringAt(at(1));
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', gap: 26, alignItems: 'center', width: 940}}>
+      <div style={{display: 'flex', gap: 22, flexWrap: 'wrap', justifyContent: 'center'}}>
+        {TIERS.map((t, i) => {
+          const isYes = t.grp === 1;
+          const p = isYes ? yes : no;
+          const appear = spring({frame: frame - start - i * 3, fps: 30, config: {damping: 14}});
+          return (
+            <div
+              key={t.id}
+              style={{
+                ...cardSkin,
+                borderRadius: 22,
+                width: t.id === 'Enterprise' ? 330 : 270,
+                padding: '26px 0 20px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 10,
+                background: isYes && p > 0 ? K.goodSoft : !isYes && p > 0 ? '#F1F2F6' : K.card,
+                opacity: Math.min(1, appear * 1.4) * (!isYes ? 1 - p * 0.35 : 1),
+                transform: `translateY(${(1 - appear) * 30}px) scale(${isYes ? 1 + p * 0.06 : 1 - p * 0.04})`,
+              }}
+            >
+              <div style={{fontFamily: FONT_HEAD, fontSize: 50, fontWeight: 800, color: K.ink}}>{t.id}</div>
+              <div style={{height: 84, display: 'flex', alignItems: 'center', transform: `scale(${p})`}}>
+                {p > 0 && <VIcon name={isYes ? 'check' : 'cross'} size={78} color={isYes ? K.good : K.bad} />}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {labels?.[0] && (
+        <div style={{fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink, opacity: yes, background: K.sun, border: `3px solid ${K.ink}`, borderRadius: 12, padding: '6px 18px'}}>{labels[0]}</div>
+      )}
+    </div>
+  );
+};
+
+/* ---------- screenrec: HP memutar animasi artifact sambil merekam ---------- */
+const ScreenRec: React.FC<{steps?: number[]; start: number}> = ({steps, start}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const rec = frame >= at(0);
+  const sec = rec ? Math.floor((frame - at(0)) / fps) : 0;
+  const t = (frame - start) / fps;
+  return (
+    <div style={{position: 'relative', width: 340, height: 660}}>
+      <div style={{position: 'absolute', inset: 0, borderRadius: 54, background: K.ink, padding: 16, boxShadow: `7px 8px 0 ${K.ink}`}}>
+        <div style={{position: 'relative', width: '100%', height: '100%', borderRadius: 40, background: K.card, overflow: 'hidden'}}>
+          {/* animasi artifact sederhana */}
+          <div style={{position: 'absolute', left: 30, top: 120 + Math.sin(t * 3) * 30, width: 70, height: 70, borderRadius: 18, background: K.accent, border: `4px solid ${K.ink}`, transform: `rotate(${t * 90}deg)`}} />
+          <div style={{position: 'absolute', right: 34, top: 240 + Math.cos(t * 2.4) * 40, width: 80, height: 80, borderRadius: 40, background: K.sun, border: `4px solid ${K.ink}`}} />
+          <div style={{position: 'absolute', left: 30, right: 30, bottom: 120, height: 22, borderRadius: 11, background: '#E6EAF4', overflow: 'hidden'}}>
+            <div style={{width: `${((t * 25) % 100)}%`, height: '100%', background: K.good}} />
+          </div>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 40, textAlign: 'center', fontFamily: FONT_HEAD, fontSize: 30, fontWeight: 800, color: K.ink}}>artifact</div>
+          {rec && (
+            <div style={{position: 'absolute', left: 20, top: 74, display: 'flex', alignItems: 'center', gap: 8, fontFamily: FONT_BODY, fontSize: 24, fontWeight: 800, color: K.bad}}>
+              <div style={{width: 16, height: 16, borderRadius: 8, background: K.bad, opacity: frame % 30 < 18 ? 1 : 0.2}} />
+              REC 0:{String(sec).padStart(2, '0')}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340};
+
+export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
+  switch (name) {
+    case 'flipbook':
+      return <Flipbook steps={steps} start={start} />;
+    case 'recipe-code':
+      return <RecipeCode steps={steps} start={start} />;
+    case 'render':
+      return <Render steps={steps} start={start} labels={labels} />;
+    case 'skill-folder':
+      return <SkillFolder steps={steps} start={start} labels={labels} />;
+    case 'tiers':
+      return <Tiers steps={steps} start={start} labels={labels} />;
+    case 'screenrec':
+      return <ScreenRec steps={steps} start={start} />;
+  }
+};
+
+/* ---------- simulasi chat AI generik (tanpa logo merek) ---------- */
+export type ChatMsg = {at: number; side: 'user' | 'ai'; text?: string; artifact?: string};
+
+export const ChatSim: React.FC<{app?: string; items: ChatMsg[]; w?: number}> = ({app = 'Chat AI', items, w = 640}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {T} = useTiming();
+  return (
+    <div style={{...cardSkin, width: w, overflow: 'hidden', fontFamily: FONT_BODY}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 14, padding: '18px 24px', borderBottom: `4px solid ${K.ink}`, background: K.accentSoft}}>
+        <VIcon name="sparkle" size={38} color={K.warn} />
+        <div style={{fontFamily: FONT_HEAD, fontSize: 36, fontWeight: 800, color: K.ink}}>{app}</div>
+      </div>
+      <div style={{padding: 28, display: 'flex', flexDirection: 'column', gap: 22, minHeight: 340}}>
+        {items.map((m, i) => {
+          const st = T(m.at);
+          if (frame < st) return <div key={i} style={{height: 0}} />;
+          const p = spring({frame: frame - st, fps, config: {damping: 15, stiffness: 180}});
+          const user = m.side === 'user';
+          const text = m.text ?? '';
+          const typed = user ? text.slice(0, Math.floor((frame - st) * 1.8)) : text;
+          const thinking = !user && frame - st < 14;
+          return (
+            <div key={i} style={{alignSelf: user ? 'flex-end' : 'flex-start', maxWidth: '86%', opacity: Math.min(1, p * 1.5), transform: `translateY(${(1 - p) * 20}px)`}}>
+              {m.artifact ? (
+                <div style={{border: `4px solid ${K.ink}`, borderRadius: 20, overflow: 'hidden', background: K.card, width: 420}}>
+                  <div style={{padding: '10px 16px', background: K.sunSoft, borderBottom: `3px solid ${K.ink}`, fontSize: 24, fontWeight: 800, color: K.ink}}>▶ {m.artifact}</div>
+                  <div style={{position: 'relative', height: 150, background: '#F6F8FD'}}>
+                    <div style={{position: 'absolute', left: 30 + ((frame - st) * 4) % 300, top: 50, width: 50, height: 50, borderRadius: 14, background: K.accent, border: `3px solid ${K.ink}`}} />
+                    <div style={{position: 'absolute', right: 40, top: 30 + Math.sin((frame - st) / 8) * 30, width: 44, height: 44, borderRadius: 22, background: K.sun, border: `3px solid ${K.ink}`}} />
+                  </div>
+                </div>
+              ) : (
+                <div style={{padding: '20px 26px', borderRadius: 24, border: `4px solid ${K.ink}`, boxShadow: `4px 5px 0 ${K.ink}`, background: user ? K.accent : K.card, color: user ? K.card : K.ink, fontSize: 38, fontWeight: 800, lineHeight: 1.25}}>
+                  {thinking ? <span style={{letterSpacing: 6}}>{'•••'.slice(0, 1 + (Math.floor((frame - st) / 4) % 3))}</span> : typed}
+                  {user && typed.length < text.length && <span style={{opacity: frame % 14 < 7 ? 1 : 0}}>▍</span>}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
