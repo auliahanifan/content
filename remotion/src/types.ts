@@ -40,7 +40,7 @@ export type Transition = 'pixel' | 'iris' | 'none';
 export type Epic = {at: number; reaction: Reaction; dur?: number; text?: string; color?: Tone; sfx?: SfxName};
 
 /** Bentuk manifest.json Pixel Aulia yang dipakai: ukuran & batas alpha terlihat. */
-export type PixelAsset = {id: string; category: string; file: string; width: number; height: number; visibleAlphaBounds: [number, number, number, number]};
+export type PixelAsset = {id: string; category: string; file: string; width: number; height: number; visibleAlphaBounds: [number, number, number, number]; root?: string; smooth?: boolean};
 
 /** Semua `at` adalah indeks kata di words.json (muncul tepat saat kata itu diucapkan). */
 export type PropRef = {prop?: string; emoji?: string};
@@ -147,7 +147,7 @@ export type SfxName = 'blip' | 'coin' | 'power' | 'hit' | 'select' | 'sweep' | '
 /* ---------- Mode kanvas (default): satu latar, headline dua tingkat, satu panggung ---------- */
 
 /** Ikon: PNG di folder video (`src`), props Pixel Aulia (`prop`), atau emoji yang di-pixel-kan. */
-export type KIcon = PropRef & {src?: string};
+export type KIcon = PropRef & {src?: string; name?: string; color?: Tone}; // name = ikon vektor (src/kanvas/Icons.tsx)
 
 type KBase = {
   at?: number; // muncul (indeks kata); default awal panel
@@ -171,6 +171,8 @@ export type KEl = KBase &
     | {kind: 'phone'; src: string; from?: number; rate?: number; rings?: Ring[]; steps?: KStep[]}
     | {kind: 'stepper'; items: KStep[]}
     | {kind: 'row'; items: KEl[]; op?: string; gap?: number}
+    | {kind: 'illus'; name: 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec'; steps?: number[]; labels?: string[]}
+    | {kind: 'chatsim'; app?: string; items: {at: number; side: 'user' | 'ai'; text?: string; artifact?: string}[]}
   );
 
 /** Posisi Pixel Aulia di kanvas. left/right: di samping panggung; corner: kecil di kiri bawah (tutorial); none: tanpa karakter. */
@@ -196,6 +198,8 @@ export type KLine = {from: number; to?: number; split?: number; key?: number[]; 
 
 export type Storyboard = {
   style?: 'kanvas' | 'game'; // default: kanvas bila ada `panels`, game bila ada `scenes`
+  character?: 'bold' | 'pixel'; // kanvas: gaya karakter, default bold (Bold Vector Aulia)
+  hook?: {until: number; items?: KEl[]}; // kanvas: hook teks raksasa sampai kata `until`, dengan benda kunci
   topic?: string; // chip header kanvas, mis. "Bukan Sulap · dasar agent"
   lines?: KLine[]; // kanvas: headline (pengganti caption kata per kata)
   panels?: KPanel[]; // kanvas: isi panggung
@@ -229,4 +233,5 @@ export type VideoProps = {
   words: Word[];
   availableProps: string[]; // nama props yang sudah ada di assets/props/
   pixel: PixelAsset[]; // manifest Pixel Aulia
+  bold?: PixelAsset[]; // manifest Bold Vector Aulia (default karakter mode kanvas)
 };

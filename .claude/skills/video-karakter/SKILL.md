@@ -1,6 +1,6 @@
 ---
 name: video-karakter
-description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video with the Pixel Aulia character, built with Remotion. Default style "kanvas" (one clean canvas, two-tier headline instead of word captions, one stage where the explanation grows, real screen recordings in a phone frame for tutorials). Optional style "game" (retro pixel-game world, RPG boards, epic anime interrupts) for entertainment pieces. ElevenLabs voice "Aulia Rahman", soft SFX, no music, series logo. Dipanggil `/video-karakter <naskah>`. Konten berbahasa Indonesia.
+description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video with the Aulia character (Bold Vector in kanvas, Pixel Aulia in game), built with Remotion. Default style "kanvas" v2 (Bold Vector Aulia character, giant kinetic hook, two-tier kinetic headline instead of word captions, one stage with animated vector illustrations and chat simulations, always-moving camera, modern SFX, real screen recordings in a phone frame for tutorials). Optional style "game" (retro pixel-game world, RPG boards, epic anime interrupts) for entertainment pieces. ElevenLabs voice "Aulia Rahman", soft SFX, no music, series logo. Dipanggil `/video-karakter <naskah>`. Konten berbahasa Indonesia.
 ---
 
 # Video karakter (9:16, Remotion, Pixel Aulia)
@@ -42,7 +42,7 @@ Setelah selesai tawarkan judul + deskripsi + hashtag (opsional). Bila naskah men
 Studio interaktif (Mac): `cd remotion && pnpm studio ../dates/<tgl>/<slug>`.
 
 ## Default tetap (jangan ditanya ulang)
-Kanvas: latar mist bergrid titik sepanjang video · header logo seri kiri, chip "Seri · topik" kanan, tanda tangan · headline dua tingkat (pengantar abu "...", inti besar tinta, kata kunci kobalt bergaris titik) sebagai pengganti caption · panggung satu peraga, kartu putih · Pixel Aulia **diam seperti sprite** (tanpa goyang/napas/lompat), ganti pose = potongan bersih, pindah posisi = geser mulus · SFX pelan otomatis (blip elemen, centang, coretan, ganti panel), tanpa musik · suara ElevenLabs v4 (stability 0,6 · similarity 1,0 · style 0,15).
+Kanvas v2: latar terang bergrid titik · header logo seri kiri, chip "Seri · topik" kanan, tanda tangan · hook teks raksasa + benda kunci · headline dua tingkat (pengantar abu, inti Bricolage Grotesque tebal yang katanya masuk satu per satu, kata kunci stabilo kuning) sebagai pengganti caption · panggung satu peraga: kartu bergaris navy + bayangan keras, ikon vektor, ilustrasi beranimasi, simulasi chat · kamera selalu bergerak pelan, transisi geser · karakter **Bold Vector Aulia** sepertiga layar dengan gerak idle halus dan pop saat ganti pose (Pixel Aulia diam hanya untuk mode game) · SFX modern otomatis (whoosh, pop, tick, ketikan, ding), tanpa musik · suara ElevenLabs v4 (stability 0,6 · similarity 1,0 · style 0,15).
 
 ## Pegangan
 - Timestamp kata dari alignment ElevenLabs, bukan Whisper. Tag `[..]` tidak diucapkan.

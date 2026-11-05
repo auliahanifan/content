@@ -14,14 +14,14 @@ export const PixelFigure: React.FC<{asset: PixelAsset; h: number; opacity?: numb
   const k = h / (y1 - y0);
   return (
     <Img
-      src={staticFile(`${PIXEL_ROOT}/${asset.file}`)}
+      src={staticFile(`${asset.root ?? PIXEL_ROOT}/${asset.file}`)}
       style={{
         position: 'absolute',
         left: -((x0 + x1) / 2) * k,
         top: -y1 * k,
         width: asset.width * k,
         height: asset.height * k,
-        imageRendering: 'pixelated',
+        imageRendering: asset.smooth ? 'auto' : 'pixelated',
         opacity,
       }}
     />

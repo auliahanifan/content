@@ -1,12 +1,11 @@
 import React, {useMemo} from 'react';
-import {AbsoluteFill, Html5Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Easing, Html5Audio, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {PixelFigure} from '../components/Character';
 import {EpicLayer, epicLevel} from '../components/Epic';
 import {tokens} from '../components/Captions';
-import {FONT_BODY} from '../theme';
+import {FONT_BODY, FONT_HEAD} from '../theme';
 import {useTiming} from '../timing';
-import type {KChar, KEl, KLine, PixelAsset, SfxName, Storyboard} from '../types';
-import {VOL} from '../Video';
+import type {KChar, KEl, KLine, PixelAsset, Storyboard} from '../types';
 import {Element} from './Elements';
 import {K, KGEO} from './theme';
 
@@ -15,27 +14,46 @@ export const isKanvas = (sb: Storyboard) => (sb.style ? sb.style === 'kanvas' : 
 type Props = {sb: Storyboard; fps: number; duration: number; pixel: PixelAsset[]};
 
 const clean = (w: string) => w.toLowerCase().replace(/[^\p{L}\p{N}-]/gu, '');
+const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+
+/** Frame selesainya hook (teks raksasa), atau 0 bila storyboard tanpa hook. */
+const useHookEnd = () => {
+  const {sb, E} = useTiming();
+  return sb.hook ? E(sb.hook.until) + 6 : 0;
+};
+
+/** Indeks kata kunci (dari `keywords` global). */
+const useKeyIdx = () => {
+  const {sb, words} = useTiming();
+  return useMemo(() => {
+    const texts = new Set((sb.keywords ?? []).filter((k): k is string => typeof k === 'string').map(clean));
+    const set = new Set<number>();
+    (sb.keywords ?? []).forEach((k) => typeof k === 'number' && set.add(k));
+    words.forEach((w, i) => texts.has(clean(w[0])) && set.add(i));
+    return set;
+  }, [sb, words]);
+};
 
 /**
- * Mode kanvas: satu latar mist bergrid titik sepanjang video, header (logo seri + chip topik + tanda tangan),
- * headline dua tingkat di atas (pengganti caption), satu panggung yang isinya tumbuh, Pixel Aulia diam di samping.
- * Prinsip: yang berubah di layar adalah isi penjelasan, bukan dekorasi.
+ * Mode kanvas v2: latar terang berani, header, headline kinetik (pengganti caption), panggung dengan kamera yang
+ * selalu bergerak pelan, transisi geser antarpanel, Bold Vector Aulia dengan gerak idle, dan hook teks raksasa.
+ * Prinsip tetap: yang berubah di layar adalah isi penjelasan, bukan dekorasi.
  */
 export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
   const frame = useCurrentFrame();
   const {T, E} = useTiming();
+  const hookEnd = useHookEnd();
   const assets = useMemo(() => new Map(pixel.map((a) => [a.id, a])), [pixel]);
   const panels = useMemo(() => {
     let char: KChar = 'left';
     const list = sb.panels ?? [];
     return list.map((p, i) => {
       char = p.char ?? char;
-      const start = i === 0 ? 0 : Math.max(0, T(p.at) - 3);
+      const start = i === 0 ? Math.max(0, hookEnd - 6) : Math.max(0, T(p.at) - 3);
       const end = list[i + 1] ? Math.max(0, T(list[i + 1].at) - 3) : duration;
       return {p, i, start, end, char};
     });
-  }, [sb, T, duration]);
-  const cur = panels.find((x) => frame >= x.start && frame < x.end) ?? panels[panels.length - 1];
+  }, [sb, T, duration, hookEnd]);
 
   const epics = useMemo(
     () =>
@@ -49,27 +67,38 @@ export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
 
   let dim = 0;
   if (sb.seriesLine) {
-    dim = interpolate(frame, [T(sb.seriesLine.from), T(sb.seriesLine.from) + 8, E(sb.seriesLine.to) + 4, E(sb.seriesLine.to) + 14], [0, 1, 1, 0], {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-    });
+    dim = interpolate(frame, [T(sb.seriesLine.from), T(sb.seriesLine.from) + 8, E(sb.seriesLine.to) + 4, E(sb.seriesLine.to) + 14], [0, 1, 1, 0], clamp);
   }
   const hide = Math.max(epicLvl, dim);
-  const sfx = useMemo(() => kanvasSfx(sb, panels.map((x) => x.start), T, epics.map((x) => x.start)), [sb, panels, T, epics]);
+  const sfx = useMemo(() => kanvasSfx(sb, panels.map((x) => x.start), T, epics.map((x) => x.start), hookEnd), [sb, panels, T, epics, hookEnd]);
+
+  // kamera: dorong pelan per panel + goyang halus + tendangan pada kata `punch`
+  let pi = 0;
+  panels.forEach((x, i) => x.start <= frame && (pi = i));
+  const curP = panels[pi];
+  const push = curP ? interpolate(frame, [curP.start, curP.end], [0, 1], clamp) : 0;
+  const kick = (sb.punch ?? []).reduce((acc, i) => {
+    const d = frame - T(i);
+    return d < 0 || d > 24 ? acc : acc + 0.05 * Math.exp(-d / 6) * Math.min(1, d / 3);
+  }, 0);
+  const cam = 1 + push * 0.035 + kick;
+  const dx = Math.sin(frame / 95) * 7;
+  const dy = Math.cos(frame / 120) * 5;
 
   return (
     <AbsoluteFill style={{background: K.bg, overflow: 'hidden'}}>
-      <AbsoluteFill style={{backgroundImage: `radial-gradient(${K.dot} 2.4px, transparent 2.6px)`, backgroundSize: '44px 44px', backgroundPosition: '22px 22px'}} />
+      <Backdrop />
       <Header topic={latestTopic(sb, panels, frame)} />
       <Headline />
-      <AbsoluteFill style={{opacity: 1 - hide}}>
+      <AbsoluteFill style={{opacity: 1 - hide, transform: `translate(${dx}px, ${dy}px) scale(${cam})`, transformOrigin: '540px 1020px'}}>
         {panels
-          .filter((x) => frame >= x.start - 1 && frame < x.end + 6)
+          .filter((x) => frame >= x.start - 1 && frame < x.end + 10)
           .map((x) => (
             <Panel key={x.i} x={x} />
           ))}
-        <KChar panels={panels} assets={assets} />
+        <KChar panels={panels} assets={assets} hookEnd={hookEnd} />
       </AbsoluteFill>
+      {sb.hook && frame < hookEnd + 14 && <HookLayer />}
       {sb.seriesLine && dim > 0 && <SeriesBig dim={dim} />}
       {epics.map((x, i) => {
         const a = assets.get(x.e.reaction);
@@ -77,11 +106,24 @@ export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
       })}
       <Html5Audio src={staticFile(`video/${sb.audio ?? 'tts/final.mp3'}`)} />
       {sfx.map((s, i) => (
-        <Sequence key={i} from={Math.max(0, s.frame)} durationInFrames={Math.round(fps * 1.2)} layout="none">
-          <Html5Audio src={staticFile(`sfx/${s.name}.mp3`)} volume={s.volume} />
+        <Sequence key={i} from={Math.max(0, s.frame)} durationInFrames={Math.round(fps * 1.6)} layout="none">
+          <Html5Audio src={staticFile(`sfx/${s.file}.mp3`)} volume={s.volume} />
         </Sequence>
       ))}
     </AbsoluteFill>
+  );
+};
+
+/* ---------- latar: grid titik + dua bulatan warna yang bergeser pelan ---------- */
+const Backdrop: React.FC = () => {
+  const frame = useCurrentFrame();
+  const a = frame / 200;
+  return (
+    <>
+      <AbsoluteFill style={{backgroundImage: `radial-gradient(${K.dot} 2.6px, transparent 2.8px)`, backgroundSize: '46px 46px', backgroundPosition: `${23 + Math.sin(a) * 6}px ${23 + frame * 0.15}px`}} />
+      <div style={{position: 'absolute', width: 900, height: 900, borderRadius: '50%', left: -380 + Math.sin(a) * 60, top: 1050 + Math.cos(a) * 40, background: 'radial-gradient(circle, rgba(47,91,234,0.10), transparent 65%)'}} />
+      <div style={{position: 'absolute', width: 800, height: 800, borderRadius: '50%', right: -360 + Math.cos(a * 0.8) * 50, top: 300 + Math.sin(a * 0.8) * 50, background: 'radial-gradient(circle, rgba(255,216,77,0.22), transparent 65%)'}} />
+    </>
   );
 };
 
@@ -99,7 +141,6 @@ const Header: React.FC<{topic?: string}> = ({topic}) => {
   const {sb, T} = useTiming();
   const g = KGEO.header;
   const enter = spring({frame, fps, config: {damping: 200}});
-  // janji (open loop): chip berubah jadi hitung mundur + garis progres di dasar header, lalu "Ini dia" saat dibayar
   const loop = sb.loop;
   let chip = topic ?? '';
   let chipBg: string = K.ink;
@@ -119,24 +160,11 @@ const Header: React.FC<{topic?: string}> = ({topic}) => {
   }
   const fill = prog >= 0 ? `linear-gradient(90deg, ${chipBg} ${prog * 100}%, ${K.ink} ${prog * 100}%)` : chipBg;
   return (
-    <div
-      style={{
-        position: 'absolute',
-        left: g.left,
-        top: g.top,
-        width: g.width,
-        height: g.height,
-        display: 'flex',
-        alignItems: 'center',
-        gap: 18,
-        opacity: enter,
-        transform: `translateY(${(1 - enter) * -20}px)`,
-      }}
-    >
+    <div style={{position: 'absolute', left: g.left, top: g.top, width: g.width, height: g.height, display: 'flex', alignItems: 'center', gap: 18, opacity: enter, transform: `translateY(${(1 - enter) * -20}px)`}}>
       <Img src={staticFile(`shared/${sb.series}.svg`)} style={{width: g.height * 1.15, height: g.height, objectFit: 'contain', objectPosition: 'left center'}} />
       <div style={{flex: 1}} />
       {chip && (
-        <div style={{fontFamily: FONT_BODY, fontWeight: 700, fontSize: 30, color: K.card, background: fill, borderRadius: 999, padding: '14px 28px', whiteSpace: 'nowrap', maxWidth: 600, overflow: 'hidden', textOverflow: 'ellipsis', boxShadow: '0 6px 18px rgba(27,31,59,0.12)'}}>
+        <div style={{fontFamily: FONT_HEAD, fontWeight: 800, fontSize: 30, color: K.card, background: fill, borderRadius: 999, padding: '13px 28px', whiteSpace: 'nowrap', maxWidth: 600, overflow: 'hidden', textOverflow: 'ellipsis', border: `3px solid ${K.ink}`, boxShadow: `4px 5px 0 ${K.ink}`}}>
           {chip}
         </div>
       )}
@@ -145,9 +173,10 @@ const Header: React.FC<{topic?: string}> = ({topic}) => {
   );
 };
 
-/* ---------- headline dua tingkat ---------- */
+/* ---------- headline dua tingkat, kata inti masuk satu per satu ---------- */
 
-type Built = {from: number; to: number; split: number; setup: string; punch: {text: string; key: boolean}[]; punchOverride?: string};
+type BTok = {text: string; key: boolean; first: number};
+type Built = {from: number; to: number; split: number; setup: string; punch: BTok[]; punchOverride?: string};
 
 const buildLines = (lines: KLine[], toks: ReturnType<typeof tokens>, keyIdx: Set<number>): Built[] =>
   lines.map((l, i) => {
@@ -158,89 +187,126 @@ const buildLines = (lines: KLine[], toks: ReturnType<typeof tokens>, keyIdx: Set
     const setupToks = mine.filter((t) => t.first < split);
     const punchToks = mine.filter((t) => t.first >= split);
     const keys = new Set([...(l.key ?? []), ...keyIdx]);
-    // baris pengantar dibatasi 9 kata terakhir agar tidak jadi paragraf
     const st = setupToks.length > 9 ? setupToks.slice(-9) : setupToks;
     let setup = l.setup ?? `${setupToks.length > 9 ? '...' : ''}${st.map((t) => t.text).join(' ')}`;
     if (setup && !/[.,?!:;…]$/.test(setup)) setup += '...';
-    return {
-      from: l.from,
-      to,
-      split,
-      setup,
-      punch: punchToks.map((t) => ({text: t.text, key: keys.has(t.first)})),
-      punchOverride: l.punch,
-    };
+    return {from: l.from, to, split, setup, punch: punchToks.map((t) => ({text: t.text, key: keys.has(t.first), first: t.first})), punchOverride: l.punch};
   });
-
-/** `*kata*` di override punch = kata aksen. */
-const parsePunch = (s: string) => s.split(/(\*[^*]+\*)/g).filter(Boolean).flatMap((part) => (part.startsWith('*') ? [{text: part.slice(1, -1), key: true}] : [{text: part.trim(), key: false}].filter((x) => x.text)));
 
 const Headline: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {sb, words, T, E} = useTiming();
-  const built = useMemo(() => {
-    const toks = tokens(words, sb);
-    const texts = new Set((sb.keywords ?? []).filter((k): k is string => typeof k === 'string').map(clean));
-    const keyIdx = new Set<number>();
-    (sb.keywords ?? []).forEach((k) => typeof k === 'number' && keyIdx.add(k));
-    words.forEach((w, i) => texts.has(clean(w[0])) && keyIdx.add(i));
-    return buildLines(sb.lines ?? [], toks, keyIdx);
-  }, [sb, words]);
+  const keyIdx = useKeyIdx();
+  const hookEnd = useHookEnd();
+  const built = useMemo(() => buildLines(sb.lines ?? [], tokens(words, sb), keyIdx), [sb, words, keyIdx]);
   const g = KGEO.headline;
   let li = -1;
   built.forEach((b, i) => frame >= T(b.from) - 2 && (li = i));
   const b = built[li];
-  if (!b) return null;
-  // baris terakhir hilang 0,6 dtk setelah kata terakhirnya bila tidak ada baris lanjutan
-  const fadeOut = li === built.length - 1 ? interpolate(frame, [E(b.to) + fps * 0.6, E(b.to) + fps * 0.6 + 6], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1;
-  const sIn = spring({frame: frame - (T(b.from) - 2), fps, config: {damping: 200, stiffness: 200}});
-  const pStart = T(b.split) - 2;
-  const pIn = spring({frame: frame - pStart, fps, config: {damping: 14, stiffness: 210, mass: 0.6}});
-  const punch = b.punchOverride ? parsePunch(b.punchOverride) : b.punch;
+  if (!b || frame < hookEnd - 4 || (sb.hook && b.to <= sb.hook.until)) return null;
+  const fadeOut = li === built.length - 1 ? interpolate(frame, [E(b.to) + fps * 0.6, E(b.to) + fps * 0.6 + 6], [1, 0], clamp) : 1;
+  const lineStart = Math.max(T(b.from) - 2, hookEnd - 4);
+  const sIn = spring({frame: frame - lineStart, fps, config: {damping: 200, stiffness: 220}});
+  const punch: BTok[] = b.punchOverride ? b.punchOverride.split(/(\*[^*]+\*)/g).filter(Boolean).map((part) => ({text: part.replace(/\*/g, '').trim(), key: part.startsWith('*'), first: b.split})).filter((x) => x.text) : b.punch;
   const len = punch.map((p) => p.text).join(' ').length;
-  const size = len > 40 ? 58 : len > 30 ? 68 : len > 20 ? 80 : 94;
+  const size = len > 40 ? 62 : len > 30 ? 74 : len > 20 ? 88 : 104;
   return (
-    <div
-      style={{
-        position: 'absolute',
-        left: g.left,
-        top: g.top,
-        width: g.width,
-        height: g.height,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        gap: 10,
-        fontFamily: FONT_BODY,
-        textAlign: 'center',
-        opacity: fadeOut,
-      }}
-    >
-      <div style={{fontSize: 46, fontWeight: 600, color: K.soft, lineHeight: 1.25, minHeight: 58, opacity: sIn, transform: `translateY(${(1 - sIn) * 14}px)`}}>{b.setup}</div>
-      {frame >= pStart && (
-        <div style={{fontSize: size, fontWeight: 800, color: K.ink, lineHeight: 1.12, letterSpacing: -0.5, opacity: Math.min(1, pIn * 1.5), transform: `scale(${0.9 + 0.1 * pIn})`, textWrap: 'balance', maxWidth: g.width}}>
-          {punch.map((p, i) => (
+    <div style={{position: 'absolute', left: g.left, top: g.top, width: g.width, height: g.height, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, textAlign: 'center', opacity: fadeOut}}>
+      <div style={{fontFamily: FONT_BODY, fontSize: 44, fontWeight: 700, color: K.soft, lineHeight: 1.25, minHeight: 56, opacity: sIn, transform: `translateY(${(1 - sIn) * 16}px)`}}>{b.setup}</div>
+      <div style={{fontFamily: FONT_HEAD, fontSize: size, fontWeight: 800, color: K.ink, lineHeight: 1.08, letterSpacing: -1, textWrap: 'balance', maxWidth: g.width}}>
+        {punch.map((p, i) => {
+          const st = Math.max(T(p.first) - 2, lineStart);
+          const vis = frame >= st;
+          const pp = spring({frame: frame - st, fps, config: {damping: 13, stiffness: 230, mass: 0.55}});
+          const sweep = interpolate(frame, [st + 2, st + 9], [0, 100], clamp);
+          return (
             <React.Fragment key={i}>
               {i > 0 && ' '}
-              <span style={p.key ? {color: K.accent, textDecoration: 'underline dotted', textDecorationThickness: 6, textUnderlineOffset: 14, textDecorationColor: K.accent} : undefined}>{p.text}</span>
+              <span
+                style={{
+                  display: 'inline-block',
+                  opacity: vis ? Math.min(1, pp * 1.6) : 0,
+                  transform: `translateY(${(1 - pp) * 34}px) scale(${0.9 + 0.1 * pp})`,
+                  padding: p.key ? '0 12px' : 0,
+                  margin: p.key ? '0 -4px' : 0,
+                  backgroundImage: p.key ? `linear-gradient(${K.sun}, ${K.sun})` : undefined,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: p.key ? `${sweep}% 62%` : undefined,
+                  backgroundPosition: '0 78%',
+                  borderRadius: 6,
+                }}
+              >
+                {p.text}
+              </span>
             </React.Fragment>
-          ))}
-        </div>
-      )}
+          );
+        })}
+      </div>
     </div>
+  );
+};
+
+/* ---------- hook: teks raksasa dipukul masuk per kata + benda kunci, lalu mengecil ---------- */
+
+const HookLayer: React.FC = () => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {sb, words, T} = useTiming();
+  const keyIdx = useKeyIdx();
+  const hookEnd = useHookEnd();
+  const toks = useMemo(() => tokens(words, sb).filter((t) => t.first <= (sb.hook?.until ?? -1)), [words, sb]);
+  if (!sb.hook) return null;
+  const exit = spring({frame: frame - (hookEnd - 6), fps, config: {damping: 16, stiffness: 140}});
+  const chars = toks.map((t) => t.text).join(' ').length;
+  const size = chars > 60 ? 104 : chars > 40 ? 124 : 150;
+  const burst = frame / 2;
+  return (
+    <AbsoluteFill style={{opacity: 1 - exit, transform: `translateY(${-exit * 260}px) scale(${1 - exit * 0.45})`, transformOrigin: '540px 400px'}}>
+      <div style={{position: 'absolute', left: 540 - 900, top: 640 - 900, width: 1800, height: 1800, background: `repeating-conic-gradient(from ${burst}deg, ${K.accentSoft} 0deg 8deg, transparent 8deg 20deg)`, borderRadius: '50%', opacity: 0.8, maskImage: 'radial-gradient(circle, black 30%, transparent 62%)', WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 62%)'}} />
+      <div style={{position: 'absolute', left: 50, right: 50, top: 290, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'flex-start', gap: '6px 26px', fontFamily: FONT_HEAD, fontWeight: 800, fontSize: size, lineHeight: 1.02, color: K.ink, letterSpacing: -2, textAlign: 'center'}}>
+        {toks.map((t, i) => {
+          const st = T(t.first) - 2;
+          const vis = frame >= st;
+          const p = spring({frame: frame - st, fps, config: {damping: 11, stiffness: 260, mass: 0.6}});
+          const key = keyIdx.has(t.first);
+          return (
+            <span
+              key={i}
+              style={{
+                display: 'inline-block',
+                opacity: vis ? 1 : 0,
+                transform: `scale(${interpolate(p, [0, 1], [2.1, 1])}) rotate(${(1 - p) * (i % 2 ? 6 : -6)}deg)`,
+                background: key ? K.sun : 'transparent',
+                border: key ? `5px solid ${K.ink}` : undefined,
+                boxShadow: key ? `7px 8px 0 ${K.ink}` : undefined,
+                borderRadius: 18,
+                padding: key ? '0 18px 6px' : 0,
+              }}
+            >
+              {t.text}
+            </span>
+          );
+        })}
+      </div>
+      <div style={{position: 'absolute', left: 60, right: 60, top: 1030, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26}}>
+        {(sb.hook.items ?? []).map((el: KEl, i: number) => (
+          <Element key={i} el={el} panelStart={0} stageW={960} />
+        ))}
+      </div>
+    </AbsoluteFill>
   );
 };
 
 /* ---------- panggung ---------- */
 
-const Panel: React.FC<{x: {p: NonNullable<Storyboard['panels']>[number]; start: number; end: number; char: KChar}}> = ({x}) => {
+const Panel: React.FC<{x: {p: NonNullable<Storyboard['panels']>[number]; start: number; end: number; char: KChar; i: number}}> = ({x}) => {
   const frame = useCurrentFrame();
   const g = KGEO.stage[x.char];
-  const first = x.start === 0;
-  const inP = first ? 1 : interpolate(frame, [x.start, x.start + 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const outP = interpolate(frame, [x.end, x.end + 6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const ease = Easing.bezier(0.2, 0.8, 0.2, 1);
+  const inP = interpolate(frame, [x.start, x.start + 10], [0, 1], {...clamp, easing: ease});
+  const outP = interpolate(frame, [x.end, x.end + 9], [0, 1], {...clamp, easing: Easing.in(Easing.cubic)});
+  const dir = x.i % 2 ? -1 : 1;
   return (
     <div
       style={{
@@ -254,8 +320,8 @@ const Panel: React.FC<{x: {p: NonNullable<Storyboard['panels']>[number]; start: 
         alignItems: 'center',
         justifyContent: 'center',
         gap: x.p.gap ?? 34,
-        opacity: inP * (1 - outP),
-        transform: `translateY(${(1 - inP) * 40 - outP * 40}px)`,
+        opacity: Math.min(inP * 1.4, 1) * (1 - outP),
+        transform: `translateX(${(1 - inP) * 160 * dir - outP * 180 * dir}px) rotate(${(1 - inP) * 2 * dir}deg)`,
       }}
     >
       {x.p.items.map((el: KEl, i: number) => (
@@ -267,9 +333,9 @@ const Panel: React.FC<{x: {p: NonNullable<Storyboard['panels']>[number]; start: 
   );
 };
 
-/* ---------- karakter ---------- */
+/* ---------- karakter: posisi per panel, gerak idle, ganti pose dengan pop ---------- */
 
-const KChar: React.FC<{panels: {p: {pose?: string}; start: number; char: KChar}[]; assets: Map<string, PixelAsset>}> = ({panels, assets}) => {
+const KChar: React.FC<{panels: {p: {pose?: string}; start: number; char: KChar}[]; assets: Map<string, PixelAsset>; hookEnd: number}> = ({panels, assets, hookEnd}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {sb, T} = useTiming();
@@ -283,28 +349,29 @@ const KChar: React.FC<{panels: {p: {pose?: string}; start: number; char: KChar}[
   let ci = 0;
   changes.forEach((c, i) => c.frame <= frame && (ci = i));
   const pose = changes[ci];
-  const prevPose = changes[ci - 1];
-  const fade = prevPose ? interpolate(frame - pose.frame, [0, 2], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1;
+  const popP = spring({frame: frame - pose.frame, fps, config: {damping: 10, stiffness: 240, mass: 0.6}});
 
   let pi = 0;
   panels.forEach((x, i) => x.start <= frame && (pi = i));
   const from = KGEO.char[panels[Math.max(0, pi - 1)]?.char ?? 'left'];
   const to = KGEO.char[panels[pi]?.char ?? 'left'];
-  const m = pi === 0 ? 1 : spring({frame: frame - panels[pi].start, fps, config: {damping: 200, stiffness: 120}});
+  const m = pi === 0 ? 1 : spring({frame: frame - panels[pi].start, fps, config: {damping: 18, stiffness: 120}});
   const cx = interpolate(m, [0, 1], [from.cx, to.cx]);
   const base = interpolate(m, [0, 1], [from.base, to.base]);
   const h = interpolate(m, [0, 1], [from.h, to.h]);
   const flip = (m < 0.5 ? panels[Math.max(0, pi - 1)]?.char : panels[pi]?.char) === 'right';
-  const enter = spring({frame: frame - 4, fps, config: {damping: 200, stiffness: 110}});
+  // masuk setelah hook: meluncur dari bawah
+  const enter = spring({frame: frame - Math.max(4, hookEnd - 4), fps, config: {damping: 14, stiffness: 120}});
+  const bob = Math.sin((frame / fps) * Math.PI * 0.8) * 8;
+  const breathe = 1 + Math.sin((frame / fps) * Math.PI * 0.8 + 1) * 0.008;
   const asset = assets.get(pose.pose) ?? assets.get('netral');
-  const prevAsset = prevPose ? assets.get(prevPose.pose) : undefined;
   if (!asset) return null;
+  const squash = interpolate(popP, [0, 1], [0.9, 1]);
   return (
-    <div style={{position: 'absolute', left: cx, top: base, width: 0, height: 0, opacity: enter}}>
-      <div style={{position: 'absolute', left: -h * 0.22, top: -h * 0.03, width: h * 0.44, height: h * 0.06, borderRadius: '50%', background: 'rgba(27,31,59,0.12)'}} />
-      <div style={{position: 'absolute', left: 0, top: 0, transform: `scaleX(${flip ? -1 : 1})`}}>
-        {prevAsset && fade < 1 && <PixelFigure asset={prevAsset} h={h} opacity={1 - fade} />}
-        <PixelFigure asset={asset} h={h} opacity={fade} />
+    <div style={{position: 'absolute', left: cx, top: base + (1 - enter) * 700, width: 0, height: 0, opacity: Math.min(1, enter * 2)}}>
+      <div style={{position: 'absolute', left: -h * 0.24, top: -h * 0.03, width: h * 0.48, height: h * 0.06, borderRadius: '50%', background: 'rgba(20,27,61,0.16)', transform: `scaleX(${1 - bob / 120})`}} />
+      <div style={{position: 'absolute', left: 0, top: bob - 8, transform: `scaleX(${flip ? -1 : 1}) scale(${squash * breathe}, ${(2 - squash) * breathe})`, transformOrigin: '0 0'}}>
+        <PixelFigure asset={asset} h={h} />
       </div>
     </div>
   );
@@ -315,13 +382,15 @@ const KChar: React.FC<{panels: {p: {pose?: string}; start: number; char: KChar}[
 const SeriesBig: React.FC<{dim: number}> = ({dim}) => {
   const {sb} = useTiming();
   return (
-    <div style={{position: 'absolute', left: 140, top: 640, width: 800, height: 520, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: dim, transform: `scale(${0.85 + 0.15 * dim})`}}>
+    <div style={{position: 'absolute', left: 140, top: 640, width: 800, height: 520, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: dim, transform: `scale(${0.8 + 0.2 * dim}) rotate(${(1 - dim) * -6}deg)`}}>
       <Img src={staticFile(`shared/${sb.series}.svg`)} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
     </div>
   );
 };
 
-/* ---------- SFX pelan otomatis ---------- */
+/* ---------- SFX modern otomatis (public/sfx/v2, dibuat dengan ElevenLabs Sound Effects) ---------- */
+
+type Ev = {frame: number; file: string; volume: number};
 
 const walk = (els: KEl[], f: (e: KEl) => void) =>
   els.forEach((e) => {
@@ -329,33 +398,67 @@ const walk = (els: KEl[], f: (e: KEl) => void) =>
     if (e.kind === 'row') walk(e.items, f);
   });
 
-const kanvasSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, epicStarts: number[]) => {
-  const ev: {frame: number; name: SfxName; volume: number}[] = [];
-  const add = (frame: number, name: SfxName, k = 0.55) => ev.push({frame, name, volume: VOL[name] * k});
+const kanvasSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, epicStarts: number[], hookEnd: number) => {
+  const ev: Ev[] = [];
+  const add = (frame: number, name: string, volume: number) => frame >= 0 && ev.push({frame, file: `v2/${name}`, volume});
   if (sb.autoSfx !== false) {
+    if (sb.hook) {
+      add(T(0) - 2, 'slam', 0.5);
+      const ks = new Set((sb.keywords ?? []).filter((k): k is number => typeof k === 'number'));
+      (sb.lines ?? []).forEach((l) => l.key?.forEach((k) => k <= sb.hook!.until && ks.add(k)));
+      ks.forEach((k) => k <= sb.hook!.until && k > 0 && add(T(k) - 2, 'slam', 0.4));
+      add(hookEnd - 8, 'whoosh', 0.4);
+      walk(sb.hook.items ?? [], (e) => e.at !== undefined && add(T(e.at), 'pop', 0.35));
+    }
     (sb.panels ?? []).forEach((p, i) => {
-      if (i > 0 && p.sfx !== null) add(starts[i] - 4, p.sfx ?? 'sweep', 0.45);
+      if (i > 0 && p.sfx !== null) add(starts[i] - 3, 'whoosh', 0.32);
       walk(p.items, (e) => {
-        if (e.at !== undefined && e.kind !== 'row') add(T(e.at), 'blip');
+        if (e.at !== undefined && e.kind !== 'row' && e.kind !== 'illus' && e.kind !== 'chatsim') add(T(e.at), 'pop', 0.3);
         if (e.kind === 'card') {
-          if (e.strikeAt !== undefined) add(T(e.strikeAt), 'hit');
-          if (e.swap) add(T(e.swap.at), 'coin', 0.8);
-          if (e.stamp) add(T(e.stamp.at), 'hit', 1);
+          if (e.strikeAt !== undefined) add(T(e.strikeAt), 'strike', 0.4);
+          if (e.swap) add(T(e.swap.at), 'ding', 0.35);
+          if (e.stamp) add(T(e.stamp.at), 'slam', 0.5);
         }
-        if (e.kind === 'checklist') e.items.forEach((it) => {
-          if (it.at !== undefined) add(T(it.at), 'blip', 0.4);
-          if (it.doneAt !== undefined) add(T(it.doneAt), 'select', 0.7);
-          if (it.strikeAt !== undefined) add(T(it.strikeAt), 'hit');
-        });
-        if (e.kind === 'flow') e.items.forEach((it) => it.at !== undefined && add(T(it.at), 'blip', 0.45));
-        if (e.kind === 'stepper' || (e.kind === 'phone' && e.steps)) (e.kind === 'stepper' ? e.items : e.steps ?? []).forEach((s) => add(T(s.at), 'select', 0.6));
-        if ((e.kind === 'shot' || e.kind === 'phone') && e.rings) e.rings.forEach((r) => add(T(r.at), 'coin', 0.5));
+        if (e.kind === 'icon' && e.labelAt !== undefined) add(T(e.labelAt), 'swoosh', 0.25);
+        if (e.kind === 'checklist')
+          e.items.forEach((it) => {
+            if (it.at !== undefined) add(T(it.at), 'pop', 0.25);
+            if (it.doneAt !== undefined) add(T(it.doneAt), 'tick', 0.45);
+            if (it.strikeAt !== undefined) add(T(it.strikeAt), 'strike', 0.4);
+          });
+        if (e.kind === 'flow') e.items.forEach((it) => it.at !== undefined && add(T(it.at), 'pop', 0.3));
+        if (e.kind === 'stepper' || (e.kind === 'phone' && e.steps)) (e.kind === 'stepper' ? e.items : e.steps ?? []).forEach((s) => add(T(s.at), 'click', 0.4));
+        if (e.kind === 'illus') {
+          const s = e.steps ?? [];
+          if (e.at !== undefined) add(T(e.at), 'pop', 0.3);
+          if (e.name === 'flipbook' && s[0] !== undefined) add(T(s[0]), 'flip', 0.45);
+          if (e.name === 'render') {
+            if (s[0] !== undefined) add(T(s[0]), 'render', 0.35);
+            if (s[2] !== undefined) add(T(s[2]), 'ding', 0.45);
+          }
+          if (e.name === 'tiers') {
+            if (s[0] !== undefined) add(T(s[0]), 'ding', 0.35);
+            if (s[1] !== undefined) add(T(s[1]), 'error', 0.3);
+          }
+          if (e.name === 'recipe-code' && s[0] !== undefined) add(T(s[0]), 'typing', 0.35);
+          if (e.name === 'skill-folder' && s[0] !== undefined) add(T(s[0]), 'shimmer', 0.3);
+          if (e.name === 'screenrec' && s[0] !== undefined) add(T(s[0]), 'click', 0.4);
+        }
+        if (e.kind === 'chatsim')
+          e.items.forEach((m) => add(T(m.at), m.side === 'user' ? 'typing' : m.artifact ? 'shimmer' : 'pop', m.side === 'user' ? 0.35 : 0.3));
+        if ((e.kind === 'shot' || e.kind === 'phone') && e.rings) e.rings.forEach((r) => add(T(r.at), 'click', 0.35));
       });
     });
-    epicStarts.forEach((s) => add(s, 'boom', 0.8));
-    if (sb.loop) add(T(sb.loop.until), 'power', 0.7);
+    epicStarts.forEach((s) => add(s, 'slam', 0.6));
+    if (sb.loop) add(T(sb.loop.until), 'ding', 0.45);
   }
-  sb.sfx?.forEach((x) => ev.push({frame: T(x.at), name: x.name, volume: x.volume ?? VOL[x.name]}));
   ev.sort((a, b) => a.frame - b.frame);
-  return ev.filter((e, i) => !ev.slice(0, i).some((p) => p.name === e.name && e.frame - p.frame < 4));
+  // buang duplikat file yang sama berdekatan, dan batasi maksimal 2 suara per 4 frame
+  const out: Ev[] = [];
+  ev.forEach((e) => {
+    if (out.some((p) => p.file === e.file && e.frame - p.frame < 5)) return;
+    if (out.filter((p) => e.frame - p.frame < 4).length >= 2) return;
+    out.push(e);
+  });
+  return out;
 };

@@ -46,7 +46,10 @@ const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
   const sb = await getJson<Storyboard>('video/storyboard.json');
   const manifest = await getJson<{assets: PixelAsset[]}>('shared/pixel-aulia/manifest.json');
   const pixel = manifest?.assets ?? [];
-  if (!sb) return {durationInFrames: FPS * 3, props: {storyboard: null, words: [], availableProps: [], pixel}};
+  type BoldRaw = {id: string; category: string; file: string; width: number; height: number; alphaBounds: [number, number, number, number]};
+  const boldM = await getJson<{assets: BoldRaw[]}>('shared/bold-vector-aulia/manifest.json');
+  const bold: PixelAsset[] = (boldM?.assets ?? []).map((a) => ({id: a.id, category: a.category, file: a.file, width: a.width, height: a.height, visibleAlphaBounds: a.alphaBounds, root: 'shared/bold-vector-aulia', smooth: true}));
+  if (!sb) return {durationInFrames: FPS * 3, props: {storyboard: null, words: [], availableProps: [], pixel, bold}};
   const words = (await getJson<Word[]>(`video/${sb.words ?? 'tts/words.json'}`)) ?? [];
   const audioSec = await getAudioDurationInSeconds(staticFile(`video/${sb.audio ?? 'tts/final.mp3'}`));
   const names = propNames(sb);
@@ -56,7 +59,7 @@ const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
   if (missing.length) console.warn(`[video-karakter] props belum ada (pakai placeholder): ${missing.join(', ')}`);
   return {
     durationInFrames: Math.ceil((audioSec + (sb.tail ?? 1.2)) * FPS),
-    props: {storyboard: sb, words, availableProps, pixel},
+    props: {storyboard: sb, words, availableProps, pixel, bold},
   };
 };
 

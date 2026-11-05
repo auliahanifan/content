@@ -18,7 +18,7 @@ import type {Box} from './layout';
 
 loadFonts();
 
-export const Video: React.FC<VideoProps> = ({storyboard, words, availableProps, pixel}) => {
+export const Video: React.FC<VideoProps> = ({storyboard, words, availableProps, pixel, bold}) => {
   const {fps, durationInFrames} = useVideoConfig();
   const timing = useMemo(
     () => (storyboard ? makeTiming(words, storyboard, fps, availableProps) : null),
@@ -34,7 +34,7 @@ export const Video: React.FC<VideoProps> = ({storyboard, words, availableProps, 
   return (
     <TimingProvider value={timing}>
       {isKanvas(storyboard) ? (
-        <Kanvas sb={storyboard} fps={fps} duration={durationInFrames} pixel={pixel} />
+        <Kanvas sb={storyboard} fps={fps} duration={durationInFrames} pixel={storyboard.character === 'pixel' || !bold?.length ? pixel : bold} />
       ) : (
         <Inner sb={storyboard} fps={fps} duration={durationInFrames} pixel={pixel} />
       )}

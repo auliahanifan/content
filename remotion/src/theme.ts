@@ -4,6 +4,8 @@ import pixelify500 from '@fontsource/pixelify-sans/files/pixelify-sans-latin-500
 import jakarta600 from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-600-normal.woff2';
 import jakarta700 from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2';
 import jakarta800 from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-800-normal.woff2';
+import bricolage700 from '@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff2';
+import bricolage800 from '@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-800-normal.woff2';
 
 // Palet retro game: siang RPG (langit, bukit) + malam arcade (navy-ungu), UI jendela krem bergaris tinta.
 export const C = {
@@ -34,6 +36,7 @@ export const tone = (t?: Tone): string => (t ? C[t] : C.accent);
 
 export const FONT_PIXEL = '"Pixelify Sans", monospace';
 export const FONT_BODY = '"Plus Jakarta Sans", system-ui, sans-serif';
+export const FONT_HEAD = '"Bricolage Grotesque", "Plus Jakarta Sans", system-ui, sans-serif';
 // alias lama
 export const FONT_DISPLAY = FONT_PIXEL;
 
@@ -65,6 +68,8 @@ export const loadFonts = () => {
     ['Plus Jakarta Sans', jakarta600, '600'],
     ['Plus Jakarta Sans', jakarta700, '700'],
     ['Plus Jakarta Sans', jakarta800, '800'],
+    ['Bricolage Grotesque', bricolage700, '700'],
+    ['Bricolage Grotesque', bricolage800, '800'],
   ];
   const handle = delayRender('fonts');
   Promise.all(
