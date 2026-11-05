@@ -3,11 +3,11 @@ import {AbsoluteFill, Easing, Html5Audio, Img, interpolate, Sequence, spring, st
 import {PixelFigure} from '../components/Character';
 import {EpicLayer, epicLevel} from '../components/Epic';
 import {tokens} from '../components/Captions';
-import {FONT_BODY, FONT_HEAD} from '../theme';
+import {FONT_BODY} from '../theme';
 import {useTiming} from '../timing';
 import type {KChar, KEl, KLine, PixelAsset, Storyboard} from '../types';
 import {Element} from './Elements';
-import {K, KGEO} from './theme';
+import {A, bigCard, FIBRE, FONT_HEAD, GRAIN, K, KGEO, loadPaperFonts, setSeries, SHADOW} from './theme';
 
 export const isKanvas = (sb: Storyboard) => (sb.style ? sb.style === 'kanvas' : !!sb.panels);
 
@@ -40,6 +40,8 @@ const useKeyIdx = () => {
  * Prinsip tetap: yang berubah di layar adalah isi penjelasan, bukan dekorasi.
  */
 export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
+  loadPaperFonts();
+  setSeries(sb.series);
   const frame = useCurrentFrame();
   const {T, E} = useTiming();
   const hookEnd = useHookEnd();
@@ -105,6 +107,7 @@ export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
         return a ? <EpicLayer key={i} e={x.e} start={x.start} end={x.end} asset={a} /> : null;
       })}
       <Html5Audio src={staticFile(`video/${sb.audio ?? 'tts/final.mp3'}`)} />
+      <AbsoluteFill style={{backgroundImage: GRAIN, opacity: 0.12, mixBlendMode: 'overlay', pointerEvents: 'none'}} />
       {sfx.map((s, i) => (
         <Sequence key={i} from={Math.max(0, s.frame)} durationInFrames={Math.round(fps * 1.6)} layout="none">
           <Html5Audio src={staticFile(`sfx/${s.file}.mp3`)} volume={s.volume} />
@@ -117,12 +120,13 @@ export const Kanvas: React.FC<Props> = ({sb, fps, duration, pixel}) => {
 /* ---------- latar: grid titik + dua bulatan warna yang bergeser pelan ---------- */
 const Backdrop: React.FC = () => {
   const frame = useCurrentFrame();
-  const a = frame / 200;
+  const a = frame / 220;
   return (
     <>
-      <AbsoluteFill style={{backgroundImage: `radial-gradient(${K.dot} 2.6px, transparent 2.8px)`, backgroundSize: '46px 46px', backgroundPosition: `${23 + Math.sin(a) * 6}px ${23 + frame * 0.15}px`}} />
-      <div style={{position: 'absolute', width: 900, height: 900, borderRadius: '50%', left: -380 + Math.sin(a) * 60, top: 1050 + Math.cos(a) * 40, background: 'radial-gradient(circle, rgba(47,91,234,0.10), transparent 65%)'}} />
-      <div style={{position: 'absolute', width: 800, height: 800, borderRadius: '50%', right: -360 + Math.cos(a * 0.8) * 50, top: 300 + Math.sin(a * 0.8) * 50, background: 'radial-gradient(circle, rgba(255,216,77,0.22), transparent 65%)'}} />
+      <AbsoluteFill style={{background: `linear-gradient(180deg, ${K.bg}, ${K.bg2})`}} />
+      <AbsoluteFill style={{backgroundImage: FIBRE, opacity: 0.3, mixBlendMode: 'multiply', backgroundPosition: `${Math.sin(a) * 8}px ${frame * 0.12}px`}} />
+      <div style={{position: 'absolute', width: 1100, height: 1100, borderRadius: '50%', left: -300 + Math.sin(a) * 50, top: 120 + Math.cos(a) * 40, background: 'radial-gradient(circle, rgba(255,248,230,0.55), transparent 62%)'}} />
+      <div style={{position: 'absolute', width: 900, height: 900, borderRadius: '50%', right: -420 + Math.cos(a * 0.8) * 40, top: 1100 + Math.sin(a * 0.8) * 40, background: 'radial-gradient(circle, rgba(62,140,147,0.12), transparent 65%)'}} />
     </>
   );
 };
@@ -150,7 +154,7 @@ const Header: React.FC<{topic?: string}> = ({topic}) => {
     const b = T(loop.until);
     if (frame >= a && frame < b) {
       chip = `${loop.text} · ${Math.ceil((b - frame) / fps)} dtk`;
-      chipBg = K.accent;
+      chipBg = A();
       prog = (frame - a) / Math.max(1, b - a);
     } else if (frame >= b && frame < b + fps * 1.6) {
       chip = loop.done ?? 'Ini dia 👇';
@@ -164,7 +168,7 @@ const Header: React.FC<{topic?: string}> = ({topic}) => {
       <Img src={staticFile(`shared/${sb.series}.svg`)} style={{width: g.height * 1.15, height: g.height, objectFit: 'contain', objectPosition: 'left center'}} />
       <div style={{flex: 1}} />
       {chip && (
-        <div style={{fontFamily: FONT_HEAD, fontWeight: 800, fontSize: 30, color: K.card, background: fill, borderRadius: 999, padding: '13px 28px', whiteSpace: 'nowrap', maxWidth: 600, overflow: 'hidden', textOverflow: 'ellipsis', border: `3px solid ${K.ink}`, boxShadow: `4px 5px 0 ${K.ink}`}}>
+        <div style={{fontFamily: FONT_BODY, fontWeight: 800, fontSize: 28, color: K.card, background: fill, borderRadius: 14, padding: '13px 28px', whiteSpace: 'nowrap', maxWidth: 600, overflow: 'hidden', textOverflow: 'ellipsis', boxShadow: SHADOW}}>
           {chip}
         </div>
       )}
@@ -213,8 +217,8 @@ const Headline: React.FC = () => {
   const size = len > 40 ? 62 : len > 30 ? 74 : len > 20 ? 88 : 104;
   return (
     <div style={{position: 'absolute', left: g.left, top: g.top, width: g.width, height: g.height, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, textAlign: 'center', opacity: fadeOut}}>
-      <div style={{fontFamily: FONT_BODY, fontSize: 44, fontWeight: 700, color: K.soft, lineHeight: 1.25, minHeight: 56, opacity: sIn, transform: `translateY(${(1 - sIn) * 16}px)`}}>{b.setup}</div>
-      <div style={{fontFamily: FONT_HEAD, fontSize: size, fontWeight: 800, color: K.ink, lineHeight: 1.08, letterSpacing: -1, textWrap: 'balance', maxWidth: g.width}}>
+      <div style={{fontFamily: FONT_HEAD, fontSize: 44, fontWeight: 600, color: K.soft, lineHeight: 1.25, minHeight: 56, opacity: sIn, transform: `translateY(${(1 - sIn) * 16}px)`}}>{b.setup}</div>
+      <div style={{fontFamily: FONT_HEAD, fontSize: size, fontWeight: 800, color: K.ink, lineHeight: 1.06, letterSpacing: -1.5, textWrap: 'balance', maxWidth: g.width}}>
         {punch.map((p, i) => {
           const st = Math.max(T(p.first) - 2, lineStart);
           const vis = frame >= st;
@@ -228,13 +232,13 @@ const Headline: React.FC = () => {
                   display: 'inline-block',
                   opacity: vis ? Math.min(1, pp * 1.6) : 0,
                   transform: `translateY(${(1 - pp) * 34}px) scale(${0.9 + 0.1 * pp})`,
-                  padding: p.key ? '0 12px' : 0,
-                  margin: p.key ? '0 -4px' : 0,
-                  backgroundImage: p.key ? `linear-gradient(${K.sun}, ${K.sun})` : undefined,
+                  color: p.key && sweep > 30 ? A() : undefined,
+                  padding: p.key ? '0 6px' : 0,
+                  backgroundImage: p.key ? `linear-gradient(${K.accentSoft}, ${K.accentSoft})` : undefined,
                   backgroundRepeat: 'no-repeat',
-                  backgroundSize: p.key ? `${sweep}% 62%` : undefined,
-                  backgroundPosition: '0 78%',
-                  borderRadius: 6,
+                  backgroundSize: p.key ? `${sweep}% 22%` : undefined,
+                  backgroundPosition: '0 92%',
+                  borderRadius: 4,
                 }}
               >
                 {p.text}
@@ -247,7 +251,25 @@ const Headline: React.FC = () => {
   );
 };
 
-/* ---------- hook: teks raksasa dipukul masuk per kata + benda kunci, lalu mengecil ---------- */
+/* ---------- hook: huruf kertas potong untuk kata kunci ---------- */
+
+const CUT = ['accent', K.sun, K.teal, K.ink, '#E9B872'];
+const CutLetters: React.FC<{text: string; seed: number}> = ({text, seed}) => (
+  <>
+    {[...text].map((ch, j) => {
+      const c = CUT[(j + seed) % CUT.length];
+      const bg = c === 'accent' ? A() : c;
+      const dark = bg === K.ink || bg === K.teal || bg === A();
+      return (
+        <span key={j} style={{display: 'inline-block', background: bg, color: dark ? K.card : K.ink, padding: '0 0.08em 0.06em', margin: '0 0.025em', borderRadius: 8, boxShadow: SHADOW, transform: `rotate(${[-5, 4, -3, 6, -4, 3, -6][(j + seed) % 7]}deg)`}}>
+          {ch}
+        </span>
+      );
+    })}
+  </>
+);
+
+/* ---------- hook: teks raksasa jatuh per kata di atas lembar kertas + benda kunci, lalu mengecil ---------- */
 
 const HookLayer: React.FC = () => {
   const frame = useCurrentFrame();
@@ -259,12 +281,12 @@ const HookLayer: React.FC = () => {
   if (!sb.hook) return null;
   const exit = spring({frame: frame - (hookEnd - 6), fps, config: {damping: 16, stiffness: 140}});
   const chars = toks.map((t) => t.text).join(' ').length;
-  const size = chars > 60 ? 104 : chars > 40 ? 124 : 150;
+  const size = chars > 55 ? 90 : chars > 40 ? 112 : 140;
   const burst = frame / 2;
   return (
     <AbsoluteFill style={{opacity: 1 - exit, transform: `translateY(${-exit * 260}px) scale(${1 - exit * 0.45})`, transformOrigin: '540px 400px'}}>
-      <div style={{position: 'absolute', left: 540 - 900, top: 640 - 900, width: 1800, height: 1800, background: `repeating-conic-gradient(from ${burst}deg, ${K.accentSoft} 0deg 8deg, transparent 8deg 20deg)`, borderRadius: '50%', opacity: 0.8, maskImage: 'radial-gradient(circle, black 30%, transparent 62%)', WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 62%)'}} />
-      <div style={{position: 'absolute', left: 50, right: 50, top: 290, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'flex-start', gap: '6px 26px', fontFamily: FONT_HEAD, fontWeight: 800, fontSize: size, lineHeight: 1.02, color: K.ink, letterSpacing: -2, textAlign: 'center'}}>
+      <div style={{position: 'absolute', left: 40, right: 40, top: 250, height: 700, ...bigCard(), transform: `rotate(${-1.2 + Math.sin(burst / 40) * 0.3}deg)`}} />
+      <div style={{position: 'absolute', left: 70, right: 70, top: 300, height: 600, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center', gap: '10px 26px', fontFamily: FONT_HEAD, fontWeight: 800, fontSize: size, lineHeight: 1.02, color: K.ink, letterSpacing: -2, textAlign: 'center'}}>
         {toks.map((t, i) => {
           const st = T(t.first) - 2;
           const vis = frame >= st;
@@ -276,20 +298,16 @@ const HookLayer: React.FC = () => {
               style={{
                 display: 'inline-block',
                 opacity: vis ? 1 : 0,
-                transform: `scale(${interpolate(p, [0, 1], [2.1, 1])}) rotate(${(1 - p) * (i % 2 ? 6 : -6)}deg)`,
-                background: key ? K.sun : 'transparent',
-                border: key ? `5px solid ${K.ink}` : undefined,
-                boxShadow: key ? `7px 8px 0 ${K.ink}` : undefined,
-                borderRadius: 18,
-                padding: key ? '0 18px 6px' : 0,
+                transform: `translateY(${(1 - p) * -40}px) scale(${interpolate(p, [0, 1], [1.35, 1])}) rotate(${(1 - p) * (i % 2 ? 4 : -4)}deg)`,
+                letterSpacing: key ? 0 : undefined,
               }}
             >
-              {t.text}
+              {key ? <CutLetters text={t.text} seed={i} /> : t.text}
             </span>
           );
         })}
       </div>
-      <div style={{position: 'absolute', left: 60, right: 60, top: 1030, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26}}>
+      <div style={{position: 'absolute', left: 60, right: 60, top: 1010, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26}}>
         {(sb.hook.items ?? []).map((el: KEl, i: number) => (
           <Element key={i} el={el} panelStart={0} stageW={960} />
         ))}
@@ -362,15 +380,15 @@ const KChar: React.FC<{panels: {p: {pose?: string}; start: number; char: KChar}[
   const flip = (m < 0.5 ? panels[Math.max(0, pi - 1)]?.char : panels[pi]?.char) === 'right';
   // masuk setelah hook: meluncur dari bawah
   const enter = spring({frame: frame - Math.max(4, hookEnd - 4), fps, config: {damping: 14, stiffness: 120}});
-  const bob = Math.sin((frame / fps) * Math.PI * 0.8) * 8;
+  const bob = Math.sin((frame / fps) * Math.PI * 0.8) * 5;
   const breathe = 1 + Math.sin((frame / fps) * Math.PI * 0.8 + 1) * 0.008;
   const asset = assets.get(pose.pose) ?? assets.get('netral');
   if (!asset) return null;
   const squash = interpolate(popP, [0, 1], [0.9, 1]);
   return (
     <div style={{position: 'absolute', left: cx, top: base + (1 - enter) * 700, width: 0, height: 0, opacity: Math.min(1, enter * 2)}}>
-      <div style={{position: 'absolute', left: -h * 0.24, top: -h * 0.03, width: h * 0.48, height: h * 0.06, borderRadius: '50%', background: 'rgba(20,27,61,0.16)', transform: `scaleX(${1 - bob / 120})`}} />
-      <div style={{position: 'absolute', left: 0, top: bob - 8, transform: `scaleX(${flip ? -1 : 1}) scale(${squash * breathe}, ${(2 - squash) * breathe})`, transformOrigin: '0 0'}}>
+      <div style={{position: 'absolute', left: -h * 0.24, top: -h * 0.03, width: h * 0.48, height: h * 0.06, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(60,35,10,0.34), transparent)', transform: `scaleX(${1 - bob / 120})`}} />
+      <div style={{position: 'absolute', left: 0, top: bob - 6, transform: `scaleX(${flip ? -1 : 1}) scale(${squash * breathe}, ${(2 - squash) * breathe})`, transformOrigin: '0 0', filter: 'drop-shadow(0 4px 0 rgba(0,0,0,0.08)) drop-shadow(8px 18px 16px rgba(60,35,10,0.32))'}}>
         <PixelFigure asset={asset} h={h} />
       </div>
     </div>
@@ -399,65 +417,45 @@ const walk = (els: KEl[], f: (e: KEl) => void) =>
   });
 
 const kanvasSfx = (sb: Storyboard, starts: number[], T: (i: number) => number, epicStarts: number[], hookEnd: number) => {
+  // kanvas v3: minimal. pop = kartu/elemen baru, tick = butir checklist/chat/langkah, soft-hit = satu aksen di hook.
   const ev: Ev[] = [];
-  const add = (frame: number, name: string, volume: number) => frame >= 0 && ev.push({frame, file: `v2/${name}`, volume});
+  const add = (frame: number, name: 'pop' | 'tick' | 'soft-hit', volume: number) => frame >= 0 && ev.push({frame, file: `v2/${name}`, volume});
   if (sb.autoSfx !== false) {
     if (sb.hook) {
-      add(T(0) - 2, 'slam', 0.5);
-      const ks = new Set((sb.keywords ?? []).filter((k): k is number => typeof k === 'number'));
-      (sb.lines ?? []).forEach((l) => l.key?.forEach((k) => k <= sb.hook!.until && ks.add(k)));
-      ks.forEach((k) => k <= sb.hook!.until && k > 0 && add(T(k) - 2, 'slam', 0.4));
-      add(hookEnd - 8, 'whoosh', 0.4);
-      walk(sb.hook.items ?? [], (e) => e.at !== undefined && add(T(e.at), 'pop', 0.35));
+      add(T(0) - 2, 'soft-hit', 0.55);
+      walk(sb.hook.items ?? [], (e) => e.at !== undefined && add(T(e.at), 'pop', 0.26));
     }
     (sb.panels ?? []).forEach((p, i) => {
-      if (i > 0 && p.sfx !== null) add(starts[i] - 3, 'whoosh', 0.32);
+      if (i > 0 && p.sfx !== null) add(starts[i] + 2, 'pop', 0.24);
       walk(p.items, (e) => {
-        if (e.at !== undefined && e.kind !== 'row' && e.kind !== 'illus' && e.kind !== 'chatsim') add(T(e.at), 'pop', 0.3);
+        if (e.at !== undefined && e.kind !== 'row' && e.kind !== 'chatsim') add(T(e.at), 'pop', 0.24);
         if (e.kind === 'card') {
-          if (e.strikeAt !== undefined) add(T(e.strikeAt), 'strike', 0.4);
-          if (e.swap) add(T(e.swap.at), 'ding', 0.35);
-          if (e.stamp) add(T(e.stamp.at), 'slam', 0.5);
+          if (e.strikeAt !== undefined) add(T(e.strikeAt), 'tick', 0.32);
+          if (e.swap) add(T(e.swap.at), 'tick', 0.32);
+          if (e.stamp) add(T(e.stamp.at), 'pop', 0.3);
         }
-        if (e.kind === 'icon' && e.labelAt !== undefined) add(T(e.labelAt), 'swoosh', 0.25);
+        if (e.kind === 'icon' && e.labelAt !== undefined) add(T(e.labelAt), 'tick', 0.28);
         if (e.kind === 'checklist')
           e.items.forEach((it) => {
-            if (it.at !== undefined) add(T(it.at), 'pop', 0.25);
-            if (it.doneAt !== undefined) add(T(it.doneAt), 'tick', 0.45);
-            if (it.strikeAt !== undefined) add(T(it.strikeAt), 'strike', 0.4);
+            if (it.at !== undefined) add(T(it.at), 'tick', 0.28);
+            if (it.doneAt !== undefined) add(T(it.doneAt), 'tick', 0.34);
+            if (it.strikeAt !== undefined) add(T(it.strikeAt), 'tick', 0.3);
           });
-        if (e.kind === 'flow') e.items.forEach((it) => it.at !== undefined && add(T(it.at), 'pop', 0.3));
-        if (e.kind === 'stepper' || (e.kind === 'phone' && e.steps)) (e.kind === 'stepper' ? e.items : e.steps ?? []).forEach((s) => add(T(s.at), 'click', 0.4));
-        if (e.kind === 'illus') {
-          const s = e.steps ?? [];
-          if (e.at !== undefined) add(T(e.at), 'pop', 0.3);
-          if (e.name === 'flipbook' && s[0] !== undefined) add(T(s[0]), 'flip', 0.45);
-          if (e.name === 'render') {
-            if (s[0] !== undefined) add(T(s[0]), 'render', 0.35);
-            if (s[2] !== undefined) add(T(s[2]), 'ding', 0.45);
-          }
-          if (e.name === 'tiers') {
-            if (s[0] !== undefined) add(T(s[0]), 'ding', 0.35);
-            if (s[1] !== undefined) add(T(s[1]), 'error', 0.3);
-          }
-          if (e.name === 'recipe-code' && s[0] !== undefined) add(T(s[0]), 'typing', 0.35);
-          if (e.name === 'skill-folder' && s[0] !== undefined) add(T(s[0]), 'shimmer', 0.3);
-          if (e.name === 'screenrec' && s[0] !== undefined) add(T(s[0]), 'click', 0.4);
-        }
-        if (e.kind === 'chatsim')
-          e.items.forEach((m) => add(T(m.at), m.side === 'user' ? 'typing' : m.artifact ? 'shimmer' : 'pop', m.side === 'user' ? 0.35 : 0.3));
-        if ((e.kind === 'shot' || e.kind === 'phone') && e.rings) e.rings.forEach((r) => add(T(r.at), 'click', 0.35));
+        if (e.kind === 'flow') e.items.forEach((it) => it.at !== undefined && add(T(it.at), 'pop', 0.24));
+        if (e.kind === 'stepper' || (e.kind === 'phone' && e.steps)) (e.kind === 'stepper' ? e.items : e.steps ?? []).forEach((st) => add(T(st.at), 'tick', 0.3));
+        if (e.kind === 'illus' && e.name === 'render' && e.steps?.[2] !== undefined) add(T(e.steps[2]), 'pop', 0.26);
+        if (e.kind === 'chatsim') e.items.forEach((m) => add(T(m.at), 'tick', 0.28));
+        if ((e.kind === 'shot' || e.kind === 'phone') && e.rings) e.rings.forEach((r) => add(T(r.at), 'tick', 0.28));
       });
     });
-    epicStarts.forEach((s) => add(s, 'slam', 0.6));
-    if (sb.loop) add(T(sb.loop.until), 'ding', 0.45);
+    epicStarts.forEach((st) => add(st, 'soft-hit', 0.5));
+    if (sb.loop) add(T(sb.loop.until), 'pop', 0.3);
   }
   ev.sort((a, b) => a.frame - b.frame);
-  // buang duplikat file yang sama berdekatan, dan batasi maksimal 2 suara per 4 frame
+  // buang duplikat berdekatan dan batasi satu suara per 4 frame
   const out: Ev[] = [];
   ev.forEach((e) => {
-    if (out.some((p) => p.file === e.file && e.frame - p.frame < 5)) return;
-    if (out.filter((p) => e.frame - p.frame < 4).length >= 2) return;
+    if (out.some((p) => e.frame - p.frame < 4)) return;
     out.push(e);
   });
   return out;

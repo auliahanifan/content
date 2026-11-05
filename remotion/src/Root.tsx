@@ -2,7 +2,6 @@ import React from 'react';
 import {CalculateMetadataFunction, Composition, staticFile} from 'remotion';
 import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {Video} from './Video';
-import {ComicTest, COMIC_FRAMES} from './comic/ComicTest';
 import type {Board, PixelAsset, Storyboard, VideoProps, Word} from './types';
 
 export const FPS = 30;
@@ -48,8 +47,11 @@ const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
   const manifest = await getJson<{assets: PixelAsset[]}>('shared/pixel-aulia/manifest.json');
   const pixel = manifest?.assets ?? [];
   type BoldRaw = {id: string; category: string; file: string; width: number; height: number; alphaBounds: [number, number, number, number]};
-  const boldM = await getJson<{assets: BoldRaw[]}>('shared/bold-vector-aulia/manifest.json');
-  const bold: PixelAsset[] = (boldM?.assets ?? []).map((a) => ({id: a.id, category: a.category, file: a.file, width: a.width, height: a.height, visibleAlphaBounds: a.alphaBounds, root: 'shared/bold-vector-aulia', smooth: true}));
+  // kanvas: paket karakter (default Paper Cutout Aulia); 'pixel' memakai manifest Pixel Aulia di atas
+  const PACKS: Record<string, string> = {paper: 'paper-cutout-aulia', bold: 'bold-vector-aulia'};
+  const pack = PACKS[sb?.character ?? 'paper'] ?? PACKS.paper;
+  const castM = await getJson<{assets: BoldRaw[]}>(`shared/${pack}/manifest.json`);
+  const bold: PixelAsset[] = (castM?.assets ?? []).map((a) => ({id: a.id, category: a.category, file: a.file, width: a.width, height: a.height, visibleAlphaBounds: a.alphaBounds, root: `shared/${pack}`, smooth: true}));
   if (!sb) return {durationInFrames: FPS * 3, props: {storyboard: null, words: [], availableProps: [], pixel, bold}};
   const words = (await getJson<Word[]>(`video/${sb.words ?? 'tts/words.json'}`)) ?? [];
   const audioSec = await getAudioDurationInSeconds(staticFile(`video/${sb.audio ?? 'tts/final.mp3'}`));
@@ -65,8 +67,6 @@ const calculateMetadata: CalculateMetadataFunction<VideoProps> = async () => {
 };
 
 export const Root: React.FC = () => (
-  <>
-  <Composition id="ComicTest" component={ComicTest} width={1080} height={1920} fps={FPS} durationInFrames={COMIC_FRAMES} />
   <Composition
     id="Video"
     component={Video}
@@ -77,5 +77,4 @@ export const Root: React.FC = () => (
     defaultProps={{storyboard: null, words: [], availableProps: [], pixel: []} as VideoProps}
     calculateMetadata={calculateMetadata}
   />
-  </>
 );

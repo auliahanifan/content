@@ -1,9 +1,9 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {FONT_BODY, FONT_HEAD} from '../theme';
+import {FONT_BODY} from '../theme';
 import {useTiming} from '../timing';
 import {VIcon} from './Icons';
-import {cardSkin, K} from './theme';
+import {bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
 
 /**
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
@@ -43,20 +43,20 @@ const Flipbook: React.FC<{steps?: number[]; start: number}> = ({steps, start}) =
       <svg width="600" height="400" viewBox="0 0 600 400" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         {/* tumpukan halaman */}
         {[18, 12, 6].map((d) => (
-          <rect key={d} x={300} y={40 + d} width={250 - d} height={300} rx={14} fill={K.card} stroke={K.ink} strokeWidth={4} />
+          <rect key={d} x={300} y={40 + d} width={250 - d} height={300} rx={14} fill={K.card} stroke={K.line} strokeWidth={4} />
         ))}
-        <rect x={50} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.ink} strokeWidth={5} />
-        <rect x={300} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.ink} strokeWidth={5} />
+        <rect x={50} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.line} strokeWidth={5} />
+        <rect x={300} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.line} strokeWidth={5} />
         {/* gambar di halaman kanan: bola yang posisinya berubah tiap halaman */}
-        <circle cx={300 + ballX} cy={60 + ballY + 80} r={26} fill={K.accent} stroke={K.ink} strokeWidth={4} />
-        <path d={`M320 300 H530`} stroke={K.ink} strokeWidth={4} strokeLinecap="round" />
+        <circle cx={300 + ballX} cy={60 + ballY + 80} r={26} fill={K.accent} stroke={K.line} strokeWidth={4} />
+        <path d={`M320 300 H530`} stroke={K.line} strokeWidth={4} strokeLinecap="round" />
         {/* halaman yang sedang membalik */}
         {flipping && (
           <g transform={`translate(300 0) scale(${Math.cos(ph * Math.PI)} 1)`}>
-            <rect x={0} y={40} width={250} height={300} rx={14} fill={ph < 0.5 ? K.card : K.sunSoft} stroke={K.ink} strokeWidth={5} />
+            <rect x={0} y={40} width={250} height={300} rx={14} fill={ph < 0.5 ? K.card : K.sunSoft} stroke={K.line} strokeWidth={5} />
           </g>
         )}
-        <path d="M300 40 V340" stroke={K.ink} strokeWidth={6} />
+        <path d="M300 40 V340" stroke={K.line} strokeWidth={6} />
       </svg>
       <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, display: 'flex', justifyContent: 'center'}}>
         <div style={{...cardSkin, borderRadius: 999, padding: '10px 30px', fontSize: 44, fontWeight: 800, color: K.ink, fontVariantNumeric: 'tabular-nums'}}>
@@ -95,8 +95,8 @@ const RecipeCode: React.FC<{steps?: number[]; start: number}> = ({steps, start})
         ))}
       </div>
       {/* jendela kode */}
-      <div style={{position: 'absolute', inset: 0, borderRadius: 28, border: `${4}px solid ${K.ink}`, boxShadow: `7px 8px 0 ${K.ink}`, background: '#101633', opacity: morph, transform: `scale(${0.94 + morph * 0.06})`, overflow: 'hidden'}}>
-        <div style={{display: 'flex', gap: 10, padding: '18px 22px', background: '#1B2350'}}>
+      <div style={{position: 'absolute', inset: 0, borderRadius: 28, border: 'none', boxShadow: SHADOW, background: K.ink, opacity: morph, transform: `scale(${0.94 + morph * 0.06})`, overflow: 'hidden'}}>
+        <div style={{display: 'flex', gap: 10, padding: '18px 22px', background: '#26406A'}}>
           {[K.bad, K.warn, K.good].map((c) => (
             <div key={c} style={{width: 18, height: 18, borderRadius: 9, background: c}} />
           ))}
@@ -134,9 +134,9 @@ const Render: React.FC<{steps?: number[]; start: number; labels?: string[]}> = (
   return (
     <div style={{position: 'relative', width: 640, height: 500}}>
       <svg width="640" height="430" viewBox="0 0 640 430" style={{position: 'absolute', left: 0, top: 0}}>
-        <rect x={70} y={30} width={460} height={300} rx={22} fill={K.ink} stroke={K.ink} strokeWidth={5} />
+        <rect x={70} y={30} width={460} height={300} rx={22} fill={K.ink} stroke={K.line} strokeWidth={5} />
         <rect x={92} y={52} width={416} height={240} rx={10} fill={K.card} />
-        <path d="M20 350 H580 L548 392 H52 Z" fill={K.card} stroke={K.ink} strokeWidth={5} strokeLinejoin="round" />
+        <path d="M20 350 H580 L548 392 H52 Z" fill={K.card} stroke={K.line} strokeWidth={5} strokeLinejoin="round" />
         <rect x={250} y={350} width={100} height={12} rx={6} fill={K.faint} />
       </svg>
       {/* grid frame di layar */}
@@ -145,13 +145,13 @@ const Render: React.FC<{steps?: number[]; start: number; labels?: string[]}> = (
           const on = i < filled;
           const just = i === filled - 1;
           return (
-            <div key={i} style={{height: 54, borderRadius: 6, border: `3px solid ${K.ink}`, background: on ? (i % 3 === 0 ? K.accent : i % 3 === 1 ? K.sun : K.good) : '#EEF1F8', transform: just ? 'scale(1.12)' : undefined, position: 'relative', overflow: 'hidden'}}>
+            <div key={i} style={{height: 54, borderRadius: 6, border: 'none', background: on ? (i % 3 === 0 ? K.accent : i % 3 === 1 ? K.sun : K.good) : K.paper2, transform: just ? 'scale(1.12)' : undefined, position: 'relative', overflow: 'hidden'}}>
               {on && <div style={{position: 'absolute', width: 14, height: 14, borderRadius: 7, background: K.card, left: 6 + ((i * 9) % 36), top: 18}} />}
             </div>
           );
         })}
       </div>
-      <div style={{position: 'absolute', left: 104, top: 262, width: 392, height: 18, borderRadius: 9, border: `3px solid ${K.ink}`, background: K.card, overflow: 'hidden'}}>
+      <div style={{position: 'absolute', left: 104, top: 262, width: 392, height: 18, borderRadius: 9, border: 'none', background: K.card, overflow: 'hidden'}}>
         <div style={{width: `${prog * 100}%`, height: '100%', background: K.accent}} />
       </div>
       <div style={{position: 'absolute', left: 0, right: 0, top: 404, textAlign: 'center', fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink}}>
@@ -187,9 +187,9 @@ const SkillFolder: React.FC<{steps?: number[]; start: number; labels?: string[]}
         );
       })}
       <svg width="600" height="470" viewBox="0 0 600 470" style={{position: 'absolute', left: 0, top: 0, zIndex: 2, overflow: 'visible'}}>
-        <path d="M70 200 a14 14 0 0 1 14-14 H220 l30 30 H516 a14 14 0 0 1 14 14 V430 a14 14 0 0 1-14 14 H84 a14 14 0 0 1-14-14 Z" fill={K.accent} stroke={K.ink} strokeWidth={6} strokeLinejoin="round" />
+        <path d="M70 200 a14 14 0 0 1 14-14 H220 l30 30 H516 a14 14 0 0 1 14 14 V430 a14 14 0 0 1-14 14 H84 a14 14 0 0 1-14-14 Z" fill={K.teal} stroke={K.line} strokeWidth={6} strokeLinejoin="round" />
         <g transform={`translate(70 250) skewX(${-open * 14}) scale(1 ${1 - open * 0.25})`}>
-          <path d="M0 0 H460 a14 14 0 0 1 14 14 V180 a14 14 0 0 1-14 14 H14 a14 14 0 0 1-14-14 Z" fill="#5B80F2" stroke={K.ink} strokeWidth={6} strokeLinejoin="round" />
+          <path d="M0 0 H460 a14 14 0 0 1 14 14 V180 a14 14 0 0 1-14 14 H14 a14 14 0 0 1-14-14 Z" fill="#5FA9AE" stroke={K.line} strokeWidth={6} strokeLinejoin="round" />
         </g>
       </svg>
     </div>
@@ -244,7 +244,7 @@ const Tiers: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({
         })}
       </div>
       {labels?.[0] && (
-        <div style={{fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink, opacity: yes, background: K.sun, border: `3px solid ${K.ink}`, borderRadius: 12, padding: '6px 18px'}}>{labels[0]}</div>
+        <div style={{fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink, opacity: yes, background: K.sun, boxShadow: SHADOW, borderRadius: 12, padding: '6px 18px'}}>{labels[0]}</div>
       )}
     </div>
   );
@@ -260,12 +260,12 @@ const ScreenRec: React.FC<{steps?: number[]; start: number}> = ({steps, start}) 
   const t = (frame - start) / fps;
   return (
     <div style={{position: 'relative', width: 340, height: 660}}>
-      <div style={{position: 'absolute', inset: 0, borderRadius: 54, background: K.ink, padding: 16, boxShadow: `7px 8px 0 ${K.ink}`}}>
+      <div style={{position: 'absolute', inset: 0, borderRadius: 54, background: K.ink, padding: 16, boxShadow: SHADOW}}>
         <div style={{position: 'relative', width: '100%', height: '100%', borderRadius: 40, background: K.card, overflow: 'hidden'}}>
           {/* animasi artifact sederhana */}
-          <div style={{position: 'absolute', left: 30, top: 120 + Math.sin(t * 3) * 30, width: 70, height: 70, borderRadius: 18, background: K.accent, border: `4px solid ${K.ink}`, transform: `rotate(${t * 90}deg)`}} />
-          <div style={{position: 'absolute', right: 34, top: 240 + Math.cos(t * 2.4) * 40, width: 80, height: 80, borderRadius: 40, background: K.sun, border: `4px solid ${K.ink}`}} />
-          <div style={{position: 'absolute', left: 30, right: 30, bottom: 120, height: 22, borderRadius: 11, background: '#E6EAF4', overflow: 'hidden'}}>
+          <div style={{position: 'absolute', left: 30, top: 120 + Math.sin(t * 3) * 30, width: 70, height: 70, borderRadius: 18, background: K.accent, border: 'none', transform: `rotate(${t * 90}deg)`}} />
+          <div style={{position: 'absolute', right: 34, top: 240 + Math.cos(t * 2.4) * 40, width: 80, height: 80, borderRadius: 40, background: K.sun, border: 'none'}} />
+          <div style={{position: 'absolute', left: 30, right: 30, bottom: 120, height: 22, borderRadius: 11, background: K.paper2, overflow: 'hidden'}}>
             <div style={{width: `${((t * 25) % 100)}%`, height: '100%', background: K.good}} />
           </div>
           <div style={{position: 'absolute', left: 0, right: 0, top: 40, textAlign: 'center', fontFamily: FONT_HEAD, fontSize: 30, fontWeight: 800, color: K.ink}}>artifact</div>
@@ -308,8 +308,8 @@ export const ChatSim: React.FC<{app?: string; items: ChatMsg[]; w?: number}> = (
   const {fps} = useVideoConfig();
   const {T} = useTiming();
   return (
-    <div style={{...cardSkin, width: w, overflow: 'hidden', fontFamily: FONT_BODY}}>
-      <div style={{display: 'flex', alignItems: 'center', gap: 14, padding: '18px 24px', borderBottom: `4px solid ${K.ink}`, background: K.accentSoft}}>
+    <div style={{...bigCard(), width: w, fontFamily: FONT_BODY}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 14, padding: '18px 24px', borderBottom: `2px solid ${K.line}`, background: K.paper2, borderRadius: '28px 28px 0 0'}}>
         <VIcon name="sparkle" size={38} color={K.warn} />
         <div style={{fontFamily: FONT_HEAD, fontSize: 36, fontWeight: 800, color: K.ink}}>{app}</div>
       </div>
@@ -325,15 +325,15 @@ export const ChatSim: React.FC<{app?: string; items: ChatMsg[]; w?: number}> = (
           return (
             <div key={i} style={{alignSelf: user ? 'flex-end' : 'flex-start', maxWidth: '86%', opacity: Math.min(1, p * 1.5), transform: `translateY(${(1 - p) * 20}px)`}}>
               {m.artifact ? (
-                <div style={{border: `4px solid ${K.ink}`, borderRadius: 20, overflow: 'hidden', background: K.card, width: 420}}>
-                  <div style={{padding: '10px 16px', background: K.sunSoft, borderBottom: `3px solid ${K.ink}`, fontSize: 24, fontWeight: 800, color: K.ink}}>▶ {m.artifact}</div>
-                  <div style={{position: 'relative', height: 150, background: '#F6F8FD'}}>
-                    <div style={{position: 'absolute', left: 30 + ((frame - st) * 4) % 300, top: 50, width: 50, height: 50, borderRadius: 14, background: K.accent, border: `3px solid ${K.ink}`}} />
-                    <div style={{position: 'absolute', right: 40, top: 30 + Math.sin((frame - st) / 8) * 30, width: 44, height: 44, borderRadius: 22, background: K.sun, border: `3px solid ${K.ink}`}} />
+                <div style={{borderRadius: 20, overflow: 'hidden', background: K.card, width: 420, boxShadow: SHADOW}}>
+                  <div style={{padding: '10px 16px', background: K.sunSoft, borderBottom: `2px solid ${K.line}`, fontSize: 24, fontWeight: 800, color: K.ink}}>▶ {m.artifact}</div>
+                  <div style={{position: 'relative', height: 150, background: K.paper2}}>
+                    <div style={{position: 'absolute', left: 30 + ((frame - st) * 4) % 300, top: 50, width: 50, height: 50, borderRadius: 14, background: K.accent, border: 'none'}} />
+                    <div style={{position: 'absolute', right: 40, top: 30 + Math.sin((frame - st) / 8) * 30, width: 44, height: 44, borderRadius: 22, background: K.sun, border: 'none'}} />
                   </div>
                 </div>
               ) : (
-                <div style={{padding: '20px 26px', borderRadius: 24, border: `4px solid ${K.ink}`, boxShadow: `4px 5px 0 ${K.ink}`, background: user ? K.accent : K.card, color: user ? K.card : K.ink, fontSize: 38, fontWeight: 800, lineHeight: 1.25}}>
+                <div style={{padding: '20px 26px', borderRadius: 24, boxShadow: SHADOW, background: user ? K.accent : K.card, color: user ? K.card : K.ink, fontSize: 38, fontWeight: 800, lineHeight: 1.25}}>
                   {thinking ? <span style={{letterSpacing: 6}}>{'•••'.slice(0, 1 + (Math.floor((frame - st) / 4) % 3))}</span> : typed}
                   {user && typed.length < text.length && <span style={{opacity: frame % 14 < 7 ? 1 : 0}}>▍</span>}
                 </div>

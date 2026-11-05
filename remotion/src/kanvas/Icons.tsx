@@ -5,7 +5,7 @@ import {K} from './theme';
  * Ikon vektor gaya Bold Vector: garis navy 5px, isi palet kanvas, sudut membulat.
  * viewBox 96x96. Tambah ikon baru di objek ICONS (nama huruf kecil, tanda hubung).
  */
-const S = {stroke: K.ink, strokeWidth: 5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
+const S = {stroke: K.ink, strokeWidth: 3.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
 
 const ICONS: Record<string, (c: string) => React.ReactNode> = {
   laptop: (c) => (

@@ -2,12 +2,12 @@ import React from 'react';
 import {Img, interpolate, OffthreadVideo, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {UiMock} from '../boards/Mock';
 import {Prop} from '../components/Prop';
-import {FONT_BODY, FONT_HEAD, type Tone} from '../theme';
+import {FONT_BODY, type Tone} from '../theme';
 import {useTiming} from '../timing';
 import type {Board, KEl, KIcon, KStep, Ring, Stamp} from '../types';
 import {ChatSim, Illus, ILLUS_W} from './Illus';
 import {VIcon} from './Icons';
-import {cardSkin, K, ktone, OUT, SHADOW, softTone} from './theme';
+import {bigCard, cardSkin, FONT_HEAD, K, ktone, SHADOW, softTone} from './theme';
 
 /** Progres muncul (spring) dari frame `start`; `visible` false sebelum itu (tempat tetap dipesan). */
 const useIn = (start: number) => {
@@ -37,7 +37,7 @@ const KStrike: React.FC<{at?: number}> = ({at}) => {
   const {T} = useTiming();
   if (at === undefined) return null;
   const w = interpolate(frame, [T(at), T(at) + 7], [0, 104], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  return <div style={{position: 'absolute', left: '-3%', top: '48%', width: `${w}%`, height: 12, borderRadius: 6, background: K.bad, border: `3px solid ${K.ink}`, transform: 'rotate(-4deg)', transformOrigin: 'left center'}} />;
+  return <div style={{position: 'absolute', left: '-3%', top: '48%', width: `${w}%`, height: 10, borderRadius: 5, background: K.bad, opacity: 0.9, transform: 'rotate(-4deg)', transformOrigin: 'left center'}} />;
 };
 
 /** Stempel miring (mis. GRATIS!) yang jatuh dari besar ke ukuran normal. */
@@ -112,15 +112,17 @@ const Chip: React.FC<{text: string; tone?: Tone; size?: number; solid?: boolean}
         fontWeight: 800,
         fontSize: size,
         lineHeight: 1.1,
-        padding: `${size * 0.32}px ${size * 0.7}px`,
-        borderRadius: 999,
+        position: 'relative',
+        alignItems: 'center',
+        padding: `${size * 0.34}px ${size * 0.7}px ${size * 0.34}px ${solid ? size * 1.25 : size * 0.7}px`,
+        borderRadius: `${size * 0.3}px ${size * 0.9}px ${size * 0.9}px ${size * 0.3}px`,
         background: solid ? col : 'transparent',
-        color: solid ? (t === 'sun' ? K.ink : K.card) : col,
-        border: `3px solid ${K.ink}`,
-        boxShadow: size >= 30 ? `4px 5px 0 ${K.ink}` : undefined,
+        color: solid ? (t === 'sun' || t === 'warn' ? K.ink : K.card) : col,
+        boxShadow: solid ? SHADOW : undefined,
         whiteSpace: 'nowrap',
       }}
     >
+      {solid && <i style={{position: 'absolute', left: size * 0.42, top: '50%', width: size * 0.36, height: size * 0.36, marginTop: -size * 0.18, borderRadius: '50%', background: K.bg, boxShadow: 'inset 0 2px 3px rgba(0,0,0,0.35)'}} />}
       {text}
     </div>
   );
@@ -130,7 +132,7 @@ const cardBox = (w?: number): React.CSSProperties => ({
   position: 'relative',
   width: w,
   maxWidth: '100%',
-  ...cardSkin,
+  ...bigCard(),
   fontFamily: FONT_BODY,
   color: K.ink,
 });
@@ -143,7 +145,7 @@ const Card: React.FC<{el: Extract<KEl, {kind: 'card'}>}> = ({el}) => {
   const accent = el.tone ? ktone(el.tone) : undefined;
   return (
     <div style={{...cardBox(el.w ?? 640), padding: '32px 38px', display: 'flex', gap: 30, alignItems: 'center', background: accent && el.tone !== 'accent' ? softTone(el.tone) : K.card}}>
-      {accent && <div style={{position: 'absolute', left: -OUT, top: -OUT, bottom: -OUT, width: 18, borderRadius: '28px 0 0 28px', background: accent, border: `${OUT}px solid ${K.ink}`}} />}
+      {accent && <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: 16, borderRadius: '28px 0 0 28px', background: accent}} />}
       {el.icon && <Icon icon={el.icon} size={140} />}
       <div style={{display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0, flex: 1}}>
         {el.tag && (
@@ -218,7 +220,8 @@ const Check: React.FC<{done: boolean; p: number; tone?: Tone}> = ({done, p, tone
       height: 58,
       borderRadius: '50%',
       flexShrink: 0,
-      border: `4px solid ${K.ink}`,
+      border: done ? 'none' : `4px solid ${K.line}`,
+      boxShadow: done ? SHADOW : undefined,
       background: done ? ktone(t ?? 'good') : K.card,
       color: K.card,
       display: 'flex',
@@ -251,7 +254,7 @@ const CheckRow: React.FC<{it: Extract<KEl, {kind: 'checklist'}>['items'][number]
   const dp = it.doneAt === undefined ? 0 : spring({frame: frame - T(it.doneAt), fps, config: {damping: 10, stiffness: 220}});
   return (
     <div style={{...inStyle(p, visible, 16), display: 'flex', gap: 20, alignItems: 'center'}}>
-      {it.doneAt !== undefined ? <Check done={done} p={dp} tone={it.tone} /> : <div style={{width: 22, height: 22, borderRadius: 11, background: ktone(it.tone), border: `3px solid ${K.ink}`, flexShrink: 0, margin: '0 15px'}} />}
+      {it.doneAt !== undefined ? <Check done={done} p={dp} tone={it.tone} /> : <div style={{width: 22, height: 22, borderRadius: 11, background: ktone(it.tone), flexShrink: 0, margin: '0 15px'}} />}
       <div style={{position: 'relative', fontSize: 40, fontWeight: 700, lineHeight: 1.22, color: K.ink}}>
         {it.text}
         <KStrike at={it.strikeAt} />
@@ -278,7 +281,7 @@ const Phone: React.FC<{el: Extract<KEl, {kind: 'phone'}>; start: number}> = ({el
   const w = el.w ?? 420;
   const h = Math.round(w * 2.05);
   return (
-    <div style={{position: 'relative', width: w, height: h, borderRadius: w * 0.13, background: K.ink, padding: w * 0.035, boxShadow: SHADOW, border: `${OUT}px solid ${K.ink}`, flexShrink: 0}}>
+    <div style={{position: 'relative', width: w, height: h, borderRadius: w * 0.13, background: K.ink, padding: w * 0.035, boxShadow: SHADOW, flexShrink: 0}}>
       <div style={{position: 'relative', width: '100%', height: '100%', borderRadius: w * 0.1, overflow: 'hidden', background: '#0B0E1A'}}>
         {isVideo(el.src) ? (
           <Sequence from={start} layout="none">
@@ -326,7 +329,8 @@ const Stepper: React.FC<{items: KStep[]; w?: number}> = ({items, w}) => {
                 fontWeight: 800,
                 background: done ? K.good : active ? K.accent : K.card,
                 color: done || active ? K.card : K.faint,
-                border: `4px solid ${done || active ? K.ink : K.faint}`,
+                border: done || active ? 'none' : `3px solid ${K.line}`,
+                boxShadow: done || active ? SHADOW : undefined,
                 fontFamily: FONT_HEAD,
                 transform: active ? 'scale(1.12)' : undefined,
               }}
@@ -420,8 +424,8 @@ const Big: React.FC<{el: Extract<KEl, {kind: 'big'}>}> = ({el}) => {
   const sub = useIn(el.subAt === undefined ? -1 : T(el.subAt));
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14, fontFamily: FONT_BODY, textAlign: 'center'}}>
-      <div style={{fontFamily: FONT_HEAD, fontSize: el.text.length > 8 ? 130 : 190, fontWeight: 800, lineHeight: 0.95, color: ktone(el.tone), WebkitTextStroke: `5px ${K.ink}`, paintOrder: 'stroke fill', textShadow: `6px 7px 0 ${K.ink}`, letterSpacing: -2}}>{el.text}</div>
-      {el.sub && <div style={{...(el.subAt === undefined ? {} : inStyle(sub.p, sub.visible, 12)), fontSize: 38, fontWeight: 800, color: K.ink, background: K.sun, padding: '4px 16px', borderRadius: 10, border: `3px solid ${K.ink}`}}>{el.sub}</div>}
+      <div style={{fontFamily: FONT_HEAD, fontSize: el.text.length > 8 ? 130 : 190, fontWeight: 800, lineHeight: 0.95, color: ktone(el.tone), textShadow: '0 5px 0 rgba(0,0,0,0.06)', letterSpacing: -2}}>{el.text}</div>
+      {el.sub && <div style={{...(el.subAt === undefined ? {} : inStyle(sub.p, sub.visible, 12)), fontSize: 38, fontWeight: 800, color: K.ink, background: K.sun, padding: '4px 16px', borderRadius: 10, boxShadow: SHADOW}}>{el.sub}</div>}
     </div>
   );
 };

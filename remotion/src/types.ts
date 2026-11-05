@@ -198,7 +198,7 @@ export type KLine = {from: number; to?: number; split?: number; key?: number[]; 
 
 export type Storyboard = {
   style?: 'kanvas' | 'game'; // default: kanvas bila ada `panels`, game bila ada `scenes`
-  character?: 'bold' | 'pixel'; // kanvas: gaya karakter, default bold (Bold Vector Aulia)
+  character?: 'paper' | 'bold' | 'pixel'; // kanvas: paket karakter, default paper (Paper Cutout Aulia)
   hook?: {until: number; items?: KEl[]}; // kanvas: hook teks raksasa sampai kata `until`, dengan benda kunci
   topic?: string; // chip header kanvas, mis. "Bukan Sulap · dasar agent"
   lines?: KLine[]; // kanvas: headline (pengganti caption kata per kata)
@@ -233,5 +233,5 @@ export type VideoProps = {
   words: Word[];
   availableProps: string[]; // nama props yang sudah ada di assets/props/
   pixel: PixelAsset[]; // manifest Pixel Aulia
-  bold?: PixelAsset[]; // manifest Bold Vector Aulia (default karakter mode kanvas)
+  bold?: PixelAsset[]; // manifest paket karakter kanvas (default Paper Cutout Aulia)
 };
