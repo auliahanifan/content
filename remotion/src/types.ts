@@ -171,7 +171,8 @@ export type KEl = KBase &
     | {kind: 'phone'; src: string; from?: number; rate?: number; rings?: Ring[]; steps?: KStep[]}
     | {kind: 'stepper'; items: KStep[]}
     | {kind: 'row'; items: KEl[]; op?: string; gap?: number}
-    | {kind: 'illus'; name: 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec'; steps?: number[]; labels?: string[]}
+    | {kind: 'illus'; name: 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen'; steps?: number[]; labels?: string[]}
+    | {kind: 'evidence'; src: string; source?: string; mark?: {at: number; rects: {x: number; y: number; w: number; h: number}[]}; note?: {at: number; text: string; x?: number; y?: number}}
     | {kind: 'chatsim'; app?: string; items: {at: number; side: 'user' | 'ai'; text?: string; artifact?: string}[]}
   );
 

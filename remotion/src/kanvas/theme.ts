@@ -1,6 +1,7 @@
 import {continueRender, delayRender} from 'remotion';
 import fraunces600 from '@fontsource/fraunces/files/fraunces-latin-600-normal.woff2';
 import fraunces800 from '@fontsource/fraunces/files/fraunces-latin-800-normal.woff2';
+import caveat700 from '@fontsource/caveat/files/caveat-latin-700-normal.woff2';
 import type {Tone} from '../theme';
 
 /**
@@ -94,6 +95,7 @@ export const cardSkin = {
 export const bigCard = () => ({...cardSkin, boxShadow: stackShadow(), borderRadius: 28});
 
 export const FONT_HEAD = '"Fraunces", Georgia, serif';
+export const FONT_HAND = '"Caveat", "Comic Sans MS", cursive';
 
 /** Serat kertas: noise SVG sebagai data URI (dipakai di latar dan kartu besar). */
 const svg = (freq: string, oct: number) =>
@@ -108,10 +110,11 @@ export const loadPaperFonts = () => {
   const h = delayRender('fraunces');
   Promise.all(
     [
-      ['600', fraunces600],
-      ['800', fraunces800],
-    ].map(([w, url]) => {
-      const f = new FontFace('Fraunces', `url(${url}) format('woff2')`, {weight: w});
+      ['Fraunces', '600', fraunces600],
+      ['Fraunces', '800', fraunces800],
+      ['Caveat', '700', caveat700],
+    ].map(([fam, w, url]) => {
+      const f = new FontFace(fam, `url(${url}) format('woff2')`, {weight: w});
       document.fonts.add(f);
       return f.load();
     }),

@@ -1,15 +1,15 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT_BODY} from '../theme';
 import {useTiming} from '../timing';
 import {VIcon} from './Icons';
-import {bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
+import {A, bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
 
 /**
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
  * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
  */
-export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec';
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -281,7 +281,112 @@ const ScreenRec: React.FC<{steps?: number[]; start: number}> = ({steps, start}) 
   );
 };
 
-export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340};
+/* ---------- doors: tiap paket = pintu; yang dapat fitur terbuka dan bercahaya (0: buka, 1: gembok bergetar) ---------- */
+const DOORS = [
+  {id: 'Free', ok: false},
+  {id: 'Pro', ok: false},
+  {id: 'Max', ok: false},
+  {id: 'Team', ok: true},
+  {id: 'Enterprise', ok: true},
+];
+const Doors: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const open = useSpringAt(at(0), {damping: 11, stiffness: 120, mass: 0.8});
+  const shakeT = frame - at(1);
+  const shake = shakeT >= 0 && shakeT < 26 ? Math.sin(shakeT * 1.6) * 16 * (1 - shakeT / 26) : 0;
+  return (
+    <div style={{position: 'relative', width: 940, height: 660}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 300, borderRadius: '32px 32px 0 0', background: `linear-gradient(180deg, ${K.teal}, #7FB7AE)`, overflow: 'hidden'}}>
+        {[[90, 70, 160], [560, 120, 120], [740, 50, 90]].map(([x, y, w], i) => (
+          <div key={i} style={{position: 'absolute', left: x + Math.sin((frame + i * 40) / 60) * 8, top: y, width: w, height: 36, borderRadius: 20, background: K.card, boxShadow: SHADOW}} />
+        ))}
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 290, bottom: 0, borderRadius: '0 0 32px 32px', background: K.paper2, boxShadow: '0 -8px 16px -10px rgba(60,35,10,.4)'}} />
+      {DOORS.map((d, i) => {
+        const ap = spring({frame: frame - start - i * 4, fps, config: {damping: 12, stiffness: 170, mass: 0.6}});
+        const x = 30 + i * 182;
+        const o = d.ok ? open : 0;
+        return (
+          <div key={d.id} style={{position: 'absolute', left: x, top: 250, width: 150, opacity: Math.min(1, ap * 2), transform: `translateY(${(1 - ap) * 80}px)`}}>
+            <div style={{textAlign: 'center', fontFamily: FONT_HEAD, fontWeight: 800, fontSize: d.id.length > 6 ? 30 : 38, color: d.ok && o > 0.3 ? K.ink : K.soft, marginBottom: 14}}>{d.id}</div>
+            <div style={{position: 'relative', height: 330, perspective: 600}}>
+              <div style={{position: 'absolute', inset: 0, borderRadius: '75px 75px 0 0', background: '#1E2C46', overflow: 'hidden'}}>
+                <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(70% 60% at 50% 70%, #FFE6A6, #F2C14E 50%, #E9A93B)', opacity: o}} />
+                {d.ok && <div style={{position: 'absolute', left: 37, top: 150, opacity: o}}><VIcon name="film" size={76} color={K.bad} /></div>}
+              </div>
+              <div style={{position: 'absolute', inset: 0, borderRadius: '75px 75px 0 0', background: d.ok ? A() : K.ink, transformOrigin: 'left center', transform: `rotateY(${-74 * o}deg)`, boxShadow: 'inset -10px 0 0 rgba(0,0,0,.18)'}}>
+                {!d.ok && (
+                  <div style={{position: 'absolute', left: 50, top: 170, width: 50, height: 44, transform: `rotate(${shake}deg)`, transformOrigin: '50% 0'}}>
+                    <div style={{position: 'absolute', left: 9, top: -24, width: 32, height: 34, border: `8px solid ${K.sun}`, borderBottom: 'none', borderRadius: '18px 18px 0 0'}} />
+                    <div style={{position: 'absolute', inset: 0, borderRadius: 9, background: K.sun, boxShadow: SHADOW}} />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+      {labels?.[0] && (
+        <div style={{position: 'absolute', left: 0, right: 0, bottom: 26, display: 'flex', justifyContent: 'center'}}>
+          <div style={{fontFamily: FONT_HEAD, fontWeight: 800, fontSize: 38, color: K.ink, background: K.card, padding: '10px 26px', borderRadius: 14, boxShadow: SHADOW, opacity: open}}>{labels[0]}</div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+/* ---------- recipe-kitchen: resep ditulis (0), masuk laptop (1), video keluar (2) ---------- */
+const RecipeKitchen: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const lines = labels?.length ? labels : ['Judul naik dari bawah', 'Kotak geser ke kanan', 'Angka naik ke 1.800'];
+  const fly = interpolate(frame, [at(1), at(1) + 16], [0, 1], {...clamp, easing: Easing.bezier(0.6, 0, 0.4, 1)});
+  const cook = frame - (at(1) + 14);
+  const reel = useSpringAt(at(2), {damping: 10, stiffness: 150, mass: 0.7});
+  const drop = useSpringAt(start, {damping: 12, stiffness: 160, mass: 0.7});
+  return (
+    <div style={{position: 'relative', width: 600, height: 760}}>
+      {/* laptop */}
+      <div style={{position: 'absolute', left: 40, right: 40, top: 400, height: 250, borderRadius: '22px 22px 8px 8px', background: K.ink, padding: 16, boxShadow: SHADOW}}>
+        <div style={{width: '100%', height: '100%', borderRadius: 10, background: K.card, padding: 14, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: 'repeat(2, 1fr) 16px', gap: 8}}>
+          {Array.from({length: 8}).map((_, i) => {
+            const tp = cook < i * 3 ? 0 : spring({frame: cook - i * 3, fps, config: {damping: 11, stiffness: 200, mass: 0.5}});
+            return <div key={i} style={{borderRadius: 6, background: [A(), K.sun, K.teal][i % 3], transform: `scale(${tp})`}} />;
+          })}
+          <div style={{gridColumn: '1 / -1', borderRadius: 8, background: K.paper2, overflow: 'hidden'}}>
+            <div style={{height: '100%', width: `${interpolate(cook, [0, 30], [0, 100], clamp)}%`, background: K.good}} />
+          </div>
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 650, height: 46, borderRadius: '8px 8px 28px 28px', background: K.paper2, boxShadow: SHADOW}} />
+      {/* kartu resep */}
+      <div style={{position: 'absolute', left: 90, top: 20, width: 420, padding: '26px 30px', ...bigCard(), opacity: Math.min(1, drop * 2) * (1 - fly), transform: `translate(0px, ${(1 - drop) * -120 + fly * 420}px) scale(${1 - fly * 0.62}) rotate(${-3 * (1 - fly) - (1 - drop) * 8}deg)`}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 14, marginBottom: 12}}>
+          <VIcon name="recipe" size={54} color={K.sun} />
+          <div style={{fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink}}>Resep</div>
+        </div>
+        {lines.map((l, i) => {
+          const rp = interpolate(frame, [at(0) + i * 7, at(0) + i * 7 + 9], [0, 1], {...clamp, easing: Easing.bezier(0.2, 0.8, 0.2, 1)});
+          return (
+            <div key={i} style={{fontFamily: FONT_BODY, fontSize: 28, fontWeight: 700, color: K.ink, padding: '9px 0', borderBottom: `2px dashed ${K.line}`, clipPath: `inset(0 ${100 - rp * 100}% 0 0)`}}>
+              {i + 1}. {l}
+            </div>
+          );
+        })}
+      </div>
+      {/* video keluar */}
+      <div style={{position: 'absolute', right: -6, top: 300, width: 190, padding: '18px 0 14px', ...bigCard(), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: Math.min(1, reel * 2), transform: `translate(${(1 - reel) * -160}px, ${(1 - reel) * 150}px) scale(${0.3 + 0.7 * reel}) rotate(${6 - (1 - reel) * 24}deg)`}}>
+        <VIcon name="film" size={84} color={K.bad} />
+        <div style={{fontFamily: FONT_BODY, fontSize: 26, fontWeight: 800, color: K.ink}}>video.mp4</div>
+      </div>
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600};
 
 export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
   switch (name) {
@@ -297,6 +402,10 @@ export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; 
       return <Tiers steps={steps} start={start} labels={labels} />;
     case 'screenrec':
       return <ScreenRec steps={steps} start={start} />;
+    case 'doors':
+      return <Doors steps={steps} start={start} labels={labels} />;
+    case 'recipe-kitchen':
+      return <RecipeKitchen steps={steps} start={start} labels={labels} />;
   }
 };
 
