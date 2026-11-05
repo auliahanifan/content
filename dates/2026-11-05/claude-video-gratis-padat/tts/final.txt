@@ -1,0 +1,15 @@
+[confident] Mau bikin video animasi pakai Claude, tanpa bayar sepeser pun? Fitur videonya, Claude Motion, masih beta dan cuma ada di paket bisnis: Team dan Enterprise. Paket individu, bahkan yang berbayar... nggak dapat.
+
+[confident] Tapi di paket gratis pun, ada dua caranya. Saya kasih di akhir. Bukan sulap, begini cara kerjanya.
+
+[confident] Video itu flipbook, puluhan gambar per detik. Claude nggak menggambar tiap halaman. Dia menulis resepnya. Program di laptop membaca resep itu, menggambar semua halamannya, lalu menjilidnya jadi satu file video. Namanya render.
+
+[confident] Lalu skill yang ramai dibahas? Itu folder instruksi, kadang plus skrip. Contekan resep buat Claude, bukan mesin video. Jadi "tinggal panggil skill, langsung jadi video"? Belum tentu jalan.
+
+[confident] Dua cara yang pasti jalan. Satu, yang gampang: nyalakan code execution di pengaturan, minta animasinya sebagai artifact, putar, lalu rekam layarnya.
+
+[confident] Dua, yang rapi: minta kode Remotion atau Hyper Frames, alat bikin video dari kode. Salin, lalu render di laptop. Syarat dan lisensinya ada di caption.
+
+[confident] Aturannya satu: Claude nulis resepnya, laptop Anda yang masak.
+
+[confident] Video ini dibikin pakai Remotion lewat Claude Code, bukan paket gratis. Episode depan, Remotion lawan Hyper Frames, atau suara AI yang nggak datar? Tulis di komentar.
