@@ -1,5 +1,7 @@
 # storyboard.json mode kanvas (default, v2)
 
+**v4 Tactile Explainer (5 Nov 2026, standar):** dunia Paper Cutout v3 ditambah lima prinsip dari riset motion kelas dunia (Cleo Abram, Johnny Harris, Kurzgesagt, Vox "Two Parties" pemenang Motion Awards 2025; ringkasan di halaman eksplorasi https://claude.ai/artifact/3fqqu9SzZgVSsXQuuyg63V): (1) **ide terpenting jadi adegan metafora** (1-2 per video, `illus`), (2) **gerak punya berat**: pegas dengan sedikit kelewatan lalu mengendap, tidak ada gerak linear, (3) **bukti asli ala scrapbook** (`evidence`): tangkapan layar halaman resmi ditempel, frasa kunci distabilo saat diucapkan, catatan tulisan tangan, (4) **analogi jadi adegan bergambar**, bukan kartu teks (mis. paket = pintu), (5) **menahan diri**: hanya yang membantu paham yang bergerak. Strategi hibrida: identitas tetap (dunia kertas, Fraunces, Paper Cutout Aulia, aksen seri, 3 SFX) + adegan metafora khusus per video. Contoh: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v3 pembanding: `storyboard-v3.json`).
+
 **v3 Paper Cutout (5 Nov 2026):** satu dunia kertas: latar kraft berserat, kartu krem dengan dua lembar kertas (aksen seri + teal) bertumpuk di belakangnya, bayangan lembut, tanpa garis tebal dan bayangan keras; judul Fraunces (pengantar abu, inti tebal navy, kata kunci warna aksen dengan garis kertas tipis); label berupa tag kertas berlubang; karakter Paper Cutout Aulia (`assets/paper-cutout-aulia/`, 13 pose, 24 reaksi) dengan gerak idle halus. Hook: kata jatuh satu per satu di atas selembar kertas, kata kunci dari huruf potongan kertas. **Satu hal dalam satu waktu**: satu elemen per panel. Tetap dari v2: headline kinetik, ilustrasi beranimasi (`illus`), simulasi chat (`chatsim`), kamera pelan + `punch`, transisi geser. SFX minimal. Aksen per seri: Bukan Sulap koral, Sing Murah Wae mustard, Katanya Nyatanya teal (`remotion/src/kanvas/theme.ts`). Contoh: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v2 pembanding: `storyboard-v2.json`).
 
 Kanvas 1080x1920, 30 fps. Semua `at`, `from`, `split`, `doneAt`, `strikeAt` = **indeks kata** di `tts/words.json`. Durasi = audio + `tail`.
@@ -64,7 +66,8 @@ Semua punya `at` (muncul; default awal panel), `out` (memudar), `dimAt` (redup 3
 | `flow` | `items[{at, emoji/prop/src, label, tone}]`, `op` ("→" default, "+", "="), `size` | rantai yang tumbuh: mesin → mobil → supir, langkah proses |
 | `checklist` | `title`, `items[{at, text, doneAt, tone, strikeAt}]` | agent bekerja langkah demi langkah (dicentang di `doneAt`), daftar kebutuhan, boleh/tidak |
 | `ui` | `ui` (form, checkout, notif, chat, receipt, terminal, email, comments, profile) + field papan `ui` mode game (`app`, `meta`, `items`, `button`, `buttonAt`, `total`, `stamp`, `zoom`) | layar yang dikenali penonton; simulasi chatbot vs agent; CTA komentar/follow |
-| `shot` | `src`, `source`, `rings[{at,x,y,w,h,tone}]` (persen) | bukti layar statis |
+| `evidence` | `src` (PNG dari `bukti.mjs`), `source` (mis. "support.claude.com · judul artikel"), `mark: {at, rects[{x,y,w,h}]}` (persen, keluaran `bukti.mjs`), `note: {at, text, x, y}` (tulisan tangan, persen dari kartu), `w` (default 640; 760 dengan `char: "none"`) | **bukti asli** untuk klaim: kliping miring berselotip, stabilo di frasa saat diucapkan, catatan tangan, light leak saat masuk |
+| `shot` | `src`, `source`, `rings[{at,x,y,w,h,tone}]` (persen) | bukti layar statis (lama; utamakan `evidence`) |
 | `phone` | `src` (mp4 rekaman layar di folder video, atau png), `from` (detik mulai di rekaman), `rate`, `rings`, `steps[{at, text}]` (stepper di kiri HP) | **tutorial rekam layar** |
 | `stepper` | `items[{at, text}]` | langkah bernomor tanpa HP |
 | `row` | `items` (elemen anak), `op`, `gap` | dua hal berdampingan: A vs B, sebelum/sesudah |
@@ -74,7 +77,9 @@ Semua punya `at` (muncul; default awal panel), `out` (memudar), `dimAt` (redup 3
 ### Ilustrasi `illus`
 | name | tahap (`steps`) | `labels` | untuk |
 |---|---|---|---|
-| `tiers` | 0: Team/Enterprise dicentang · 1: Free/Pro/Max dicoret | 0: kalimat bawah | siapa yang dapat fitur (paket) |
+| `doors` | 0: pintu yang dapat fitur terbuka bercahaya · 1: gembok bergetar | 0: kalimat bawah | siapa yang dapat fitur (paket), versi adegan |
+| `recipe-kitchen` | 0: resep ditulis baris demi baris · 1: resep masuk laptop, laptop "memasak" · 2: `video.mp4` keluar | tiga baris resep | AI menulis kode/instruksi, mesin Anda yang mengerjakan |
+| `tiers` | 0: Team/Enterprise dicentang · 1: Free/Pro/Max dicoret | 0: kalimat bawah | siapa yang dapat fitur (paket), versi kartu |
 | `flipbook` | 0: halaman mulai membalik · 1: penghitung sampai 1.800 | - | video = gambar per frame |
 | `recipe-code` | 0: kartu resep berubah jadi kode yang diketik | - | AI menulis instruksi/kode |
 | `render` | 0: frame digambar satu per satu · 1: progress 100% · 2: file keluar | 0: label proses, 1: nama file | render, ekspor, proses mesin |
@@ -96,6 +101,8 @@ Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar asli
 
 ## Aturan (jangan dilanggar)
 - **Satu hal dalam satu waktu.** Tepat satu elemen per panel (dan satu di `hook.items`); hal baru = panel baru yang menggeser yang lama. Pengecualian: `row` berisi 2 elemen untuk perbandingan A vs B. Yang boleh tumbuh hanya isi elemen itu sendiri (butir checklist, pesan chat, langkah, tahap ilustrasi). `pnpm density` menolak panel berisi lebih dari satu elemen.
+- **Adegan metafora (wajib 1-2 per video).** Ide terpenting naskah (biasanya analogi atau aturan bawa pulang) diperagakan sebagai adegan `illus`, bukan `card`. Bila belum ada ilustrasi yang cocok, buat yang baru di `Illus.tsx` (gerak pegas, satu benda yang berubah tahap demi tahap mengikuti kata).
+- **Bukti asli untuk klaim faktual.** Klaim yang diluruskan (seri Bukan Sulap) memakai `evidence` dari halaman resmi, frasa kuncinya distabilo tepat saat diucapkan.
 - **Peraga, bukan label.** Elemen memperlihatkan proses atau perubahan (dicentang, dicoret, diganti, bertambah), bukan sekadar menamai isi kalimat. Tanya: "kalau suara dimatikan, apakah layar masih menjelaskan?"
 - **Satu analogi dibangun bertahap** di satu panel (flow/icon yang tumbuh), dan dipanggil lagi di penutup.
 - **Hook**: kalimat pertama (sampai kata `hook.until`) jatuh kata per kata di atas lembar kertas besar, kata kunci (`keywords`) dari huruf potongan kertas; satu benda kunci di `hook.items` tanpa `at` supaya tampil sejak frame 0. Panel pertama mulai sesudah hook, dan karakter masuk dari bawah.
