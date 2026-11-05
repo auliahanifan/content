@@ -1,0 +1,107 @@
+{
+  "assetsPerStyle": 46,
+  "totalAssets": 230,
+  "extraction": "Extract all volumes of a style into the same directory; each volume is a normal ZIP.",
+  "packages": [
+    {
+      "style": "motion-comic-aulia",
+      "assets": 46,
+      "volumes": [
+        {
+          "file": "motion-comic-aulia-01-of-03.zip",
+          "bytes": 38370336,
+          "sha256": "092125ec9a5d461b6491296e664cdc5f907975ac4a6a75e4405241af95c84edc"
+        },
+        {
+          "file": "motion-comic-aulia-02-of-03.zip",
+          "bytes": 39270371,
+          "sha256": "86d090c3a66394ba85899319ae71abd9e2e424f9d338f13e68626beb061ff4b2"
+        },
+        {
+          "file": "motion-comic-aulia-03-of-03.zip",
+          "bytes": 9104130,
+          "sha256": "8da9385d05d83db0628856881a99e90036b3ac2c8cf2905e2134764530db0b36"
+        }
+      ]
+    },
+    {
+      "style": "paper-cutout-aulia",
+      "assets": 46,
+      "volumes": [
+        {
+          "file": "paper-cutout-aulia-01-of-03.zip",
+          "bytes": 40192283,
+          "sha256": "5c7d96173de1b95e9ec27c3293fdc790e178c9423567ae480112c7c21ddcdcbc"
+        },
+        {
+          "file": "paper-cutout-aulia-02-of-03.zip",
+          "bytes": 38287001,
+          "sha256": "731c4292b31879a81952b6ff57bd85ee038a5e188048c43f3904be6df89af825"
+        },
+        {
+          "file": "paper-cutout-aulia-03-of-03.zip",
+          "bytes": 16361807,
+          "sha256": "c7f0c9f00ed76e16391759bab952b6b9619654508c2b10131f7d53c7a37e2a5b"
+        }
+      ]
+    },
+    {
+      "style": "bold-vector-aulia",
+      "assets": 46,
+      "volumes": [
+        {
+          "file": "bold-vector-aulia-01-of-02.zip",
+          "bytes": 39814434,
+          "sha256": "01139fbefee42cd189d36732d648db7d7a399fdfb6682e3059f5cceec192d1ff"
+        },
+        {
+          "file": "bold-vector-aulia-02-of-02.zip",
+          "bytes": 31266984,
+          "sha256": "64c68e6c8492d3515ae9630e79fc32c521468d2560f2db445c9365c10d8d6dcb"
+        }
+      ]
+    },
+    {
+      "style": "doodle-aulia",
+      "assets": 46,
+      "volumes": [
+        {
+          "file": "doodle-aulia-01-of-03.zip",
+          "bytes": 38070235,
+          "sha256": "c4da7df0287b8816de33f01d414cf144ad1b113c3a1a221adc69d92d20356bd2"
+        },
+        {
+          "file": "doodle-aulia-02-of-03.zip",
+          "bytes": 39665625,
+          "sha256": "6d2fe8ee3f06be9109dfa55d6512fb07f8359df400d8647d6b34f67b82c94c8e"
+        },
+        {
+          "file": "doodle-aulia-03-of-03.zip",
+          "bytes": 24119259,
+          "sha256": "936c5a3ecf26203c4f0b5be1eba3e7eb90d934e3436a4bc6dd3159c373ccde82"
+        }
+      ]
+    },
+    {
+      "style": "retro-halftone-aulia",
+      "assets": 46,
+      "volumes": [
+        {
+          "file": "retro-halftone-aulia-01-of-03.zip",
+          "bytes": 38277154,
+          "sha256": "83d61eb9bdb4a8d16c836fe0d5d996fc2fed5ed00a9d33f0049cc90586ca7e7d"
+        },
+        {
+          "file": "retro-halftone-aulia-02-of-03.zip",
+          "bytes": 37810877,
+          "sha256": "39fa7e37c5b552ff7e662940fe7f95c91701ce477e8748627bb031dc32b857ab"
+        },
+        {
+          "file": "retro-halftone-aulia-03-of-03.zip",
+          "bytes": 27430313,
+          "sha256": "f23a396ab93686a0b5034244b67f5f04605ed8953a562428241484b7908855af"
+        }
+      ]
+    }
+  ]
+}
