@@ -1,6 +1,5 @@
 {
  "style": "kanvas",
- "character": "bold",
  "series": "bukan-sulap",
  "topic": "Bukan Sulap · video Claude",
  "tail": 1.5,
@@ -75,21 +74,14 @@
   "items": [
    {
     "kind": "card",
-    "at": 5,
     "icon": {
      "name": "film",
      "color": "bad"
     },
     "tag": "FITUR RESMI",
     "title": "Claude Motion",
-    "text": "animasi · masih beta",
-    "w": 700
-   },
-   {
-    "kind": "chip",
-    "at": 8,
     "text": "cuma paket bisnis",
-    "tone": "sun"
+    "w": 700
    }
   ]
  },
@@ -436,7 +428,12 @@
       "contoh.html",
       "skrip.py"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": 115,
+   "items": [
     {
      "kind": "card",
      "at": 115,
@@ -497,12 +494,18 @@
        "text": "Bisa jalan, bisa juga nggak."
       }
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": 154,
+   "items": [
     {
-     "kind": "chip",
+     "kind": "card",
      "at": 154,
-     "text": "Bikin file = kuota lebih boros",
-     "tone": "bad"
+     "title": "Bikin file = kuota lebih boros",
+     "tone": "bad",
+     "w": 600
     }
    ]
   },
@@ -522,12 +525,18 @@
      "label": "masaknya di laptop Anda",
      "labelAt": 168,
      "tone": "good"
-    },
+    }
+   ]
+  },
+  {
+   "at": 172,
+   "items": [
     {
-     "kind": "chip",
+     "kind": "card",
      "at": 172,
-     "text": "2 cara, 2 harga",
-     "tone": "sun"
+     "title": "2 cara, 2 harga",
+     "tone": "sun",
+     "w": 600
     }
    ]
   },
@@ -595,7 +604,12 @@
        "text": "Instal Node dulu"
       }
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": 230,
+   "items": [
     {
      "kind": "card",
      "at": 230,
@@ -693,12 +707,21 @@
        "text": "3 · Suara AI yang nggak datar"
       }
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": 293,
+   "items": [
     {
-     "kind": "chip",
-     "at": 293,
-     "text": "Tulis di komentar 👇",
-     "tone": "accent"
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     },
+     "title": "Tulis di komentar",
+     "text": "pilih nomor 2 atau 3",
+     "w": 600
     }
    ]
   }

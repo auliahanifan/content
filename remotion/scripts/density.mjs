@@ -116,6 +116,14 @@ if (kanvas) {
   console.log(`Dekoratif: ${deco.length} (${deco.join(', ') || '-'}). Batas kanvas: epik 1, stempel 2.`);
   const tooMuch = (sb.epic ?? []).length > 1 || deco.filter((d) => d.startsWith('stempel')).length > 2;
   if (tooMuch) console.log('! Dekorasi melebihi batas kanvas.');
-  process.exit(gaps.length || miss.length || long.length || tooMuch ? 2 : 0);
+  // satu hal dalam satu waktu: satu elemen per panel (dan di hook); `row` hanya untuk perbandingan A vs B (maks 2)
+  const crowd = [];
+  if ((sb.hook?.items ?? []).length > 1) crowd.push(`hook (${sb.hook.items.length} elemen)`);
+  (sb.panels ?? []).forEach((p, k) => {
+    if (p.items.length > 1) crowd.push(`panel ${k} @${p.at} (${p.items.length} elemen)`);
+    p.items.forEach((e) => e.kind === 'row' && e.items.length > 2 && crowd.push(`panel ${k} @${p.at} (row ${e.items.length} isi)`));
+  });
+  if (crowd.length) console.log(`! Lebih dari satu hal di panggung (pecah jadi panel baru): ${crowd.join('; ')}`);
+  process.exit(gaps.length || miss.length || long.length || tooMuch || crowd.length ? 2 : 0);
 }
 process.exit(gaps.length ? 2 : 0);
