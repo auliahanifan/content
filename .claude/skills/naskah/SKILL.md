@@ -18,10 +18,11 @@ Audiens: owner dan tim kecil, **serta orang Indonesia yang baru belajar memakai 
 Format: Instagram Reels (talking head atau faceless `/video-karakter` mode kanvas). **Durasi mengikuti muatan**, bukan sebaliknya:
 | Struktur | Durasi | Kata lisan |
 |---|---|---|
-| Behind the AI, Mode unlock | 45-90 dtk | 120-220 |
-| Penjelasan satu tugas | 70-110 dtk | 180-280 |
-| Tutorial langkah, Nitip | 70-150 dtk | 180-380 |
-| Tumpukan jebakan | 55-75 dtk | 160-200 |
+| Behind the AI, Mode unlock | 45-75 dtk | 110-190 |
+| Penjelasan satu tugas | 60-80 dtk | 150-200 |
+| Tutorial langkah, Nitip | 60-120 dtk | 150-300 |
+| Tumpukan jebakan | 45-65 dtk | 120-170 |
+Angka kata mengikuti suara standar (`[confident]`, 1,1x, ±2,6 kata/dtk). Standar 5 Nov 2026: **padat, tidak bertele-tele** (lihat "Padat dan tidak ambigu" di tahap menulis).
 Panjang hanya boleh bila tiap 10-15 detik ada langkah baru, contoh baru, atau perubahan peraga. Video panjang tanpa muatan kalah (riset `dates/2026-11-04/riset-hisvill.md`: 177 detik tanpa rekaman asli gagal, 85-166 detik dengan langkah nyata menang).
 
 ## Mode pecah (CORE → ide talking head)
@@ -65,7 +66,7 @@ Hook menentukan penonton berhenti scroll atau tidak. Ini tahap terpenting; janga
 15. Identitas / baru lihat bungkusnya: "Kalau Anda pikir ChatGPT itu AI-nya, Anda baru melihat bungkusnya." Membalik anggapan yang dipegang orang pintar, tanpa merendahkan.
 
 **c. Gerbang wajib.** Hook gugur kalau satu saja gagal; tidak ada nilai "cukup".
-1. Kalimat pertama maksimal 9 kata, terucap dalam 3 detik oleh suara ElevenLabs (±2,5–3 kata/detik; angka dihitung sebagai kata yang diucapkan, mis. "30 ribu dolar" = 3 kata). Angka, benda, atau taruhannya muncul di 4 kata pertama, karena detik pertama yang menentukan.
+1. Kalimat pertama maksimal 9 kata, terucap dalam 3 detik oleh suara ElevenLabs (±2,6 kata/detik pada tempo 1,1x; angka dihitung sebagai kata yang diucapkan, mis. "30 ribu dolar" = 3 kata). Angka, benda, atau taruhannya muncul di 4 kata pertama, karena detik pertama yang menentukan.
 2. Kalimat pertama sudah memuat benda yang dikenal owner (chatbot, email, tagihan, model AI, admin) **dan** taruhan atau pembalikannya. Pemanasan dilarang: "Coba tebak", "Pernah nggak", "Jadi gini", "Halo", "Di video ini", "Tahukah Anda". Yang boleh ditunda hanya *kenapa*-nya, bukan *apa* taruhannya.
 3. Uji scroll: baca kalimat pertama saja. Bisakah dijawab "kalau lanjut nonton, penonton dapat atau terhindar dari apa"? Jika kabur, gugur.
 4. Uji salah paham: tulis satu kalimat tentang apa yang akan dikira penonton isi videonya. Jika berbeda dari isi naskah, gugur (clickbait atau terlalu kabur).
@@ -168,6 +169,14 @@ Aturan gaya:
 - **Biaya total dalam satu frasa tajam** bila topiknya soal biaya ("hitung sampai pekerjaan selesai, bukan per jawaban").
 - **Tanda jeda.** Pakai "..." hanya di tempat yang memang akan diberi jeda saat diucapkan, biasanya sebelum punchline. Maksimal empat per naskah; jangan dipasang hanya karena aturan.
 - **CTA kata kunci (opsional, pengguna yang memutuskan).** Alternatif penutup pertanyaan: "Komentar *PROMPT*, saya kirim lengkapnya lewat DM." Di akun pembanding, CTA ini membuat hampir semua komentar berisi kata kunci (sampai 0,8% dari views). Syarat: otomasi DM (mis. ManyChat) sudah aktif dan asetnya ada. Karena menyimpang dari aturan penutup `aulia-brand`, tulis versi penutup pertanyaan sebagai default dan versi CTA kata kunci di kolom Hook cadangan dengan label `CTA alt:`, lalu sebut di "Perlu diisi".
+- **Padat dan tidak ambigu (standar 5 Nov 2026).** Draf pertama hampir selalu kelebihan sekitar 30%. Sebelum review:
+  - Buang kalimat yang mengulang poin sebelumnya, hedge ("mungkin", "kadang", "sebenarnya") yang tidak membawa makna, dan contoh kedua bila contoh pertama sudah cukup.
+  - Sisipan definisi (", fitur yang membolehkan Claude menjalankan kode") pindah ke `Layar:` (label singkat saat kata itu diucapkan) dan caption, bukan diucapkan.
+  - Detail sekunder (syarat instal, lisensi, kuota, versi) cukup satu kalimat lisan ("Syarat dan lisensinya ada di caption.") + checklist di layar + teks lengkap di caption.
+  - Penanda yang menunda isi ("Di akhir video, saya kasih dua yang jujur.") dipadatkan jadi janji 4-5 kata ("Saya kasih di akhir."). Janji tetap wajib, kalimat khas seri tetap kata per kata.
+  - **Satu kata, satu makna.** Kata yang bisa berarti dua hal dilarang. Contoh: "gratisan" bisa berarti paket Free atau biaya Rp0. Pisahkan: biaya → "tanpa bayar sepeser pun"; paket → "paket gratis (Free)", "paket individu, bahkan yang berbayar", "paket bisnis".
+  - Daftar paket, harga, dan fitur dicek ulang ke halaman resmi saat menulis (contoh 5 Nov 2026: paket individu Claude = Free, Pro, Max, Ultra). Bila daftar bisa berubah, ucapkan kategorinya ("paket individu") dan tampilkan daftarnya di layar.
+  - Memadatkan tidak boleh membuat klaim jadi mutlak: "tiga puluh gambar per detik" → "puluhan gambar per detik"; "Claude nggak menggambar" → "nggak menggambar tiap halaman".
 - **Pangkas sebelum selesai.** Hitung kata yang diucapkan (tanpa blok `[HOOK]` selain isi baris Ucap, tanpa baris `[REKAM: ...]`). Jika melebihi batas struktur di tabel durasi, buang dulu kalimat yang mengulang poin, lalu persingkat contoh. Jangan buang langkah tutorial, batas yang material, atau kalimat khas seri.
 - **Bahasa pemula.** Istilah teknis dijelaskan saat pertama muncul dengan satu analogi atau padanan ("API key, anggap saja kunci rumah"). Uji: apakah orang yang baru seminggu pakai ChatGPT paham tanpa berhenti?
 
@@ -179,7 +188,7 @@ Jika baris berformat `ucap` tetapi idenya butuh hasil tes atau perbandingan, uba
 Jalankan `challenge` tahap **cek** untuk seluruh batch dan terapkan koreksinya sebelum review brand, karena koreksi bisa menambah kalimat baru yang perlu dicek brand.
 
 ### 4b. Review brand (terpisah)
-Kirim naskah ke subagent (`model: sonnet`) dengan instruksi: panggil skill `aulia-brand` mode **Review**, beri verdict dan temuan dengan kutipan. Reviewer juga menilai kedalaman: apakah penonton mendapat sesuatu yang tidak ada di judul beritanya, dan apakah bagian "kenapa" benar-benar menjelaskan mekanisme. Naskah yang dangkal ditandai "Perlu penyesuaian". Untuk Tumpukan jebakan, reviewer mengecek bahwa tiap butir menyebut benda milik penonton dan angka bersumber, ada kata kunci pembalik yang benar-benar menjelaskan mekanisme, dan janji di awal dibayar di akhir; jika salah satu tidak ada, tandai "Perlu penyesuaian". Untuk semua struktur, reviewer mengecek kerangka wajib (bawa pulang, janji dibayar, kait ulang untuk >60 detik, analogi universal) dan bahasa pemula; yang hilang ditandai "Perlu penyesuaian". Untuk Tutorial langkah, reviewer mengecek tiap langkah punya `[REKAM: ...]` dan aset yang dijanjikan tertulis lengkap. Untuk naskah mode unlock, reviewer juga mengecek proporsi: bagian kemungkinan harus lebih panjang daripada batas/peringatan, dan hook harus menyebut kemampuan, bukan risiko; jika terbalik, tandai "Perlu penyesuaian". Reviewer juga mengecek kalimat pertama terhadap gerbang hook di tahap 2c (terutama 2c.2: tanpa pemanasan, taruhan sudah ada), dan memastikan kalimat khas seri muncul kata per kata di posisi yang benar; jika hilang atau diparafrasekan, tandai "Perlu penyesuaian". Subagent tidak melihat proses penulisan, hanya naskah + konteks ide. Satu subagent boleh mereview seluruh batch. Jika verdict bukan "Sudah selaras", revisi minimal sesuai temuan. Review ulang hanya jika revisi menambah kalimat baru di luar saran reviewer.
+Kirim naskah ke subagent (`model: sonnet`) dengan instruksi: panggil skill `aulia-brand` mode **Review**, beri verdict dan temuan dengan kutipan. Reviewer juga menilai kedalaman: apakah penonton mendapat sesuatu yang tidak ada di judul beritanya, dan apakah bagian "kenapa" benar-benar menjelaskan mekanisme. Naskah yang dangkal ditandai "Perlu penyesuaian". Untuk Tumpukan jebakan, reviewer mengecek bahwa tiap butir menyebut benda milik penonton dan angka bersumber, ada kata kunci pembalik yang benar-benar menjelaskan mekanisme, dan janji di awal dibayar di akhir; jika salah satu tidak ada, tandai "Perlu penyesuaian". Untuk semua struktur, reviewer mengecek kerangka wajib (bawa pulang, janji dibayar, kait ulang untuk >60 detik, analogi universal), bahasa pemula, kepadatan (jumlah kata dalam batas tabel durasi, tidak ada kalimat yang mengulang atau sisipan definisi yang seharusnya di layar), dan kata yang ambigu; yang hilang ditandai "Perlu penyesuaian". Untuk Tutorial langkah, reviewer mengecek tiap langkah punya `[REKAM: ...]` dan aset yang dijanjikan tertulis lengkap. Untuk naskah mode unlock, reviewer juga mengecek proporsi: bagian kemungkinan harus lebih panjang daripada batas/peringatan, dan hook harus menyebut kemampuan, bukan risiko; jika terbalik, tandai "Perlu penyesuaian". Reviewer juga mengecek kalimat pertama terhadap gerbang hook di tahap 2c (terutama 2c.2: tanpa pemanasan, taruhan sudah ada), dan memastikan kalimat khas seri muncul kata per kata di posisi yang benar; jika hilang atau diparafrasekan, tandai "Perlu penyesuaian". Subagent tidak melihat proses penulisan, hanya naskah + konteks ide. Satu subagent boleh mereview seluruh batch. Jika verdict bukan "Sudah selaras", revisi minimal sesuai temuan. Review ulang hanya jika revisi menambah kalimat baru di luar saran reviewer.
 
 ### 5. Cek klaim
 Daftar setiap klaim pengalaman pribadi, hasil tes, angka biaya, atau pelanggan. Yang tidak berasal dari lembar fakta atau pernyataan pengguna diganti `[ISI: ...]` di naskah, termasuk semua butir "Perlu konfirmasi Aul". Jangan pernah menulis "saya sudah mencoba" tanpa fakta dari pengguna.

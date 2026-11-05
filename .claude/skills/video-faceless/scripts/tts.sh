@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # ElevenLabs v4 + timestamp karakter. Pakai: tts.sh <naskah-bertag.txt> <prefix-keluaran>
-# env opsional: SIM (0.0-1.0, default 1.0), STAB (0.6), STYLE (0.15), MODEL (eleven_v4), LANGC (id)
+# env opsional: SIM (0.0-1.0, default 1.0), STAB (0.5), STYLE (0.2), MODEL (eleven_v4), LANGC (id),
+#   TEMPO (default 1.1): audio dipercepat tanpa ubah nada (ffmpeg atempo); timestamp alignment ikut diskalakan.
 # Kunci: ELEVENLABS_API_KEY, ELEVENLABS_AULIA_RAHMAN_VOICEID dari environment (cloud: secret/env var);
 # bila belum ada, dibaca dari <root repo>/.env (Mac).
 set -e; txt=${1:?naskah}; pre=${2:?prefix}
@@ -15,19 +16,25 @@ import json,sys,os
 e=os.environ
 print(json.dumps({"text":open(sys.argv[1]).read().strip(),"model_id":e.get("MODEL","eleven_v4"),
  "language_code":e.get("LANGC","id"),
- "voice_settings":{"stability":float(e.get("STAB","0.6")),"similarity_boost":float(e.get("SIM","1.0")),
-  "style":float(e.get("STYLE","0.15")),"use_speaker_boost":True}}))
+ "voice_settings":{"stability":float(e.get("STAB","0.5")),"similarity_boost":float(e.get("SIM","1.0")),
+  "style":float(e.get("STYLE","0.2")),"use_speaker_boost":True}}))
 PY
 code=$(curl -s -o "$pre.resp.json" -w "%{http_code}" -X POST \
  "https://api.elevenlabs.io/v1/text-to-speech/$ELEVENLABS_AULIA_RAHMAN_VOICEID/with-timestamps?output_format=mp3_44100_128" \
  -H "xi-api-key: $ELEVENLABS_API_KEY" -H "Content-Type: application/json" -d @"$pre.req.json")
 echo "HTTP $code"
-python3 - "$pre" <<'PY'
+TEMPO=${TEMPO:-1.1}
+python3 - "$pre" "$TEMPO" <<'PY'
 import json,sys,base64
-p=sys.argv[1]; d=json.load(open(p+'.resp.json'))
+p=sys.argv[1]; k=float(sys.argv[2]); d=json.load(open(p+'.resp.json'))
 if 'audio_base64' not in d: print(str(d)[:500]); sys.exit(1)
-open(p+'.mp3','wb').write(base64.b64decode(d['audio_base64']))
-json.dump(d['alignment'],open(p+'.align.json','w'))
+open(p+'.raw.mp3','wb').write(base64.b64decode(d['audio_base64']))
+al=d['alignment']
+for key in ('character_start_times_seconds','character_end_times_seconds'):
+    if key in al: al[key]=[round(t/k,4) for t in al[key]]
+json.dump(al,open(p+'.align.json','w'))
 PY
+if [[ $TEMPO == 1 || $TEMPO == 1.0 ]]; then mv "$pre.raw.mp3" "$pre.mp3"
+else ffmpeg -v error -y -i "$pre.raw.mp3" -af "atempo=$TEMPO" -b:a 192k "$pre.mp3" && rm -f "$pre.raw.mp3"; fi
 rm -f "$pre.req.json" "$pre.resp.json"
 ffprobe -v error -show_entries format=duration -of csv=p=0 "$pre.mp3"
