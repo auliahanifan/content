@@ -1,0 +1,961 @@
+{
+ "style": "kanvas",
+ "series": "bukan-sulap",
+ "topic": "Bukan Sulap · video Claude",
+ "tail": 1.5,
+ "keywords": [
+  5,
+  11
+ ],
+ "captionMerge": [
+  {
+   "from": 2,
+   "to": 3,
+   "text": "HyperFrames?"
+  },
+  {
+   "from": 24,
+   "to": 25,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 88,
+   "to": 89,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 114,
+   "to": 115,
+   "text": "HyperFrames,"
+  },
+  {
+   "from": 147,
+   "to": 148,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 229,
+   "to": 230,
+   "text": "HyperFrames."
+  },
+  {
+   "from": 248,
+   "to": 249,
+   "text": "HyperFrames"
+  }
+ ],
+ "loop": {
+  "text": "aturan milih",
+  "from": 52,
+  "until": 220
+ },
+ "hook": {
+  "until": 12,
+  "items": [
+   {
+    "kind": "row",
+    "gap": 30,
+    "items": [
+     {
+      "kind": "card",
+      "tag": "REMOTION",
+      "value": "Rp0",
+      "tone": "good",
+      "swap": {
+       "at": 11,
+       "value": "ke-4?",
+       "tone": "bad"
+      },
+      "w": 440
+     },
+     {
+      "kind": "card",
+      "tag": "HYPERFRAMES",
+      "value": "Rp0",
+      "tone": "good",
+      "w": 440
+     }
+    ]
+   }
+  ]
+ },
+ "punch": [
+  11,
+  22,
+  99,
+  128,
+  166,
+  179,
+  230
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 4,
+   "key": [
+    5
+   ]
+  },
+  {
+   "from": 6,
+   "split": 6,
+   "key": [
+    11
+   ]
+  },
+  {
+   "from": 12,
+   "split": 14,
+   "key": [
+    14
+   ]
+  },
+  {
+   "from": 15,
+   "split": 15,
+   "key": [
+    22,
+    23
+   ]
+  },
+  {
+   "from": 24,
+   "split": 24,
+   "key": [
+    27
+   ]
+  },
+  {
+   "from": 28,
+   "split": 28,
+   "key": [
+    30,
+    31
+   ]
+  },
+  {
+   "from": 33,
+   "split": 37,
+   "key": [
+    44
+   ]
+  },
+  {
+   "from": 45,
+   "split": 47,
+   "key": [
+    48
+   ]
+  },
+  {
+   "from": 50,
+   "split": 50,
+   "key": [
+    51
+   ]
+  },
+  {
+   "from": 52,
+   "split": 52,
+   "key": [
+    53
+   ]
+  },
+  {
+   "from": 56,
+   "split": 56,
+   "key": [
+    57
+   ]
+  },
+  {
+   "from": 58,
+   "split": 58,
+   "key": [
+    60
+   ]
+  },
+  {
+   "from": 61,
+   "split": 63,
+   "key": [
+    65,
+    68
+   ]
+  },
+  {
+   "from": 69,
+   "split": 69,
+   "key": [
+    71
+   ]
+  },
+  {
+   "from": 72,
+   "split": 74,
+   "key": [
+    75
+   ]
+  },
+  {
+   "from": 78,
+   "split": 80,
+   "key": [
+    81
+   ]
+  },
+  {
+   "from": 82,
+   "split": 84,
+   "key": [
+    86
+   ]
+  },
+  {
+   "from": 88,
+   "split": 90,
+   "key": [
+    91,
+    94
+   ]
+  },
+  {
+   "from": 95,
+   "split": 97,
+   "key": [
+    98,
+    99
+   ]
+  },
+  {
+   "from": 101,
+   "split": 103,
+   "key": [
+    105
+   ]
+  },
+  {
+   "from": 106,
+   "split": 106,
+   "key": [
+    112
+   ]
+  },
+  {
+   "from": 113,
+   "split": 116,
+   "key": [
+    116
+   ]
+  },
+  {
+   "from": 120,
+   "split": 122,
+   "key": [
+    124
+   ]
+  },
+  {
+   "from": 125,
+   "split": 127,
+   "key": [
+    128
+   ]
+  },
+  {
+   "from": 129,
+   "split": 129,
+   "key": [
+    133
+   ]
+  },
+  {
+   "from": 134,
+   "split": 134,
+   "key": [
+    135,
+    139
+   ]
+  },
+  {
+   "from": 141,
+   "split": 143,
+   "key": [
+    144
+   ]
+  },
+  {
+   "from": 147,
+   "split": 149,
+   "key": [
+    151
+   ]
+  },
+  {
+   "from": 152,
+   "split": 153,
+   "key": [
+    154
+   ]
+  },
+  {
+   "from": 158,
+   "split": 159,
+   "key": [
+    160
+   ]
+  },
+  {
+   "from": 162,
+   "split": 165,
+   "key": [
+    166
+   ]
+  },
+  {
+   "from": 167,
+   "split": 169,
+   "key": [
+    170
+   ]
+  },
+  {
+   "from": 176,
+   "split": 176,
+   "key": [
+    177,
+    181
+   ]
+  },
+  {
+   "from": 182,
+   "split": 184,
+   "key": [
+    186
+   ]
+  },
+  {
+   "from": 188,
+   "split": 188,
+   "key": [
+    192
+   ]
+  },
+  {
+   "from": 193,
+   "split": 195,
+   "key": [
+    198
+   ]
+  },
+  {
+   "from": 200,
+   "split": 201,
+   "key": [
+    202,
+    205
+   ]
+  },
+  {
+   "from": 206,
+   "split": 206,
+   "key": [
+    207
+   ]
+  },
+  {
+   "from": 209,
+   "split": 212,
+   "key": [
+    216
+   ]
+  },
+  {
+   "from": 217,
+   "split": 217,
+   "key": [
+    219
+   ]
+  },
+  {
+   "from": 220,
+   "split": 222,
+   "key": [
+    224,
+    227
+   ]
+  },
+  {
+   "from": 229,
+   "split": 229
+  },
+  {
+   "from": 231,
+   "split": 231,
+   "key": [
+    233,
+    235
+   ]
+  },
+  {
+   "from": 239,
+   "split": 239
+  },
+  {
+   "from": 240,
+   "split": 243,
+   "key": [
+    244
+   ]
+  },
+  {
+   "from": 245,
+   "split": 245,
+   "key": [
+    247,
+    250
+   ]
+  },
+  {
+   "from": 252,
+   "split": 252,
+   "key": [
+    253
+   ]
+  },
+  {
+   "from": 256,
+   "split": 259,
+   "key": [
+    262
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "at": 12,
+   "char": "none",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 12,
+       "tag": "REMOTION",
+       "value": "Rp0",
+       "text": "seluruh usaha ≥ 4 orang",
+       "swap": {
+        "at": 22,
+        "value": "lisensi",
+        "tone": "bad"
+       },
+       "w": 440
+      },
+      {
+       "kind": "card",
+       "at": 24,
+       "tag": "HYPERFRAMES",
+       "value": "Rp0",
+       "text": "usaha sebesar apa pun",
+       "tone": "good",
+       "w": 440
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 28,
+   "char": "right",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "big",
+     "text": "Bukan cuma itu",
+     "sub": "lisensi cuma satu beda",
+     "subAt": 30,
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 33,
+   "char": "left",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "check",
+      "color": "good"
+     },
+     "tag": "SAYA PAKAI DUA-DUANYA",
+     "title": "Nggak kerasa bedanya",
+     "text": "untuk video penjelasan kayak gini",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 45,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "book",
+      "color": "accent"
+     },
+     "tag": "4 KASUS",
+     "title": "Dari dokumentasi resmi",
+     "text": "remotion.dev · hyperframes.heygen.com",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 52,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "check",
+      "color": "accent"
+     },
+     "tag": "JANJI",
+     "title": "Aturan milih",
+     "text": "saya kasih di akhir video",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 61,
+   "char": "right",
+   "pose": "laptop",
+   "topic": "Bukan Sulap · video Claude",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "render",
+     "steps": [
+      63,
+      66,
+      69
+     ],
+     "labels": [
+      "Chrome",
+      "MP4"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 72,
+   "char": "none",
+   "items": [
+    {
+     "kind": "big",
+     "text": "Bedanya:",
+     "sub": "cara bikin tiap gambar",
+     "subAt": 74,
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 78,
+   "char": "left",
+   "pose": "menjelaskan",
+   "topic": "Remotion · gambar dari nomor halaman",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "flipbook",
+     "steps": [
+      82,
+      87
+     ],
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 88,
+   "char": "right",
+   "pose": "menjelaskan",
+   "topic": "HyperFrames · pause, lalu jepret",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "snap",
+     "steps": [
+      95,
+      99,
+      100
+     ],
+     "labels": [
+      "detik 3"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 101,
+   "char": "left",
+   "pose": "menunjuk",
+   "topic": "Kasus 1 · animasi dari web",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "code",
+      "color": "teal"
+     },
+     "tag": "KASUS 1 · HYPERFRAMES",
+     "title": "Animasi CSS / GSAP jadi",
+     "text": "CodePen = situs kumpulan animasi web",
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 113,
+   "char": "none",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/hf-seek.png",
+     "source": "hyperframes.heygen.com · Frame adapters",
+     "w": 660,
+     "mark": {
+      "at": 116,
+      "rects": [
+       {
+        "x": 43.52,
+        "y": 70.29,
+        "w": 50.45,
+        "h": 3.19
+       },
+       {
+        "x": 4.55,
+        "y": 74.76,
+        "w": 6.99,
+        "h": 3.19
+       }
+      ]
+     },
+     "note": {
+      "at": 117,
+      "text": "HyperFrames: tinggal tempel",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 120,
+   "char": "none",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/rm-css.png",
+     "source": "remotion.dev · Don't use CSS animations",
+     "w": 540,
+     "mark": {
+      "at": 128,
+      "rects": [
+       {
+        "x": 10.91,
+        "y": 94.87,
+        "w": 16.83,
+        "h": 2.26
+       }
+      ]
+     },
+     "note": {
+      "at": 129,
+      "text": "kata Remotion sendiri: bisa berkedip",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 134,
+   "char": "right",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "warning",
+      "color": "warn"
+     },
+     "tag": "DI REMOTION",
+     "title": "Ditulis ulang",
+     "text": "atau pakai paket khusus, mis. @remotion/gsap",
+     "tone": "warn",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 141,
+   "char": "left",
+   "pose": "laptop",
+   "topic": "Kasus 2 · olah rekaman video",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "film",
+      "color": "teal"
+     },
+     "tag": "KASUS 2 · HYPERFRAMES",
+     "title": "Ngolah rekaman video asli",
+     "text": "footage talking head, produk, dll",
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 147,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Perintah bawaan HyperFrames",
+     "items": [
+      {
+       "at": 153,
+       "text": "Hapus latar tanpa green screen",
+       "doneAt": 157
+      },
+      {
+       "at": 159,
+       "text": "Deteksi ketukan musik",
+       "doneAt": 161
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 162,
+   "char": "right",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "big",
+     "text": "Giliran Remotion",
+     "sub": "kasus 3 & 4",
+     "subAt": 165,
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 167,
+   "char": "left",
+   "pose": "menjelaskan",
+   "topic": "Kasus 3 · video di aplikasi",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "laptop",
+      "color": "accent"
+     },
+     "tag": "KASUS 3 · REMOTION",
+     "title": "Video di website / aplikasi Anda",
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 176,
+   "char": "right",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "user",
+      "color": "accent"
+     },
+     "tag": "VIDEO UCAPAN UNTUK",
+     "value": "Budi",
+     "swap": {
+      "at": 179,
+      "value": "Sari",
+      "tone": "good"
+     },
+     "text": "ganti nama, video langsung berubah",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 182,
+   "char": "none",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/rm-browser.png",
+     "source": "remotion.dev · Client-side rendering",
+     "w": 760,
+     "mark": {
+      "at": 186,
+      "rects": [
+       {
+        "x": 3.64,
+        "y": 66.23,
+        "w": 89.95,
+        "h": 9.41
+       },
+       {
+        "x": 3.64,
+        "y": 78.65,
+        "w": 23.26,
+        "h": 9.41
+       }
+      ]
+     },
+     "note": {
+      "at": 190,
+      "text": "tampilan CSS-nya terbatas",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 193,
+   "char": "left",
+   "pose": "laptop",
+   "topic": "Kasus 4 · panjang dari data",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "clock",
+      "color": "accent"
+     },
+     "tag": "KASUS 4 · REMOTION",
+     "title": "Ratusan video, panjang beda-beda",
+     "text": "durasi dihitung dari data",
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 200,
+   "char": "none",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 200,
+       "tag": "VIDEO A",
+       "value": "32 dtk",
+       "w": 440
+      },
+      {
+       "kind": "card",
+       "at": 205,
+       "tag": "VIDEO B",
+       "value": "65 dtk",
+       "w": 440
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 209,
+   "char": "right",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Syarat cara saya",
+     "items": [
+      {
+       "at": 212,
+       "text": "Claude Code, minimal langganan Pro",
+       "doneAt": 216
+      },
+      {
+       "at": 217,
+       "text": "Rincian biaya & syarat di caption",
+       "doneAt": 219
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 220,
+   "char": "left",
+   "pose": "menunjuk",
+   "topic": "Bukan Sulap · video Claude",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Aturan milih",
+     "items": [
+      {
+       "at": 222,
+       "text": "Animasi dari web / olah rekaman → HyperFrames",
+       "doneAt": 230
+      },
+      {
+       "at": 231,
+       "text": "Video di aplikasi / panjang dari data → Remotion",
+       "doneAt": 239
+      },
+      {
+       "at": 240,
+       "text": "Video penjelasan biasa → dua-duanya bisa",
+       "doneAt": 244
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 252,
+   "char": "right",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     },
+     "title": "Tulis di komentar",
+     "text": "mau garap video apa? saya bantu pilih alatnya",
+     "w": 580
+    }
+   ]
+  }
+ ],
+ "seriesLine": {
+  "from": 56,
+  "to": 57
+ }
+}
