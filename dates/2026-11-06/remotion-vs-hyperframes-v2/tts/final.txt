@@ -1,23 +1,23 @@
 [confident] Bikin video animasi pakai Claude? Remotion atau Hyper Frames, sama aja... kecuali di empat kasus.
 
-[confident] Saya pakai dua-duanya. Untuk video penjelasan kayak gini, jujur, saya nggak merasa bedanya. Empat kasus ini dari dokumentasi resminya. Aturan milihnya di akhir.
+[confident] Saya pakai dua-duanya. Untuk video kayak gini, jujur, nggak kerasa bedanya. Empat kasus ini dari dokumentasinya. Aturan milihnya di akhir.
 
-[confident] Dasarnya sama, kayak episode lalu: Claude nulis resepnya, laptop yang masak, gambar demi gambar. Bedanya di cara bikin tiap gambar. Remotion kayak animator flipbook: tiap halaman digambar dari nomor halamannya. Hyper Frames kayak motret video yang di-pause: geser ke detik tiga, jepret, lanjut.
+[confident] Dasarnya sama: Claude nulis resepnya, laptop yang masak, gambar demi gambar. Bedanya di cara bikin tiap gambar. Remotion kayak animator flipbook: tiap halaman digambar dari nomor halamannya. Hyper Frames kayak motret video yang di-pause: geser ke detik tiga, jepret, lanjut.
 
-[confident] Kasus pertama: Anda nemu animasi CSS atau GSAP yang bagus di CodePen. Di Hyper Frames, tempel hampir apa adanya. Di Remotion, kata dokumentasinya sendiri, animasi CSS bisa berkedip, karena tiap halaman digambar terpisah. Harus ditulis ulang dulu.
+[confident] Kasus pertama: Anda nemu animasi CSS atau GSAP yang bagus di CodePen. Di Hyper Frames, tempel hampir apa adanya. Di Remotion, kata dokumentasinya sendiri, animasi CSS bisa berkedip, karena tiap halaman digambar terpisah. Harus ditulis ulang, atau pakai paket khusus.
 
 [confident] Kasus kedua: ngolah rekaman video asli. Hyper Frames punya perintah bawaan buat hapus latar tanpa green screen dan deteksi ketukan musik.
 
-[confident] Sampai sini Hyper Frames menang dua kali. Tapi dua kasus berikutnya terbalik.
+[confident] Dua kasus berikutnya, giliran Remotion.
 
 [confident] Kasus ketiga: video ditanam di website atau aplikasi Anda. Pelanggan ganti namanya, videonya langsung berubah. Bahkan bisa dibuat di browser mereka, tanpa server, walau tampilannya terbatas.
 
-[confident] Kasus keempat: ratusan video dengan panjang beda-beda. Remotion bisa ngitung jumlah halaman tiap video dari datanya, misalnya dari panjang suaranya.
+[confident] Kasus keempat: ratusan video dengan panjang beda-beda. Remotion ngitung jumlah halamannya dari data, misalnya panjang suaranya.
 
-[confident] Soal biaya: Hyper Frames gratis berapa pun besar usaha Anda. Remotion gratis untuk usaha paling banyak tiga orang, termasuk Anda. Empat orang ke atas, bayar lisensi.
+[confident] Soal biaya: Hyper Frames gratis untuk usaha sebesar apa pun. Remotion gratis kalau seluruh usaha Anda paling banyak tiga orang. Lebih dari itu, bayar lisensi.
 
-[confident] Syarat cara saya: Claude Code, minimal langganan Pro. Rincian biaya dan syarat di caption.
+[confident] Syarat cara saya: Claude Code, minimal langganan Pro. Rinciannya di caption.
 
-[confident] Jadi aturannya: animasi dari web atau olah rekaman video? Hyper Frames. Video di aplikasi atau ratusan versi dari data? Remotion. Video penjelasan biasa? Dua-duanya bisa. Baru mulai? Pilih yang tutorialnya paling banyak: Remotion.
+[confident] Jadi aturannya: animasi dari web atau olah rekaman video? Hyper Frames. Video di aplikasi atau ratusan versi dari data? Remotion. Video penjelasan biasa? Dua-duanya bisa: Remotion lebih matang, Hyper Frames bebas lisensi.
 
-[confident] Video animasi apa yang mau Anda garap? Tulis di komentar, saya bantu pilih alatnya.
+[confident] Mau garap video apa? Tulis di komentar, saya bantu pilih alatnya.
