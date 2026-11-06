@@ -9,7 +9,7 @@ import {A, bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
  * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
  */
-export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen';
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -387,7 +387,70 @@ const RecipeKitchen: React.FC<{steps?: number[]; start: number; labels?: string[
   );
 };
 
-export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600};
+/* ---------- mold: cetakan dibuat sekali, tiap tahap mencetak satu video baru dengan isi berbeda, gaya sama ---------- */
+const Mold: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const names = labels?.length ? labels : ['Video 1', 'Video 2', 'Video 3'];
+  const drop = useSpringAt(start, {damping: 12, stiffness: 150, mass: 0.8});
+  const colors = [A(), K.teal, K.sun];
+  // tahap aktif: indeks cetakan terakhir yang sudah mulai
+  let cur = -1;
+  names.forEach((_, i) => {
+    if (frame >= at(i)) cur = i;
+  });
+  const local = cur >= 0 ? frame - at(cur) : 0;
+  const press = cur >= 0 ? interpolate(local, [6, 11, 17], [0, 1, 0], {...clamp, easing: Easing.bezier(0.5, 0, 0.5, 1)}) : 0;
+  const slide = cur >= 0 ? interpolate(local, [0, 8], [0, 1], {...clamp, easing: Easing.bezier(0.2, 0.8, 0.2, 1)}) : 0;
+  const Thumb: React.FC<{name: string; c: string; scale?: number}> = ({name, c, scale = 1}) => (
+    <div style={{width: 230 * scale, padding: 14 * scale, ...cardSkin, borderRadius: 18 * scale, display: 'flex', flexDirection: 'column', gap: 9 * scale}}>
+      <div style={{height: 22 * scale, width: '70%', borderRadius: 6, background: K.ink}} />
+      <div style={{display: 'flex', gap: 8 * scale}}>
+        <div style={{flex: 1, height: 70 * scale, borderRadius: 10 * scale, background: c}} />
+        <div style={{width: 54 * scale, height: 70 * scale, borderRadius: 10 * scale, background: K.paper2}} />
+      </div>
+      <div style={{fontFamily: FONT_BODY, fontSize: 26 * scale, fontWeight: 800, color: K.ink, whiteSpace: 'nowrap'}}>{name}</div>
+    </div>
+  );
+  return (
+    <div style={{position: 'relative', width: 600, height: 760}}>
+      {/* meja */}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 430, height: 26, borderRadius: 13, background: K.paper2, boxShadow: SHADOW}} />
+      {/* adonan yang sedang dicetak */}
+      {cur >= 0 && (
+        <div style={{position: 'absolute', left: 185, top: 300, transform: `translateX(${(1 - slide) * -420}px)`, opacity: interpolate(local, [24, 30], [1, 0], clamp)}}>
+          <Thumb name={names[cur]} c={colors[cur % 3]} />
+        </div>
+      )}
+      {/* cetakan */}
+      <div style={{position: 'absolute', left: 160, top: 40, width: 280, opacity: Math.min(1, drop * 2), transform: `translateY(${(1 - drop) * -160 + press * 150}px) rotate(${(1 - drop) * -10}deg)`}}>
+        <div style={{height: 200, borderRadius: 28, background: A(), boxShadow: SHADOW, padding: 22, display: 'flex', flexDirection: 'column', gap: 12}}>
+          <div style={{height: 26, width: '70%', borderRadius: 8, border: `4px dashed ${K.card}`}} />
+          <div style={{display: 'flex', gap: 12, flex: 1}}>
+            <div style={{flex: 1, borderRadius: 12, border: `4px dashed ${K.card}`}} />
+            <div style={{width: 64, borderRadius: 12, border: `4px dashed ${K.card}`}} />
+          </div>
+        </div>
+        <div style={{position: 'absolute', left: 110, top: -56, width: 60, height: 60, borderRadius: 14, background: K.ink}} />
+      </div>
+      <div style={{position: 'absolute', left: 30, top: 70, fontFamily: FONT_HEAD, fontSize: 34, fontWeight: 800, color: K.soft, transform: 'rotate(-6deg)', opacity: Math.min(1, drop * 2)}}>cetakan</div>
+      {/* tumpukan hasil: isi beda, gaya sama */}
+      {names.map((n, i) => {
+        const pop = frame < at(i) + 18 ? 0 : spring({frame: frame - at(i) - 18, fps, config: {damping: 12, stiffness: 170, mass: 0.6}});
+        if (pop <= 0) return null;
+        const x = 20 + i * 190;
+        return (
+          <div key={i} style={{position: 'absolute', left: x, top: 500, opacity: Math.min(1, pop * 2), transform: `translateY(${(1 - pop) * -170}px) rotate(${[-4, 2, 5][i % 3] * pop}deg) scale(${0.6 + 0.2 * pop})`, transformOrigin: 'top left'}}>
+            <Thumb name={n} c={colors[i % 3]} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600};
 
 export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
   switch (name) {
@@ -407,6 +470,8 @@ export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; 
       return <Doors steps={steps} start={start} labels={labels} />;
     case 'recipe-kitchen':
       return <RecipeKitchen steps={steps} start={start} labels={labels} />;
+    case 'mold':
+      return <Mold steps={steps} start={start} labels={labels} />;
   }
 };
 
