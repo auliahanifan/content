@@ -2,6 +2,8 @@
 
 [confident] Saya pakai dua-duanya. Untuk video kayak gini, jujur, nggak kerasa bedanya. Empat kasus ini dari dokumentasinya. Aturan milihnya di akhir.
 
+[confident] Bukan sulap... Begini cara kerjanya.
+
 [confident] Dasarnya sama: Claude nulis resepnya, laptop yang masak, gambar demi gambar. Bedanya di cara bikin tiap gambar. Remotion kayak animator flipbook: tiap halaman digambar dari nomor halamannya. Hyper Frames kayak motret video yang di-pause: geser ke detik tiga, jepret, lanjut.
 
 [confident] Kasus pertama: Anda nemu animasi CSS atau GSAP yang bagus di CodePen. Di Hyper Frames, tempel hampir apa adanya. Di Remotion, kata dokumentasinya sendiri, animasi CSS bisa berkedip, karena tiap halaman digambar terpisah. Harus ditulis ulang, atau pakai paket khusus.
