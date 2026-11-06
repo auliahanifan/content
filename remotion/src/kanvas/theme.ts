@@ -37,6 +37,7 @@ const SERIES_ACCENT: Record<string, string> = {
   'bukan-sulap': '#E07A5F',
   'sing-murah-wae': '#E9A93B',
   'katanya-nyatanya': '#3E8C93',
+  'garapan-weekend': '#7C5CE6',
 };
 let accent: string = K.accent;
 export const setSeries = (series?: string) => {
