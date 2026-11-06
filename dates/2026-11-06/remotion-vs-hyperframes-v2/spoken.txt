@@ -1,0 +1,23 @@
+Bikin video animasi pakai Claude? Remotion atau HyperFrames, sama aja... kecuali di empat kasus.
+
+Saya pakai dua-duanya. Aturan milihnya saya kasih di akhir.
+
+Dasarnya sama, kayak episode lalu: Claude nulis resepnya, laptop yang masak, frame demi frame. Bedanya di cara motret tiap frame. Remotion kayak animator flipbook: tiap halaman digambar dari nomor halamannya. HyperFrames kayak motret video yang di-pause: geser ke detik tiga, jepret, lanjut.
+
+Dari situ muncul kasus pertama: animasi dari website. Animasi yang sudah jadi, misalnya dari CodePen, bisa ditempel hampir apa adanya di HyperFrames. Di Remotion, dokumentasinya sendiri bilang animasi CSS bakal berkedip. Harus diubah dulu.
+
+Kasus kedua: ngolah footage. HyperFrames punya perintah bawaan buat transkrip, hapus latar video tanpa green screen, sampai deteksi ketukan musik.
+
+Nah, dua kasus berikutnya justru Remotion yang menang.
+
+Kasus ketiga: video di website atau aplikasi Anda. Pelanggan ganti namanya, videonya langsung berubah, bahkan bisa dirender di browser mereka sendiri, tanpa server.
+
+Kasus keempat: ratusan video yang panjangnya beda-beda. Remotion bisa ngitung durasi tiap video dari datanya, misalnya dari panjang suaranya.
+
+Soal biaya: HyperFrames gratis untuk usaha sebesar apa pun. Remotion gratis kalau total orang di usaha Anda sampai tiga. Lebih dari itu, bayar lisensi.
+
+Syarat cara saya: Claude Code, minimal Pro, dan Node di laptop. Lengkapnya di caption.
+
+Jadi aturannya: pilih dari kasusnya, bukan dari yang lagi ramai. Video penjelasan kayak gini? Pakai yang sudah terpasang.
+
+Kasus Anda yang mana? Tulis di komentar, saya bantu pilih.
