@@ -1,23 +1,23 @@
 Remotion atau HyperFrames? Untuk video penjelasan seperti ini, hasilnya hampir sama: dua-duanya merender halaman web di Chrome frame demi frame. Bedanya ada di cara memotret tiap frame. Remotion menggambar tiap frame dari nomor frame-nya; HyperFrames mem-pause animasi lalu memotretnya di detik yang diminta.
 
 Pilih HyperFrames kalau:
-1. Anda mau memakai animasi yang sudah jadi (CSS, GSAP, Lottie, misalnya dari CodePen). Dokumentasi Remotion sendiri bilang animasi CSS biasa akan berkedip; di Remotion harus diubah dulu atau pakai paket khusus seperti @remotion/gsap.
-2. Anda mengolah footage: transkrip, hapus latar video tanpa green screen, deteksi ketukan musik sudah jadi perintah bawaan. Catatan: TTS lokalnya belum mendukung bahasa Indonesia, suara tetap dari ElevenLabs atau sejenisnya.
+1. Anda mau memakai animasi yang sudah jadi (CSS, GSAP, Lottie, misalnya dari CodePen), selama tidak digerakkan timer atau requestAnimationFrame. Dokumentasi Remotion sendiri bilang animasi CSS biasa bisa berkedip karena tiap frame dirender terpisah; di Remotion harus diubah dulu atau pakai paket khusus seperti @remotion/gsap.
+2. Anda mengolah rekaman video asli: hapus latar tanpa green screen dan deteksi ketukan musik sudah jadi perintah bawaan (transkrip Whisper ada di keduanya). Catatan: TTS lokalnya belum mendukung bahasa Indonesia, suara tetap dari ElevenLabs atau sejenisnya.
 
 Pilih Remotion kalau:
-3. Video ditanam di website atau aplikasi Anda dan isinya berubah saat itu juga (mis. nama pelanggan), bahkan dirender di browser pengguna tanpa server.
+3. Video ditanam di website atau aplikasi Anda dan isinya berubah saat itu juga (mis. nama pelanggan), bahkan dirender di browser pengguna tanpa server (hanya sebagian CSS didukung, ada batasan browser).
 4. Anda membuat ratusan video yang panjangnya mengikuti data (mis. durasi suara tiap video).
 
 Sama-sama bisa (bukan pembeda): editor visual, plugin Claude Code, player dan render di cloud, GSAP/Lottie/Three.js, caption per kata, template dan batch.
 
-Biaya: HyperFrames open source (Apache 2.0), gratis untuk usaha sebesar apa pun. Remotion gratis untuk perorangan dan usaha sampai 3 orang total (termasuk Anda dan freelancer di proyek yang sama); 4 orang ke atas 25 dolar/bulan per orang yang menulis kodenya, termasuk lewat AI.
+Biaya: HyperFrames open source (Apache 2.0), gratis untuk usaha sebesar apa pun. Remotion gratis untuk perorangan dan usaha sampai 3 orang total (termasuk Anda dan freelancer di proyek yang sama); 4 orang ke atas: 25 dolar/bulan per orang yang menulis kodenya, termasuk lewat AI; kalau videonya dirender otomatis lewat sistem (kasus 3-4), tarifnya 0,01 dolar per render, minimum 100 dolar/bulan. Cek halaman lisensinya.
 
 Syarat cara saya: Claude Code minimal Pro (Claude-nya bayar, alat videonya gratis sesuai aturan di atas), Node.js di laptop; HyperFrames juga butuh FFmpeg.
 
-Aturan milih: pilih dari kasusnya, bukan dari yang lagi ramai. Video penjelasan biasa? Pakai yang sudah terpasang.
+Aturan milih: pilih dari kasusnya, bukan dari yang sedang ramai dibicarakan. Video penjelasan biasa? Dua-duanya bisa. Baru mulai? Remotion, karena contoh dan tutorialnya paling banyak (diakui dokumentasi HyperFrames sendiri). Saya memakai keduanya; untuk video penjelasan seperti ini saya tidak merasakan bedanya, dan empat kasus di atas diambil dari dokumentasi resmi.
 
 Sumber (dicek 6 Nov 2026): remotion.dev/docs (css-animations, flickering, client-side-rendering, player, dynamic-metadata, license/faq), hyperframes.heygen.com (frame-adapters, cli, variables, hyperframes-vs-remotion, faq). Bukan nasihat hukum.
 
-Kasus Anda yang mana? Tulis di komentar, saya bantu pilih.
+Video animasi apa yang mau Anda garap? Tulis di komentar, saya bantu pilih alatnya.
 
 #RumitJadiJelas #GarapanWeekend

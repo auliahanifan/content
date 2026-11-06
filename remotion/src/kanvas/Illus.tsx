@@ -9,7 +9,7 @@ import {A, bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
  * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
  */
-export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold';
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -450,7 +450,61 @@ const Mold: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({s
   );
 };
 
-export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600};
+/* ---------- snap: video di-pause, playhead digeser ke detik tertentu, kamera menjepret, foto keluar ---------- */
+const Snap: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const sec = labels?.[0] ?? 'detik 3';
+  const drop = useSpringAt(start, {damping: 13, stiffness: 150, mass: 0.7});
+  const scrub = interpolate(frame, [at(0), at(0) + 14], [0.12, 0.5], {...clamp, easing: Easing.bezier(0.3, 0, 0.2, 1)});
+  const flash = frame >= at(1) ? interpolate(frame - at(1), [0, 3, 12], [0, 1, 0], clamp) : 0;
+  const photo = useSpringAt(at(1) + 4, {damping: 12, stiffness: 160, mass: 0.7});
+  const nextScrub = frame >= at(2) ? interpolate(frame, [at(2), at(2) + 10], [0.5, 0.62], clamp) : 0.5;
+  const pos = frame >= at(2) ? nextScrub : scrub;
+  const ballX = 60 + pos * 380;
+  const ballY = 150 - Math.sin(pos * Math.PI * 2) * 60;
+  return (
+    <div style={{position: 'relative', width: 600, height: 720}}>
+      {/* layar video */}
+      <div style={{position: 'absolute', left: 30, top: 30, width: 540, padding: 18, ...bigCard(), opacity: Math.min(1, drop * 2), transform: `translateY(${(1 - drop) * -120}px)`}}>
+        <div style={{position: 'relative', height: 280, borderRadius: 16, background: K.paper2, overflow: 'hidden'}}>
+          <div style={{position: 'absolute', left: ballX, top: ballY, width: 64, height: 64, borderRadius: 32, background: A()}} />
+          <div style={{position: 'absolute', left: 30, right: 30, bottom: 34, height: 6, borderRadius: 3, background: K.line}} />
+          {/* tombol pause */}
+          <div style={{position: 'absolute', left: 18, top: 16, display: 'flex', gap: 8}}>
+            <div style={{width: 14, height: 40, borderRadius: 4, background: K.ink}} />
+            <div style={{width: 14, height: 40, borderRadius: 4, background: K.ink}} />
+          </div>
+          <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash}} />
+        </div>
+        {/* timeline */}
+        <div style={{position: 'relative', height: 60, marginTop: 14}}>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 26, height: 10, borderRadius: 5, background: K.paper2}} />
+          <div style={{position: 'absolute', left: 0, width: `${pos * 100}%`, top: 26, height: 10, borderRadius: 5, background: A()}} />
+          <div style={{position: 'absolute', left: `calc(${pos * 100}% - 16px)`, top: 15, width: 32, height: 32, borderRadius: 16, background: K.ink, boxShadow: SHADOW}} />
+          <div style={{position: 'absolute', left: `calc(${pos * 100}% - 60px)`, top: -34, width: 120, textAlign: 'center', fontFamily: FONT_BODY, fontSize: 28, fontWeight: 800, color: K.ink}}>{frame >= at(2) ? 'detik 3,03' : sec}</div>
+        </div>
+      </div>
+      {/* kamera */}
+      <div style={{position: 'absolute', left: 40, top: 470, opacity: Math.min(1, drop * 2)}}>
+        <div style={{width: 170, height: 120, borderRadius: 22, background: K.ink, boxShadow: SHADOW, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div style={{width: 74, height: 74, borderRadius: 37, background: K.card, border: `10px solid ${K.soft}`}} />
+        </div>
+        <div style={{position: 'absolute', left: 22, top: -18, width: 46, height: 22, borderRadius: 6, background: K.ink}} />
+      </div>
+      {/* foto hasil jepretan */}
+      <div style={{position: 'absolute', left: 270, top: 440, width: 260, padding: '14px 14px 18px', background: K.card, borderRadius: 12, boxShadow: SHADOW, opacity: Math.min(1, photo * 2), transform: `translate(${(1 - photo) * -200}px, ${(1 - photo) * 40}px) rotate(${5 * photo - 12 * (1 - photo)}deg) scale(${0.5 + 0.5 * photo})`}}>
+        <div style={{position: 'relative', height: 140, borderRadius: 8, background: K.paper2, overflow: 'hidden'}}>
+          <div style={{position: 'absolute', left: 60 + 0.5 * 160, top: 40, width: 46, height: 46, borderRadius: 23, background: A()}} />
+        </div>
+        <div style={{fontFamily: FONT_HEAD, fontSize: 30, fontWeight: 800, color: K.ink, marginTop: 10, textAlign: 'center'}}>{sec}</div>
+      </div>
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600};
 
 export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
   switch (name) {
@@ -472,6 +526,8 @@ export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; 
       return <RecipeKitchen steps={steps} start={start} labels={labels} />;
     case 'mold':
       return <Mold steps={steps} start={start} labels={labels} />;
+    case 'snap':
+      return <Snap steps={steps} start={start} labels={labels} />;
   }
 };
 
