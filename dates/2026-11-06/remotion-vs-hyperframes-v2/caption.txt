@@ -14,7 +14,7 @@ Biaya: HyperFrames open source (Apache 2.0), gratis untuk usaha sebesar apa pun.
 
 Syarat cara saya: Claude Code minimal Pro (Claude-nya bayar, alat videonya gratis sesuai aturan di atas), Node.js di laptop; HyperFrames juga butuh FFmpeg.
 
-Aturan milih: pilih dari kasusnya, bukan dari yang sedang ramai dibicarakan. Video penjelasan biasa? Dua-duanya bisa. Baru mulai? Remotion, karena contoh dan tutorialnya paling banyak (diakui dokumentasi HyperFrames sendiri). Saya memakai keduanya; untuk video penjelasan seperti ini saya tidak merasakan bedanya, dan empat kasus di atas diambil dari dokumentasi resmi.
+Aturan milih: pilih dari kasusnya, bukan dari yang sedang ramai dibicarakan. Video penjelasan biasa? Dua-duanya bisa: Remotion lebih matang (contoh dan tutorialnya paling banyak, diakui dokumentasi HyperFrames sendiri), HyperFrames bebas lisensi untuk tim berapa pun. Saya memakai keduanya; untuk video penjelasan seperti ini saya tidak merasakan bedanya, dan empat kasus di atas diambil dari dokumentasi resmi.
 
 Sumber (dicek 6 Nov 2026): remotion.dev/docs (css-animations, flickering, client-side-rendering, player, dynamic-metadata, license/faq), hyperframes.heygen.com (frame-adapters, cli, variables, hyperframes-vs-remotion, faq). Bukan nasihat hukum.
 
