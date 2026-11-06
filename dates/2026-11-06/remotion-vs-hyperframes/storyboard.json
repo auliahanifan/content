@@ -1,0 +1,800 @@
+{
+ "style": "kanvas",
+ "series": "garapan-weekend",
+ "topic": "Garapan Weekend · video Claude",
+ "tail": 1.5,
+ "keywords": [
+  5,
+  11
+ ],
+ "captionMerge": [
+  {
+   "from": 2,
+   "to": 3,
+   "text": "HyperFrames?"
+  },
+  {
+   "from": 28,
+   "to": 29,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 53,
+   "to": 54,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 60,
+   "to": 61,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 75,
+   "to": 76,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 92,
+   "to": 93,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 140,
+   "to": 141,
+   "text": "HyperFrames"
+  },
+  {
+   "from": 127,
+   "to": 130,
+   "text": "25 dolar"
+  }
+ ],
+ "loop": {
+  "text": "aturan milih",
+  "from": 12,
+  "until": 187
+ },
+ "hook": {
+  "until": 12,
+  "items": [
+   {
+    "kind": "row",
+    "gap": 30,
+    "items": [
+     {
+      "kind": "card",
+      "icon": {
+       "name": "code",
+       "color": "accent"
+      },
+      "tag": "REMOTION",
+      "value": "Rp0",
+      "tone": "good",
+      "swap": {
+       "at": 10,
+       "value": "ke-4?",
+       "tone": "bad"
+      },
+      "w": 470
+     },
+     {
+      "kind": "card",
+      "icon": {
+       "name": "file",
+       "color": "teal"
+      },
+      "tag": "HYPERFRAMES",
+      "value": "Rp0",
+      "tone": "good",
+      "w": 470
+     }
+    ]
+   }
+  ]
+ },
+ "punch": [
+  11,
+  33,
+  81,
+  88,
+  127,
+  193
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 4,
+   "key": [
+    5
+   ]
+  },
+  {
+   "from": 6,
+   "split": 6,
+   "key": [
+    11
+   ]
+  },
+  {
+   "from": 12,
+   "split": 12,
+   "key": [
+    13
+   ]
+  },
+  {
+   "from": 18,
+   "split": 20,
+   "key": [
+    22,
+    25
+   ]
+  },
+  {
+   "from": 26,
+   "split": 31,
+   "key": [
+    32
+   ]
+  },
+  {
+   "from": 33,
+   "split": 35,
+   "key": [
+    33
+   ]
+  },
+  {
+   "from": 40,
+   "split": 40,
+   "key": [
+    43
+   ]
+  },
+  {
+   "from": 46,
+   "split": 46,
+   "key": [
+    48
+   ]
+  },
+  {
+   "from": 50,
+   "split": 50,
+   "key": [
+    52
+   ]
+  },
+  {
+   "from": 53,
+   "split": 53,
+   "key": [
+    56
+   ]
+  },
+  {
+   "from": 60,
+   "split": 62,
+   "key": [
+    64
+   ]
+  },
+  {
+   "from": 67,
+   "split": 67,
+   "key": [
+    71
+   ]
+  },
+  {
+   "from": 73,
+   "split": 79,
+   "key": [
+    81
+   ]
+  },
+  {
+   "from": 82,
+   "split": 82,
+   "key": [
+    84
+   ]
+  },
+  {
+   "from": 85,
+   "split": 86,
+   "key": [
+    88
+   ]
+  },
+  {
+   "from": 92,
+   "split": 94,
+   "key": [
+    97
+   ]
+  },
+  {
+   "from": 100,
+   "split": 102,
+   "key": [
+    109
+   ]
+  },
+  {
+   "from": 110,
+   "split": 110,
+   "key": [
+    113
+   ]
+  },
+  {
+   "from": 117,
+   "split": 117,
+   "key": [
+    117
+   ]
+  },
+  {
+   "from": 121,
+   "split": 126,
+   "key": [
+    127
+   ]
+  },
+  {
+   "from": 132,
+   "split": 132,
+   "key": [
+    135
+   ]
+  },
+  {
+   "from": 137,
+   "split": 137,
+   "key": [
+    139
+   ]
+  },
+  {
+   "from": 140,
+   "split": 142,
+   "key": [
+    145
+   ]
+  },
+  {
+   "from": 147,
+   "split": 147,
+   "key": [
+    150
+   ]
+  },
+  {
+   "from": 151,
+   "split": 154,
+   "key": [
+    158
+   ]
+  },
+  {
+   "from": 160,
+   "split": 160,
+   "key": [
+    164
+   ]
+  },
+  {
+   "from": 165,
+   "split": 168,
+   "key": [
+    171
+   ]
+  },
+  {
+   "from": 176,
+   "split": 178,
+   "key": [
+    177,
+    180
+   ]
+  },
+  {
+   "from": 184,
+   "split": 184,
+   "key": [
+    186
+   ]
+  },
+  {
+   "from": 187,
+   "split": 189,
+   "key": [
+    193
+   ]
+  },
+  {
+   "from": 194,
+   "split": 197,
+   "key": [
+    199
+   ]
+  },
+  {
+   "from": 200,
+   "split": 204,
+   "key": [
+    206
+   ]
+  },
+  {
+   "from": 208,
+   "split": 208,
+   "key": [
+    213
+   ]
+  },
+  {
+   "from": 214,
+   "split": 217,
+   "key": [
+    219
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "at": 12,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "check",
+      "color": "accent"
+     },
+     "tag": "JANJI",
+     "title": "Aturan milih",
+     "text": "saya kasih di akhir video",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 18,
+   "char": "right",
+   "pose": "menjelaskan",
+   "topic": "Episode 2 · video Claude",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "recipe-kitchen",
+     "steps": [
+      20,
+      23,
+      25
+     ],
+     "labels": [
+      "Judul muncul dari bawah",
+      "Kartu geser ke kanan",
+      "Angka naik"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 26,
+   "char": "none",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 26,
+       "tag": "DAPUR 1",
+       "title": "Remotion",
+       "w": 470
+      },
+      {
+       "kind": "card",
+       "at": 28,
+       "tag": "DAPUR 2",
+       "title": "HyperFrames",
+       "w": 470
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 33,
+   "char": "left",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "render",
+     "steps": [
+      35,
+      40,
+      43
+     ],
+     "labels": [
+      "Chrome",
+      "MP4"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 46,
+   "char": "none",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 50,
+       "icon": {
+        "name": "code",
+        "color": "accent"
+       },
+       "tag": "REMOTION",
+       "title": "React",
+       "text": "kode JavaScript",
+       "w": 470
+      },
+      {
+       "kind": "card",
+       "at": 53,
+       "icon": {
+        "name": "file",
+        "color": "teal"
+       },
+       "tag": "HYPERFRAMES",
+       "title": "HTML",
+       "text": "bahasa halaman web",
+       "w": 470
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 60,
+   "char": "none",
+   "topic": "★ GitHub = tanda populer",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 60,
+       "tag": "HYPERFRAMES",
+       "title": "79,6 rb ★",
+       "text": "baru terbit Maret 2026",
+       "tone": "sun",
+       "w": 470
+      },
+      {
+       "kind": "card",
+       "at": 68,
+       "tag": "REMOTION",
+       "title": "71,1 rb ★",
+       "text": "ada sejak 2021",
+       "w": 470
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 73,
+   "char": "none",
+   "topic": "Garapan Weekend · video Claude",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/hf-matang.png",
+     "source": "hyperframes.heygen.com · HyperFrames vs Remotion",
+     "w": 760,
+     "mark": {
+      "at": 80,
+      "rects": [
+       {
+        "x": 41.06,
+        "y": 56.35,
+        "w": 38.06,
+        "h": 5.52
+       }
+      ]
+     },
+     "note": {
+      "at": 82,
+      "text": "kata HyperFrames sendiri!",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 85,
+   "char": "right",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "big",
+     "text": "Beda paling mahal",
+     "sub": "bukan di kode",
+     "subAt": 89,
+     "tone": "bad"
+    }
+   ]
+  },
+  {
+   "at": 92,
+   "char": "left",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "building",
+      "color": "good"
+     },
+     "tag": "HYPERFRAMES",
+     "title": "Usaha sebesar apa pun",
+     "value": "Rp0",
+     "text": "open source · Apache 2.0",
+     "tone": "good",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 100,
+   "char": "none",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/rm-3orang.png",
+     "source": "remotion.dev · License FAQ (5 Nov 2026)",
+     "w": 740,
+     "mark": {
+      "at": 108,
+      "rects": [
+       {
+        "x": 84.71,
+        "y": 85.85,
+        "w": 8.74,
+        "h": 3.94
+       },
+       {
+        "x": 10.91,
+        "y": 91.05,
+        "w": 15.09,
+        "h": 3.94
+       }
+      ]
+     },
+     "note": {
+      "at": 110,
+      "text": "total 3 orang, termasuk Anda",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 117,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "team",
+      "color": "bad"
+     },
+     "tag": "REMOTION · 4 ORANG KE ATAS",
+     "title": "Mulai bayar lisensi",
+     "value": "Rp0",
+     "swap": {
+      "at": 127,
+      "value": "$25/bln",
+      "tone": "bad"
+     },
+     "text": "per orang yang nulis kodenya",
+     "w": 600
+    }
+   ]
+  },
+  {
+   "at": 132,
+   "char": "none",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/rm-25.png",
+     "source": "remotion.dev · License FAQ",
+     "w": 740,
+     "mark": {
+      "at": 133,
+      "rects": [
+       {
+        "x": 25.05,
+        "y": 74.19,
+        "w": 38.65,
+        "h": 5.26
+       }
+      ]
+     },
+     "note": {
+      "at": 135,
+      "text": "nyuruh AI juga dihitung",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 137,
+   "char": "left",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "film",
+      "color": "teal"
+     },
+     "tag": "SAYA PAKAI",
+     "title": "HyperFrames",
+     "text": "buat ngedit video talking head",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 147,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "mold",
+     "steps": [
+      152,
+      155,
+      158
+     ],
+     "labels": [
+      "Episode 1",
+      "Episode 2",
+      "Episode 3"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 160,
+   "char": "left",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "film",
+      "color": "accent"
+     },
+     "tag": "VIDEO INI",
+     "title": "Dibikin pakai Remotion",
+     "text": "HyperFrames juga bisa dibikin cetakan",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 165,
+   "char": "left",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Syarat cara saya",
+     "items": [
+      {
+       "at": 168,
+       "text": "Claude Code, minimal Pro ($20/bln)",
+       "doneAt": 170
+      },
+      {
+       "at": 173,
+       "text": "Node di laptop (program gratis)",
+       "doneAt": 174
+      },
+      {
+       "at": 174,
+       "text": "HyperFrames: plus FFmpeg",
+       "doneAt": 175
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 176,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "money",
+      "color": "accent"
+     },
+     "tag": "BELI vs BIKIN",
+     "title": "Claude-nya bayar",
+     "text": "alat videonya gratis, sesuai aturan tadi",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 187,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Aturan milih",
+     "items": [
+      {
+       "at": 189,
+       "text": "Jangan pilih karena lagi ramai",
+       "strikeAt": 193,
+       "tone": "bad"
+      },
+      {
+       "at": 194,
+       "text": "Sampai 3 orang: pilih yang cocok, dua-duanya Rp0",
+       "doneAt": 199
+      },
+      {
+       "at": 200,
+       "text": "4 orang ke atas: hitung dulu biaya Remotion",
+       "doneAt": 207
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 208,
+   "char": "right",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     },
+     "title": "Tulis di komentar",
+     "text": "video apa yang mau Anda bikin? saya bantu pilih alatnya",
+     "w": 580
+    }
+   ]
+  }
+ ]
+}

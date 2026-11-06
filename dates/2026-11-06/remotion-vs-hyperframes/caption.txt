@@ -1,0 +1,17 @@
+Remotion atau HyperFrames? Dua-duanya alat bikin video dari kode, dan cara kerjanya sama: halaman web dibuka di Chrome, difoto per frame, lalu dijahit jadi video. Yang beda bahasa resepnya, umurnya, dan lisensinya.
+
+Syarat dua-duanya
+• Claude Code, minimal paket Pro (mulai 20 dolar/bulan). Claude-nya bayar, alat videonya gratis.
+• Node.js di laptop (program gratis). HyperFrames minta Node 22+ dan FFmpeg; Remotion membawa FFmpeg sendiri.
+
+Lisensi
+• HyperFrames: open source Apache 2.0, gratis untuk usaha sebesar apa pun.
+• Remotion: gratis untuk perorangan dan usaha sampai 3 orang total, termasuk Anda dan freelancer di proyek yang sama. Mulai orang ke-4: Company License 25 dolar/bulan per orang yang menulis kode Remotion, termasuk lewat agen AI. Kirim MP4 ke klien tidak membuat orang di pihak klien ikut dihitung.
+
+Aturan milih: jangan pilih karena lagi ramai. Sampai 3 orang, pilih yang cocok (Remotion: contoh dan tutorial paling banyak; HyperFrames: ada perintah bawaan untuk caption dan hapus latar footage). 4 orang ke atas, hitung dulu biaya Remotion. HyperFrames juga bisa dijadikan cetakan lewat variabel. HyperFrames baru terbit Maret 2026 dan bintang GitHub-nya sudah melewati Remotion, tapi dokumentasi HyperFrames sendiri mengakui Remotion lebih matang (template, tutorial, jam terbang).
+
+Sumber: remotion.dev/docs/license/faq (diperbarui 5 Nov 2026), hyperframes.heygen.com (HyperFrames vs Remotion, FAQ), claude.com/pricing. Cek ulang lisensi sebelum dipakai untuk usaha; ini bukan nasihat hukum.
+
+Video apa yang mau Anda bikin? Tulis di komentar, saya bantu pilih alatnya.
+
+#RumitJadiJelas #GarapanWeekend
