@@ -1,7 +1,7 @@
 Remotion atau HyperFrames? Untuk video penjelasan, hasilnya hampir sama: dua-duanya merender halaman web di Chrome frame demi frame. Bedanya di cara memotret tiap frame: Remotion menggambar tiap frame dari nomor frame-nya, HyperFrames mem-pause animasi lalu memotretnya di detik yang diminta.
 
 Pilih HyperFrames kalau:
-1. Anda mau memakai animasi jadi (CSS, GSAP, Lottie, misalnya dari CodePen), selama tidak digerakkan timer. Dokumentasi Remotion sendiri bilang animasi CSS biasa bisa berkedip; di Remotion harus diubah dulu atau pakai paket khusus seperti @remotion/gsap.
+1. Anda mau memakai animasi jadi (CSS, GSAP, Lottie, misalnya dari CodePen), selama tidak digerakkan timer. Dokumentasi Remotion sendiri bilang animasi CSS biasa bisa berkedip; di Remotion harus diubah dulu atau pakai paket GSAP resmi Remotion.
 2. Anda mengolah rekaman video asli: hapus latar tanpa green screen dan deteksi ketukan musik sudah jadi perintah bawaan. TTS lokalnya belum mendukung bahasa Indonesia.
 
 Pilih Remotion kalau:
