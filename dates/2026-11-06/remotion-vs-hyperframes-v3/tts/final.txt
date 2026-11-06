@@ -1,0 +1,25 @@
+[confident] Remotion atau Hyper Frames? Dua-duanya gratis. Satu berhenti gratis di orang keempat.
+
+[confident] Yang berhenti: Remotion. Kalau seluruh usaha Anda sudah empat orang, bayar lisensi. Hyper Frames tetap gratis.
+
+[confident] Tapi bedanya bukan cuma itu. Saya pakai dua-duanya, dan untuk video kayak gini, jujur, nggak kerasa bedanya. Bedanya muncul di empat kasus, dari dokumentasinya. Aturan milihnya di akhir.
+
+[confident] Bukan sulap... Begini cara kerjanya.
+
+[confident] Dasarnya sama: Claude nulis resepnya, laptop yang masak, gambar demi gambar. Bedanya di cara bikin tiap gambar. Remotion kayak animator flipbook: tiap halaman digambar dari nomor halamannya. Hyper Frames kayak motret video yang di-pause: geser ke detik tiga, jepret, lanjut.
+
+[confident] Kasus pertama: Anda nemu animasi CSS atau GSAP yang bagus di CodePen. Di Hyper Frames, tempel hampir apa adanya. Di Remotion, kata dokumentasinya sendiri, animasi CSS bisa berkedip, karena tiap halaman digambar terpisah. Harus ditulis ulang, atau pakai paket khusus.
+
+[confident] Kasus kedua: ngolah rekaman video asli. Hyper Frames punya perintah bawaan buat hapus latar tanpa green screen dan deteksi ketukan musik.
+
+[confident] Dua kasus berikutnya, giliran Remotion.
+
+[confident] Kasus ketiga: video ditanam di website atau aplikasi Anda. Pelanggan ganti namanya, videonya langsung berubah. Bahkan bisa dibuat di browser mereka, tanpa server, walau tampilannya terbatas.
+
+[confident] Kasus keempat: ratusan video dengan panjang beda-beda. Remotion ngitung jumlah halamannya dari data, misalnya panjang suaranya.
+
+[confident] Syarat cara saya: Claude Code, minimal langganan Pro. Rinciannya di caption.
+
+[confident] Jadi aturannya: animasi dari web atau olah rekaman video? Hyper Frames. Video di aplikasi atau ratusan versi dari data? Remotion. Video penjelasan biasa? Dua-duanya bisa: Remotion lebih matang, Hyper Frames bebas lisensi.
+
+[confident] Mau garap video apa? Tulis di komentar, saya bantu pilih alatnya.

@@ -1,0 +1,45 @@
+[HOOK 0–3 dtk]
+Ucap: Bikin video animasi pakai Claude? Remotion atau HyperFrames, sama aja... kecuali di empat kasus.
+Layar: Sama aja… kecuali 4 kasus
+Visual: kartu kertas "REMOTION vs HYPERFRAMES · sama aja", lalu dicoret jadi "kecuali 4 kasus".
+Janji: aturan milih
+Syarat: Cara saya: Claude Code minimal Pro · Node di laptop (HyperFrames juga FFmpeg) | HyperFrames: Apache 2.0, gratis untuk usaha sebesar apa pun | Remotion: gratis bila seluruh usaha ≤3 orang; 4+ orang 25 dolar/bln per penulis kode, atau 0,01 dolar per render (min 100 dolar/bln) bila render otomatis lewat sistem.
+Istilah: Remotion; HyperFrames ("Hyper Frames"); "gambar/halaman" = frame (analogi flipbook); "rekaman video asli" = footage; Claude Code, minimal langganan Pro; "seluruh usaha" = total orang di usaha termasuk Anda.
+Seri: Bukan Sulap (kalimat khas sebelum mekanisme)
+Episode: video-claude 2/3 (versi 2) · ←TH-098 →TH-100 (suara AI)
+Struktur: Perbandingan per kasus (matriks H/M/S di tab Fakta, topik remotion-vs-hyperframes)
+
+Saya pakai dua-duanya.
+Untuk video kayak gini, jujur, nggak kerasa bedanya.
+Empat kasus ini dari dokumentasinya.
+Aturan milihnya di akhir.
+Bukan sulap... Begini cara kerjanya.
+Dasarnya sama: Claude nulis resepnya, laptop yang masak, gambar demi gambar.
+Bedanya di cara bikin tiap gambar.
+Remotion kayak animator flipbook: tiap halaman digambar dari nomor halamannya.
+HyperFrames kayak motret video yang di-pause: geser ke detik tiga, jepret, lanjut.
+Kasus pertama: Anda nemu animasi CSS atau GSAP yang bagus di CodePen.
+Di HyperFrames, tempel hampir apa adanya.
+Di Remotion, kata dokumentasinya sendiri, animasi CSS bisa berkedip, karena tiap halaman digambar terpisah.
+Harus ditulis ulang, atau pakai paket khusus.
+Kasus kedua: ngolah rekaman video asli.
+HyperFrames punya perintah bawaan buat hapus latar tanpa green screen dan deteksi ketukan musik.
+Dua kasus berikutnya, giliran Remotion.
+Kasus ketiga: video ditanam di website atau aplikasi Anda.
+Pelanggan ganti namanya, videonya langsung berubah.
+Bahkan bisa dibuat di browser mereka, tanpa server, walau tampilannya terbatas.
+Kasus keempat: ratusan video dengan panjang beda-beda.
+Remotion ngitung jumlah halamannya dari data, misalnya panjang suaranya.
+Soal biaya: HyperFrames gratis untuk usaha sebesar apa pun.
+Remotion gratis kalau seluruh usaha Anda paling banyak tiga orang.
+Lebih dari itu, bayar lisensi.
+Syarat cara saya: Claude Code, minimal langganan Pro.
+Rinciannya di caption.
+Jadi aturannya: animasi dari web atau olah rekaman video?
+HyperFrames.
+Video di aplikasi atau ratusan versi dari data?
+Remotion.
+Video penjelasan biasa?
+Dua-duanya bisa: Remotion lebih matang, HyperFrames bebas lisensi.
+Mau garap video apa?
+Tulis di komentar, saya bantu pilih alatnya.
