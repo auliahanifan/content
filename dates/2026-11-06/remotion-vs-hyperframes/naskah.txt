@@ -1,0 +1,34 @@
+[HOOK 0–3 dtk]
+Ucap: Remotion atau HyperFrames? Dua-duanya gratis. Satu berhenti gratis di orang keempat.
+Layar: Gratis… sampai orang ke-4
+Visual: dua kartu kertas Remotion dan HyperFrames dengan tag Rp0; tag Rp0 di kartu Remotion robek saat "orang keempat", muncul ikon orang ke-4.
+Janji: aturan milih
+Syarat: Remotion: Claude Code minimal Pro · Node di laptop · gratis untuk perorangan dan usaha sampai 3 orang total (termasuk pemilik dan freelancer di proyek itu); 4 orang ke atas 25 dolar/bulan per orang yang menulis kodenya, termasuk lewat AI | HyperFrames: Claude Code minimal Pro · Node 22+ dan FFmpeg di laptop · gratis untuk usaha sebesar apa pun (Apache 2.0) | Claude Code-nya berbayar (Pro mulai 20 dolar/bulan), alat videonya gratis.
+Istilah: Remotion; HyperFrames (diucapkan "Hyper Frames"); Claude Code, minimal Pro; "orang" = total orang di usaha, termasuk Anda dan freelancer di proyek itu; "gratis" hanya untuk alat video (bikin), bukan Claude (beli); "cetakan" = cara saya memakai Remotion, bukan beda kemampuan alat.
+Episode: video-claude 2/3 · ←TH-098 (Claude nulis resepnya, laptop yang masak) →TH-100 (suara AI)
+
+Aturan milihnya saya kasih di akhir.
+Episode lalu: Claude nulis resepnya, laptop yang masak.
+Remotion dan HyperFrames itu dua dapurnya, ovennya sama: buka halaman web di Chrome, foto tiap frame, jahit jadi video.
+Bedanya di bahasa resep.
+Remotion pakai React.
+HyperFrames pakai HTML, bahasa halaman web.
+HyperFrames baru terbit Maret tahun ini, tapi bintang GitHub-nya sudah nyalip Remotion.
+Padahal dokumentasi HyperFrames sendiri ngaku... Remotion lebih matang, tutorialnya lebih banyak.
+Nah, beda paling mahal bukan di kode.
+HyperFrames gratis untuk usaha sebesar apa pun.
+Remotion gratis kalau total orang di usaha Anda sampai tiga, termasuk Anda dan freelancer yang ikut ngerjain.
+Empat orang ke atas?
+Tiap orang yang nulis kodenya kena dua puluh lima dolar sebulan, termasuk yang cuma nyuruh AI.
+Saya pakai dua-duanya.
+HyperFrames buat ngedit video talking head.
+Remotion saya jadikan cetakan: tampilannya sudah jadi, tiap video Claude cukup ngisi naskahnya.
+Video ini dibikin pakai Remotion.
+Syarat cara saya: Claude Code, minimal Pro, dan Node di laptop.
+Claude-nya bayar, alat videonya gratis sesuai aturan tadi.
+Lengkapnya di caption.
+Jadi aturannya: jangan pilih karena lagi ramai.
+Sampai tiga orang, pilih yang cocok.
+Empat orang ke atas, hitung dulu biaya Remotion.
+Video apa yang mau Anda bikin?
+Tulis di komentar, saya bantu pilih alatnya.

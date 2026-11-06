@@ -1,0 +1,19 @@
+[confident] Remotion atau Hyper Frames? Dua-duanya gratis. Satu berhenti gratis di orang keempat.
+
+[confident] Aturan milihnya saya kasih di akhir.
+
+[confident] Episode lalu: Claude nulis resepnya, laptop yang masak. Remotion dan Hyper Frames itu dua dapurnya, ovennya sama: buka halaman web di Chrome, foto tiap frame, jahit jadi video.
+
+[confident] Bedanya di bahasa resep. Remotion pakai React. Hyper Frames pakai HTML, bahasa halaman web.
+
+[confident] Hyper Frames baru terbit Maret tahun ini, tapi bintang GitHub-nya sudah nyalip Remotion. Padahal dokumentasi Hyper Frames sendiri ngaku... Remotion lebih matang, tutorialnya lebih banyak.
+
+[confident] Nah, beda paling mahal bukan di kode. Hyper Frames gratis untuk usaha sebesar apa pun. Remotion gratis kalau total orang di usaha Anda sampai tiga, termasuk Anda dan freelancer yang ikut ngerjain. Empat orang ke atas? Tiap orang yang nulis kodenya kena dua puluh lima dolar sebulan, termasuk yang cuma nyuruh AI.
+
+[confident] Saya pakai dua-duanya. Hyper Frames buat ngedit video talking head. Remotion saya jadikan cetakan: tampilannya sudah jadi, tiap video Claude cukup ngisi naskahnya. Video ini dibikin pakai Remotion.
+
+[confident] Syarat cara saya: Claude Code, minimal Pro, dan Node di laptop. Claude-nya bayar, alat videonya gratis sesuai aturan tadi. Lengkapnya di caption.
+
+[confident] Jadi aturannya: jangan pilih karena lagi ramai. Sampai tiga orang, pilih yang cocok. Empat orang ke atas, hitung dulu biaya Remotion.
+
+[confident] Video apa yang mau Anda bikin? Tulis di komentar, saya bantu pilih alatnya.

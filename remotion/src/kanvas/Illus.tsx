@@ -416,7 +416,7 @@ const Mold: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({s
   return (
     <div style={{position: 'relative', width: 600, height: 760}}>
       {/* meja */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: 430, height: 26, borderRadius: 13, background: K.paper2, boxShadow: SHADOW}} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 440, height: 26, borderRadius: 13, background: K.paper2, boxShadow: SHADOW}} />
       {/* adonan yang sedang dicetak */}
       {cur >= 0 && (
         <div style={{position: 'absolute', left: 185, top: 300, transform: `translateX(${(1 - slide) * -420}px)`, opacity: interpolate(local, [24, 30], [1, 0], clamp)}}>
@@ -434,14 +434,14 @@ const Mold: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({s
         </div>
         <div style={{position: 'absolute', left: 110, top: -56, width: 60, height: 60, borderRadius: 14, background: K.ink}} />
       </div>
-      <div style={{position: 'absolute', left: 30, top: 70, fontFamily: FONT_HEAD, fontSize: 34, fontWeight: 800, color: K.soft, transform: 'rotate(-6deg)', opacity: Math.min(1, drop * 2)}}>cetakan</div>
+      <div style={{position: 'absolute', left: 462, top: 96, fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.soft, transform: 'rotate(6deg)', opacity: Math.min(1, drop * 2)}}>cetakan</div>
       {/* tumpukan hasil: isi beda, gaya sama */}
       {names.map((n, i) => {
         const pop = frame < at(i) + 18 ? 0 : spring({frame: frame - at(i) - 18, fps, config: {damping: 12, stiffness: 170, mass: 0.6}});
         if (pop <= 0) return null;
-        const x = 20 + i * 190;
+        const x = 6 + i * 198;
         return (
-          <div key={i} style={{position: 'absolute', left: x, top: 500, opacity: Math.min(1, pop * 2), transform: `translateY(${(1 - pop) * -170}px) rotate(${[-4, 2, 5][i % 3] * pop}deg) scale(${0.6 + 0.2 * pop})`, transformOrigin: 'top left'}}>
+          <div key={i} style={{position: 'absolute', left: x, top: 500, opacity: Math.min(1, pop * 2), transform: `translateY(${(1 - pop) * -170}px) rotate(${[-3, 1, 3][i % 3] * pop}deg) scale(${0.64 + 0.2 * pop})`, transformOrigin: 'top left'}}>
             <Thumb name={n} c={colors[i % 3]} />
           </div>
         );
