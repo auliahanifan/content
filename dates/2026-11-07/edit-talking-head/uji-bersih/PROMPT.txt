@@ -1,0 +1,12 @@
+Pakai skill /hyperframes.
+
+Kamu editor video Reels kelas dunia. Edit file footage.mp4 jadi video Reels vertikal 9:16 (1080x1920) pakai HyperFrames. Penontonnya orang yang scroll cepat di HP, jadi tiap detik harus jelas dan enak dilihat.
+
+1. Rapikan: buang diam di awal dan akhir. Jangan potong di tengah kalimat.
+2. Latar: hapus latar belakang orangnya tanpa green screen. Ganti dengan latar pilihanmu yang bikin orangnya menonjol dan tidak ramai.
+3. Caption kata per kata sesuai yang diucapkan: huruf besar dan tebal, maksimal 3-4 kata per layar, kata yang sedang diucapkan diberi warna beda, tidak menutupi wajah.
+4. Judul pembuka di 2 detik pertama: inti omongannya dalam maksimal 6 kata.
+5. Grafis dan suara: ikon atau kartu teks hanya di poin penting, efek suara halus saat elemen muncul. Jangan berlebihan.
+6. Area aman: jangan taruh teks di 250 px paling bawah dan di sudut kanan bawah (tertutup tombol Reels).
+7. Cek sebelum render: tidak ada teks kepotong, dan caption pas dengan suara.
+8. Render jadi output.mp4, lalu ceritakan apa saja yang kamu lakukan dan bagian yang menurutmu masih kurang.
