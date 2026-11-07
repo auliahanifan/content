@@ -1,0 +1,35 @@
+[HOOK 0–3 dtk]
+Ucap: Nggak bisa edit video? Suruh Claude Code, ini hasilnya.
+Layar: Tanpa CapCut
+Visual: dua bingkai HP berdampingan: footage mentah (latar perumahan) vs hasil edit Claude (latar hijau, caption, kartu).
+Janji: prompt lengkap di caption
+Syarat: Claude Code minimal langganan Pro (memakai kuota) · plugin HyperFrames (gratis, Apache 2.0) · Node.js 22+ dan FFmpeg di komputer
+Istilah: Claude Code = Claude yang kerja langsung di komputer; skill = alat tambahan resmi HyperFrames; transkrip = program pengubah suara jadi teks
+Episode: video-claude (Nitip, Mas) · menjawab komentar TH-099
+
+Ada yang nanya di komentar: video talking head, sarannya pakai apa?
+Saya jawab pakai bukti.
+Prompt lengkapnya di caption, tinggal salin.
+Syaratnya: Claude Code, Claude yang kerja langsung di komputer, minimal langganan Pro.
+Plus HyperFrames, alat bikin video yang gratis.
+Satu kali jalan ini memakai kuota langganan Anda.
+[REKAM: log asli uji bersih (uji-bersih/log.jsonl.gz) ditampilkan sebagai terminal]
+Biar adil, saya buka Claude Code baru di folder kosong.
+Cuma dipasang alat tambahan resmi HyperFrames, tanpa buatan saya.
+Satu prompt, lalu saya lepas.
+Tanpa revisi dari saya.
+Bahannya video berlisensi CC BY dari Wikimedia, kreditnya di caption.
+Bapak ini ngomong sekitar empat puluh lima detik, latarnya perumahan, suaranya pelan.
+Di prompt, saya minta Claude jadi editor Reels kelas dunia: hapus latarnya, kasih caption kata per kata, judul di dua detik pertama, dan kartu cuma di poin penting.
+Nah, ini bagian yang bikin saya kaget.
+Transkrip pertamanya meleset sampai satu detik.
+Claude mendeteksinya, ganti program pengubah suara jadi teks, lalu cek ulang awal tiap kata.
+Dua puluh lima menit kemudian, videonya jadi.
+Latarnya diganti hijau polos, caption dicocokkan ke suara, kartu muncul di poin penting, volume suara dinaikkan.
+Tapi belum sempurna.
+Masih ada jeda "um" sekitar satu setengah detik, tepi rambutnya kadang berpendar, dan satu kata mungkin salah dengar.
+Yang lapor?
+Claude sendiri.
+Jadi aturannya: biar Claude ngerjain kerja kasarnya, Anda tinggal cek dan rapikan.
+Mau saya coba pakai footage Anda?
+Tulis di komentar.
