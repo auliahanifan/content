@@ -1,0 +1,710 @@
+{
+ "style": "kanvas",
+ "series": "nitip-mas",
+ "topic": "Nitip, Mas · video Claude",
+ "tail": 1.5,
+ "keywords": [
+  2,
+  6
+ ],
+ "captionMerge": [
+  {
+   "from": 43,
+   "to": 44,
+   "text": "HyperFrames,"
+  },
+  {
+   "from": 73,
+   "to": 74,
+   "text": "HyperFrames,"
+  },
+  {
+   "from": 90,
+   "to": 91,
+   "text": "CC BY"
+  },
+  {
+   "from": 101,
+   "to": 103,
+   "text": "45"
+  },
+  {
+   "from": 164,
+   "to": 166,
+   "text": "25"
+  },
+  {
+   "from": 195,
+   "to": 196,
+   "text": "1,5"
+  }
+ ],
+ "loop": {
+  "text": "hasil edit",
+  "from": 9,
+  "until": 164
+ },
+ "hook": {
+  "until": 9,
+  "items": [
+   {
+    "kind": "row",
+    "gap": 24,
+    "items": [
+     {
+      "kind": "phone",
+      "src": "rekam/footage-mentah.mp4",
+      "from": 4,
+      "w": 380
+     },
+     {
+      "kind": "phone",
+      "src": "rekam/hasil-claude.mp4",
+      "from": 5,
+      "w": 380
+     }
+    ]
+   }
+  ]
+ },
+ "punch": [
+  6,
+  146,
+  169,
+  189,
+  218
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 0,
+   "key": [
+    2
+   ]
+  },
+  {
+   "from": 4,
+   "split": 4,
+   "key": [
+    4
+   ]
+  },
+  {
+   "from": 9,
+   "split": 13,
+   "key": [
+    15,
+    16
+   ]
+  },
+  {
+   "from": 20,
+   "split": 22,
+   "key": [
+    23
+   ]
+  },
+  {
+   "from": 24,
+   "split": 24,
+   "key": [
+    28,
+    29
+   ]
+  },
+  {
+   "from": 30,
+   "split": 31,
+   "key": [
+    32,
+    41
+   ]
+  },
+  {
+   "from": 33,
+   "split": 35,
+   "key": [
+    38
+   ]
+  },
+  {
+   "from": 39,
+   "split": 39,
+   "key": [
+    41
+   ]
+  },
+  {
+   "from": 42,
+   "split": 43,
+   "key": [
+    49
+   ]
+  },
+  {
+   "from": 50,
+   "split": 50,
+   "key": [
+    55
+   ]
+  },
+  {
+   "from": 58,
+   "split": 60,
+   "key": [
+    67
+   ]
+  },
+  {
+   "from": 68,
+   "split": 70,
+   "key": [
+    72
+   ]
+  },
+  {
+   "from": 75,
+   "split": 75,
+   "key": [
+    76
+   ]
+  },
+  {
+   "from": 78,
+   "split": 78,
+   "key": [
+    82
+   ]
+  },
+  {
+   "from": 83,
+   "split": 83,
+   "key": [
+    84
+   ]
+  },
+  {
+   "from": 87,
+   "split": 88,
+   "key": [
+    89,
+    90
+   ]
+  },
+  {
+   "from": 94,
+   "split": 94,
+   "key": [
+    96
+   ]
+  },
+  {
+   "from": 97,
+   "split": 99,
+   "key": [
+    104
+   ]
+  },
+  {
+   "from": 105,
+   "split": 105,
+   "key": [
+    106,
+    108
+   ]
+  },
+  {
+   "from": 109,
+   "split": 113,
+   "key": [
+    115,
+    116,
+    117,
+    118
+   ]
+  },
+  {
+   "from": 119,
+   "split": 121,
+   "key": [
+    122
+   ]
+  },
+  {
+   "from": 126,
+   "split": 126,
+   "key": [
+    129
+   ]
+  },
+  {
+   "from": 131,
+   "split": 132,
+   "key": [
+    135
+   ]
+  },
+  {
+   "from": 137,
+   "split": 137,
+   "key": [
+    143
+   ]
+  },
+  {
+   "from": 144,
+   "split": 144,
+   "key": [
+    146,
+    149
+   ]
+  },
+  {
+   "from": 150,
+   "split": 152,
+   "key": [
+    157
+   ]
+  },
+  {
+   "from": 158,
+   "split": 159,
+   "key": [
+    161,
+    162
+   ]
+  },
+  {
+   "from": 164,
+   "split": 167,
+   "key": [
+    169,
+    170
+   ]
+  },
+  {
+   "from": 171,
+   "split": 172,
+   "key": [
+    173
+   ]
+  },
+  {
+   "from": 175,
+   "split": 176,
+   "key": [
+    178
+   ]
+  },
+  {
+   "from": 179,
+   "split": 183,
+   "key": [
+    183
+   ]
+  },
+  {
+   "from": 184,
+   "split": 184,
+   "key": [
+    186
+   ]
+  },
+  {
+   "from": 187,
+   "split": 188,
+   "key": [
+    189
+   ]
+  },
+  {
+   "from": 190,
+   "split": 192,
+   "key": [
+    193
+   ]
+  },
+  {
+   "from": 198,
+   "split": 198,
+   "key": [
+    201
+   ]
+  },
+  {
+   "from": 202,
+   "split": 205,
+   "key": [
+    207
+   ]
+  },
+  {
+   "from": 208,
+   "split": 209,
+   "key": [
+    211
+   ]
+  },
+  {
+   "from": 212,
+   "split": 214,
+   "key": [
+    218
+   ]
+  },
+  {
+   "from": 219,
+   "split": 221,
+   "key": [
+    223
+   ]
+  },
+  {
+   "from": 224,
+   "split": 226,
+   "key": [
+    228
+   ]
+  },
+  {
+   "from": 230,
+   "split": 230,
+   "key": [
+    232
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "at": 9,
+   "char": "right",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "comments",
+     "meta": "Komentar",
+     "items": [
+      {
+       "at": 14,
+       "label": "penonton",
+       "text": "video talking head sarannya yang mana kak?"
+      }
+     ],
+     "zoom": 0.95
+    }
+   ]
+  },
+  {
+   "at": 24,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "file",
+      "color": "accent"
+     },
+     "tag": "BAWA PULANG",
+     "title": "Prompt lengkap",
+     "text": "ada di caption, tinggal salin",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 30,
+   "char": "right",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Syarat",
+     "items": [
+      {
+       "at": 31,
+       "text": "Claude Code (Claude di komputer), minimal Pro",
+       "doneAt": 41
+      },
+      {
+       "at": 42,
+       "text": "HyperFrames: gratis, open source",
+       "doneAt": 49
+      },
+      {
+       "at": 50,
+       "text": "Satu kali jalan memakai kuota langganan",
+       "doneAt": 57
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 58,
+   "char": "none",
+   "topic": "Uji bersih · skill resmi saja",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "terminal",
+     "app": "claude · folder kosong",
+     "items": [
+      {
+       "at": 61,
+       "label": "$",
+       "text": "ls .claude/skills"
+      },
+      {
+       "at": 68,
+       "label": "",
+       "text": "hyperframes  hyperframes-cli  hyperframes-registry  media-use",
+       "tone": "good"
+      },
+      {
+       "at": 78,
+       "label": "$",
+       "text": "claude \"Pakai skill /hyperframes. Kamu editor video Reels kelas dunia…\""
+      },
+      {
+       "at": 83,
+       "label": "",
+       "text": "(tanpa revisi dari saya)",
+       "tone": "warn"
+      }
+     ],
+     "zoom": 1.35
+    }
+   ]
+  },
+  {
+   "at": 87,
+   "char": "left",
+   "pose": "menjelaskan",
+   "topic": "Footage CC BY · Natural Resources Wales",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "rekam/footage-mentah.mp4",
+     "from": 4,
+     "w": 420
+    }
+   ]
+  },
+  {
+   "at": 109,
+   "char": "right",
+   "pose": "laptop",
+   "topic": "Isi prompt",
+   "items": [
+    {
+     "kind": "stepper",
+     "w": 600,
+     "items": [
+      {
+       "at": 119,
+       "text": "Hapus latar tanpa green screen"
+      },
+      {
+       "at": 121,
+       "text": "Caption kata per kata"
+      },
+      {
+       "at": 126,
+       "text": "Judul di 2 detik pertama"
+      },
+      {
+       "at": 131,
+       "text": "Kartu hanya di poin penting"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 137,
+   "char": "left",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "big",
+     "text": "Ini yang bikin kaget",
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 144,
+   "char": "none",
+   "topic": "Uji bersih · log asli",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "terminal",
+     "app": "log asli Claude Code",
+     "items": [
+      {
+       "at": 144,
+       "label": "$",
+       "text": "npx hyperframes transcribe footage.mp4 --model medium.en"
+      },
+      {
+       "at": 146,
+       "label": "⚠",
+       "text": "caption meleset ±1,2 dtk di tengah",
+       "tone": "bad"
+      },
+      {
+       "at": 152,
+       "label": "$",
+       "text": "npx hyperframes models install parakeet"
+      },
+      {
+       "at": 154,
+       "label": "$",
+       "text": "npx hyperframes transcribe v.wav --engine parakeet"
+      },
+      {
+       "at": 158,
+       "label": "✓",
+       "text": "cek tiap awal kata ke jeda hening: 5 kata digeser",
+       "tone": "good"
+      }
+     ],
+     "zoom": 1.35
+    }
+   ]
+  },
+  {
+   "at": 164,
+   "char": "right",
+   "pose": "setuju",
+   "topic": "Hasil · 25 menit, 82 langkah",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "rekam/hasil-claude.mp4",
+     "from": 3,
+     "w": 420
+    }
+   ]
+  },
+  {
+   "at": 187,
+   "char": "left",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Belum sempurna",
+     "items": [
+      {
+       "at": 190,
+       "text": "Jeda \"um\" ±1,5 detik belum dipotong",
+       "tone": "warn"
+      },
+      {
+       "at": 198,
+       "text": "Tepi rambut kadang berpendar",
+       "tone": "warn"
+      },
+      {
+       "at": 202,
+       "text": "1 kata mungkin salah dengar",
+       "tone": "warn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 208,
+   "char": "none",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/review.png",
+     "source": "REVIEW.md · ditulis Claude Code",
+     "w": 720,
+     "mark": {
+      "at": 209,
+      "rects": [
+       {
+        "x": 14.55,
+        "y": 78.98,
+        "w": 62.48,
+        "h": 4.57
+       },
+       {
+        "x": 14.55,
+        "y": 84.46,
+        "w": 17.9,
+        "h": 4.57
+       }
+      ]
+     },
+     "note": {
+      "at": 210,
+      "text": "yang lapor: Claude sendiri",
+      "x": 6,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 212,
+   "char": "none",
+   "topic": "Nitip, Mas · video Claude",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 214,
+       "icon": {
+        "name": "sparkle",
+        "color": "accent"
+       },
+       "tag": "CLAUDE",
+       "title": "Kerja kasar",
+       "w": 440
+      },
+      {
+       "kind": "card",
+       "at": 219,
+       "icon": {
+        "name": "check",
+        "color": "good"
+       },
+       "tag": "ANDA",
+       "title": "Cek & rapikan",
+       "tone": "good",
+       "w": 440
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 224,
+   "char": "right",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     },
+     "title": "Tulis di komentar",
+     "text": "mau dicoba pakai footage Anda?",
+     "w": 560
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+Nggak bisa edit video? Suruh Claude Code, ini hasilnya.
+
+Ada yang nanya di komentar: video talking head, sarannya pakai apa? Saya jawab pakai bukti. Prompt lengkapnya di caption, tinggal salin.
+
+Syaratnya: Claude Code, Claude yang kerja langsung di komputer, minimal langganan Pro. Plus HyperFrames, alat bikin video yang gratis. Satu kali jalan ini memakai kuota langganan Anda.
+
+Biar adil, saya buka Claude Code baru di folder kosong. Cuma dipasang alat tambahan resmi HyperFrames, tanpa buatan saya. Satu prompt, lalu saya lepas. Tanpa revisi dari saya.
+
+Bahannya video berlisensi CC BY dari Wikimedia, kreditnya di caption. Bapak ini ngomong sekitar empat puluh lima detik, latarnya perumahan, suaranya pelan.
+
+Di prompt, saya minta Claude jadi editor Reels kelas dunia: hapus latarnya, kasih caption kata per kata, judul di dua detik pertama, dan kartu cuma di poin penting.
+
+Nah, ini bagian yang bikin saya kaget. Transkrip pertamanya meleset sampai satu detik. Claude mendeteksinya, ganti program pengubah suara jadi teks, lalu cek ulang awal tiap kata.
+
+Dua puluh lima menit kemudian, videonya jadi. Latarnya diganti hijau polos, caption dicocokkan ke suara, kartu muncul di poin penting, volume suara dinaikkan.
+
+Tapi belum sempurna. Masih ada jeda "um" sekitar satu setengah detik, tepi rambutnya kadang berpendar, dan satu kata mungkin salah dengar. Yang lapor? Claude sendiri.
+
+Jadi aturannya: biar Claude ngerjain kerja kasarnya, Anda tinggal cek dan rapikan.
+
+Mau saya coba pakai footage Anda? Tulis di komentar.
