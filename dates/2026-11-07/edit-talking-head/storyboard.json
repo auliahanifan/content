@@ -9,40 +9,40 @@
  ],
  "captionMerge": [
   {
-   "from": 43,
-   "to": 44,
+   "from": 46,
+   "to": 47,
    "text": "HyperFrames,"
   },
   {
-   "from": 73,
-   "to": 74,
+   "from": 76,
+   "to": 77,
    "text": "HyperFrames,"
   },
   {
-   "from": 90,
-   "to": 91,
+   "from": 93,
+   "to": 94,
    "text": "CC BY"
   },
   {
-   "from": 101,
-   "to": 103,
+   "from": 104,
+   "to": 106,
    "text": "45"
   },
   {
-   "from": 164,
-   "to": 166,
-   "text": "25"
+   "from": 179,
+   "to": 180,
+   "text": "1,5"
   },
   {
-   "from": 195,
-   "to": 196,
-   "text": "1,5"
+   "from": 149,
+   "to": 151,
+   "text": "25"
   }
  ],
  "loop": {
-  "text": "hasil edit",
+  "text": "sebelum vs sesudah",
   "from": 9,
-  "until": 164
+  "until": 140
  },
  "hook": {
   "until": 9,
@@ -55,13 +55,17 @@
       "kind": "phone",
       "src": "rekam/footage-mentah.mp4",
       "from": 4,
-      "w": 380
+      "w": 360,
+      "label": "SEBELUM",
+      "labelTone": "ink"
      },
      {
       "kind": "phone",
       "src": "rekam/hasil-claude.mp4",
       "from": 5,
-      "w": 380
+      "w": 360,
+      "label": "SESUDAH",
+      "labelTone": "good"
      }
     ]
    }
@@ -69,10 +73,9 @@
  },
  "punch": [
   6,
-  146,
-  169,
-  189,
-  218
+  142,
+  173,
+  202
  ],
  "lines": [
   {
@@ -117,168 +120,189 @@
    "split": 31,
    "key": [
     32,
-    41
+    44
    ]
   },
   {
-   "from": 33,
-   "split": 35,
+   "from": 37,
+   "split": 42,
    "key": [
-    38
-   ]
-  },
-  {
-   "from": 39,
-   "split": 39,
-   "key": [
-    41
+    42
    ]
   },
   {
    "from": 42,
-   "split": 43,
+   "split": 42,
    "key": [
-    49
+    44
    ]
   },
   {
-   "from": 50,
-   "split": 50,
+   "from": 45,
+   "split": 46,
    "key": [
-    55
+    52
    ]
   },
   {
-   "from": 58,
-   "split": 60,
+   "from": 53,
+   "split": 53,
    "key": [
-    67
+    58
    ]
   },
   {
-   "from": 68,
-   "split": 70,
+   "from": 61,
+   "split": 63,
    "key": [
-    72
+    70
    ]
   },
   {
-   "from": 75,
-   "split": 75,
+   "from": 71,
+   "split": 73,
    "key": [
-    76
+    75
    ]
   },
   {
    "from": 78,
    "split": 78,
    "key": [
-    82
+    79
    ]
   },
   {
-   "from": 83,
-   "split": 83,
+   "from": 81,
+   "split": 81,
    "key": [
-    84
+    85
    ]
   },
   {
-   "from": 87,
-   "split": 88,
+   "from": 86,
+   "split": 86,
    "key": [
-    89,
-    90
+    87
    ]
   },
   {
-   "from": 94,
-   "split": 94,
+   "from": 90,
+   "split": 91,
    "key": [
-    96
+    92,
+    93
    ]
   },
   {
    "from": 97,
-   "split": 99,
+   "split": 97,
    "key": [
-    104
+    99
    ]
   },
   {
-   "from": 105,
-   "split": 105,
+   "from": 100,
+   "split": 102,
    "key": [
-    106,
-    108
+    107
    ]
   },
   {
-   "from": 109,
-   "split": 113,
+   "from": 108,
+   "split": 108,
    "key": [
-    115,
-    116,
-    117,
-    118
+    109,
+    111
    ]
   },
   {
-   "from": 119,
-   "split": 121,
+   "from": 112,
+   "split": 116,
    "key": [
-    122
+    118,
+    119,
+    120,
+    121
    ]
   },
   {
-   "from": 126,
-   "split": 126,
+   "from": 122,
+   "split": 124,
    "key": [
-    129
+    125
    ]
   },
   {
-   "from": 131,
-   "split": 132,
+   "from": 129,
+   "split": 129,
    "key": [
-    135
+    132
    ]
   },
   {
-   "from": 137,
-   "split": 137,
+   "from": 134,
+   "split": 135,
    "key": [
-    143
+    138
    ]
   },
   {
-   "from": 144,
-   "split": 144,
+   "from": 140,
+   "split": 141,
    "key": [
-    146,
-    149
+    142
    ]
   },
   {
-   "from": 150,
+   "from": 143,
+   "split": 143,
+   "key": [
+    145
+   ]
+  },
+  {
+   "from": 146,
+   "split": 146,
+   "key": [
+    147,
+    148
+   ]
+  },
+  {
+   "from": 149,
    "split": 152,
    "key": [
-    157
+    153,
+    154
    ]
   },
   {
-   "from": 158,
-   "split": 159,
+   "from": 155,
+   "split": 156,
    "key": [
-    161,
+    157,
+    158
+   ]
+  },
+  {
+   "from": 159,
+   "split": 160,
+   "key": [
     162
    ]
   },
   {
-   "from": 164,
-   "split": 167,
+   "from": 163,
+   "split": 163,
    "key": [
-    169,
+    167
+   ]
+  },
+  {
+   "from": 168,
+   "split": 168,
+   "key": [
     170
    ]
   },
@@ -290,49 +314,42 @@
    ]
   },
   {
-   "from": 175,
+   "from": 174,
    "split": 176,
    "key": [
-    178
+    177
    ]
   },
   {
-   "from": 179,
-   "split": 183,
+   "from": 182,
+   "split": 182,
    "key": [
-    183
+    185
    ]
   },
   {
-   "from": 184,
-   "split": 184,
+   "from": 186,
+   "split": 189,
    "key": [
-    186
+    191
    ]
   },
   {
-   "from": 187,
-   "split": 188,
+   "from": 192,
+   "split": 193,
    "key": [
-    189
+    195
    ]
   },
   {
-   "from": 190,
-   "split": 192,
-   "key": [
-    193
-   ]
-  },
-  {
-   "from": 198,
+   "from": 196,
    "split": 198,
    "key": [
-    201
+    202
    ]
   },
   {
-   "from": 202,
+   "from": 203,
    "split": 205,
    "key": [
     207
@@ -340,37 +357,16 @@
   },
   {
    "from": 208,
-   "split": 209,
+   "split": 210,
    "key": [
-    211
+    212
    ]
   },
   {
-   "from": 212,
+   "from": 214,
    "split": 214,
    "key": [
-    218
-   ]
-  },
-  {
-   "from": 219,
-   "split": 221,
-   "key": [
-    223
-   ]
-  },
-  {
-   "from": 224,
-   "split": 226,
-   "key": [
-    228
-   ]
-  },
-  {
-   "from": 230,
-   "split": 230,
-   "key": [
-    232
+    216
    ]
   }
  ],
@@ -424,62 +420,54 @@
      "items": [
       {
        "at": 31,
-       "text": "Claude Code (Claude di komputer), minimal Pro",
-       "doneAt": 41
+       "text": "Claude Code (Desktop atau cloud), minimal Pro",
+       "doneAt": 44
       },
       {
-       "at": 42,
+       "at": 45,
        "text": "HyperFrames: gratis, open source",
-       "doneAt": 49
+       "doneAt": 52
       },
       {
-       "at": 50,
+       "at": 53,
        "text": "Satu kali jalan memakai kuota langganan",
-       "doneAt": 57
+       "doneAt": 60
       }
      ]
     }
    ]
   },
   {
-   "at": 58,
-   "char": "none",
-   "topic": "Uji bersih · skill resmi saja",
+   "at": 61,
+   "char": "left",
+   "topic": "Uji yang adil",
    "items": [
     {
-     "kind": "ui",
-     "ui": "terminal",
-     "app": "claude · folder kosong",
+     "kind": "checklist",
+     "title": "Biar adil",
      "items": [
       {
-       "at": 61,
-       "label": "$",
-       "text": "ls .claude/skills"
+       "at": 64,
+       "text": "Claude Code baru, folder kosong",
+       "doneAt": 70
       },
       {
-       "at": 68,
-       "label": "",
-       "text": "hyperframes  hyperframes-cli  hyperframes-registry  media-use",
-       "tone": "good"
+       "at": 71,
+       "text": "Hanya alat resmi HyperFrames",
+       "doneAt": 80
       },
       {
-       "at": 78,
-       "label": "$",
-       "text": "claude \"Pakai skill /hyperframes. Kamu editor video Reels kelas dunia…\""
-      },
-      {
-       "at": 83,
-       "label": "",
-       "text": "(tanpa revisi dari saya)",
-       "tone": "warn"
+       "at": 81,
+       "text": "Satu prompt, tanpa revisi dari saya",
+       "doneAt": 89
       }
-     ],
-     "zoom": 1.35
+     ]
     }
-   ]
+   ],
+   "pose": "setuju"
   },
   {
-   "at": 87,
+   "at": 90,
    "char": "left",
    "pose": "menjelaskan",
    "topic": "Footage CC BY · Natural Resources Wales",
@@ -493,7 +481,7 @@
    ]
   },
   {
-   "at": 109,
+   "at": 112,
    "char": "right",
    "pose": "laptop",
    "topic": "Isi prompt",
@@ -503,19 +491,19 @@
      "w": 600,
      "items": [
       {
-       "at": 119,
+       "at": 122,
        "text": "Hapus latar tanpa green screen"
       },
       {
-       "at": 121,
+       "at": 124,
        "text": "Caption kata per kata"
       },
       {
-       "at": 126,
+       "at": 129,
        "text": "Judul di 2 detik pertama"
       },
       {
-       "at": 131,
+       "at": 134,
        "text": "Kartu hanya di poin penting"
       }
      ]
@@ -523,75 +511,36 @@
    ]
   },
   {
-   "at": 137,
-   "char": "left",
-   "pose": "berpikir",
-   "items": [
-    {
-     "kind": "big",
-     "text": "Ini yang bikin kaget",
-     "tone": "accent"
-    }
-   ]
-  },
-  {
-   "at": 144,
+   "at": 140,
    "char": "none",
-   "topic": "Uji bersih · log asli",
+   "topic": "Sebelum vs sesudah · 25 menit",
    "items": [
     {
-     "kind": "ui",
-     "ui": "terminal",
-     "app": "log asli Claude Code",
+     "kind": "row",
+     "gap": 40,
      "items": [
       {
-       "at": 144,
-       "label": "$",
-       "text": "npx hyperframes transcribe footage.mp4 --model medium.en"
+       "kind": "phone",
+       "src": "rekam/footage-mentah.mp4",
+       "from": 6,
+       "w": 410,
+       "label": "SEBELUM",
+       "labelTone": "ink"
       },
       {
-       "at": 146,
-       "label": "⚠",
-       "text": "caption meleset ±1,2 dtk di tengah",
-       "tone": "bad"
-      },
-      {
-       "at": 152,
-       "label": "$",
-       "text": "npx hyperframes models install parakeet"
-      },
-      {
-       "at": 154,
-       "label": "$",
-       "text": "npx hyperframes transcribe v.wav --engine parakeet"
-      },
-      {
-       "at": 158,
-       "label": "✓",
-       "text": "cek tiap awal kata ke jeda hening: 5 kata digeser",
-       "tone": "good"
+       "kind": "phone",
+       "src": "rekam/hasil-claude.mp4",
+       "from": 3,
+       "w": 410,
+       "label": "SESUDAH",
+       "labelTone": "good"
       }
-     ],
-     "zoom": 1.35
+     ]
     }
    ]
   },
   {
-   "at": 164,
-   "char": "right",
-   "pose": "setuju",
-   "topic": "Hasil · 25 menit, 82 langkah",
-   "items": [
-    {
-     "kind": "phone",
-     "src": "rekam/hasil-claude.mp4",
-     "from": 3,
-     "w": 420
-    }
-   ]
-  },
-  {
-   "at": 187,
+   "at": 171,
    "char": "left",
    "pose": "berpikir",
    "items": [
@@ -600,17 +549,17 @@
      "title": "Belum sempurna",
      "items": [
       {
-       "at": 190,
+       "at": 174,
        "text": "Jeda \"um\" ±1,5 detik belum dipotong",
        "tone": "warn"
       },
       {
-       "at": 198,
+       "at": 182,
        "text": "Tepi rambut kadang berpendar",
        "tone": "warn"
       },
       {
-       "at": 202,
+       "at": 186,
        "text": "1 kata mungkin salah dengar",
        "tone": "warn"
       }
@@ -619,7 +568,7 @@
    ]
   },
   {
-   "at": 208,
+   "at": 192,
    "char": "none",
    "items": [
     {
@@ -628,7 +577,7 @@
      "source": "REVIEW.md · ditulis Claude Code",
      "w": 720,
      "mark": {
-      "at": 209,
+      "at": 193,
       "rects": [
        {
         "x": 14.55,
@@ -645,7 +594,7 @@
       ]
      },
      "note": {
-      "at": 210,
+      "at": 194,
       "text": "yang lapor: Claude sendiri",
       "x": 6,
       "y": 101
@@ -654,7 +603,7 @@
    ]
   },
   {
-   "at": 212,
+   "at": 196,
    "char": "none",
    "topic": "Nitip, Mas · video Claude",
    "items": [
@@ -664,7 +613,7 @@
      "items": [
       {
        "kind": "card",
-       "at": 214,
+       "at": 198,
        "icon": {
         "name": "sparkle",
         "color": "accent"
@@ -675,7 +624,7 @@
       },
       {
        "kind": "card",
-       "at": 219,
+       "at": 203,
        "icon": {
         "name": "check",
         "color": "good"
@@ -690,7 +639,7 @@
    ]
   },
   {
-   "at": 224,
+   "at": 208,
    "char": "right",
    "pose": "menyapa",
    "items": [

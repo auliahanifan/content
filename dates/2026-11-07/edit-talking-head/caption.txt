@@ -1,12 +1,10 @@
 Ada yang bertanya: untuk video talking head, sebaiknya pakai apa? Ini uji langsungnya.
 
-Cara uji: Claude Code baru di folder kosong, hanya 4 skill inti resmi HyperFrames, model default, di server cloud Linux. Satu prompt, tanpa campur tangan. Hasil: 25 menit, 82 langkah, video 44,6 detik dari footage 52,6 detik. Setara API ±3,40 dolar; di Pro memakai kuota.
+Cara uji: Claude Code cloud, folder kosong, hanya 4 skill inti resmi HyperFrames, model default. Satu prompt, tanpa campur tangan. Hasil: 25 menit, 82 langkah, 52,6 → 44,6 detik. Setara API ±3,40 dolar; di Pro memakai kuota.
 
-Syarat: Claude Code minimal langganan Pro, Node.js 22+ dan FFmpeg di laptop, plugin HyperFrames (gratis, open source):
-claude plugin marketplace add heygen-com/hyperframes
-claude plugin install hyperframes@hyperframes
+Syarat: Claude Code (aplikasi Claude Desktop atau cloud) minimal langganan Pro, plus skill resmi HyperFrames (gratis, open source). Cara pasang tanpa terminal, cukup ketik ke Claude: "Pasang skill resmi HyperFrames di folder ini (npx skills add heygen-com/hyperframes, pilih Core Skills), lalu cek Node.js 22+ dan FFmpeg." Lalu buka sesi baru. Di Desktop bisa juga lewat tombol + → Add plugins.
 
-Prompt lengkap (salin, ganti nama file):
+Prompt lengkap (salin):
 Pakai skill /hyperframes. Kamu editor video Reels kelas dunia. Edit file footage.mp4 jadi video Reels vertikal 9:16 (1080x1920) pakai HyperFrames. Penontonnya orang yang scroll cepat di HP, jadi tiap detik harus jelas dan enak dilihat.
 1. Rapikan: buang diam di awal dan akhir. Jangan potong di tengah kalimat.
 2. Latar: hapus latar belakang orangnya tanpa green screen. Ganti dengan latar pilihanmu yang bikin orangnya menonjol dan tidak ramai.
@@ -17,9 +15,9 @@ Pakai skill /hyperframes. Kamu editor video Reels kelas dunia. Edit file footage
 7. Cek sebelum render: tidak ada teks kepotong, dan caption pas dengan suara.
 8. Render jadi output.mp4, lalu ceritakan apa saja yang kamu lakukan dan bagian yang menurutmu masih kurang.
 
-Kekurangan (dilaporkan Claude sendiri): jeda "um" sekitar 1,5 detik belum dipotong, tepi rambut kadang berpendar, satu kata mungkin salah dengar, tanpa musik. Cek dulu sebelum posting.
+Kekurangan (dilaporkan Claude): jeda "um" ±1,5 detik, tepi rambut berpendar, 1 kata mungkin salah dengar, tanpa musik. Cek dulu sebelum posting.
 
-Footage: "FCRM Recruitment Vlog 2021 (ENG)" oleh Natural Resources Wales / Cyfoeth Naturiol Cymru, CC BY 3.0, Wikimedia Commons. Diedit untuk demo.
+Footage: "FCRM Recruitment Vlog 2021 (ENG)", Natural Resources Wales, CC BY 3.0, Wikimedia Commons.
 
 Mau saya coba pakai footage Anda? Tulis di komentar.
 
