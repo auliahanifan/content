@@ -168,7 +168,7 @@ export type KEl = KBase &
     | {kind: 'checklist'; title?: string; items: {at?: number; text: string; doneAt?: number; tone?: Tone; strikeAt?: number}[]}
     | ({kind: 'ui'; ui: UiKind} & Omit<Extract<Board, {type: 'ui'}>, 'type' | 'at' | 'kind'>)
     | {kind: 'shot'; src: string; source?: string; rings?: Ring[]}
-    | {kind: 'phone'; src: string; from?: number; rate?: number; rings?: Ring[]; steps?: KStep[]}
+    | {kind: 'phone'; src: string; from?: number; rate?: number; rings?: Ring[]; steps?: KStep[]; label?: string; labelTone?: Tone}
     | {kind: 'stepper'; items: KStep[]}
     | {kind: 'row'; items: KEl[]; op?: string; gap?: number}
     | {kind: 'illus'; name: 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap'; steps?: number[]; labels?: string[]}

@@ -282,6 +282,11 @@ const Phone: React.FC<{el: Extract<KEl, {kind: 'phone'}>; start: number}> = ({el
   const h = Math.round(w * 2.05);
   return (
     <div style={{position: 'relative', width: w, height: h, borderRadius: w * 0.13, background: K.ink, padding: w * 0.035, boxShadow: SHADOW, flexShrink: 0}}>
+      {el.label && (
+        <div style={{position: 'absolute', zIndex: 3, left: '50%', top: -26, transform: 'translateX(-50%) rotate(-2deg)', fontFamily: FONT_BODY, fontWeight: 800, fontSize: Math.round(w * 0.085), letterSpacing: 2, color: K.card, background: ktone(el.labelTone), borderRadius: 12, padding: '8px 22px', boxShadow: SHADOW, whiteSpace: 'nowrap'}}>
+          {el.label}
+        </div>
+      )}
       <div style={{position: 'relative', width: '100%', height: '100%', borderRadius: w * 0.1, overflow: 'hidden', background: '#0B0E1A'}}>
         {isVideo(el.src) ? (
           <Sequence from={start} layout="none">
