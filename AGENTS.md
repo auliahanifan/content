@@ -12,6 +12,12 @@
 - Tool dan kredensial Claude Code tidak otomatis tersedia di Codex. Periksa konektor atau CLI yang tersedia untuk Google Sheets, Buffer, ElevenLabs, dan layanan lain. Bila akses yang diperlukan tidak ada, jelaskan bagian yang terhambat; jangan mengklaim sudah membaca, menulis, mengirim, atau merender tanpa bukti hasilnya.
 - Simpan proyek dan hasil sesuai `CLAUDE.md` dan skill terkait. Periksa artefak akhir sesuai workflow sebelum menyerahkannya.
 
+## Menemukan skill lokal di cloud
+
+- Jika skill tidak muncul di katalog skill cloud atau executor, periksa file dalam repo sebelum menyatakan skill tidak tersedia atau meminta pengguna mengunggahnya.
+- Contoh: `$ide-threads` atau `/ide-threads` merujuk ke `.agents/skills/ide-threads/SKILL.md`, dengan sumber asli di `.claude/skills/ide-threads/SKILL.md`. Baca sumber asli langsung bila tautan tidak tersedia.
+- Untuk melihat file panduan skill sumber, jalankan `rg --files --hidden .claude/skills -g SKILL.md` dari root repo. Skill khusus `social` ada di `.agents/skills/social/SKILL.md`.
+
 ## Ide konten: batas usia sumber
 
 - Jangan ambil ide konten dari sumber yang terbit lebih dari 6 bulan lalu. Tahun lalu tidak boleh.
