@@ -9,7 +9,7 @@ import {A, bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
  * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
  */
-export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap';
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap' | 'leak';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -504,7 +504,56 @@ const Snap: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({s
   );
 };
 
-export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600};
+
+/* ---------- leak: tangki limit yang bocor lewat tiga kebiasaan, level turun tiap kebocoran muncul ---------- */
+const Leak: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const at = useSteps(steps, start);
+  const names = labels ?? ['chat panjang', 'fitur menyala', 'effort tinggi'];
+  const holes = [140, 215, 290];
+  let drained = 0;
+  for (let i = 0; i < 3; i++) if (frame > at(i)) drained += (frame - at(i)) * 0.0024;
+  const level = Math.max(0.14, 1 - drained);
+  const intro = useSpringAt(start);
+  const TOP = 40;
+  const H = 350;
+  const water = H * level;
+  return (
+    <div style={{position: 'relative', width: 620, height: 470, fontFamily: FONT_HEAD, opacity: Math.min(1, intro * 1.6)}}>
+      <svg width="620" height="470" viewBox="0 0 620 470" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        <rect x={40} y={TOP + (H - water)} width={240} height={water} rx={10} fill={A()} opacity={0.85} />
+        <rect x={40} y={TOP} width={240} height={H} rx={24} fill="none" stroke={K.line} strokeWidth={6} />
+        {[0, 1, 2].map((i) => {
+          const t = frame - at(i);
+          if (t < 0) return null;
+          const p = spring({frame: t, fps: 30, config: {damping: 14, stiffness: 170, mass: 0.7}});
+          return (
+            <g key={i} opacity={Math.min(1, p * 1.5)}>
+              <circle cx={280} cy={TOP + holes[i]} r={11} fill={K.bad} />
+              {[0, 1, 2].map((d) => {
+                const ph = ((t * 0.055 + d / 3) % 1);
+                return <circle key={d} cx={296 + ph * 30} cy={TOP + holes[i] + ph * ph * 90} r={8 - ph * 3} fill={A()} opacity={1 - ph * 0.8} />;
+              })}
+            </g>
+          );
+        })}
+      </svg>
+      <div style={{position: 'absolute', left: 40, top: TOP + H + 18, width: 240, textAlign: 'center', fontSize: 40, fontWeight: 800, color: K.ink}}>{labels?.[3] ?? 'LIMIT'}</div>
+      {names.slice(0, 3).map((n, i) => {
+        const t = frame - at(i);
+        if (t < 0) return null;
+        const p = spring({frame: t, fps: 30, config: {damping: 15, stiffness: 180, mass: 0.7}});
+        return (
+          <div key={n} style={{position: 'absolute', left: 345, top: TOP + holes[i] - 28, opacity: Math.min(1, p * 1.5), transform: `translateX(${(1 - p) * 40}px)`}}>
+            <div style={{...cardSkin, borderRadius: 18, padding: '10px 18px', fontFamily: FONT_BODY, fontSize: 32, fontWeight: 800, color: K.ink, whiteSpace: 'nowrap'}}>{n}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600, leak: 620};
 
 export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
   switch (name) {
@@ -528,6 +577,8 @@ export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; 
       return <Mold steps={steps} start={start} labels={labels} />;
     case 'snap':
       return <Snap steps={steps} start={start} labels={labels} />;
+    case 'leak':
+      return <Leak steps={steps} start={start} labels={labels} />;
   }
 };
 

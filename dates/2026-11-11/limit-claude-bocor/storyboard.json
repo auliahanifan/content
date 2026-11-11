@@ -1,0 +1,679 @@
+{
+ "style": "kanvas",
+ "series": "sing-murah-wae",
+ "topic": "Sing Murah Wae · limit Claude",
+ "tail": 1.5,
+ "loop": {
+  "text": "5 perbaikan",
+  "from": 8,
+  "until": 137
+ },
+ "seriesLine": {
+  "from": 199,
+  "to": 204
+ },
+ "hook": {
+  "until": 3,
+  "items": [
+   {
+    "kind": "card",
+    "icon": {
+     "name": "warning",
+     "color": "bad"
+    },
+    "tag": "LIMIT CLAUDE",
+    "title": "Lima perbaikan",
+    "text": "Rp0, tanpa upgrade",
+    "w": 700
+   }
+  ]
+ },
+ "punch": [
+  30,
+  78,
+  117,
+  156,
+  186
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 2,
+   "key": [
+    3
+   ]
+  },
+  {
+   "from": 4,
+   "split": 6,
+   "key": [
+    7
+   ]
+  },
+  {
+   "from": 9,
+   "split": 9
+  },
+  {
+   "from": 14,
+   "split": 14
+  },
+  {
+   "from": 18,
+   "split": 18
+  },
+  {
+   "from": 23,
+   "split": 24,
+   "key": [
+    28
+   ]
+  },
+  {
+   "from": 30,
+   "split": 31,
+   "key": [
+    31
+   ]
+  },
+  {
+   "from": 36,
+   "split": 36
+  },
+  {
+   "from": 41,
+   "split": 41
+  },
+  {
+   "from": 46,
+   "split": 46,
+   "key": [
+    50
+   ]
+  },
+  {
+   "from": 51,
+   "split": 52,
+   "key": [
+    57
+   ]
+  },
+  {
+   "from": 58,
+   "split": 58
+  },
+  {
+   "from": 63,
+   "split": 63,
+   "key": [
+    66
+   ]
+  },
+  {
+   "from": 68,
+   "split": 69
+  },
+  {
+   "from": 73,
+   "split": 73,
+   "key": [
+    76
+   ]
+  },
+  {
+   "from": 78,
+   "split": 79,
+   "key": [
+    81
+   ]
+  },
+  {
+   "from": 82,
+   "split": 82
+  },
+  {
+   "from": 85,
+   "split": 85,
+   "key": [
+    89
+   ]
+  },
+  {
+   "from": 90,
+   "split": 90,
+   "key": [
+    94
+   ]
+  },
+  {
+   "from": 95,
+   "split": 96,
+   "key": [
+    97
+   ]
+  },
+  {
+   "from": 101,
+   "split": 102
+  },
+  {
+   "from": 108,
+   "split": 108,
+   "key": [
+    109
+   ]
+  },
+  {
+   "from": 110,
+   "split": 110
+  },
+  {
+   "from": 113,
+   "split": 113,
+   "key": [
+    115
+   ]
+  },
+  {
+   "from": 117,
+   "split": 118,
+   "key": [
+    121
+   ]
+  },
+  {
+   "from": 122,
+   "split": 122
+  },
+  {
+   "from": 125,
+   "split": 125,
+   "key": [
+    128
+   ]
+  },
+  {
+   "from": 131,
+   "split": 131,
+   "key": [
+    136
+   ]
+  },
+  {
+   "from": 137,
+   "split": 138,
+   "key": [
+    140
+   ]
+  },
+  {
+   "from": 141,
+   "split": 142
+  },
+  {
+   "from": 148,
+   "split": 153,
+   "key": [
+    155
+   ]
+  },
+  {
+   "from": 156,
+   "split": 156,
+   "key": [
+    156
+   ]
+  },
+  {
+   "from": 160,
+   "split": 160
+  },
+  {
+   "from": 164,
+   "split": 164,
+   "key": [
+    166
+   ]
+  },
+  {
+   "from": 170,
+   "split": 170,
+   "key": [
+    172,
+    173
+   ]
+  },
+  {
+   "from": 175,
+   "split": 175
+  },
+  {
+   "from": 178,
+   "split": 178,
+   "key": [
+    180
+   ]
+  },
+  {
+   "from": 182,
+   "split": 182,
+   "key": [
+    184
+   ]
+  },
+  {
+   "from": 186,
+   "split": 186,
+   "key": [
+    188,
+    189
+   ]
+  },
+  {
+   "from": 190,
+   "split": 191
+  },
+  {
+   "from": 196,
+   "split": 196,
+   "key": [
+    197
+   ]
+  },
+  {
+   "from": 199,
+   "split": 199
+  },
+  {
+   "from": 205,
+   "split": 206
+  },
+  {
+   "from": 208,
+   "split": 208,
+   "key": [
+    211
+   ]
+  },
+  {
+   "from": 214,
+   "split": 214,
+   "key": [
+    215
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "at": 4,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "gift",
+      "color": "good"
+     },
+     "tag": "5 PERBAIKAN",
+     "title": "Hemat limit Claude",
+     "value": "Rp0",
+     "tone": "good",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 9,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 9,
+       "icon": {
+        "name": "user",
+        "color": "accent"
+       },
+       "tag": "PRO",
+       "title": "$20",
+       "text": "per bulan",
+       "w": 460
+      },
+      {
+       "kind": "card",
+       "at": 14,
+       "icon": {
+        "name": "zap",
+        "color": "bad"
+       },
+       "tag": "MAX",
+       "title": "$100",
+       "text": "per bulan",
+       "tone": "bad",
+       "w": 460,
+       "stamp": {
+        "at": 24,
+        "text": "+$960 / tahun",
+        "tone": "bad"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 30,
+   "char": "none",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "leak",
+     "steps": [
+      44,
+      46,
+      50
+     ],
+     "labels": [
+      "chat panjang",
+      "fitur menyala",
+      "effort tinggi",
+      "LIMIT"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 51,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "folder",
+      "color": "accent"
+     },
+     "tag": "SATU · PROJECT",
+     "title": "Upload sekali",
+     "text": "pemakaian ulang dihitung lebih ringan",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 78,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "flow",
+     "size": 170,
+     "items": [
+      {
+       "at": 79,
+       "emoji": "💬",
+       "label": "chat panjang",
+       "tone": "bad"
+      },
+      {
+       "at": 82,
+       "emoji": "📝",
+       "label": "ringkasan",
+       "tone": "accent"
+      },
+      {
+       "at": 86,
+       "emoji": "✨",
+       "label": "chat baru",
+       "tone": "good"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 95,
+   "char": "left",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "icon",
+     "icon": {
+      "name": "gear",
+      "color": "warn"
+     },
+     "size": 300,
+     "label": "konektor",
+     "labelAt": 97,
+     "tone": "warn"
+    }
+   ]
+  },
+  {
+   "at": 110,
+   "char": "none",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/bukti-konektor.png",
+     "source": "support.claude.com · How do usage and length limits work?",
+     "w": 760,
+     "mark": {
+      "at": 113,
+      "rects": [
+       {
+        "x": 58.84,
+        "y": 69.24,
+        "w": 25.02,
+        "h": 6.51
+       }
+      ]
+     },
+     "note": {
+      "at": 115,
+      "text": "boros limit!",
+      "x": 50,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 117,
+   "char": "left",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "icon",
+     "icon": {
+      "name": "sparkle",
+      "color": "accent"
+     },
+     "size": 280,
+     "label": "effort = seberapa keras berpikir",
+     "labelAt": 125,
+     "tone": "accent"
+    }
+   ]
+  },
+  {
+   "at": 131,
+   "char": "none",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 131,
+       "icon": {
+        "name": "check",
+        "color": "good"
+       },
+       "tag": "EFFORT RENDAH",
+       "title": "Benerin typo",
+       "tone": "good",
+       "w": 460
+      },
+      {
+       "kind": "card",
+       "at": 135,
+       "icon": {
+        "name": "gear",
+        "color": "accent"
+       },
+       "tag": "EFFORT TINGGI",
+       "title": "Tugas rumit",
+       "w": 460
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 137,
+   "char": "right",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "chatsim",
+     "app": "Chat AI",
+     "items": [
+      {
+       "at": 141,
+       "side": "user",
+       "text": "Tulis email 3 baris ke pemilik kos: minta AC diperbaiki. Sopan tapi tegas."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 148,
+   "char": "left",
+   "pose": "stop",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "bad"
+     },
+     "tag": "SETIAP KOREKSI",
+     "title": "“Bukan itu maksud saya”",
+     "text": "= satu pesan tambahan",
+     "tone": "bad",
+     "w": 560
+    }
+   ]
+  },
+  {
+   "at": 156,
+   "char": "right",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Upgrade kalau:",
+     "items": [
+      {
+       "at": 160,
+       "text": "5 perbaikan sudah jalan",
+       "doneAt": 163
+      },
+      {
+       "at": 164,
+       "text": "Limit mingguan masih habis",
+       "doneAt": 169
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 170,
+   "char": "left",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "money",
+      "color": "warn"
+     },
+     "tag": "OPSI LAIN",
+     "title": "Kredit tambahan",
+     "text": "ditagih tarif API",
+     "w": 560,
+     "stamp": {
+      "at": 180,
+      "text": "pasang batas bulanan",
+      "tone": "warn"
+     }
+    }
+   ]
+  },
+  {
+   "at": 186,
+   "char": "none",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 188,
+       "icon": {
+        "name": "check",
+        "color": "good"
+       },
+       "tag": "PERBAIKI KEBIASAAN",
+       "value": "Rp0",
+       "tone": "good",
+       "w": 460
+      },
+      {
+       "kind": "card",
+       "at": 191,
+       "icon": {
+        "name": "money",
+        "color": "bad"
+       },
+       "tag": "UPGRADE",
+       "value": "+$960",
+       "text": "per tahun",
+       "tone": "bad",
+       "w": 460
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 205,
+   "char": "right",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "comments",
+     "meta": "Komentar",
+     "items": [],
+     "button": "3",
+     "buttonAt": 215
+    }
+   ]
+  }
+ ]
+}

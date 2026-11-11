@@ -1,0 +1,11 @@
+[confident] Limit Claude cepat habis? Saya kasih lima perbaikannya, gratis.
+[confident] Pro dua puluh dolar sebulan. Max seratus dolar sebulan. Selisihnya delapan puluh dolar sebulan, atau sembilan ratus enam puluh dolar setahun.
+[confident] Tapi limit bukan cuma soal paket. Menurut halaman bantuan resmi Claude, pemakaian ikut ditentukan panjang chat, fitur yang menyala, dan effort.
+[confident] Satu. File yang sama, taruh di Project, semacam folder di dalam Claude. Pemakaian ulangnya dihitung lebih ringan. Tapi setelah lama nggak dipakai, pesan pertama dihitung penuh lagi.
+[confident] Dua. Chat sudah panjang? Minta Claude meringkasnya, lalu lanjut di chat baru. Percakapan panjang ikut menambah pemakaian.
+[confident] Tiga. Matikan konektor yang nggak terpakai, yaitu aplikasi yang Anda sambungkan ke Claude, seperti email. Kata halaman bantuannya, konektor itu boros limit.
+[confident] Empat. Kalau ada pilihan effort, sesuaikan dengan tugas. Effort itu seberapa keras Claude berpikir. Benerin typo nggak perlu yang tertinggi.
+[confident] Lima. Satu pesan, lengkap. Sebut buat siapa, maunya apa, sepanjang apa. Tiap "bukan itu maksud saya" itu pesan tambahan.
+[confident] Upgrade baru masuk akal kalau kelimanya sudah jalan dan limit mingguan masih habis terus. Atau nyalakan kredit tambahan berbayar di Settings, Usage, tapi pasang batas bulanan, karena ditagih tarif API.
+[confident] Perbaiki kebiasaan: nol rupiah. Upgrade: sembilan ratus enam puluh dolar lebih mahal setahun. Kalau sama-sama beres... Sing Murah Wae.
+[curious] Dari lima tadi, mana yang paling sering Anda lakukan? Tulis nomornya di komentar.
