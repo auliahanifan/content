@@ -3,7 +3,7 @@ name: video-karakter
 description: Use when the user pastes a naskah (script) and wants a faceless 9:16 Reels/TikTok/Shorts video with the Aulia character (Paper Cutout in kanvas, Pixel Aulia in game), built with Remotion. Default style "kanvas" v4 Tactile Explainer on the Paper Cutout world (1-2 custom metaphor scenes per video, real screenshot evidence pinned scrapbook-style with highlighter, physical spring motion, kraft paper world, stacked paper cards, Fraunces headlines, Paper Cutout Aulia character, giant hook in cut-paper letters, kinetic two-tier headline instead of word captions, ONE element on stage at a time, animated illustrations and chat simulations, slow camera, minimal soft SFX, real screen recordings in a phone frame for tutorials). Optional style "game" (retro pixel-game world, RPG boards, epic anime interrupts) for entertainment pieces. ElevenLabs voice "Aulia Rahman", soft SFX, no music, series logo. Dipanggil `/video-karakter <naskah>`. Konten berbahasa Indonesia.
 ---
 
-# Video karakter (9:16, Remotion, Pixel Aulia)
+# Video karakter (9:16, Remotion, Paper Cutout / Pixel Aulia)
 
 Input: naskah (idealnya dari `/naskah`, dengan blok `[HOOK]`, `Janji:`, `[REKAM: ...]`), opsional nama seri (default **Sing Murah Wae**). Output: `dates/<YYYY-MM-DD>/<slug>/out/video.mp4`.
 Studio Remotion bersama di `remotion/` (pnpm). Tiap video = satu `storyboard.json`; **jangan menulis TSX per video**. Jenis elemen baru ditambahkan ke `remotion/src/kanvas/Elements.tsx` (kanvas) atau `remotion/src/boards/` (game) agar dipakai ulang.
@@ -25,7 +25,7 @@ Alur dengan **checkpoint**; jangan lompat ke render final tanpa persetujuan.
    - **Adegan metafora (1-2 per video)**: ide terpenting (analogi, aturan bawa pulang) jadi adegan `illus` yang bergerak tahap demi tahap mengikuti kata, bukan kartu teks. Pakai yang ada (`recipe-kitchen`, `doors`, `flipbook`, `render`, `skill-folder`) atau buat ilustrasi baru di `remotion/src/kanvas/Illus.tsx`.
    - **Bukti asli** untuk klaim faktual: panel `evidence` (langkah 7) tepat saat klaim diucapkan.
    - **Satu analogi = satu peraga yang tumbuh** (`flow`/`icon` + label), dipanggil lagi di penutup.
-   - **Satu tugas konkret disimulasikan** bila naskah punya contoh: `ui` chat + `checklist` yang dicentang langkah demi langkah (chatbot vs agent, sebelum vs sesudah).
+   - **Satu tugas konkret disimulasikan** bila naskah punya contoh: panel `ui` chat, lalu panel `checklist` yang dicentang langkah demi langkah (chatbot vs agent, sebelum vs sesudah).
    - **Tutorial**: panel `char: "corner"` + `phone` berisi rekaman dari `rekam/`, `steps` per langkah, `rings` di tombol yang ditekan.
    - **Janji** (`Janji:` di naskah) → `loop` sampai kata payoff. **Kait ulang** di tengah ("ada satu langkah yang sering bikin gagal") → `dimAt` pada elemen lama + elemen baru yang menandai bagian itu.
    - **Penutup**: aturan bawa pulang dalam satu `card`, lalu `ui` `comments` (pertanyaan atau kata kunci) dan/atau `profile` (follow).

@@ -1,5 +1,5 @@
 import React from 'react';
-import {K} from './theme';
+import {A, K} from './theme';
 
 /**
  * Ikon vektor gaya Bold Vector: garis navy 5px, isi palet kanvas, sudut membulat.
@@ -206,7 +206,7 @@ export const VIcon: React.FC<{name: string; size: number; color?: string}> = ({n
   if (!draw) return null;
   return (
     <svg width={size} height={size} viewBox="0 0 96 96" style={{display: 'block', overflow: 'visible'}}>
-      {draw(color ?? K.accent)}
+      {draw(color ?? A())}
     </svg>
   );
 };

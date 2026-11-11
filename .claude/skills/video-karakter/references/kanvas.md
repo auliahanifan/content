@@ -35,8 +35,8 @@ Palet kertas: kraft, krem, navy kertas, koral, teal, mustard, hijau daun; judul 
   "lines": [ /* headline */ ],
   "panels": [ /* panggung */ ],
   "poses": [{"at": 88, "pose": "setuju"}],  // ganti pose di tengah panel
-  "epic": [],                               // opsional, MAKS 1 (punchline terbesar saja)
-  "sfx": [{"at": 30, "name": "coin"}]       // tambahan; SFX dasar otomatis & pelan
+  "epic": []                                // opsional, MAKS 1 (punchline terbesar saja)
+  // SFX otomatis (pop, tick, soft-hit); `sfx` tambahan hanya ada di mode game. `"autoSfx": false` mematikannya
 }
 ```
 
@@ -49,7 +49,7 @@ Palet kertas: kraft, krem, navy kertas, koral, teal, mustard, hijau daun; judul 
 - Semua kata harus masuk satu baris (density memeriksa).
 
 ### `panels` (panggung)
-`{at, char?, pose?, layout?, gap?, zoom?, topic?, items, sfx?}`. Panel = satu peraga utuh; ganti panel hanya saat **bagian** penjelasan berganti (biasanya 6-10 panel per 60-90 detik), bukan tiap kalimat. Di dalam panel, elemen muncul satu per satu pada kata yang menyebutnya; tempatnya sudah dipesan sejak awal sehingga tidak ada yang bergeser.
+`{at, char?, pose?, layout?, gap?, zoom?, topic?, items, sfx?}`. Panel = **satu elemen** (`items` berisi tepat satu; `row` berisi dua hanya untuk perbandingan A vs B). Hal baru = panel baru yang menggeser yang lama, kira-kira satu panel per 1-2 kalimat. Yang tumbuh di dalam panel hanya isi elemennya (butir checklist, pesan chat, langkah, tahap ilustrasi), muncul pada kata yang menyebutnya.
 - `char`: `left` (default, panggung kanan 600 px) · `right` · `corner` (karakter kecil kiri bawah, panggung lebar penuh: tutorial/rekam layar) · `none`. Mewarisi panel sebelumnya.
 - `layout`: `column` (default) atau `row`. `zoom` < 1 bila isi terpotong.
 - `topic`: ganti chip header mulai panel ini (mis. pindah dari "dasar" ke "tutorial").
@@ -118,15 +118,19 @@ Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar asli
 ## Contoh
 Contoh standar sekarang: `dates/2026-11-05/claude-video-gratis-padat/storyboard.json` (lolos `pnpm density`). Pilot lama `dates/2026-11-01/agent-harness-kanvas/storyboard.json` (audio sama dengan `agent-harness-v2`, pembanding mode game) dibuat sebelum aturan satu elemen per panel dan tidak lolos `pnpm density`. Pola dari riset:
 ```jsonc
-// hadiah + jangkar harga
-{"at": 0, "char": "left", "pose": "menunjuk", "items": [
-  {"kind": "card", "tag": "PROMPT PREMIUM", "title": "1.000 Prompt AI", "value": "Rp499.000", "swap": {"at": 9, "value": "Rp0"}},
-  {"kind": "card", "at": 4, "tag": "KELAS", "title": "Masterclass Prompt", "value": "Rp1.500.000", "swap": {"at": 10, "value": "Rp0"}, "stamp": {"at": 11, "text": "GRATIS!"}}
+// hadiah + jangkar harga: dua kartu berdampingan dalam satu `row` (perbandingan, maks 2)
+{"at": 0, "char": "none", "pose": "menunjuk", "items": [
+  {"kind": "row", "items": [
+    {"kind": "card", "tag": "PROMPT PREMIUM", "title": "1.000 Prompt AI", "value": "Rp499.000", "swap": {"at": 9, "value": "Rp0"}},
+    {"kind": "card", "at": 4, "tag": "KELAS", "title": "Masterclass Prompt", "value": "Rp1.500.000", "swap": {"at": 10, "value": "Rp0"}, "stamp": {"at": 11, "text": "GRATIS!"}}
+  ]}
 ]}
-// simulasi satu tugas: agent bekerja
+// simulasi satu tugas: permintaan di satu panel, lalu agent bekerja di panel berikutnya
 {"at": 60, "char": "right", "items": [
-  {"kind": "ui", "ui": "chat", "app": "AI agent", "items": [{"at": 61, "text": "Tolong rapikan folder Download", "side": "out"}]},
-  {"kind": "checklist", "at": 64, "items": [
+  {"kind": "ui", "ui": "chat", "app": "AI agent", "items": [{"at": 61, "text": "Tolong rapikan folder Download", "side": "out"}]}
+]}
+{"at": 64, "items": [
+  {"kind": "checklist", "items": [
     {"at": 64, "text": "Buka folder · 327 file", "doneAt": 66},
     {"at": 68, "text": "Susun rencana", "doneAt": 70},
     {"at": 72, "text": "Tanya izin dulu", "doneAt": 75, "tone": "warn"}

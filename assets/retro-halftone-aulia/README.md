@@ -35,4 +35,3 @@ PNG diam, bukan SVG, rig tubuh, model 3D atau sprite frame-by-frame. Kepala, tan
 
 ImageGen membuat tiap gambar dari anchor netral gaya ini dan pose Pixel Aulia yang bersesuaian. Ciri wajah mengikuti `assets/karakter-referensi.png` dan `assets/kepala-netral.png`. Gambar generasi disalin tanpa perubahan pixel lokal. Metadata mencatat alpha, dimensi dan layer. TSX diperiksa melalui bundling dengan React/Remotion eksternal; belum dirender menjadi video.
 
-Paket unduhan lengkap tersedia melalui `../style-archives/index.html`. Setiap gaya dibagi ke ZIP biasa dengan volume terbatas: unduh dan ekstrak **semua volume gaya yang dipilih ke direktori yang sama**. Tidak perlu menyambung file biner.

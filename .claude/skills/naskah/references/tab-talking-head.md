@@ -83,7 +83,7 @@ Semua hasil kerja disimpan di spreadsheet yang sama, bukan di file lokal. Jika t
 - Tidak butuh hasil tes panjang. Jika ide hanya kuat dengan hasil tes, itu ide CORE: jangan masukkan.
 - Ada **barang bawa pulang**: prompt/template yang ditulis lengkap di caption, langkah yang bisa diikuti, atau satu aturan satu kalimat. Ide yang hanya memotivasi dibuang.
 - CTA tidak menjanjikan sesuatu yang belum ada. Default CTA: pertanyaan yang jawabannya jadi bahan episode berikutnya, simpan, atau follow.
-- Satu ide utama per video. Durasi mengikuti struktur (`/naskah`): 45-150 detik.
+- Satu ide utama per video. Durasi mengikuti struktur (tabel durasi di `/naskah`): 45-120 detik.
 
 ## Arc (seri bersambung)
 Penonton follow karena ada episode berikutnya. Susun ide yang saling menyambung menjadi arc 3-10 episode dari dasar ke praktik (mis. `prompt-dasar`: anatomi prompt → alat pembuat prompt → skill di Claude → skill di Gemini). Tiap episode harus berdiri sendiri bagi penonton baru, tapi menyebut episode sebelumnya dalam satu kalimat dan menjanjikan atau memvoting episode berikutnya. Episode lanjutan yang dipicu komentar ditulis dengan Sumber `komentar` atau `arc`.

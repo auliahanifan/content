@@ -40,7 +40,7 @@ Uji pembeda: jika nama Aulia dihapus, adakah sudut pandang atau penalaran yang s
 - Gunakan kapitalisasi dan ejaan wajar untuk gaya formal. Caption huruf kecil pada deck lama bukan aturan wajib terbaru.
 - Penutup contoh: “Jika Anda menemukan kekeliruan, silakan beri tahu saya.” Tidak perlu di setiap konten.
 - Hashtag induk #RumitJadiJelas ditambah satu hashtag seri pada caption seri. Jangan wajibkan hashtag pada bio, email, percakapan, atau semua format.
-- Struktur reels 45-90 detik: masalah → penyebab → proses → hasil/angka → batas → kesimpulan/ajakan. Tutorial dan penjelasan satu tugas boleh sampai 150 detik bila tiap bagian membawa langkah atau contoh baru (`/naskah`). Sesuaikan kebutuhan format; tidak perlu enam bagian pada satu paragraf.
+- Struktur reels 45-90 detik: masalah → penyebab → proses → hasil/angka → batas → kesimpulan/ajakan. Tutorial boleh sampai 120 detik bila tiap bagian membawa langkah atau contoh baru (`/naskah`). Sesuaikan kebutuhan format; tidak perlu enam bagian pada satu paragraf.
 - Setiap video memberi sesuatu yang bisa dibawa pulang (prompt/template lengkap di caption, langkah, atau satu aturan). Ajakan penutup sebaiknya pertanyaan yang jawabannya bisa jadi episode berikutnya; permintaan penonton yang dikerjakan masuk seri Nitip, Mas.
 - Ganti penutup biner dengan kesimpulan yang berguna: cocok untuk siapa, belum cocok untuk apa, atau bagian yang masih perlu diuji. Label draft/verified boleh tetap disebut sebagai fakta status artefak asli seperti siroh app, tetapi bukan ritual wajib semua video.
 

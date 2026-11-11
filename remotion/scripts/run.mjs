@@ -22,6 +22,22 @@ if (!dir) {
   process.exit(1);
 }
 
+// file yang dirujuk storyboard (`src`: rekaman di rekam/, gambar bukti) harus ada; rekaman tidak ikut git
+const missing = new Set();
+const scan = (o) => {
+  if (Array.isArray(o)) o.forEach(scan);
+  else if (o && typeof o === 'object')
+    for (const [k, v] of Object.entries(o)) {
+      if (k === 'src' && typeof v === 'string' && !fs.existsSync(path.join(dir, v))) missing.add(v);
+      else scan(v);
+    }
+};
+scan(JSON.parse(fs.readFileSync(path.join(dir, 'storyboard.json'), 'utf8')));
+if (missing.size) {
+  console.error(`File yang dirujuk storyboard tidak ada di ${path.relative(repo, dir)}:\n- ${[...missing].join('\n- ')}\nRekaman layar (rekam/*.mp4, *.mov) di-gitignore: salin dulu ke folder itu.`);
+  if (cmd !== 'studio') process.exit(1);
+}
+
 // public/video -> folder video aktif
 const link = path.join(here, 'public', 'video');
 fs.rmSync(link, {force: true, recursive: false});

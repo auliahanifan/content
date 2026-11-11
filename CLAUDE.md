@@ -36,7 +36,7 @@ Pelajaran dari proyek `dates/2026-10-01`:
 ## Render HyperFrames
 
 - Tiap render menulis cache ±3,7 GB di `/private/var/folders/.../T/hyperframes-extract-cache-501`. Bila disk penuh (`ENOSPC`), hapus cache itu. Aman, dibuat ulang otomatis.
-- Hasil render ditaruh di `dates/<tanggal>/out/` (sudah di-gitignore).
+- Hasil render ditaruh di `dates/<tanggal>/out/`; proyek `/video-faceless` menulis ke `<proyek>/renders/`. Keduanya sudah di-gitignore.
 
 ## Remotion (video karakter)
 

@@ -48,7 +48,7 @@ const Flipbook: React.FC<{steps?: number[]; start: number}> = ({steps, start}) =
         <rect x={50} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.line} strokeWidth={5} />
         <rect x={300} y={40} width={250} height={300} rx={14} fill={K.card} stroke={K.line} strokeWidth={5} />
         {/* gambar di halaman kanan: bola yang posisinya berubah tiap halaman */}
-        <circle cx={300 + ballX} cy={60 + ballY + 80} r={26} fill={K.accent} stroke={K.line} strokeWidth={4} />
+        <circle cx={300 + ballX} cy={60 + ballY + 80} r={26} fill={A()} stroke={K.line} strokeWidth={4} />
         <path d={`M320 300 H530`} stroke={K.line} strokeWidth={4} strokeLinecap="round" />
         {/* halaman yang sedang membalik */}
         {flipping && (
@@ -145,14 +145,14 @@ const Render: React.FC<{steps?: number[]; start: number; labels?: string[]}> = (
           const on = i < filled;
           const just = i === filled - 1;
           return (
-            <div key={i} style={{height: 54, borderRadius: 6, border: 'none', background: on ? (i % 3 === 0 ? K.accent : i % 3 === 1 ? K.sun : K.good) : K.paper2, transform: just ? 'scale(1.12)' : undefined, position: 'relative', overflow: 'hidden'}}>
+            <div key={i} style={{height: 54, borderRadius: 6, border: 'none', background: on ? (i % 3 === 0 ? A() : i % 3 === 1 ? K.sun : K.good) : K.paper2, transform: just ? 'scale(1.12)' : undefined, position: 'relative', overflow: 'hidden'}}>
               {on && <div style={{position: 'absolute', width: 14, height: 14, borderRadius: 7, background: K.card, left: 6 + ((i * 9) % 36), top: 18}} />}
             </div>
           );
         })}
       </div>
       <div style={{position: 'absolute', left: 104, top: 262, width: 392, height: 18, borderRadius: 9, border: 'none', background: K.card, overflow: 'hidden'}}>
-        <div style={{width: `${prog * 100}%`, height: '100%', background: K.accent}} />
+        <div style={{width: `${prog * 100}%`, height: '100%', background: A()}} />
       </div>
       <div style={{position: 'absolute', left: 0, right: 0, top: 404, textAlign: 'center', fontFamily: FONT_HEAD, fontSize: 40, fontWeight: 800, color: K.ink}}>
         {labels?.[0] ?? 'render'} {Math.round(prog * 100)}%
@@ -180,7 +180,7 @@ const SkillFolder: React.FC<{steps?: number[]; start: number; labels?: string[]}
         return (
           <div key={f} style={{position: 'absolute', left: 50 + i * 175, top: 230 - p * (250 - Math.abs(i - 1) * 40), opacity: Math.min(1, p * 2), transform: `rotate(${(i - 1) * 10 * p}deg)`, zIndex: 1}}>
             <div style={{...cardSkin, borderRadius: 16, width: 170, padding: '14px 0 12px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4}}>
-              <VIcon name={i === 0 ? 'file' : i === 1 ? 'code' : 'terminal'} size={64} color={i === 0 ? K.sun : i === 1 ? K.accent : K.good} />
+              <VIcon name={i === 0 ? 'file' : i === 1 ? 'code' : 'terminal'} size={64} color={i === 0 ? K.sun : i === 1 ? A() : K.good} />
               <div style={{fontFamily: FONT_BODY, fontSize: 24, fontWeight: 800, color: K.ink}}>{f}</div>
             </div>
           </div>
@@ -263,7 +263,7 @@ const ScreenRec: React.FC<{steps?: number[]; start: number}> = ({steps, start}) 
       <div style={{position: 'absolute', inset: 0, borderRadius: 54, background: K.ink, padding: 16, boxShadow: SHADOW}}>
         <div style={{position: 'relative', width: '100%', height: '100%', borderRadius: 40, background: K.card, overflow: 'hidden'}}>
           {/* animasi artifact sederhana */}
-          <div style={{position: 'absolute', left: 30, top: 120 + Math.sin(t * 3) * 30, width: 70, height: 70, borderRadius: 18, background: K.accent, border: 'none', transform: `rotate(${t * 90}deg)`}} />
+          <div style={{position: 'absolute', left: 30, top: 120 + Math.sin(t * 3) * 30, width: 70, height: 70, borderRadius: 18, background: A(), border: 'none', transform: `rotate(${t * 90}deg)`}} />
           <div style={{position: 'absolute', right: 34, top: 240 + Math.cos(t * 2.4) * 40, width: 80, height: 80, borderRadius: 40, background: K.sun, border: 'none'}} />
           <div style={{position: 'absolute', left: 30, right: 30, bottom: 120, height: 22, borderRadius: 11, background: K.paper2, overflow: 'hidden'}}>
             <div style={{width: `${((t * 25) % 100)}%`, height: '100%', background: K.good}} />
@@ -559,12 +559,12 @@ export const ChatSim: React.FC<{app?: string; items: ChatMsg[]; w?: number}> = (
                 <div style={{borderRadius: 20, overflow: 'hidden', background: K.card, width: 420, boxShadow: SHADOW}}>
                   <div style={{padding: '10px 16px', background: K.sunSoft, borderBottom: `2px solid ${K.line}`, fontSize: 24, fontWeight: 800, color: K.ink}}>▶ {m.artifact}</div>
                   <div style={{position: 'relative', height: 150, background: K.paper2}}>
-                    <div style={{position: 'absolute', left: 30 + ((frame - st) * 4) % 300, top: 50, width: 50, height: 50, borderRadius: 14, background: K.accent, border: 'none'}} />
+                    <div style={{position: 'absolute', left: 30 + ((frame - st) * 4) % 300, top: 50, width: 50, height: 50, borderRadius: 14, background: A(), border: 'none'}} />
                     <div style={{position: 'absolute', right: 40, top: 30 + Math.sin((frame - st) / 8) * 30, width: 44, height: 44, borderRadius: 22, background: K.sun, border: 'none'}} />
                   </div>
                 </div>
               ) : (
-                <div style={{padding: '20px 26px', borderRadius: 24, boxShadow: SHADOW, background: user ? K.accent : K.card, color: user ? K.card : K.ink, fontSize: 38, fontWeight: 800, lineHeight: 1.25}}>
+                <div style={{padding: '20px 26px', borderRadius: 24, boxShadow: SHADOW, background: user ? A() : K.card, color: user ? K.card : K.ink, fontSize: 38, fontWeight: 800, lineHeight: 1.25}}>
                   {thinking ? <span style={{letterSpacing: 6}}>{'•••'.slice(0, 1 + (Math.floor((frame - st) / 4) % 3))}</span> : typed}
                   {user && typed.length < text.length && <span style={{opacity: frame % 14 < 7 ? 1 : 0}}>▍</span>}
                 </div>

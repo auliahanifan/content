@@ -332,7 +332,7 @@ const Stepper: React.FC<{items: KStep[]; w?: number}> = ({items, w}) => {
                 justifyContent: 'center',
                 fontSize: 28,
                 fontWeight: 800,
-                background: done ? K.good : active ? K.accent : K.card,
+                background: done ? K.good : active ? A() : K.card,
                 color: done || active ? K.card : K.faint,
                 border: done || active ? 'none' : `3px solid ${K.line}`,
                 boxShadow: done || active ? SHADOW : undefined,
