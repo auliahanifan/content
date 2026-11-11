@@ -1,6 +1,6 @@
 # Content
 
-Video konten (Reels/TikTok) per tanggal di `dates/<YYYY-MM-DD>/`. Footage mentah, proyek HyperFrames, dan hasil render ada di folder tanggal itu.
+Video konten (Reels/TikTok) per tanggal di `dates/<YYYY-MM-DD>/`. Proyek HyperFrames dan hasil render ada di folder tanggal itu. Footage mentah (MOV/MP4) ditaruh di folder tanggal itu juga, tetapi di-gitignore: simpan salinannya di luar git.
 
 ## Google Sheet content bank
 

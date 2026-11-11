@@ -22,6 +22,11 @@ dates/*/muse-video/assets/take-cut.webm
 __pycache__/
 dates/*/*/renders/
 
+# footage mentah (besar; simpan di luar git)
+dates/*/*.MOV
+dates/*/*.mov
+dates/*/*.mp4
+
 # rekaman layar mentah untuk tutorial (besar; simpan di luar git)
 dates/*/*/rekam/*.mp4
 dates/*/*/rekam/*.mov
