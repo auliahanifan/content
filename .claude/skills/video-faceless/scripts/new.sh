@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Scaffold proyek video faceless. Pakai: new.sh <dates/YYYY-MM-DD/slug> [seri-svg]
 # seri-svg default: assets/img/sing-murah-wae.svg milik skill. Seri lain: beri path svg gelap; versi "<nama>-white.svg" wajib sebelahan.
-# Aset dibaca dari root repo: assets/kepala-*.png dan "Aulia Rahman Design System/assets" (override: env DS).
+# Aset dibaca dari root repo: assets/kepala-*.png, assets/logo-signature-*.svg, dan (bila ada) "Aulia Rahman Design System/assets" (override: env DS).
 set -e; dir=${1:?folder}
 here=$(cd "$(dirname "$0")/.." && pwd)
 R=$(git -C "$here" rev-parse --show-toplevel 2>/dev/null || (cd "$here/../../.." && pwd))
@@ -13,7 +13,9 @@ cp -R "$here/assets/fonts" "$here/assets/sfx" assets/ ; cp "$here"/assets/img/cl
 shopt -s nullglob; heads=("$R"/assets/kepala-*.png); shopt -u nullglob
 (( ${#heads[@]} )) && cp "${heads[@]}" assets/img/ || warn "kepala-*.png tidak ada di $R/assets"
 for f in logo-signature-black.svg logo-signature-white.svg; do
-  [[ -f $DS/$f ]] && cp "$DS/$f" assets/img/ || warn "$f tidak ada di $DS"; done
+  if [[ -f $DS/$f ]]; then cp "$DS/$f" assets/img/
+  elif [[ -f $R/assets/$f ]]; then cp "$R/assets/$f" assets/img/
+  else warn "$f tidak ada di $DS maupun $R/assets"; fi; done
 s=$(basename "$series" .svg)
 [[ -f $series ]] && cp "$series" assets/img/ || warn "logo seri $series tidak ada"
 [[ -f $(dirname "$series")/$s-white.svg ]] && cp "$(dirname "$series")/$s-white.svg" assets/img/ || warn "$s-white.svg tidak ada"

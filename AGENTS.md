@@ -23,7 +23,7 @@
 - Jangan ambil ide konten dari sumber yang terbit lebih dari 6 bulan lalu. Tahun lalu tidak boleh.
 - Aturan ini paling ketat untuk paper dan naskah ilmiah: hanya studi yang terbit atau direvisi substansial dalam 6 bulan terakhir (hitung dari tanggal sistem hari ini).
 - Paper lama yang ditulis ulang atau direvisi kecil tidak dihitung baru. Pakai tanggal terbit asli.
-- Berlaku untuk `/ide-konten`, `/naskah` (mode pecah dan naskah), dan `/challenge`. Aturan ini menggantikan batas 12 bulan di `tab-talking-head.md` untuk sumber riset.
+- Berlaku untuk `/ide-konten`, `/naskah` (mode pecah dan naskah), dan `/challenge`. `tab-talking-head.md` sudah memuat batas 6 bulan yang sama.
 - Jika tidak ada studi dalam 6 bulan untuk suatu klaim, ide itu dibuang, bukan diisi dengan paper lama.
 
 ## Cover Reels/TikTok: komposisi dan crop thumbnail

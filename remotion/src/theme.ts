@@ -50,14 +50,6 @@ export const pixelBox = (bg: string = C.paper, inner: string = C.frame, w = 6) =
   boxShadow: `inset 0 0 0 ${w}px ${C.ink}, inset 0 0 0 ${w * 2}px ${inner}`,
 });
 
-// kompatibilitas komponen lama
-export const OUTLINE = 6;
-export const sticker = (shadow = 8, bg: string = C.paper) => ({
-  background: bg,
-  border: `${OUTLINE}px solid ${C.ink}`,
-  boxShadow: `${shadow}px ${shadow}px 0 ${C.ink}`,
-});
-
 let loaded = false;
 export const loadFonts = () => {
   if (loaded || typeof document === 'undefined') return;

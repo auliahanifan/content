@@ -483,7 +483,7 @@ const Snap: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({s
           <div style={{position: 'absolute', left: 0, right: 0, top: 26, height: 10, borderRadius: 5, background: K.paper2}} />
           <div style={{position: 'absolute', left: 0, width: `${pos * 100}%`, top: 26, height: 10, borderRadius: 5, background: A()}} />
           <div style={{position: 'absolute', left: `calc(${pos * 100}% - 16px)`, top: 15, width: 32, height: 32, borderRadius: 16, background: K.ink, boxShadow: SHADOW}} />
-          <div style={{position: 'absolute', left: `calc(${pos * 100}% - 60px)`, top: -34, width: 120, textAlign: 'center', fontFamily: FONT_BODY, fontSize: 28, fontWeight: 800, color: K.ink}}>{frame >= at(2) ? 'detik 3,03' : sec}</div>
+          <div style={{position: 'absolute', left: `calc(${pos * 100}% - 60px)`, top: -34, width: 120, textAlign: 'center', fontFamily: FONT_BODY, fontSize: 28, fontWeight: 800, color: K.ink}}>{frame >= at(2) ? labels?.[1] ?? 'detik 3,03' : sec}</div>
         </div>
       </div>
       {/* kamera */}

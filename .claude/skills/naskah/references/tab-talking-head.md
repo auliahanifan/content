@@ -64,7 +64,7 @@ Prioritas seri: Bukan Sulap, Garapan Weekend (tutorial yang bisa direkam Aulia),
 Semua hasil kerja disimpan di spreadsheet yang sama, bukan di file lokal. Jika tab belum ada, buat dengan header di bawah, bekukan baris 1, dan aktifkan wrap text.
 
 **Naskah**, satu baris per ID. Jika ID sudah ada, timpa barisnya (jangan menambah baris kedua). Jika ID itu hanya ada di `ArchiveN` dan naskahnya ditulis ulang, tulis di tab Naskah lalu sebutkan ke pengguna bahwa versi lama masih di arsip:
-| ID | Judul | Naskah teleprompter | Hook cadangan | Caption | Perlu diisi | Sumber | Challenge teknis | Catatan review | Diperbarui  Potensi | Hasil uji |
+| ID | Judul | Naskah teleprompter | Hook cadangan | Caption | Perlu diisi | Sumber | Challenge teknis | Catatan review | Diperbarui | Potensi | Hasil uji |
 
 - Naskah teleprompter: satu ide per baris (baris baru di dalam sel), paragraf dipisah baris kosong.
 - Hook cadangan, Perlu diisi, Sumber: daftar bernomor atau `- ` per baris.

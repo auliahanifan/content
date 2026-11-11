@@ -4,9 +4,10 @@
 // Pakai (dari remotion/): pnpm density <folder-video> [batas-detik]
 import fs from 'node:fs';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 const [dirArg, limArg] = process.argv.slice(2);
-const repo = path.dirname(path.dirname(path.dirname(new URL(import.meta.url).pathname)));
+const repo = path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url))));
 const dir = [path.resolve(dirArg ?? '.'), path.resolve(repo, dirArg ?? '.')].find((d) => fs.existsSync(path.join(d, 'storyboard.json')));
 if (!dir) {
   console.error('pakai: pnpm density <dates/YYYY-MM-DD/slug> [batas-detik]');
@@ -85,7 +86,7 @@ if (!kanvas) sb.loot?.forEach((l) => add(l.at, `loot ${l.emoji}`));
 if (!kanvas) sb.moods?.forEach((m) => add(m.at, `mood ${m.mood}`));
 if (!kanvas) sb.meter?.steps.forEach((m) => add(m.at, 'meter'));
 if (sb.loop) add(sb.loop.until, 'janji dibayar');
-sb.sfx?.forEach((x) => add(x.at, `sfx ${x.name}`));
+if (!kanvas) sb.sfx?.forEach((x) => add(x.at, `sfx ${x.name}`)); // kanvas: `sfx` tidak dirender dan bukan perubahan visual
 
 ev.sort((a, b) => a[0] - b[0]);
 const end = words[words.length - 1][2];

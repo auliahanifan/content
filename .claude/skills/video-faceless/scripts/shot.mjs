@@ -2,16 +2,24 @@
 //   node shot.mjs <url> <out.png> "<potongan teks yang disorot>" [lebar=1080] [teks-sorot-lain ...]
 // Potongan teks harus ada persis di halaman (spasi dinormalisasi). Hasil: PNG DPR 2, dipotong di sekitar elemen.
 import puppeteer from 'puppeteer-core';
-import { readdirSync } from 'fs';
+import { existsSync, readdirSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
 
 const [url, out, snip, w = '1080', ...more] = process.argv.slice(2);
 if (!url || !out || !snip) { console.error('pakai: node shot.mjs <url> <out.png> "<teks>" [lebar]'); process.exit(1); }
-const base = join(homedir(), '.cache/hyperframes/chrome/chrome-headless-shell');
-const ver = readdirSync(base).sort().pop();
-const sub = readdirSync(join(base, ver))[0];
-const exe = join(base, ver, sub, 'chrome-headless-shell');
+// Chrome: env CHROME, cache HyperFrames (Mac), atau Chromium Playwright di container cloud (sama dengan bukti.mjs)
+const findChrome = () => {
+  if (process.env.CHROME && existsSync(process.env.CHROME)) return process.env.CHROME;
+  const hf = join(homedir(), '.cache/hyperframes/chrome/chrome-headless-shell');
+  if (existsSync(hf)) { const v = readdirSync(hf).sort().pop(); const s = readdirSync(join(hf, v))[0]; return join(hf, v, s, 'chrome-headless-shell'); }
+  if (existsSync('/opt/pw-browsers')) {
+    const d = readdirSync('/opt/pw-browsers').find((x) => x.startsWith('chromium_headless_shell-'));
+    if (d) return `/opt/pw-browsers/${d}/chrome-headless-shell-linux64/chrome-headless-shell`;
+  }
+  throw new Error('Chrome tidak ditemukan; set env CHROME');
+};
+const exe = findChrome();
 
 const b = await puppeteer.launch({ executablePath: exe, headless: true, args: ['--no-sandbox'] });
 const p = await b.newPage();

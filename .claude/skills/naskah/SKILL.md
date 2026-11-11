@@ -7,7 +7,7 @@ description: Produksi naskah Reels (talking head, faceless kanvas, dan tutorial 
 
 Baca dulu [tab-talking-head.md](references/tab-talking-head.md) (kolom, syarat produksi, anti dobel, aturan tulis sheet).
 
-Input: link Google Sheet content bank (jika tidak ada, cari di Drive dan konfirmasi), lalu salah satu:
+Input: Google Sheet content bank (link di `CLAUDE.md`; tidak perlu mencari di Drive), lalu salah satu:
 - `/naskah pecah <ID CORE...>`: mode pecah.
 - `/naskah <TH-xxx...>`: mode naskah untuk ID tersebut. Jika ID tidak ada di Talking Head, cari nomor barisnya di ArchiveTH dengan `MATCH` di tab `Cari` lalu baca baris itu saja; jangan membaca arsip penuh.
 - `/naskah` saja: mode naskah untuk semua baris Talking Head berstatus `dipilih`, maksimal 8. Jika lebih dari 8, ambil 8 teratas dan sebutkan sisanya.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """align.json ElevenLabs -> words.json [[kata, mulai, akhir], ...]. Tag [..] tidak diucapkan, dibuang.
 Pakai: python3 words.py tts/final.align.json tts/words.json"""
-import json, sys, re
+import json, sys
 a = json.load(open(sys.argv[1]))
 ch, s, e = a['characters'], a['character_start_times_seconds'], a['character_end_times_seconds']
 words, cur, depth = [], None, 0

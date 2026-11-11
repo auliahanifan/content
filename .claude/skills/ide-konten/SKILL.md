@@ -7,7 +7,7 @@ description: Cari sampai 20 ide Reels yang dalam (pola anggapan → padahal → 
 
 Baca dulu `.claude/skills/naskah/references/tab-talking-head.md` (kolom termasuk Format/Arc/Episode/Peminta, syarat kedalaman, syarat produksi, arc, anti dobel, aturan tulis sheet) dan `.claude/skills/aulia-brand/references/brand-rules.md`.
 
-Input: link Google Sheet content bank. Opsional: komentar atau DM audiens yang ditempel pengguna (bahan utama Nitip, Mas), dan views video yang sudah diposting. Jika link tidak diberikan, cari di Drive dan konfirmasi ke pengguna sebelum menulis.
+Input: Google Sheet content bank (link di `CLAUDE.md`; tidak perlu mencari di Drive). Opsional: komentar atau DM audiens yang ditempel pengguna (bahan utama Nitip, Mas), dan views video yang sudah diposting.
 
 ## 1. Baca sheet
 Baca tab CORE dan Talking Head. Untuk ArchiveTH jangan dibaca penuh: ambil ID terbesar dan cek anti dobel lewat query di tab `Cari` (`.claude/skills/arsip/references/baca-arsip-hemat.md`), satu panggilan untuk semua kandidat. Jika tab Talking Head belum ada, buat sesuai spesifikasi.

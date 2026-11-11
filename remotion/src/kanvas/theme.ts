@@ -80,8 +80,6 @@ export const softTone = (t?: Tone): string => {
   }
 };
 
-/** Tidak ada garis tebal lagi; konstanta dipertahankan supaya tata letak lama tetap terhitung. */
-export const OUT = 0;
 /** Bayangan kertas lembut untuk elemen kecil. */
 export const SHADOW = '0 2px 0 rgba(0,0,0,0.05), 0 10px 16px -8px rgba(60,35,10,0.40)';
 /** Kartu utama: lembar krem + dua lembar kertas (aksen, teal) bertumpuk di belakang + bayangan lembut. */
@@ -123,7 +121,7 @@ export const loadPaperFonts = () => {
 };
 
 /**
- * Geometri 1080x1920. Header y 44-214 (logo seri, chip topik, tanda tangan), headline y 236-560, panggung y 580-1450.
+ * Geometri 1080x1920. Header y 44-214 (logo seri, chip topik, tanda tangan), headline y 236-566, panggung y 590-1450.
  * UI Reels menutup y>1500 dan kanan bawah: tidak ada teks di sana. Karakter Paper Cutout berproporsi realistis,
  * jadi lebih tinggi (800) dan panggung digeser agar tidak tertutup.
  */

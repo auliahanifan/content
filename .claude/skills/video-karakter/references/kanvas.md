@@ -1,8 +1,8 @@
-# storyboard.json mode kanvas (default, v2)
+# storyboard.json mode kanvas (default, v4)
 
 **v4 Tactile Explainer (5 Nov 2026, standar):** dunia Paper Cutout v3 ditambah lima prinsip dari riset motion kelas dunia (Cleo Abram, Johnny Harris, Kurzgesagt, Vox "Two Parties" pemenang Motion Awards 2025; ringkasan di halaman eksplorasi https://claude.ai/artifact/3fqqu9SzZgVSsXQuuyg63V): (1) **ide terpenting jadi adegan metafora** (1-2 per video, `illus`), (2) **gerak punya berat**: pegas dengan sedikit kelewatan lalu mengendap, tidak ada gerak linear, (3) **bukti asli ala scrapbook** (`evidence`): tangkapan layar halaman resmi ditempel, frasa kunci distabilo saat diucapkan, catatan tulisan tangan, (4) **analogi jadi adegan bergambar**, bukan kartu teks (mis. paket = pintu), (5) **menahan diri**: hanya yang membantu paham yang bergerak. Strategi hibrida: identitas tetap (dunia kertas, Fraunces, Paper Cutout Aulia, aksen seri, 3 SFX) + adegan metafora khusus per video. Contoh: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v3 pembanding: `storyboard-v3.json`).
 
-**v3 Paper Cutout (5 Nov 2026):** satu dunia kertas: latar kraft berserat, kartu krem dengan dua lembar kertas (aksen seri + teal) bertumpuk di belakangnya, bayangan lembut, tanpa garis tebal dan bayangan keras; judul Fraunces (pengantar abu, inti tebal navy, kata kunci warna aksen dengan garis kertas tipis); label berupa tag kertas berlubang; karakter Paper Cutout Aulia (`assets/paper-cutout-aulia/`, 13 pose, 24 reaksi) dengan gerak idle halus. Hook: kata jatuh satu per satu di atas selembar kertas, kata kunci dari huruf potongan kertas. **Satu hal dalam satu waktu**: satu elemen per panel. Tetap dari v2: headline kinetik, ilustrasi beranimasi (`illus`), simulasi chat (`chatsim`), kamera pelan + `punch`, transisi geser. SFX minimal. Aksen per seri: Bukan Sulap koral, Sing Murah Wae mustard, Katanya Nyatanya teal (`remotion/src/kanvas/theme.ts`). Contoh: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v2 pembanding: `storyboard-v2.json`).
+**v3 Paper Cutout (5 Nov 2026):** satu dunia kertas: latar kraft berserat, kartu krem dengan dua lembar kertas (aksen seri + teal) bertumpuk di belakangnya, bayangan lembut, tanpa garis tebal dan bayangan keras; judul Fraunces (pengantar abu, inti tebal navy, kata kunci warna aksen dengan garis kertas tipis); label berupa tag kertas berlubang; karakter Paper Cutout Aulia (`assets/paper-cutout-aulia/`, 13 pose, 24 reaksi) dengan gerak idle halus. Hook: kata jatuh satu per satu di atas selembar kertas, kata kunci dari huruf potongan kertas. **Satu hal dalam satu waktu**: satu elemen per panel. Tetap dari v2: headline kinetik, ilustrasi beranimasi (`illus`), simulasi chat (`chatsim`), kamera pelan + `punch`, transisi geser. SFX minimal. Aksen per seri: Bukan Sulap koral, Sing Murah Wae mustard, Katanya Nyatanya teal, Garapan Weekend ungu; seri lain (mis. Nitip, Mas) memakai koral bawaan (`SERIES_ACCENT` di `remotion/src/kanvas/theme.ts`). Contoh: `dates/2026-11-05/claude-video-gratis/storyboard.json` (v2 pembanding: `storyboard-v2.json`).
 
 Kanvas 1080x1920, 30 fps. Semua `at`, `from`, `split`, `doneAt`, `strikeAt` = **indeks kata** di `tts/words.json`. Durasi = audio + `tail`.
 
@@ -12,7 +12,7 @@ Prinsip (riset `dates/2026-11-04/riset-hisvill.md`): satu latar sepanjang video,
 | Zona | y | Isi |
 |---|---|---|
 | Header | 44-214 | logo seri (kiri), chip topik (kanan), tanda tangan. Chip berubah jadi hitung mundur saat `loop` aktif |
-| Headline | 236-536 | baris pengantar abu + frasa inti Fraunces besar, kata kunci warna aksen seri. **Pengganti caption** |
+| Headline | 236-566 | baris pengantar abu + frasa inti Fraunces besar, kata kunci warna aksen seri. **Pengganti caption** |
 | Panggung | 590-1450 | **satu** elemen panel; di samping karakter (`char` left/right, panggung 600 lebar) atau lebar penuh (`corner`/`none`) |
 | UI Reels | >1500, kanan bawah | kosong |
 
@@ -50,7 +50,7 @@ Palet kertas: kraft, krem, navy kertas, koral, teal, mustard, hijau daun; judul 
 
 ### `panels` (panggung)
 `{at, char?, pose?, layout?, gap?, zoom?, topic?, items, sfx?}`. Panel = satu peraga utuh; ganti panel hanya saat **bagian** penjelasan berganti (biasanya 6-10 panel per 60-90 detik), bukan tiap kalimat. Di dalam panel, elemen muncul satu per satu pada kata yang menyebutnya; tempatnya sudah dipesan sejak awal sehingga tidak ada yang bergeser.
-- `char`: `left` (default, panggung kanan 670 px) · `right` · `corner` (karakter kecil kiri bawah, panggung lebar penuh: tutorial/rekam layar) · `none`. Mewarisi panel sebelumnya.
+- `char`: `left` (default, panggung kanan 600 px) · `right` · `corner` (karakter kecil kiri bawah, panggung lebar penuh: tutorial/rekam layar) · `none`. Mewarisi panel sebelumnya.
 - `layout`: `column` (default) atau `row`. `zoom` < 1 bila isi terpotong.
 - `topic`: ganti chip header mulai panel ini (mis. pindah dari "dasar" ke "tutorial").
 
@@ -85,6 +85,8 @@ Semua punya `at` (muncul; default awal panel), `out` (memudar), `dimAt` (redup 3
 | `render` | 0: frame digambar satu per satu · 1: progress 100% · 2: file keluar | 0: label proses, 1: nama file | render, ekspor, proses mesin |
 | `skill-folder` | 0: folder terbuka, file keluar | nama tiga file | skill, paket file, folder proyek |
 | `screenrec` | 0: mulai merekam (REC) | - | rekam layar HP |
+| `mold` | tiap tahap: cetakan menekan lalu satu video baru masuk tumpukan (satu tahap per label) | nama tiap hasil (default Video 1-3) | satu template dipakai berulang: isi beda, gaya sama |
+| `snap` | 0: playhead digeser · 1: kamera menjepret, foto keluar · 2: playhead geser sedikit lagi | 0: label waktu (default "detik 3"), 1: label sesudah geser (default "detik 3,03") | video di-pause lalu dipotret per frame |
 Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar aslinya) dan tabel ini.
 
 ### Ikon vektor
@@ -114,7 +116,7 @@ Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar asli
 - Penutup: panel CTA `ui` `comments` (pertanyaan atau kata kunci komentar) dan/atau `profile` (follow), lalu aturan bawa pulang dalam satu `card`.
 
 ## Contoh
-Pilot lengkap: `dates/2026-11-01/agent-harness-kanvas/storyboard.json` (audio sama dengan `agent-harness-v2`, untuk dibandingkan dengan mode game). Pola dari riset:
+Contoh standar sekarang: `dates/2026-11-05/claude-video-gratis-padat/storyboard.json` (lolos `pnpm density`). Pilot lama `dates/2026-11-01/agent-harness-kanvas/storyboard.json` (audio sama dengan `agent-harness-v2`, pembanding mode game) dibuat sebelum aturan satu elemen per panel dan tidak lolos `pnpm density`. Pola dari riset:
 ```jsonc
 // hadiah + jangkar harga
 {"at": 0, "char": "left", "pose": "menunjuk", "items": [
