@@ -30,3 +30,6 @@ dates/*/*.mp4
 # rekaman layar mentah untuk tutorial (besar; simpan di luar git)
 dates/*/*/rekam/*.mp4
 dates/*/*/rekam/*.mov
+
+# izin lokal Claude Code: bisa memuat password dari perintah yang disetujui (lihat TH-137)
+.claude/settings.local.json
