@@ -51,6 +51,8 @@ Jalankan `challenge` tahap **fakta** untuk seluruh batch. Hasilnya lembar fakta 
 - Susun 3-4 **skenario pilih** ("Kalau Anda mau X, pakai Y, karena Z") dari matriks; struktur naskah = Perbandingan per kasus (tabel durasi).
 
 ### 2. Asah hook
+Bila tab `Pelajaran` ada, baca dulu baris berstatus `indikasi`/`terbukti` yang Dipakai oleh-nya menyebut `naskah` (hasil `/belajar`: pola hook, struktur, dan panjang yang terbukti atau gagal di akun sendiri). Jadikan kecenderungan, bukan larangan, dan sebut aturan yang dipakai di laporan. Hook yang sengaja menyimpang jadi bahan uji A/B (tulis di Hook cadangan).
+
 
 **Hook dulu, tapi isi tidak ikut menyempit.** Hook diasah dan diuji buta lebih dulu seperti biasa; pemenang uji buta tetap dipakai, karena hook yang menentukan orang berhenti scroll. Hook adalah pintu masuk, bukan seluruh isi: janji hook wajib dibayar cepat (sekitar 40 kata pertama), lalu naskah tetap harus lolos gerbang kedalaman (untuk perbandingan: minimal tiga pembeda nyata + satu mekanisme). Contoh TH-099: hook "Dua-duanya gratis. Satu berhenti gratis di orang keempat" dibayar di kalimat kedua (lisensi Remotion), lalu "Tapi bedanya bukan cuma itu" membuka empat kasus dan mekanisme. Kesalahan versi 1 bukan hooknya, melainkan seluruh naskah ikut menyusut ke satu poin hook. Hanya bila hook tidak bisa dibayar tanpa membuat isi dangkal, hook-nya yang diganti, bukan isinya.
 

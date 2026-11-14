@@ -12,6 +12,8 @@ Input: Google Sheet content bank (link di `CLAUDE.md`; tidak perlu mencari di Dr
 ## 1. Baca sheet
 Baca tab CORE dan Talking Head. Untuk ArchiveTH jangan dibaca penuh: ambil ID terbesar dan cek anti dobel lewat query di tab `Cari` (`.claude/skills/arsip/references/baca-arsip-hemat.md`), satu panggilan untuk semua kandidat. Jika tab Talking Head belum ada, buat sesuai spesifikasi.
 
+Bila tab `Pelajaran` ada, baca baris berstatus `indikasi`/`terbukti` yang Dipakai oleh-nya menyebut `ide-konten` (hasil `/belajar`). Pakai sebagai kecenderungan saat menyaring: utamakan jenis ide dan sudut yang terbukti ditonton, hindari yang berulang gagal. Ide yang sengaja menyimpang dari aturan boleh tetap ditulis, tandai di Kenapa bisa viral sebagai uji.
+
 ## 2. Kumpulkan bahan
 Audiens: owner dan tim kecil yang operasionalnya menyita waktu, **serta orang Indonesia yang baru belajar memakai AI untuk kerja** (karyawan, freelancer, mahasiswa). Hari ini dihitung dari tanggal sistem.
 
