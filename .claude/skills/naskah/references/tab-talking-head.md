@@ -29,6 +29,8 @@ Spreadsheet yang sama dengan bank CORE (link di `CLAUDE.md`). Nama tab: `Talking
 
 Kolom Format, Arc, Episode, Peminta ditambahkan November 2026 di sebelah kanan Status (kolom O-R; header sudah ada di sheet sejak 4 Nov 2026). Bila header tab belum punya kolom itu, tulis dulu keempat header-nya di baris 1 (sekali), lalu isi. Jangan menggeser kolom lama.
 
+**Kolom skor S-Z** (Skor Kedalaman, Hook, Potensi, Produksi, Total, Tahap Skor, Skor Diperbarui, Alasan Skor) diisi menurut [skor-ide.md](skor-ide.md). Ide baru dinilai tahap `ide` saat ditulis; `/naskah` memperbarui skor Hook ke tahap `naskah` setelah uji buta. Jangan menimpa angka yang sudah diubah Aul.
+
 Ide baru selalu ditulis dengan Status `usulan`. Pengguna yang mengubah ke `dipilih`. `arsip` untuk ide yang gugur di saringan kedalaman. Baris arsip boleh dihapus pengguna kapan saja; setelah dihapus, ide itu tidak lagi ikut dicek anti dobel.
 
 ## Syarat kedalaman (wajib untuk setiap ide)

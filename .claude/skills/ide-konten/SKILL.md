@@ -50,5 +50,7 @@ Buka sumber sebelum memakai faktanya. Catat URL dan tanggal terbit. Sumber >14 h
 ## 4. Tulis ke sheet
 Tulis ke-20 ide sebagai baris baru di tab Talking Head dengan Status `usulan`, dalam satu panggilan, termasuk kolom Format, Arc, Episode, dan Peminta (tambahkan header-nya dulu bila belum ada). Verifikasi dengan membaca ulang.
 
+Beri **skor tahap ide** di kolom S-Z (Kedalaman, Hook, Potensi, Produksi, Total, Tahap, Diperbarui, Alasan) sesuai `.claude/skills/naskah/references/skor-ide.md`. Urutkan laporan dari Total tertinggi dan sebut pita (prioritas, layak, tinjau ulang). Skor tidak menggugurkan ide; gerbang kedalaman dan produksi tetap yang menentukan. Tahap Skor tetap bertanda `belum terkalibrasi` sampai ada 20 post IG yang cocok ke ide.
+
 ## 5. Laporkan di chat
 Tabel ringkas yang lolos: ID, Seri, Format, Arc/Episode, Anggapan, Padahal, Hook; tandai yang lolos tipis dan apa yang belum terverifikasi. Lalu tabel yang difilter: item, tanggal, dan alasan spesifik (duplikat dengan ID mana, di luar jendela, tidak ada padahal, primer tidak terbuka, bukan wilayah owner). Pisahkan kandidat terkuat yang gugur agar pengguna bisa menimpa keputusan. Sebutkan sumber yang tidak menghasilkan ide dan sumber yang tidak bisa dibuka, serta tautan sheet. Tutup dengan: ubah Status ke `dipilih` lalu jalankan `/naskah` untuk menulis naskahnya.

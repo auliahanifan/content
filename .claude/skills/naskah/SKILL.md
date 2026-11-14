@@ -259,6 +259,8 @@ Di chat, urutkan saran posting dari Potensi tertinggi.
 
 Penilaian hook dan hasil uji buta hanya dipakai untuk memilih hook, tidak disimpan.
 
+Perbarui **skor Hook ke tahap naskah** di tab Talking Head (kolom T, Total di W, Tahap di X, Alasan di Z) memakai hasil uji buta: 50% rubrik hook ditambah 50% uji buta (BERHENTI putaran 1 = 100, putaran 2 = 60, SCROLL = 0, rata-rata persona Owner dan Pemula AI). Rincian di `references/skor-ide.md`. Angka yang sudah ditimpa Aul tidak diubah.
+
 Setelah baris ditulis dan diverifikasi, ubah Status baris tersebut di tab Talking Head menjadi `lolos-challenge` jika challenge teknis lolos, atau `naskah` jika gagal (hanya kolom Status; baris CORE tidak diubah). Lalu di chat: tabel ringkas per ide (ID, status fresh, hook utama, verdict, jumlah [ISI]) dan tautan sheet.
 
 ## Daur ulang pemenang
