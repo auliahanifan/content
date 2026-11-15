@@ -1,0 +1,27 @@
+[confident] Hasil Claude Anda kurang bagus? Jangan ganti model dulu. Ada satu tombol sebelum itu.
+
+[confident] Namanya effort: seberapa lama Claude boleh berpikir sebelum menjawab. Aturan tiga barisnya saya kasih di akhir.
+
+[confident] Ini lanjutan video limit Claude. Sekarang soal memilih model. Claude punya beberapa model. Anggap saja staf. Sonnet staf junior. Opus staf senior, tarifnya dua kali lipat.
+
+[confident] Satu. Klik nama model di samping tombol kirim.
+
+[confident] Dua. Pilih Effort. Ada lima tingkat: Low, Medium, High, Extra high, sampai Max. Yang bertanda Default itu rekomendasi Anthropic, pembuat Claude.
+
+[confident] Tiga. Hasil kurang bagus? Naikkan effort dulu, misalnya dari Medium ke High. Stafnya sama, cuma diberi waktu lebih.
+
+[confident] Nah, langkah empat ini yang sering kebalik. Jangan lompat ke sini dulu.
+
+[confident] Empat. Instruksi dan filenya sudah lengkap, effort sudah dinaikkan, tapi masih salah? Baru pindah ke model di atasnya, misalnya dari Sonnet ke Opus. Urutan ini saran Anthropic.
+
+[confident] Lima. Arah sebaliknya. Mau pindah dari Opus ke Sonnet supaya limit awet? Kata Anthropic, turunkan effort-nya dulu, modelnya tetap. Low dan Medium memang untuk tugas rutin.
+
+[confident] Menurut Anthropic juga, kalau Sonnet terus Anda paksa di Extra high atau Max, ongkos per tugasnya mendekati Opus. Makin tinggi effort, makin lama dia berpikir, dan itu ikut dihitung. Junior yang lembur terus, ongkosnya bisa mendekati senior. Di titik itu, pertimbangkan pindah ke Opus, dengan effort Medium.
+
+[confident] Ada dua catatan. Di paket langganan, model yang lebih mahal tetap memakan limit lebih cepat. Dan paket Free nggak punya Opus.
+
+[confident] Jadi lihat hasilnya dan seberapa cepat limit Anda terpakai, bukan nama modelnya. Kalau sama-sama beres... Sing Murah Wae.
+
+[confident] Tiga barisnya: kurang bagus, naikkan effort dulu. Sudah lengkap tapi tetap salah, baru naik model. Mau hemat, turunkan effort dulu. Lengkapnya di caption.
+
+[curious] Anda biasanya pakai model apa buat kerja harian? Tulis di komentar.
