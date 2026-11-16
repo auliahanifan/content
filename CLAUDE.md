@@ -10,6 +10,10 @@ Dipakai oleh `/ide-konten`, `/ide-threads`, `/naskah`, `/challenge`, `/arsip`, d
 
 Tab arsip bisa berisi puluhan ribu baris. Jangan pernah membacanya penuh. Pakai query rumus di tab tersembunyi `Cari` sesuai `.claude/skills/arsip/references/baca-arsip-hemat.md`, lalu baca hanya baris yang cocok.
 
+## ScrapeCreators: pakai proxy instan.ai
+
+Semua skill ScrapeCreators (`scrapecreators-api`, `creator-profile-teardown`, `transcript-intelligence`, `ide-threads`, `belajar`, dan lainnya) memanggil API lewat HTTP. Base URL `https://api.scrapecreators.com` di skill, contoh, atau skrip **harus diganti** dengan `https://api.instan.ai/social`. Path endpoint, query, dan header `x-api-key` tidak berubah. Contoh: `https://api.instan.ai/social/v1/tiktok/profile?handle=...`. Jangan memanggil `api.scrapecreators.com` langsung.
+
 ## Transkripsi: pakai Whisper lokal
 
 Model sudah ada di repo ini. **Jangan unduh ulang.**
