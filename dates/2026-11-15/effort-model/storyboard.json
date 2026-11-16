@@ -1,0 +1,814 @@
+{
+ "style": "kanvas",
+ "series": "sing-murah-wae",
+ "topic": "Sing Murah Wae · pilih model",
+ "tail": 1.5,
+ "keywords": [
+  "effort",
+  "Effort",
+  "effort:",
+  "effort,",
+  "effort-nya"
+ ],
+ "seriesLine": {
+  "from": 251,
+  "to": 253
+ },
+ "loop": {
+  "text": "Aturan 3 baris",
+  "from": 23,
+  "until": 254
+ },
+ "hook": {
+  "until": 13,
+  "items": [
+   {
+    "kind": "card",
+    "icon": {
+     "name": "warning",
+     "color": "warn"
+    },
+    "tag": "HASIL KURANG BAGUS?",
+    "title": "Langsung ganti model?",
+    "value": "Sonnet → Opus",
+    "strikeAt": 5,
+    "w": 700
+   }
+  ]
+ },
+ "punch": [
+  5,
+  89,
+  127,
+  184,
+  251
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 3
+  },
+  {
+   "from": 5,
+   "split": 5
+  },
+  {
+   "from": 9,
+   "split": 10
+  },
+  {
+   "from": 14,
+   "split": 15
+  },
+  {
+   "from": 16,
+   "split": 16
+  },
+  {
+   "from": 23,
+   "split": 23
+  },
+  {
+   "from": 30,
+   "split": 31
+  },
+  {
+   "from": 35,
+   "split": 37
+  },
+  {
+   "from": 39,
+   "split": 39
+  },
+  {
+   "from": 43,
+   "split": 43
+  },
+  {
+   "from": 46,
+   "split": 46
+  },
+  {
+   "from": 49,
+   "split": 52
+  },
+  {
+   "from": 56,
+   "split": 57
+  },
+  {
+   "from": 64,
+   "split": 65
+  },
+  {
+   "from": 67,
+   "split": 70
+  },
+  {
+   "from": 77,
+   "split": 81
+  },
+  {
+   "from": 85,
+   "split": 86
+  },
+  {
+   "from": 89,
+   "split": 89
+  },
+  {
+   "from": 92,
+   "split": 93
+  },
+  {
+   "from": 97,
+   "split": 99
+  },
+  {
+   "from": 103,
+   "split": 107
+  },
+  {
+   "from": 110,
+   "split": 110
+  },
+  {
+   "from": 115,
+   "split": 116
+  },
+  {
+   "from": 121,
+   "split": 124
+  },
+  {
+   "from": 127,
+   "split": 127
+  },
+  {
+   "from": 133,
+   "split": 134
+  },
+  {
+   "from": 138,
+   "split": 140
+  },
+  {
+   "from": 142,
+   "split": 143
+  },
+  {
+   "from": 145,
+   "split": 151
+  },
+  {
+   "from": 154,
+   "split": 156
+  },
+  {
+   "from": 161,
+   "split": 164
+  },
+  {
+   "from": 168,
+   "split": 171
+  },
+  {
+   "from": 176,
+   "split": 181
+  },
+  {
+   "from": 186,
+   "split": 189
+  },
+  {
+   "from": 193,
+   "split": 195
+  },
+  {
+   "from": 197,
+   "split": 201
+  },
+  {
+   "from": 205,
+   "split": 208
+  },
+  {
+   "from": 215,
+   "split": 215
+  },
+  {
+   "from": 218,
+   "split": 221
+  },
+  {
+   "from": 230,
+   "split": 231
+  },
+  {
+   "from": 236,
+   "split": 240
+  },
+  {
+   "from": 245,
+   "split": 245
+  },
+  {
+   "from": 248,
+   "split": 251
+  },
+  {
+   "from": 254,
+   "split": 256
+  },
+  {
+   "from": 261,
+   "split": 266
+  },
+  {
+   "from": 269,
+   "split": 271
+  },
+  {
+   "from": 274,
+   "split": 274
+  },
+  {
+   "from": 277,
+   "split": 277
+  },
+  {
+   "from": 285,
+   "split": 285
+  }
+ ],
+ "panels": [
+  {
+   "at": 14,
+   "char": "left",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "effort-dial",
+     "steps": [
+      20
+     ],
+     "labels": [
+      "Medium",
+      "High"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 23,
+   "char": "right",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "gift",
+      "color": "good"
+     },
+     "tag": "DI AKHIR VIDEO",
+     "title": "Aturan tiga baris",
+     "text": "kapan naik effort, kapan naik model",
+     "tone": "good",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 30,
+   "char": "left",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     },
+     "tag": "LANJUTAN",
+     "title": "Video limit Claude",
+     "text": "sekarang: memilih model",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 39,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "at": 46,
+       "icon": {
+        "name": "user",
+        "color": "sky"
+       },
+       "tag": "SONNET",
+       "title": "Staf junior",
+       "value": "1x",
+       "tone": "sky",
+       "w": 440
+      },
+      {
+       "kind": "card",
+       "at": 49,
+       "icon": {
+        "name": "team",
+        "color": "accent"
+       },
+       "tag": "OPUS",
+       "title": "Staf senior",
+       "value": "2x",
+       "text": "tarif per token",
+       "tone": "accent",
+       "w": 440
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 56,
+   "char": "corner",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "assets/img/m1-chat.png",
+     "w": 500,
+     "steps": [
+      {
+       "at": 56,
+       "text": "Klik nama model"
+      },
+      {
+       "at": 64,
+       "text": "Pilih Effort"
+      },
+      {
+       "at": 85,
+       "text": "Naikkan effort"
+      },
+      {
+       "at": 115,
+       "text": "Baru naik model"
+      },
+      {
+       "at": 142,
+       "text": "Hemat: turunkan effort"
+      }
+     ],
+     "rings": [
+      {
+       "at": 57,
+       "x": 50,
+       "y": 91,
+       "w": 31,
+       "h": 6
+      }
+     ]
+    }
+   ],
+   "topic": "Sing Murah Wae · tutorial"
+  },
+  {
+   "at": 64,
+   "char": "corner",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "assets/img/m2-effort.png",
+     "w": 500,
+     "steps": [
+      {
+       "at": 56,
+       "text": "Klik nama model"
+      },
+      {
+       "at": 64,
+       "text": "Pilih Effort"
+      },
+      {
+       "at": 85,
+       "text": "Naikkan effort"
+      },
+      {
+       "at": 115,
+       "text": "Baru naik model"
+      },
+      {
+       "at": 142,
+       "text": "Hemat: turunkan effort"
+      }
+     ],
+     "rings": [
+      {
+       "at": 70,
+       "x": 23,
+       "y": 56.8,
+       "w": 71.5,
+       "h": 5.5
+      },
+      {
+       "at": 72,
+       "x": 23,
+       "y": 67.4,
+       "w": 71.5,
+       "h": 5.5
+      },
+      {
+       "at": 76,
+       "x": 23,
+       "y": 77.3,
+       "w": 71.5,
+       "h": 5.5
+      },
+      {
+       "at": 79,
+       "x": 23,
+       "y": 62,
+       "w": 71.5,
+       "h": 5.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 85,
+   "char": "corner",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "assets/img/m3-high.png",
+     "w": 500,
+     "steps": [
+      {
+       "at": 56,
+       "text": "Klik nama model"
+      },
+      {
+       "at": 64,
+       "text": "Pilih Effort"
+      },
+      {
+       "at": 85,
+       "text": "Naikkan effort"
+      },
+      {
+       "at": 115,
+       "text": "Baru naik model"
+      },
+      {
+       "at": 142,
+       "text": "Hemat: turunkan effort"
+      }
+     ],
+     "rings": [
+      {
+       "at": 94,
+       "x": 23,
+       "y": 67.4,
+       "w": 71.5,
+       "h": 5.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 103,
+   "char": "right",
+   "pose": "stop",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "warning",
+      "color": "warn"
+     },
+     "tag": "AWAS",
+     "title": "Langkah 4 sering kebalik",
+     "text": "jangan lompat ke sini dulu",
+     "tone": "warn",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 115,
+   "char": "left",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Sebelum naik model",
+     "items": [
+      {
+       "at": 116,
+       "text": "Instruksi & file lengkap",
+       "doneAt": 120
+      },
+      {
+       "at": 121,
+       "text": "Effort sudah dinaikkan",
+       "doneAt": 123
+      },
+      {
+       "at": 124,
+       "text": "Tetap salah?",
+       "doneAt": 126,
+       "tone": "warn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 127,
+   "char": "corner",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "assets/img/m4-opus.png",
+     "w": 500,
+     "steps": [
+      {
+       "at": 56,
+       "text": "Klik nama model"
+      },
+      {
+       "at": 64,
+       "text": "Pilih Effort"
+      },
+      {
+       "at": 85,
+       "text": "Naikkan effort"
+      },
+      {
+       "at": 115,
+       "text": "Baru naik model"
+      },
+      {
+       "at": 142,
+       "text": "Hemat: turunkan effort"
+      }
+     ],
+     "rings": [
+      {
+       "at": 137,
+       "x": 23,
+       "y": 54.5,
+       "w": 71.5,
+       "h": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 138,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "book",
+      "color": "sky"
+     },
+     "tag": "SUMBER",
+     "title": "Saran Anthropic",
+     "text": "artikel 12 Nov 2026 + Claude Academy",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 142,
+   "char": "corner",
+   "pose": "laptop",
+   "items": [
+    {
+     "kind": "phone",
+     "src": "assets/img/m5-medium.png",
+     "w": 500,
+     "steps": [
+      {
+       "at": 56,
+       "text": "Klik nama model"
+      },
+      {
+       "at": 64,
+       "text": "Pilih Effort"
+      },
+      {
+       "at": 85,
+       "text": "Naikkan effort"
+      },
+      {
+       "at": 115,
+       "text": "Baru naik model"
+      },
+      {
+       "at": 142,
+       "text": "Hemat: turunkan effort"
+      }
+     ],
+     "rings": [
+      {
+       "at": 156,
+       "x": 23,
+       "y": 62,
+       "w": 71.5,
+       "h": 5.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 161,
+   "char": "right",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "check",
+      "color": "good"
+     },
+     "tag": "TUGAS RUTIN",
+     "title": "Low & Medium",
+     "text": "cukup untuk kerja harian",
+     "tone": "good",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 168,
+   "char": "left",
+   "pose": "berpikir",
+   "topic": "Sing Murah Wae · effort",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "effort-dial",
+     "steps": [
+      177,
+      180
+     ],
+     "labels": [
+      "High",
+      "Extra high",
+      "Max"
+     ]
+    }
+   ]
+  },
+  {
+   "at": 197,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "row",
+     "gap": 30,
+     "items": [
+      {
+       "kind": "card",
+       "icon": {
+        "name": "clock",
+        "color": "bad"
+       },
+       "tag": "SONNET · MAX",
+       "title": "Junior lembur",
+       "value": "≈",
+       "text": "ongkos per tugas",
+       "tone": "bad",
+       "w": 440
+      },
+      {
+       "kind": "card",
+       "at": 208,
+       "icon": {
+        "name": "team",
+        "color": "good"
+       },
+       "tag": "OPUS · MEDIUM",
+       "title": "Senior santai",
+       "text": "pertimbangkan pindah",
+       "tone": "good",
+       "w": 440
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 215,
+   "char": "right",
+   "pose": "mencatat",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Dua catatan",
+     "items": [
+      {
+       "at": 218,
+       "text": "Model mahal = limit lebih cepat habis",
+       "doneAt": 229,
+       "tone": "warn"
+      },
+      {
+       "at": 230,
+       "text": "Paket Free: tanpa Opus",
+       "doneAt": 235,
+       "tone": "warn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 236,
+   "char": "left",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "icon": {
+      "name": "money",
+      "color": "accent"
+     },
+     "tag": "YANG DILIHAT",
+     "title": "Hasil + limit terpakai",
+     "text": "bukan nama modelnya",
+     "tone": "accent",
+     "w": 580
+    }
+   ]
+  },
+  {
+   "at": 254,
+   "char": "right",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Aturan tiga baris",
+     "items": [
+      {
+       "at": 256,
+       "text": "Kurang bagus → naikkan effort",
+       "doneAt": 258
+      },
+      {
+       "at": 261,
+       "text": "Lengkap tapi salah → naik model",
+       "doneAt": 266
+      },
+      {
+       "at": 269,
+       "text": "Mau hemat → turunkan effort",
+       "doneAt": 271
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 277,
+   "char": "left",
+   "pose": "menyapa",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "comments",
+     "items": [
+      {
+       "text": "Sonnet, Medium. Cukup buat rangkuman"
+      },
+      {
+       "text": "Opus terus 😅"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

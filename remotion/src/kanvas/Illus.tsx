@@ -9,7 +9,7 @@ import {A, bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
  * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
  */
-export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap';
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap' | 'effort-dial';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -504,7 +504,65 @@ const Snap: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({s
   );
 };
 
-export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600};
+
+/* ---------- effort-dial: dial lima tingkat effort; jarum pindah tiap tahap, bar "waktu berpikir" ikut naik ---------- */
+const LEVELS = ['Low', 'Medium', 'High', 'Extra high', 'Max'];
+const EffortDial: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const drop = useSpringAt(start, {damping: 13, stiffness: 150, mass: 0.7});
+  // labels[0] = tingkat awal, labels[n+1] = tingkat sesudah tahap n
+  const lv = labels?.length ? labels : ['Medium'];
+  let from = LEVELS.indexOf(lv[0]);
+  let to = from;
+  let t0 = start;
+  for (let n = 0; n + 1 < lv.length; n++) {
+    if (frame >= at(n)) {
+      from = to;
+      to = LEVELS.indexOf(lv[n + 1]);
+      t0 = at(n);
+    }
+  }
+  const sp = frame < t0 ? 1 : spring({frame: frame - t0, fps, config: {damping: 11, stiffness: 120, mass: 0.8}});
+  const pos = from + (to - from) * sp; // 0..4
+  const ang = -90 + pos * 45; // -90 (Low) .. 90 (Max)
+  const cx = 300, cy = 330, R = 230;
+  const pt = (a: number, r: number) => [cx + r * Math.sin((a * Math.PI) / 180), cy - r * Math.cos((a * Math.PI) / 180)];
+  return (
+    <div style={{position: 'relative', width: 600, height: 640, opacity: Math.min(1, drop * 2), transform: `translateY(${(1 - drop) * -100}px)`}}>
+      <div style={{position: 'absolute', left: 0, top: 30, width: 600, height: 600, ...bigCard()}} />
+      <svg width={600} height={420} style={{position: 'absolute', left: 0, top: 40}}>
+        <path d={`M ${cx - R} ${cy} A ${R} ${R} 0 0 1 ${cx + R} ${cy}`} fill="none" stroke={K.paper2} strokeWidth={46} strokeLinecap="round" />
+        <path d={`M ${cx - R} ${cy} A ${R} ${R} 0 0 1 ${pt(ang, R)[0]} ${pt(ang, R)[1]}`} fill="none" stroke={A()} strokeWidth={46} strokeLinecap="round" />
+        {LEVELS.map((l, i) => {
+          const [x, y] = pt(-90 + i * 45, R - 62);
+          const near = Math.abs(pos - i) < 0.5;
+          return (
+            <text key={l} x={x} y={y + 10} textAnchor="middle" fontFamily={FONT_BODY} fontWeight={near ? 900 : 700} fontSize={near ? 30 : 24} fill={near ? K.ink : K.faint}>
+              {l}
+            </text>
+          );
+        })}
+        <line x1={cx} y1={cy} x2={pt(ang, R - 110)[0]} y2={pt(ang, R - 110)[1]} stroke={K.ink} strokeWidth={14} strokeLinecap="round" />
+        <circle cx={cx} cy={cy} r={26} fill={K.ink} />
+      </svg>
+      {/* tanda Default di Medium */}
+      <div style={{position: 'absolute', left: pt(-45, R + 40)[0] - 70, top: 40 + pt(-45, R + 40)[1] - 30, width: 120, textAlign: 'center', transform: 'rotate(-8deg)', fontFamily: FONT_BODY, fontWeight: 800, fontSize: 22, color: K.card, background: K.ink, borderRadius: 10, padding: '4px 0'}}>Default</div>
+      {/* bar waktu berpikir */}
+      <div style={{position: 'absolute', left: 60, top: 420, width: 480, fontFamily: FONT_BODY}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 26, fontWeight: 800, color: K.ink}}>
+          <VIcon name="clock" color={K.ink} size={38} /> waktu berpikir = limit terpakai
+        </div>
+        <div style={{position: 'relative', height: 28, marginTop: 14, borderRadius: 14, background: K.paper2}}>
+          <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${12 + pos * 22}%`, borderRadius: 14, background: pos > 2.5 ? K.bad : A()}} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600, 'effort-dial': 600};
 
 export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
   switch (name) {
@@ -526,6 +584,8 @@ export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; 
       return <RecipeKitchen steps={steps} start={start} labels={labels} />;
     case 'mold':
       return <Mold steps={steps} start={start} labels={labels} />;
+    case 'effort-dial':
+      return <EffortDial steps={steps} start={start} labels={labels} />;
     case 'snap':
       return <Snap steps={steps} start={start} labels={labels} />;
   }
