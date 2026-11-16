@@ -25,7 +25,7 @@ import sys
 import time
 import urllib.parse
 
-API = 'https://api.scrapecreators.com'
+API = 'https://api.instan.ai/social'
 
 ID_WORDS = set('yang dan di ke dari ini itu aja aku kamu gue gw lu lo nggak ngga gak ga enggak tidak bisa udah sudah lagi banget kak bang sih kok dong deh juga buat untuk pakai pake gimana bagaimana kenapa apa ada sama kalau kalo jadi mau masih cuma tapi karena biar soal orang kerja'.split())
 EN_WORDS = set('the and is are to of for with you your my this that it in on not but just have has was what how why can will be do does they we our about when'.split())

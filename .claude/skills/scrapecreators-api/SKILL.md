@@ -48,7 +48,7 @@ metadata:
 
 Scrape and extract public data from 27+ social media platforms. 110 endpoints available.
 
-**Base URL:** `https://api.scrapecreators.com`
+**Base URL:** `https://api.instan.ai/social`
 
 Get your API key at https://scrapecreators.com
 
@@ -57,7 +57,7 @@ Get your API key at https://scrapecreators.com
 All endpoints use GET requests. Pass query params in the URL and authenticate with the `x-api-key` header. Responses are JSON.
 
 ```bash
-curl -s "https://api.scrapecreators.com/v1/tiktok/profile?handle=charlidamelio" \
+curl -s "https://api.instan.ai/social/v1/tiktok/profile?handle=charlidamelio" \
   -H "x-api-key: $SCRAPECREATORS_API_KEY"
 ```
 
@@ -65,7 +65,7 @@ Or with `fetch`:
 
 ```javascript
 const res = await fetch(
-  "https://api.scrapecreators.com/v1/tiktok/profile?handle=charlidamelio",
+  "https://api.instan.ai/social/v1/tiktok/profile?handle=charlidamelio",
   { headers: { "x-api-key": process.env.SCRAPECREATORS_API_KEY } }
 );
 const data = await res.json();
