@@ -1,11 +1,21 @@
-# Suara (ElevenLabs)
+# Suara Aulia
 
-- Kunci: `ELEVENLABS_API_KEY`, `ELEVENLABS_AULIA_RAHMAN_VOICEID` dari environment (sesi cloud: secret/env var environment); bila kosong, `tts.sh` membaca `.env` di root repo (Mac). Jangan dicetak/dikomit.
-- Model **eleven_v4**: abaikan parameter `speed`. Ekspresif lewat tag audio, bukan setting. `language_code: id`.
-- **Standar (5 Nov 2026):** stability 0,5 · similarity 1,0 · style 0,2 · tag `[confident]` per paragraf · tempo 1,1x (`tts.sh` default `TEMPO=1.1`: ffmpeg `atempo` tanpa ubah nada, timestamp alignment ikut diskalakan). Override: env `STAB SIM STYLE MODEL TEMPO`.
-- Dasar keputusan (TH-098, diukur): suara lama `[relaxed]` 5,2 suku kata/dtk, nada tengah 131 Hz. `[energetic]` menaikkan nada tengah ke 180 Hz (+37%) tanpa menambah variasi nada, jadi terdengar kurang mirip Aulia: **jangan dipakai**. `[confident]` 157 Hz, 5,3 suku kata/dtk pada 1,1x: dipilih. Rasa cepat datang dari naskah yang padat, bukan dari tempo; jangan naikkan tempo di atas 1,15x (pemula kehilangan istilah teknis).
-- Tag lain hanya untuk momen tertentu: `[curious]` di pertanyaan, `[chuckles]` bila lucu. Hindari `[relaxed]` dan `[casual]` sebagai tag default (membuat tempo terasa santai).
-- Tes pengguna: "tidak mirip" → turunkan intensitas tag atau hapus tag nada, similarity 1,0; "datar" → stability 0,45.
-- Ucapan: tulis angka sebagai kata; kata asing (AI, API, Muse Spark) tes dengar. Ejaan tampilan di caption diatur lewat `FIX`/`MERGE` di `captions()`, bukan lewat teks TTS.
-- Frasa khas seri ("sing murah wae") minta santai, boleh logat Jawa ringan lewat tag `[casual]` dan titik-titik "...".
-- Python 3.14 di Mac tanpa CA cert: pakai curl (sudah di `tts.sh`). Script memakai bash, jalan di Mac dan cloud Linux.
+## Default: OmniVoice lokal (sejak 22 Nov 2026)
+
+- **Perintah:** `scripts/tts-omni.sh tts/final.txt tts/final` → `tts/final.mp3` + `tts/words.json` (+ `tts/final.paras.json`). Satu perintah, tanpa kunci API, tanpa biaya per pemakaian.
+- **Pasang sekali:** `scripts/setup-voice.sh` membuat `.venv-voice/` di root repo (Mac: torch MPS; Linux tanpa GPU: torch CPU). Model OmniVoice (±3 GB) dan Whisper `small` diunduh dari Hugging Face saat pertama dipakai.
+- **Cara kerja:** OmniVoice (k2-fsa) mengklon suara dari contoh pendek, langsung bicara bahasa Indonesia (data latih ±6.300 jam). Naskah dibuat per paragraf (cache di `tts/.omni-cache/`, jadi mengubah satu paragraf hanya membuat ulang paragraf itu), digabung dengan jeda 0,28 detik, lalu loudnorm -14 LUFS.
+- **Timestamp kata dari Whisper** (faster-whisper `small`, per paragraf) yang dicocokkan ke kata naskah; kata yang tidak tertangkap (mis. "Satu." ditulis "1") dibagi rata atau diinterpolasi. Indeks kata = urutan kata naskah, jadi storyboard tetap cocok.
+- **Contoh suara:** `assets/voice/aulia-ref.wav` (13 detik) + `aulia-ref.txt` (transkrip persis). Saat ini diambil dari voice over ElevenLabs video 5 Nov 2026, jadi yang ditiru adalah "Aulia versi ElevenLabs". Ganti dengan rekaman asli 10-20 detik (bersih, tanpa musik) dengan nama yang sama untuk hasil yang lebih mirip suara asli; transkripnya harus persis.
+- **Kecepatan:** default `SPEED=1.0` (±2,8 kata/dtk, setara standar lama `[confident]` 1,1x). Jangan di atas 1,15.
+- **Tag:** `[confident]`, `[curious]`, dll. dibuang otomatis (tidak diucapkan); boleh tetap ada di `final.txt`. OmniVoice tidak memakai tag emosi; nada mengikuti contoh suara.
+- **Waktu:** di CPU 4 core ±15x waktu audio (naskah 110 detik ±30 menit). Di Mac Apple Silicon jauh lebih cepat.
+- **Hasil uji TH-150 (22 Nov 2026):** kemiripan warna suara dengan ElevenLabs 0,919 (dua rekaman ElevenLabs saling 0,924), kejelasan Whisper terbaik dari semua cara yang dicoba (Seed-VC dari Google Chirp/Gemini, Gemini-TTS asli). Seed-VC dari suara Google ditinggalkan karena intonasinya ikut gaya penyiar Google.
+- **Lisensi:** kode OmniVoice Apache 2.0, **bobot model CC-BY-NC (non-komersial)**. Untuk konten yang menjual jasa/produk, putuskan dulu atau ganti mesin.
+- Ucapan: tulis angka sebagai kata; kata asing (Claude, effort, API) tes dengar. Ejaan tampilan diatur di caption/headline (`captionFix`/`captionMerge`), bukan lewat teks TTS.
+
+## Cadangan: ElevenLabs (`scripts/tts.sh`)
+
+Hanya bila pengguna memintanya. Kunci `ELEVENLABS_API_KEY`, `ELEVENLABS_AULIA_RAHMAN_VOICEID` dari environment atau `.env` (Mac); jangan dicetak/dikomit.
+- `scripts/tts.sh tts/final.txt tts/final` lalu `python3 scripts/words.py tts/final.align.json tts/words.json` (timestamp dari alignment ElevenLabs).
+- Standar lama (5 Nov 2026): model eleven_v4, stability 0,5 · similarity 1,0 · style 0,2 · tag `[confident]` per paragraf · tempo 1,1x (`TEMPO`). `[energetic]` terdengar kurang mirip (nada +37%): jangan dipakai. `[curious]` di pertanyaan, `[chuckles]` bila lucu.

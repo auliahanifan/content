@@ -33,3 +33,7 @@ dates/*/*/rekam/*.mov
 
 # izin lokal Claude Code: bisa memuat password dari perintah yang disetujui (lihat TH-137)
 .claude/settings.local.json
+
+# lingkungan suara OmniVoice (setup-voice.sh) dan cache per paragraf
+.venv-voice/
+**/tts/.omni-cache/
