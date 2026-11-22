@@ -1,7 +1,7 @@
 """Pustaka build video faceless Aulia (1080x1920). Pakai dari build.py proyek:
 
     import sys; sys.path.insert(0, '<skill>/scripts'); from lib import *
-Kontrak: words.json = [[kata, mulai, akhir], ...] dari words.py (timestamp ElevenLabs, bukan Whisper).
+Kontrak: words.json = [[kata, mulai, akhir], ...] dari tts-omni.sh (default, Whisper dicocokkan ke naskah) atau words.py (cadangan ElevenLabs).
 Contoh pemakaian utuh: examples/contributor-build.py."""
 import json, math, re
 

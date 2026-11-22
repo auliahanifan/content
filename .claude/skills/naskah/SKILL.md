@@ -23,7 +23,7 @@ Format: Instagram Reels (talking head atau faceless `/video-karakter` mode kanva
 | Tutorial langkah, Nitip | 60-120 dtk | 150-300 |
 | Tumpukan jebakan | 45-65 dtk | 120-170 |
 | Perbandingan per kasus | 75-100 dtk | 190-260 |
-Angka kata mengikuti suara standar (`[confident]`, 1,1x, ±2,6 kata/dtk). Standar 5 Nov 2026: **padat, tidak bertele-tele** (lihat "Padat dan tidak ambigu" di tahap menulis).
+Angka kata mengikuti suara standar (OmniVoice SPEED 1,0, ±2,6-2,8 kata/dtk). Standar 5 Nov 2026: **padat, tidak bertele-tele** (lihat "Padat dan tidak ambigu" di tahap menulis).
 Panjang hanya boleh bila tiap 10-15 detik ada langkah baru, contoh baru, atau perubahan peraga. Video panjang tanpa muatan kalah (riset `dates/2026-11-04/riset-hisvill.md`: 177 detik tanpa rekaman asli gagal, 85-166 detik dengan langkah nyata menang).
 
 ## Mode pecah (CORE → ide talking head)
@@ -80,7 +80,7 @@ Hook menentukan penonton berhenti scroll atau tidak. Ini tahap terpenting; janga
 15. Identitas / baru lihat bungkusnya: "Kalau Anda pikir ChatGPT itu AI-nya, Anda baru melihat bungkusnya." Membalik anggapan yang dipegang orang pintar, tanpa merendahkan.
 
 **c. Gerbang wajib.** Hook gugur kalau satu saja gagal; tidak ada nilai "cukup".
-1. Kalimat pertama maksimal 9 kata, terucap dalam 3 detik oleh suara ElevenLabs (±2,6 kata/detik pada tempo 1,1x; angka dihitung sebagai kata yang diucapkan, mis. "30 ribu dolar" = 3 kata). Angka, benda, atau taruhannya muncul di 4 kata pertama, karena detik pertama yang menentukan.
+1. Kalimat pertama maksimal 9 kata, terucap dalam 3 detik oleh suara standar (±2,6 kata/detik; angka dihitung sebagai kata yang diucapkan, mis. "30 ribu dolar" = 3 kata). Angka, benda, atau taruhannya muncul di 4 kata pertama, karena detik pertama yang menentukan.
 2. Kalimat pertama sudah memuat benda yang dikenal owner (chatbot, email, tagihan, model AI, admin) **dan** taruhan atau pembalikannya. Pemanasan dilarang: "Coba tebak", "Pernah nggak", "Jadi gini", "Halo", "Di video ini", "Tahukah Anda". Yang boleh ditunda hanya *kenapa*-nya, bukan *apa* taruhannya.
 3. Uji scroll: baca kalimat pertama saja. Bisakah dijawab "kalau lanjut nonton, penonton dapat atau terhindar dari apa"? Jika kabur, gugur.
 4. Uji salah paham: tulis satu kalimat tentang apa yang akan dikira penonton isi videonya. Jika berbeda dari isi naskah, gugur (clickbait atau terlalu kabur).
