@@ -1,0 +1,72 @@
+[
+ {
+  "text": "Hasil Claude Anda kurang bagus? Jangan ganti model dulu. Ada satu tombol sebelum itu.",
+  "start": 0.0,
+  "end": 4.897
+ },
+ {
+  "text": "Namanya effort: seberapa lama Claude boleh berpikir sebelum menjawab. Aturan tiga barisnya saya kasih di akhir.",
+  "start": 5.177,
+  "end": 11.419
+ },
+ {
+  "text": "Ini lanjutan video limit Claude. Sekarang soal memilih model. Claude punya beberapa model. Anggap saja staf. Sonnet staf junior. Opus staf senior, tarifnya dua kali lipat.",
+  "start": 11.699,
+  "end": 21.485
+ },
+ {
+  "text": "Satu. Klik nama model di samping tombol kirim.",
+  "start": 21.765,
+  "end": 24.162
+ },
+ {
+  "text": "Dua. Pilih Effort. Ada lima tingkat: Low, Medium, High, Extra high, sampai Max. Yang bertanda Default itu rekomendasi Anthropic, pembuat Claude.",
+  "start": 24.442,
+  "end": 32.499
+ },
+ {
+  "text": "Tiga. Hasil kurang bagus? Naikkan effort dulu, misalnya dari Medium ke High. Stafnya sama, cuma diberi waktu lebih.",
+  "start": 32.779,
+  "end": 39.215
+ },
+ {
+  "text": "Nah, langkah empat ini yang sering kebalik. Jangan lompat ke sini dulu.",
+  "start": 39.495,
+  "end": 43.319
+ },
+ {
+  "text": "Empat. Instruksi dan filenya sudah lengkap, effort sudah dinaikkan, tapi masih salah? Baru pindah ke model di atasnya, misalnya dari Sonnet ke Opus. Urutan ini saran Anthropic.",
+  "start": 43.599,
+  "end": 53.56
+ },
+ {
+  "text": "Lima. Arah sebaliknya. Mau pindah dari Opus ke Sonnet supaya limit awet? Kata Anthropic, turunkan effort-nya dulu, modelnya tetap. Low dan Medium memang untuk tugas rutin.",
+  "start": 53.84,
+  "end": 63.582
+ },
+ {
+  "text": "Menurut Anthropic juga, kalau Sonnet terus Anda paksa di Extra high atau Max, ongkos per tugasnya mendekati Opus. Makin tinggi effort, makin lama dia berpikir, dan itu ikut dihitung. Junior yang lembur terus, ongkosnya bisa mendekati senior. Di titik itu, pertimbangkan pindah ke Opus, dengan effort Medium.",
+  "start": 63.862,
+  "end": 81.396
+ },
+ {
+  "text": "Ada dua catatan. Di paket langganan, model yang lebih mahal tetap memakan limit lebih cepat. Dan paket Free nggak punya Opus.",
+  "start": 81.676,
+  "end": 88.614
+ },
+ {
+  "text": "Jadi lihat hasilnya dan seberapa cepat limit Anda terpakai, bukan nama modelnya. Kalau sama-sama beres... Sing Murah Wae.",
+  "start": 88.894,
+  "end": 95.456
+ },
+ {
+  "text": "Tiga barisnya: kurang bagus, naikkan effort dulu. Sudah lengkap tapi tetap salah, baru naik model. Mau hemat, turunkan effort dulu. Lengkapnya di caption.",
+  "start": 95.736,
+  "end": 104.262
+ },
+ {
+  "text": "Anda biasanya pakai model apa buat kerja harian? Tulis di komentar.",
+  "start": 104.542,
+  "end": 108.228
+ }
+]
