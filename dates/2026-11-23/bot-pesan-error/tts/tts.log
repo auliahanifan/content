@@ -1,3 +1,4 @@
-Fetching 13 files:   0%|          | 0/13 [00:00<?, ?it/s]Fetching 13 files: 100%|██████████| 13/13 [00:00<00:00, 2192.53it/s]
-Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]Loading weights: 100%|██████████| 313/313 [00:00<00:00, 3743.73it/s]
-Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:  56%|█████▌    | 293/527 [00:00<00:00, 2922.62it/s]Loading weights: 100%|██████████| 527/527 [00:00<00:00, 3634.20it/s]
+Fetching 13 files:   0%|          | 0/13 [00:00<?, ?it/s]Fetching 13 files: 100%|██████████| 13/13 [00:00<00:00, 1844.02it/s]
+Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]Loading weights:  81%|████████  | 254/313 [00:00<00:00, 2539.71it/s]Loading weights: 100%|██████████| 313/313 [00:00<00:00, 3069.68it/s]
+Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:  48%|████▊     | 251/527 [00:00<00:00, 2505.15it/s]Loading weights: 100%|██████████| 527/527 [00:00<00:00, 3372.06it/s]
+paragraf 1/9 dibuat (cpu)

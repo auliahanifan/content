@@ -9,7 +9,7 @@ import {A, bigCard, cardSkin, FONT_HEAD, K, SHADOW} from './theme';
  * Ilustrasi vektor beranimasi untuk panggung kanvas. Tiap ilustrasi digerakkan oleh `steps` (indeks kata):
  * tahap ke-n mulai saat kata steps[n] diucapkan. Semua digambar dengan kode (SVG/CSS), tanpa aset.
  */
-export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap' | 'effort-dial';
+export type IllusName = 'flipbook' | 'recipe-code' | 'render' | 'skill-folder' | 'tiers' | 'screenrec' | 'doors' | 'recipe-kitchen' | 'mold' | 'snap' | 'effort-dial' | 'relay';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -562,7 +562,82 @@ const EffortDial: React.FC<{steps?: number[]; start: number; labels?: string[]}>
   );
 };
 
-export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600, 'effort-dial': 600};
+
+/* ---------- relay: layanan AI → jalur → kolom komentar. 0: balasan normal lewat · 1: pesan error ikut lewat · 2: pos "baca dulu" menahan error ---------- */
+const Relay: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({steps, start, labels}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const at = useSteps(steps, start);
+  const drop = useSpringAt(start);
+  const [lFrom = 'Layanan AI', lTo = 'Kolom komentar', lGate = 'Baca dulu'] = labels ?? [];
+  const W = 600;
+  const pipeY = 250;
+  const x0 = 120, x1 = 480;
+  // posisi amplop yang berjalan: 0..1 selama 36 frame sejak tahapnya
+  const run = (t: number, stopAt = 1) => {
+    if (frame < t) return -1;
+    const p = interpolate(frame - t, [0, 36], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+    return Math.min(p, stopAt);
+  };
+  const gateOn = frame >= at(2);
+  const gate = useSpringAt(at(2), {damping: 11, stiffness: 170, mass: 0.6});
+  const okP = gateOn ? run(at(2) + 6) : run(at(0));
+  const errP = gateOn ? run(at(2) + 20, 0.42) : run(at(1));
+  const blocked = gateOn && errP >= 0.42;
+  const bump = (t: number) => (frame < t ? 0 : spring({frame: frame - t, fps, config: {damping: 9, stiffness: 200, mass: 0.5}}));
+  const landOk = okP >= 1 ? bump(gateOn ? at(2) + 42 : at(0) + 36) : 0;
+  const landErr = !gateOn && errP >= 1 ? bump(at(1) + 36) : 0;
+  const env = (p: number, tone: 'ok' | 'err') => {
+    if (p < 0) return null;
+    const x = x0 + (x1 - x0) * p;
+    const err = tone === 'err';
+    return (
+      <div style={{position: 'absolute', left: x - 86, top: pipeY - 40, width: 172, height: 80, borderRadius: 14, background: err ? K.badSoft : K.goodSoft, border: `4px solid ${err ? K.bad : K.good}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT_BODY, fontWeight: 800, fontSize: 22, color: err ? K.bad : K.good, textAlign: 'center', lineHeight: 1.05, boxShadow: SHADOW}}>
+        {err ? 'ERROR: saldo kurang' : 'Balasan: siap, Kak'}
+      </div>
+    );
+  };
+  const box = (x: number, label: string, icon: string) => (
+    <div style={{position: 'absolute', left: x - 95, top: pipeY - 95, width: 190, height: 190, ...cardSkin, borderRadius: 24, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10}}>
+      <VIcon name={icon} size={86} color={K.ink} />
+      <div style={{fontFamily: FONT_BODY, fontWeight: 800, fontSize: 24, color: K.ink, textAlign: 'center', lineHeight: 1.1}}>{label}</div>
+    </div>
+  );
+  // isi kolom komentar (di bawah kotak kanan)
+  const feed: {t: string; err: boolean; s: number}[] = [];
+  if (landOk > 0) feed.push({t: 'Siap, Kak. Stok masih ada.', err: false, s: landOk});
+  if (landErr > 0) feed.push({t: 'your credit balance is too low…', err: true, s: landErr});
+  return (
+    <div style={{position: 'relative', width: W, height: 640, opacity: Math.min(1, drop * 2), transform: `translateY(${(1 - drop) * -80}px)`}}>
+      <div style={{position: 'absolute', left: x0, right: W - x1, top: pipeY - 10, height: 20, borderRadius: 10, background: K.paper2, boxShadow: 'inset 0 2px 4px rgba(60,35,10,0.18)'}} />
+      {box(x0 - 25, lFrom, 'sparkle')}
+      {box(x1 + 25, lTo, 'chat')}
+      {gateOn && (
+        <div style={{position: 'absolute', left: W / 2 - 60, top: pipeY - 150 + (1 - gate) * -60, width: 120, opacity: gate, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <div style={{padding: '8px 14px', borderRadius: 12, background: K.ink, color: K.card, fontFamily: FONT_BODY, fontWeight: 900, fontSize: 24, whiteSpace: 'nowrap'}}>{lGate}</div>
+          <div style={{width: 16, height: 150, background: A(), borderRadius: 8, marginTop: 6}} />
+        </div>
+      )}
+      {env(okP, 'ok')}
+      {env(errP, 'err')}
+      {blocked && (
+        <div style={{position: 'absolute', left: W / 2 - 150, top: pipeY + 50, transform: `scale(${bump(at(2) + 34)})`}}>
+          <VIcon name="cross" size={70} color={K.bad} />
+        </div>
+      )}
+      <div style={{position: 'absolute', left: 40, right: 40, top: pipeY + 140, display: 'flex', flexDirection: 'column', gap: 14}}>
+        {feed.map((f, i) => (
+          <div key={i} style={{...cardSkin, borderRadius: 16, padding: '14px 18px', fontFamily: FONT_BODY, fontWeight: 700, fontSize: 26, color: f.err ? K.bad : K.ink, background: f.err ? K.badSoft : K.card, transform: `scale(${0.7 + 0.3 * f.s})`, opacity: f.s, display: 'flex', alignItems: 'center', gap: 12}}>
+            <VIcon name={f.err ? 'warning' : 'user'} size={34} color={f.err ? K.bad : K.ink} />
+            {f.t}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const ILLUS_W: Record<IllusName, number> = {flipbook: 600, 'recipe-code': 620, render: 640, 'skill-folder': 600, tiers: 940, screenrec: 340, doors: 940, 'recipe-kitchen': 600, mold: 600, snap: 600, 'effort-dial': 600, relay: 600};
 
 export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; labels?: string[]}> = ({name, steps, start, labels}) => {
   switch (name) {
@@ -588,6 +663,8 @@ export const Illus: React.FC<{name: IllusName; steps?: number[]; start: number; 
       return <EffortDial steps={steps} start={start} labels={labels} />;
     case 'snap':
       return <Snap steps={steps} start={start} labels={labels} />;
+    case 'relay':
+      return <Relay steps={steps} start={start} labels={labels} />;
   }
 };
 

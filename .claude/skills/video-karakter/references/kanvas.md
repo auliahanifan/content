@@ -87,6 +87,7 @@ Semua punya `at` (muncul; default awal panel), `out` (memudar), `dimAt` (redup 3
 | `screenrec` | 0: mulai merekam (REC) | - | rekam layar HP |
 | `mold` | tiap tahap: cetakan menekan lalu satu video baru masuk tumpukan (satu tahap per label) | nama tiap hasil (default Video 1-3) | satu template dipakai berulang: isi beda, gaya sama |
 | `snap` | 0: playhead digeser · 1: kamera menjepret, foto keluar · 2: playhead geser sedikit lagi | 0: label waktu (default "detik 3"), 1: label sesudah geser (default "detik 3,03") | video di-pause lalu dipotret per frame |
+| `relay` | 0: balasan normal berjalan dari layanan AI ke kolom komentar · 1: pesan error ikut berjalan dan tayang · 2: pos "baca dulu" muncul, balasan normal lewat, error tertahan | 0: kotak kiri (default "Layanan AI"), 1: kotak kanan (default "Kolom komentar"), 2: label pos | balasan otomatis yang diteruskan tanpa diperiksa, dan langkah pemeriksaan sebelum tayang |
 Tambah ilustrasi baru di `remotion/src/kanvas/Illus.tsx` (+ `ILLUS_W` lebar aslinya) dan tabel ini.
 
 ### Ikon vektor
