@@ -37,3 +37,6 @@ dates/*/*/rekam/*.mov
 # lingkungan suara OmniVoice (setup-voice.sh) dan cache per paragraf
 .venv-voice/
 **/tts/.omni-cache/
+
+# log proses TTS (berubah terus saat suara dibuat)
+dates/*/*/tts/*.log
