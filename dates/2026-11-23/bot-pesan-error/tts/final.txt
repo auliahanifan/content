@@ -1,17 +1,17 @@
-AI Anda balas komentar pelanggan? Satu langkah gratis biar nggak malu. Saya kasih di akhir.
+AI yang balas komentar pelanggan Anda bisa bikin malu. Satu langkah sederhana mencegahnya. Saya kasih di akhir.
 
-Bulan lalu, ada akun Threads yang diduga dijalankan AI. Tiba-tiba dia posting kalimat bahasa Inggris: "your credit balance is too low to access the Anthropic API." Saldo kreditnya habis.
+Oktober lalu, ada akun Threads yang diduga dijalankan AI. Akun itu memposting kalimat bahasa Inggris: "your credit balance is too low to access the Anthropic API." Artinya, saldo kredit API-nya kurang.
 
-Di Amazon juga pernah ada produk yang namanya kalimat penolakan AI: "Maaf, saya tidak bisa memenuhi permintaan ini."
+Kok bisa pesan begitu ikut tayang? Bukan sulap. Begini cara kerjanya.
 
-Kok bisa lolos? Bukan sulap. Begini cara kerjanya.
+Kalimat itu bukan tulisan AI. Itu pesan error dari layanan AI-nya. Modelnya bahkan belum sempat menjawab.
 
-Kalimat soal saldo itu bukan tulisan AI. Itu pesan dari sistem tagihan. AI-nya bahkan belum sempat kerja. Tapi pesan itu tetap datang sebagai teks. Dan bot sederhana memposting teks apa pun yang datang, tanpa ada yang membaca dulu.
+Kita nggak tahu bot itu dibuat seperti apa. Tapi polanya umum: bot memanggil AI, lalu memposting apa pun yang kembali. Saldo kurang, yang kembali pesan error. Ya tetap diposting.
 
-Ibaratnya Anda nyuruh admin: teruskan semua pesan masuk ke grup pelanggan. Suatu hari masuk SMS bank: saldo tidak mencukupi. Ya ikut diteruskan. Adminnya nggak salah. Dia memang nggak disuruh membaca.
+Ibaratnya Anda nyuruh admin: teruskan semua pesan masuk ke grup pelanggan. Lalu masuk SMS bank: saldo tidak mencukupi. Ikut diteruskan juga. Adminnya nggak salah. Dia memang nggak disuruh membaca.
 
-Nah, ini satu langkahnya: jangan biarkan balasan langsung tayang. Pasang langkah baca dulu. Bisa orang, bisa penyaring yang menahan balasan berisi pesan error. Pakai agen AI di WhatsApp Business? Coba dulu di mode uji.
+Pencegahnya cuma satu langkah, dan nggak butuh coding.
 
-Isi saldo otomatis saja nggak cukup. Error lain tetap bisa muncul.
+Jangan biarkan balasan AI langsung tayang. Jadikan draf dulu, lalu Anda atau admin yang menekan kirim. Kalau pakai agen AI Meta di WhatsApp Business, ada mode uji. Cobain dulu sebelum dinyalakan untuk pelanggan.
 
 Jadi, balasan otomatis di akun Anda... siapa yang membacanya sebelum pelanggan?
