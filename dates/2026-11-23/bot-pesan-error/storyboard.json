@@ -1,0 +1,488 @@
+{
+ "style": "kanvas",
+ "series": "bukan-sulap",
+ "topic": "Bukan Sulap · bot AI",
+ "tail": 1.5,
+ "keywords": [
+  8
+ ],
+ "seriesLine": {
+  "from": 55,
+  "to": 56
+ },
+ "loop": {
+  "text": "1 langkah",
+  "from": 9,
+  "until": 136
+ },
+ "hook": {
+  "until": 8,
+  "items": [
+   {
+    "kind": "ui",
+    "ui": "comments",
+    "meta": "Komentar",
+    "items": [
+     {
+      "label": "rina.shop",
+      "text": "Kak, stoknya masih ada?"
+     },
+     {
+      "label": "Toko Anda · balasan AI",
+      "text": "your credit balance is too low…",
+      "tone": "bad"
+     }
+    ]
+   }
+  ]
+ },
+ "punch": [
+  8,
+  33,
+  62,
+  104,
+  130,
+  139
+ ],
+ "lines": [
+  {
+   "from": 0,
+   "split": 5,
+   "key": [
+    8
+   ]
+  },
+  {
+   "from": 9,
+   "split": 9,
+   "key": [
+    10
+   ]
+  },
+  {
+   "from": 14,
+   "split": 14
+  },
+  {
+   "from": 18,
+   "split": 20,
+   "key": [
+    24
+   ]
+  },
+  {
+   "from": 27,
+   "split": 27
+  },
+  {
+   "from": 33,
+   "split": 33,
+   "key": [
+    35
+   ]
+  },
+  {
+   "from": 39,
+   "split": 39,
+   "key": [
+    42
+   ]
+  },
+  {
+   "from": 44,
+   "split": 45,
+   "key": [
+    48
+   ]
+  },
+  {
+   "from": 49,
+   "split": 49,
+   "key": [
+    54
+   ]
+  },
+  {
+   "from": 55,
+   "split": 55
+  },
+  {
+   "from": 60,
+   "split": 62,
+   "key": [
+    63
+   ]
+  },
+  {
+   "from": 66,
+   "split": 66,
+   "key": [
+    68
+   ]
+  },
+  {
+   "from": 72,
+   "split": 72,
+   "key": [
+    74
+   ]
+  },
+  {
+   "from": 77,
+   "split": 77
+  },
+  {
+   "from": 85,
+   "split": 85
+  },
+  {
+   "from": 90,
+   "split": 93,
+   "key": [
+    95
+   ]
+  },
+  {
+   "from": 99,
+   "split": 101,
+   "key": [
+    104
+   ]
+  },
+  {
+   "from": 105,
+   "split": 107,
+   "key": [
+    109
+   ]
+  },
+  {
+   "from": 110,
+   "split": 114,
+   "key": [
+    113
+   ]
+  },
+  {
+   "from": 121,
+   "split": 125,
+   "key": [
+    125
+   ]
+  },
+  {
+   "from": 128,
+   "split": 128,
+   "key": [
+    130
+   ]
+  },
+  {
+   "from": 131,
+   "split": 131,
+   "key": [
+    135
+   ]
+  },
+  {
+   "from": 136,
+   "split": 138,
+   "key": [
+    139
+   ]
+  },
+  {
+   "from": 142,
+   "split": 142,
+   "key": [
+    146
+   ]
+  },
+  {
+   "from": 148,
+   "split": 151,
+   "key": [
+    155
+   ]
+  },
+  {
+   "from": 160,
+   "split": 168,
+   "key": [
+    169
+   ]
+  },
+  {
+   "from": 171,
+   "split": 171
+  },
+  {
+   "from": 177,
+   "split": 183,
+   "key": [
+    185
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "at": 9,
+   "char": "left",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "card",
+     "tag": "DI AKHIR VIDEO",
+     "title": "1 langkah sederhana",
+     "text": "supaya balasan AI nggak bikin malu",
+     "icon": {
+      "name": "check",
+      "color": "good"
+     },
+     "tone": "good"
+    }
+   ]
+  },
+  {
+   "at": 18,
+   "char": "right",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "card",
+     "tag": "OKTOBER 2026",
+     "title": "Akun Threads",
+     "text": "diduga dijalankan AI",
+     "icon": {
+      "name": "chat",
+      "color": "accent"
+     }
+    }
+   ]
+  },
+  {
+   "at": 27,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "comments",
+     "meta": "Threads · Okt 2026",
+     "items": [
+      {
+       "at": 33,
+       "label": "akun yang diduga dijalankan AI",
+       "text": "your credit balance is too low to access the Anthropic API",
+       "tone": "bad"
+      }
+     ],
+     "zoom": 1.3
+    }
+   ]
+  },
+  {
+   "at": 44,
+   "char": "left",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "card",
+     "tag": "ARTINYA",
+     "title": "Saldo kredit API kurang",
+     "icon": {
+      "name": "money",
+      "color": "warn"
+     },
+     "tone": "warn",
+     "stamp": {
+      "at": 53,
+      "text": "KOK TAYANG?",
+      "tone": "bad"
+     }
+    }
+   ]
+  },
+  {
+   "at": 60,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "evidence",
+     "src": "assets/img/bukti-error.png",
+     "source": "platform.claude.com · Claude API errors",
+     "w": 760,
+     "mark": {
+      "at": 66,
+      "rects": [
+       {
+        "x": 18.4,
+        "y": 61.47,
+        "w": 48.15,
+        "h": 5.81
+       }
+      ]
+     },
+     "note": {
+      "at": 72,
+      "text": "error, bukan jawaban model",
+      "x": 8,
+      "y": 101
+     }
+    }
+   ]
+  },
+  {
+   "at": 77,
+   "char": "none",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "relay",
+     "steps": [
+      90,
+      99
+     ],
+     "labels": [
+      "Layanan AI",
+      "Kolom komentar",
+      "Baca dulu"
+     ],
+     "w": 900
+    }
+   ]
+  },
+  {
+   "at": 110,
+   "char": "none",
+   "pose": "menjelaskan",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "chat",
+     "app": "Grup pelanggan",
+     "meta": "diteruskan admin",
+     "items": [
+      {
+       "at": 116,
+       "side": "in",
+       "text": "Promo hari ini: diskon 10%"
+      },
+      {
+       "at": 123,
+       "side": "in",
+       "text": "BANK: saldo tidak mencukupi",
+       "tone": "bad"
+      }
+     ],
+     "zoom": 1.3
+    }
+   ]
+  },
+  {
+   "at": 131,
+   "char": "right",
+   "pose": "setuju",
+   "items": [
+    {
+     "kind": "card",
+     "tag": "ADMIN",
+     "title": "Nggak disuruh membaca",
+     "text": "jadi semua ikut diteruskan",
+     "icon": {
+      "name": "user",
+      "color": "ink"
+     }
+    }
+   ]
+  },
+  {
+   "at": 136,
+   "char": "none",
+   "pose": "menunjuk",
+   "items": [
+    {
+     "kind": "illus",
+     "name": "relay",
+     "steps": [
+      139,
+      139,
+      139
+     ],
+     "labels": [
+      "Layanan AI",
+      "Kolom komentar",
+      "Baca dulu"
+     ],
+     "w": 900
+    }
+   ]
+  },
+  {
+   "at": 142,
+   "char": "left",
+   "pose": "smartphone",
+   "items": [
+    {
+     "kind": "checklist",
+     "title": "Sebelum tayang",
+     "items": [
+      {
+       "at": 142,
+       "text": "Balasan AI jangan langsung tayang",
+       "doneAt": 147
+      },
+      {
+       "at": 148,
+       "text": "Jadikan draf dulu",
+       "doneAt": 150
+      },
+      {
+       "at": 151,
+       "text": "Anda atau admin baca, baru kirim",
+       "doneAt": 159
+      },
+      {
+       "at": 160,
+       "text": "WhatsApp Business: coba mode uji",
+       "doneAt": 170,
+       "tone": "warn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": 177,
+   "char": "none",
+   "pose": "berpikir",
+   "items": [
+    {
+     "kind": "ui",
+     "ui": "comments",
+     "meta": "Komentar",
+     "items": [
+      {
+       "at": 183,
+       "label": "Pertanyaan",
+       "text": "Siapa yang membaca balasan otomatis Anda?"
+      }
+     ],
+     "zoom": 1.3
+    }
+   ]
+  }
+ ],
+ "poses": [
+  {
+   "at": 55,
+   "pose": "stop"
+  },
+  {
+   "at": 171,
+   "pose": "setuju"
+  }
+ ]
+}

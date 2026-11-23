@@ -582,17 +582,17 @@ const Relay: React.FC<{steps?: number[]; start: number; labels?: string[]}> = ({
   const gateOn = frame >= at(2);
   const gate = useSpringAt(at(2), {damping: 11, stiffness: 170, mass: 0.6});
   const okP = gateOn ? run(at(2) + 6) : run(at(0));
-  const errP = gateOn ? run(at(2) + 20, 0.42) : run(at(1));
-  const blocked = gateOn && errP >= 0.42;
+  const errP = gateOn ? run(at(2) + 20, 0.2) : run(at(1));
+  const blocked = gateOn && errP >= 0.2;
   const bump = (t: number) => (frame < t ? 0 : spring({frame: frame - t, fps, config: {damping: 9, stiffness: 200, mass: 0.5}}));
   const landOk = okP >= 1 ? bump(gateOn ? at(2) + 42 : at(0) + 36) : 0;
   const landErr = !gateOn && errP >= 1 ? bump(at(1) + 36) : 0;
   const env = (p: number, tone: 'ok' | 'err') => {
-    if (p < 0) return null;
-    const x = x0 + (x1 - x0) * p;
+    if (p < 0 || p >= 1) return null;
+    const x = 200 + 200 * p;
     const err = tone === 'err';
     return (
-      <div style={{position: 'absolute', left: x - 86, top: pipeY - 40, width: 172, height: 80, borderRadius: 14, background: err ? K.badSoft : K.goodSoft, border: `4px solid ${err ? K.bad : K.good}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT_BODY, fontWeight: 800, fontSize: 22, color: err ? K.bad : K.good, textAlign: 'center', lineHeight: 1.05, boxShadow: SHADOW}}>
+      <div style={{position: 'absolute', left: x - 70, top: pipeY - 40, width: 140, height: 80, borderRadius: 14, background: err ? K.badSoft : K.goodSoft, border: `4px solid ${err ? K.bad : K.good}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT_BODY, fontWeight: 800, fontSize: 20, color: err ? K.bad : K.good, textAlign: 'center', lineHeight: 1.05, boxShadow: SHADOW}}>
         {err ? 'ERROR: saldo kurang' : 'Balasan: siap, Kak'}
       </div>
     );
