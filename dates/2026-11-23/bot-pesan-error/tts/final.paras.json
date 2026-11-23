@@ -1,0 +1,47 @@
+[
+ {
+  "text": "AI yang balas komentar pelanggan Anda bisa bikin malu. Satu langkah sederhana bisa mencegahnya. Saya kasih di akhir.",
+  "start": 0.0,
+  "end": 6.527
+ },
+ {
+  "text": "Oktober lalu, ada akun Threads yang diduga dijalankan AI. Akun itu memposting kalimat bahasa Inggris: \"your credit balance is too low to access the Anthropic API.\" Artinya, saldo kredit API-nya kurang.",
+  "start": 6.807,
+  "end": 18.327
+ },
+ {
+  "text": "Kok bisa pesan begitu ikut tayang? Bukan sulap. Begini cara kerjanya.",
+  "start": 18.607,
+  "end": 22.468
+ },
+ {
+  "text": "Kalimat itu bukan tulisan model AI. Itu pesan error dari layanan AI-nya. Modelnya bahkan belum sempat menjawab.",
+  "start": 22.748,
+  "end": 28.673
+ },
+ {
+  "text": "Kita nggak tahu bot itu dibuat seperti apa. Tapi pola begini bisa terjadi: bot memanggil AI, lalu memposting apa pun yang kembali. Saldo kurang, yang kembali pesan error. Kalau begitu, ya ikut diposting.",
+  "start": 28.953,
+  "end": 40.298
+ },
+ {
+  "text": "Ibaratnya Anda nyuruh admin: teruskan semua pesan masuk ke grup pelanggan. Lalu masuk SMS bank: saldo tidak mencukupi. Ya ikut diteruskan. Dia memang nggak disuruh membaca.",
+  "start": 40.578,
+  "end": 50.361
+ },
+ {
+  "text": "Langkahnya sederhana: satu pemeriksaan sebelum tayang.",
+  "start": 50.641,
+  "end": 53.611
+ },
+ {
+  "text": "Jangan biarkan balasan AI langsung tayang. Jadikan draf dulu, lalu Anda atau admin membaca dan baru menekan kirim. Kalau pakai agen AI Meta di WhatsApp Business, ada mode uji. Cobain dulu sebelum dinyalakan untuk pelanggan.",
+  "start": 53.891,
+  "end": 66.596
+ },
+ {
+  "text": "Jadi, balasan otomatis di akun Anda... siapa yang membacanya sebelum pelanggan?",
+  "start": 66.876,
+  "end": 71.408
+ }
+]
