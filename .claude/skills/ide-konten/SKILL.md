@@ -42,6 +42,7 @@ Buka sumber sebelum memakai faktanya. Catat URL dan tanggal terbit. Sumber >14 h
 - Lebih baik kurang dari 20 ide yang dalam daripada 20 ide yang dangkal. Laporkan jumlah sebenarnya.
 - Minimal 1 ide dari setiap sumber yang tersedia jika ada yang lolos kedalaman (audiens hanya jika ada teks yang ditempel).
 - Lolos anti dobel terhadap tab CORE, Talking Head, dan ArchiveTH (lewat query kata kunci), termasuk baris berstatus `arsip` yang masih ada.
+- Catat elemen STEPPS yang kuat untuk tiap ide (`.claude/skills/naskah/references/stepps.md`). STEPPS tidak menggugurkan ide; dipakai di skor Potensi dan sebagai pembanding saat dua ide sama kuat. Ide yang tidak punya satu pun elemen kuat ditandai di laporan.
 - Hook diambil dari padahal-nya, bukan dari beritanya. Saya/Anda, tanpa em dash, tanpa menakut-nakuti atau klaim absolut, dan tanpa mengklaim pengalaman atau hasil tes.
 - Utamakan seri Bukan Sulap, Garapan Weekend, dan Nitip, Mas (bila ada komentar), lalu Katanya Nyatanya dan Sing Murah Wae; jangan 20 ide jatuh di satu seri.
 - Wajib lolos tiga uji pengguna di syarat kedalaman; uji 3 punya dua jalur sah (perilaku AI, atau trade-off tersembunyi pada tool AI: tonggak produk dan pemain baru, perubahan cara memakai AI, syarat data dan privasi, harga lawan manfaat). Jangan menolak ide yang jelas masuk salah satu jalur itu hanya karena bukan soal perilaku AI. Variasikan bagian bisnis tempat AI dipakai (pelanggan, inbox dan akses, dokumen, marketing, data dan angka, keputusan owner, pemilihan tool, tim), bukan topik di luar AI.

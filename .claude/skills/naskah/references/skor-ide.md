@@ -41,7 +41,7 @@ Dipakai oleh `/ide-konten` (skor tahap ide), `/naskah` (skor tahap naskah), dan 
 ## Potensi (0-100)
 - **Audiens brand: owner dan pemula AI** (40): seri Bukan Sulap, Garapan Weekend, Nitip, Mas = 40; Katanya Nyatanya dan Sing Murah Wae = 30; AI Umum = 15.
 - **Kesegaran** (30): dihitung ulang dari Tanggal pemicu terhadap hari penilaian. ≤7 hari 30; ≤14 hari 25; Evergreen 20; Basi 0.
-- **Dorongan sosial** (30): ada Peminta nyata atau voting episode 30; bisa disimpan dan dibagikan kuat 20; salah satunya 15; lemah 5.
+- **Dorongan sosial** (30): ada Peminta nyata atau voting episode 30. Bila tidak ada, hitung elemen STEPPS yang **kuat** (`stepps.md`; Social Currency, Triggers, Emotion, Public, Stories; Practical Value tidak dihitung karena sudah di Produksi): 3 elemen atau lebih 20; 2 elemen 15; 1 atau tidak ada 5. Tulis elemennya di Alasan Skor, contoh `STEPPS: S,T,E`.
 
 ## Kolom di tab Talking Head
 S Skor Kedalaman, T Skor Hook, U Skor Potensi, V Skor Produksi, W Skor Total, X Tahap Skor (`ide` atau `naskah`, ditambah `belum terkalibrasi` dan `proksi` bila berlaku), Y Skor Diperbarui (`YYYY-MM-DD`), Z Alasan Skor (satu kalimat per elemen).

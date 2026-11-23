@@ -10,6 +10,7 @@ Dasarkan panduan pada deck “Aulia AI - Persona dan Komunikasi Business Owner�
 - Engineer Jogja yang membantu business owner dan tim kecil memahami teknologi, memilih biaya tools yang masuk akal, serta menyelesaikan masalah operasional.
 - Pesan utama: “Rumit Jadi Jelas, Mahal Jadi Murah”. Perlakukan sebagai arah manfaat, bukan janji semua solusi termurah atau selalu mudah.
 - Audiens utama: owner dan tim kecil dengan operasional menyita waktu, biaya tools bertambah, dan tidak sempat mengulik teknologi sendiri; **serta orang Indonesia yang baru belajar memakai AI untuk kerja** (karyawan, freelancer, mahasiswa). Keputusan pengguna 4 Nov 2026: audiens diperluas, sapaan tetap saya/Anda. Jelaskan dengan bahasa pemula tanpa merendahkan, dan tetap tunjukkan keputusan atau tindakan konkret.
+- Dasar branding: Branding 2.0 ala Pak Subiakto (`subiakto.md`). Tagline adalah janji, dan setiap konten adalah bukti janji itu (Brand Experience). Yang dihitung adalah makna yang sampai ke penonton, bukan logo atau slogan yang dipasang.
 - Kaitkan istilah teknis dengan keputusan, waktu, biaya, kualitas, atau risiko bila relevan.
 
 ## Aturan wajib

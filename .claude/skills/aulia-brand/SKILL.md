@@ -4,7 +4,7 @@ description: Terapkan dan periksa personal brand Aulia Rahman pada ide, naskah, 
 ---
 # Aulia Brand
 
-Baca [brand-rules.md](references/brand-rules.md) sebelum menulis atau menilai. Gunakan keputusan terbaru pengguna di percakapan sebagai prioritas atas referensi. Jangan otomatis menyimpan perubahan brand permanen tanpa permintaan pengguna.
+Baca [brand-rules.md](references/brand-rules.md) dan [subiakto.md](references/subiakto.md) (Branding 2.0 ala Pak Subiakto: brand = makna di benak penonton, janji tagline harus dibuktikan) sebelum menulis atau menilai. Gunakan keputusan terbaru pengguna di percakapan sebagai prioritas atas referensi. Jangan otomatis menyimpan perubahan brand permanen tanpa permintaan pengguna.
 
 ## Tentukan mode
 
@@ -19,11 +19,12 @@ Baca [brand-rules.md](references/brand-rules.md) sebelum menulis atau menilai. G
 2. Periksa **aturan wajib** dahulu: saya/Anda untuk konten Indonesia, tidak ada em dash, tidak mengarang pengalaman atau bukti, tidak membuat klaim tanpa batas yang relevan, dan tidak memakai nama seri lama.
 3. Periksa **cara berpikir**: masalah konkret, pemahaman proses, hasil nyata, biaya/kecocokan, dan kejujuran soal batas. Terapkan dimensi yang relevan; jangan wajibkan seluruh dimensi hadir dalam setiap kalimat atau format.
 4. Periksa **sikap**: rendah hati, jelas, hangat, menghormati audiens, menerima koreksi, dan humor yang tidak merendahkan orang lain.
-5. Periksa **unsur fleksibel** menurut format: seri, hashtag, bumbu Jogja, struktur video, dan kalimat penutup. Jangan menilai konten tidak selaras hanya karena tidak memuat kata Jawa atau slogan.
-6. Pisahkan pelanggaran nyata dari selera editorial. Hubungkan setiap temuan pada aturan dan kutipan. Hindari skor numerik yang memberi kesan objektivitas palsu.
-7. Revisi seminimal mungkin agar maksud tetap utuh. Jangan mengubah kisah pribadi menjadi tutorial bisnis jika pengguna meminta kisah pribadi. Jangan membuat seluruh konten terasa seragam.
-8. Untuk klaim tanpa bukti, ubah menjadi pertanyaan, rencana uji, atribusi kepada sumber, atau placeholder yang jelas. Jangan menulis seolah eksperimen telah dilakukan.
-9. Periksa sekali lagi bahwa revisi tidak menambah klaim, pengalaman, angka, atau janji baru yang belum didukung.
+5. Periksa **Branding 2.0** (`subiakto.md`, bagian Uji Branding 2.0): apakah konten membuktikan janji "Rumit Jadi Jelas, Mahal Jadi Murah", apakah maknanya sampai ke penonton, dan apakah nama seri serta kalimat khas bekerja, bukan sekadar hadir.
+6. Periksa **unsur fleksibel** menurut format: seri, hashtag, bumbu Jogja, struktur video, dan kalimat penutup. Jangan menilai konten tidak selaras hanya karena tidak memuat kata Jawa atau slogan.
+7. Pisahkan pelanggaran nyata dari selera editorial. Hubungkan setiap temuan pada aturan dan kutipan. Hindari skor numerik yang memberi kesan objektivitas palsu.
+8. Revisi seminimal mungkin agar maksud tetap utuh. Jangan mengubah kisah pribadi menjadi tutorial bisnis jika pengguna meminta kisah pribadi. Jangan membuat seluruh konten terasa seragam.
+9. Untuk klaim tanpa bukti, ubah menjadi pertanyaan, rencana uji, atribusi kepada sumber, atau placeholder yang jelas. Jangan menulis seolah eksperimen telah dilakukan.
+10. Periksa sekali lagi bahwa revisi tidak menambah klaim, pengalaman, angka, atau janji baru yang belum didukung.
 
 ## Bentuk keluaran Review
 

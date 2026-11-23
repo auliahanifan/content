@@ -67,6 +67,7 @@ Aturan supaya tidak menipu diri sendiri:
 7. **Jangan menyalin yang menang secara mekanis.** Pelajaran ditulis sebagai *mekanisme* ("hook yang menyebut benda milik penonton ditonton lebih lama"), bukan resep permukaan ("selalu pakai angka di hook").
 8. **Kalibrasi skor ide.** Cocokkan baris Performa Instagram yang punya ID dengan Skor Total di tab Talking Head (kolom W) dan hitung korelasi peringkat (Spearman) dengan kolom Rasio, juga per elemen (Kedalaman, Hook, Potensi, Produksi). Laporkan n dan korelasinya apa adanya. Selama n < 20 label `belum terkalibrasi` tetap; bobot di `naskah/references/skor-ide.md` hanya diubah dengan persetujuan Aul. TikTok tidak dipakai untuk kalibrasi.
 9. **Yang gagal juga dicatat sebagai pelajaran**, dengan tingkat bukti yang sama. Termasuk aturan lama di skill lain yang ternyata tidak terbukti.
+10. **STEPPS dan Branding 2.0.** Kelompokkan post menurut elemen STEPPS utama (dari Alasan Skor kolom Z, contoh `STEPPS: S,T,E`; elemen pertama dianggap utama) dan bandingkan share per 1.000 views serta simpan per 1.000 views, dengan disiplin n dan pembaur di atas. Untuk Branding 2.0 (`aulia-brand/references/subiakto.md`, Uji Branding 2.0 butir 4), baca komentar dan catat bagaimana penonton menyebut Aulia atau videonya; laporkan apakah makna "Rumit Jadi Jelas, Mahal Jadi Murah" sampai, dengan kutipan komentar, bukan skor.
 
 Hasil tahap ini per perbandingan: kelompok A vs B, n masing-masing, selisih median rasio, metrik yang menjelaskan, pembaur, tingkat bukti.
 
