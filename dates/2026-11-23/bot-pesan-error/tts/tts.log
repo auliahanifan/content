@@ -1,0 +1,4 @@
+Fetching 13 files:   0%|          | 0/13 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 13 files:  15%|█▌        | 2/13 [00:00<00:00, 12.09it/s]Fetching 13 files:  31%|███       | 4/13 [00:00<00:00, 10.55it/s]Fetching 13 files:  85%|████████▍ | 11/13 [00:04<00:01,  1.94it/s]Fetching 13 files:  92%|█████████▏| 12/13 [00:09<00:01,  1.11s/it]Fetching 13 files: 100%|██████████| 13/13 [00:09<00:00,  1.30it/s]
+Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]Loading weights: 100%|██████████| 313/313 [00:00<00:00, 3170.70it/s]
+Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:  46%|████▌     | 242/527 [00:00<00:00, 2417.82it/s]Loading weights: 100%|██████████| 527/527 [00:00<00:00, 3253.29it/s]

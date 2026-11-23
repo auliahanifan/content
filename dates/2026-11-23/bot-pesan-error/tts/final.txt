@@ -1,0 +1,17 @@
+AI Anda balas komentar pelanggan? Satu langkah gratis biar nggak malu. Saya kasih di akhir.
+
+Bulan lalu, ada akun Threads yang diduga dijalankan AI. Tiba-tiba dia posting kalimat bahasa Inggris: "your credit balance is too low to access the Anthropic API." Saldo kreditnya habis.
+
+Di Amazon juga pernah ada produk yang namanya kalimat penolakan AI: "Maaf, saya tidak bisa memenuhi permintaan ini."
+
+Kok bisa lolos? Bukan sulap. Begini cara kerjanya.
+
+Kalimat soal saldo itu bukan tulisan AI. Itu pesan dari sistem tagihan. AI-nya bahkan belum sempat kerja. Tapi pesan itu tetap datang sebagai teks. Dan bot sederhana memposting teks apa pun yang datang, tanpa ada yang membaca dulu.
+
+Ibaratnya Anda nyuruh admin: teruskan semua pesan masuk ke grup pelanggan. Suatu hari masuk SMS bank: saldo tidak mencukupi. Ya ikut diteruskan. Adminnya nggak salah. Dia memang nggak disuruh membaca.
+
+Nah, ini satu langkahnya: jangan biarkan balasan langsung tayang. Pasang langkah baca dulu. Bisa orang, bisa penyaring yang menahan balasan berisi pesan error. Pakai agen AI di WhatsApp Business? Coba dulu di mode uji.
+
+Isi saldo otomatis saja nggak cukup. Error lain tetap bisa muncul.
+
+Jadi, balasan otomatis di akun Anda... siapa yang membacanya sebelum pelanggan?
