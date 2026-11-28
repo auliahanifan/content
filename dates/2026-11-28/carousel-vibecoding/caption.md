@@ -1,6 +1,6 @@
 # Caption IG
 
-Tiga game ini dibikin peserta selama Sharing Session AI Community. Mulai dari planning, coding, sampai deploy, semuanya dikerjakan dengan AI. Selesai sesi, ketiganya sudah online dan bisa langsung dimainkan.
+Tiga game ini dibikin peserta selama Sharing Session AI Community. Mulai dari planning, coding, sampai deploy, semuanya cukup lewat prompt ke AI. Selesai sesi, ketiganya sudah online dan bisa langsung dimainkan.
 
 1. Sproutbound, platformer pixel yang santai, oleh @ramadhani_taufiq
 afokith-commits.github.io/cozy_platformer
