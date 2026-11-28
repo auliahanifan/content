@@ -1,0 +1,16 @@
+# Caption IG
+
+Tiga game ini dibikin peserta Sharing Session AI Community, masing-masing dalam sekitar 2 jam. Selesai sesi, ketiganya sudah online dan bisa langsung dimainkan.
+
+1. Sproutbound, platformer pixel yang santai, oleh @handle
+afokith-commits.github.io/cozy_platformer
+
+2. Kurir Tol, antar paket di jalan tol pakai truk, oleh @handle
+ec-fleet.my.id
+
+3. SOLIS, puzzle 3D menggulingkan monolit ke portal, oleh @handle
+play.gatrapurna.ai.id
+
+Kontrolnya pakai keyboard, jadi buka dari laptop.
+
+#vibecoding #AICommunity #gamedev #buatgame
